@@ -1,0 +1,55 @@
+.lock{
+    @media (max-width: 767px){
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+.gas-fee-section{
+    @media (max-width: 767px) {
+        width: 100%;
+        margin-top: 16px;
+    }
+}
+
+.alert-section{
+    --alert-bg-color: rgba(25, 185, 161, 0.1) !important;
+    --alert-text-color:  rgba(25, 185, 161, 1) !important;
+    --alert-border-color: rgba(25, 185, 161, 1)  !important;
+    max-width: 54%;
+    @media (max-width: 767px) {
+        max-width: 100%;
+    }
+
+}
+
+.leag-gover{
+
+    @media (max-width: 767px) {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+    }
+    .leag-gover-icon{
+        @media (max-width: 767px) {
+           margin-left: 10px;
+        }
+    }
+}
+.voting-locked{
+    @media (max-width: 767px) {
+        margin-top: 8px;
+        margin-left: 26px;
+     }
+}
+.voting-leag{
+    @media (max-width: 767px) {
+        margin-top: 21px;
+     }
+}
+
+.data-pikcher{
+    max-width: 92%;
+    @media (max-width: 767px) {
+        max-width: 100%;
+     }
+}

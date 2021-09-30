@@ -4,7 +4,7 @@ import ContractListener from 'web3/components/contract-listener';
 import Erc20Contract from 'web3/erc20Contract';
 import { ZERO_BIG_NUMBER } from 'web3/utils';
 
-import { EnterToken } from 'components/providers/known-tokens-provider';
+import { XyzToken } from 'components/providers/known-tokens-provider';
 import config from 'config';
 import useMergeState from 'hooks/useMergeState';
 import { DAOBarnContract, useDAOBarnContract } from 'modules/governance/contracts/daoBarn';
@@ -17,7 +17,7 @@ import { APIProposalStateId } from '../../api';
 export type DAOProviderState = {
   minThreshold: number;
   isActive?: boolean;
-  entrStaked?: BigNumber;
+  xyzStaked?: BigNumber;
   activationThreshold?: BigNumber;
   activationRate?: number;
   thresholdRate?: number;
@@ -26,7 +26,7 @@ export type DAOProviderState = {
 const InitialState: DAOProviderState = {
   minThreshold: 1,
   isActive: undefined,
-  entrStaked: undefined,
+  xyzStaked: undefined,
   activationThreshold: undefined,
   activationRate: undefined,
   thresholdRate: undefined,
@@ -79,58 +79,58 @@ const DAOProvider: React.FC = props => {
   }, [walletCtx.provider]);
 
   React.useEffect(() => {
-    const entrContract = EnterToken.contract as Erc20Contract;
+    const xyzContract = XyzToken.contract as Erc20Contract;
 
-    entrContract.setAccount(walletCtx.account);
+    xyzContract.setAccount(walletCtx.account);
     daoBarn.contract.setAccount(walletCtx.account);
     daoReward.contract.setAccount(walletCtx.account);
     daoGovernance.contract.setAccount(walletCtx.account);
 
     if (walletCtx.isActive) {
-      entrContract.loadAllowance(config.contracts.dao.barn).catch(Error);
+      xyzContract.loadAllowance(config.contracts.dao.barn).catch(Error);
     }
   }, [walletCtx.account]);
 
   React.useEffect(() => {
     const { isActive } = daoGovernance;
-    const { entrStaked, activationThreshold, votingPower } = daoBarn;
+    const { xyzStaked, activationThreshold, votingPower } = daoBarn;
 
     let activationRate: number | undefined;
 
-    if (entrStaked && activationThreshold?.gt(ZERO_BIG_NUMBER)) {
-      activationRate = entrStaked.multipliedBy(100).div(activationThreshold).toNumber();
+    if (xyzStaked && activationThreshold?.gt(ZERO_BIG_NUMBER)) {
+      activationRate = xyzStaked.multipliedBy(100).div(activationThreshold).toNumber();
       activationRate = Math.min(activationRate, 100);
     }
 
     let thresholdRate: number | undefined;
 
-    if (votingPower && entrStaked?.gt(ZERO_BIG_NUMBER)) {
-      thresholdRate = votingPower.multipliedBy(100).div(entrStaked).toNumber();
+    if (votingPower && xyzStaked?.gt(ZERO_BIG_NUMBER)) {
+      thresholdRate = votingPower.multipliedBy(100).div(xyzStaked).toNumber();
       thresholdRate = Math.min(thresholdRate, 100);
     }
 
     setState({
       isActive,
-      entrStaked,
+      xyzStaked,
       activationThreshold,
       activationRate,
       thresholdRate,
     });
-  }, [daoGovernance.isActive, daoBarn.entrStaked, daoBarn.activationThreshold, daoBarn.votingPower]);
+  }, [daoGovernance.isActive, daoBarn.xyzStaked, daoBarn.activationThreshold, daoBarn.votingPower]);
 
   const apr = useMemo(() => {
     const { poolFeature } = daoReward;
-    const { entrStaked } = daoBarn;
+    const { xyzStaked } = daoBarn;
 
-    if (!poolFeature || !entrStaked || poolFeature.endTs < Date.now() / 1_000) {
+    if (!poolFeature || !xyzStaked || poolFeature.endTs < Date.now() / 1_000) {
       return undefined;
     }
 
     const duration = Number(poolFeature.totalDuration);
     const yearInSeconds = 365 * 24 * 60 * 60;
 
-    return poolFeature.totalAmount.div(entrStaked).div(duration).multipliedBy(yearInSeconds);
-  }, [daoReward.poolFeature, daoBarn.entrStaked]);
+    return poolFeature.totalAmount.div(xyzStaked).div(duration).multipliedBy(yearInSeconds);
+  }, [daoReward.poolFeature, daoBarn.xyzStaked]);
 
   function activate() {
     return daoGovernance.actions.activate().then(() => {

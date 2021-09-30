@@ -209,6 +209,7 @@ const ProposalCreateView: React.FC = () => {
                   placeholder="Please enter the goal of this proposal here"
                   rows={6}
                   disabled={state.submitting}
+                  className="textera-desc"
                 />
               </Form.Item>
             </div>
@@ -275,10 +276,10 @@ const ProposalCreateView: React.FC = () => {
                         disabled={state.submitting}
                         className={cn('button-ghost', s.addActionBtn)}
                         onClick={() => setState({ showCreateActionModal: true })}>
-                        <span>Add new action</span>
                         <span>
                           <Icon name="plus-circle-outlined" color="inherit" />
                         </span>
+                        <span>Add new action</span>
                       </button>
                     )}
 
@@ -292,7 +293,7 @@ const ProposalCreateView: React.FC = () => {
           </div>
         </div>
         <div>
-          <Button type="primary" htmlType="submit" size="large" loading={state.submitting}>
+          <Button type="primary" htmlType="submit" size="large" loading={state.submitting} className="btn-propsl">
             Create proposal
           </Button>
         </div>

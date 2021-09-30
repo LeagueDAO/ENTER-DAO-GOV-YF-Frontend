@@ -12,7 +12,7 @@ import isBefore from 'date-fns/isBefore';
 import isSameDay from 'date-fns/isSameDay';
 import isSameHour from 'date-fns/isSameHour';
 import setDate from 'date-fns/set';
-import { ZERO_BIG_NUMBER, formatEntrValue } from 'web3/utils';
+import { ZERO_BIG_NUMBER, formatXYZValue } from 'web3/utils';
 
 import Alert from 'components/antd/alert';
 import Button from 'components/antd/button';
@@ -22,7 +22,7 @@ import GasFeeList from 'components/custom/gas-fee-list';
 import Grid from 'components/custom/grid';
 import Icon from 'components/custom/icon';
 import { Text } from 'components/custom/typography';
-import { EnterToken } from 'components/providers/known-tokens-provider';
+import { XyzToken } from 'components/providers/known-tokens-provider';
 import { UseLeftTime } from 'hooks/useLeftTime';
 import useMergeState from 'hooks/useMergeState';
 
@@ -31,6 +31,8 @@ import { useDAO } from '../../components/dao-provider';
 import WalletLockConfirmModal from './components/wallet-lock-confirm-modal';
 
 import { getFormattedDuration, isValidAddress } from 'utils';
+
+import './module.scss'
 
 type WalletLockViewState = {
   lockDurationOption?: string;
@@ -146,25 +148,25 @@ const WalletLockView: React.FC = () => {
   return (
     <div className="card">
       <Grid className="card-header" flow="col" gap={24} colsTemplate="1fr 1fr 1fr 1fr 42px" align="start">
-        <Grid flow="col" gap={12} align="center">
-          <Icon name="png/enterdao" width={40} height={40} />
-          <Text type="p1" weight="semibold" color="primary">
-            {EnterToken.symbol}
+        <Grid flow="col" align="center" className='leag-gover'>
+          <Icon name="png/universe" width={40} height={40} className='leag-gover-icon'/>
+          <Text type="p1" weight="semibold" color="primary" className='ml-16'>
+            v{XyzToken.symbol}
           </Text>
         </Grid>
 
-        <Grid flow="row" gap={4}>
+        <Grid flow="row" gap={4} className='voting-locked'>
           <Text type="small" weight="semibold" color="secondary">
-            Staked Balance
+          Voting vLEAG (locked)
           </Text>
           <Text type="p1" weight="semibold" color="primary">
-            {formatEntrValue(stakedBalance)}
+            {formatXYZValue(stakedBalance)}
           </Text>
         </Grid>
 
-        <Grid flow="row" gap={4}>
+        <Grid flow="row" gap={4} className='voting-leag'>
           <Text type="small" weight="semibold" color="secondary">
-            Lock Duration
+          Voting LEAG
           </Text>
           <UseLeftTime end={userLockedUntil ?? 0} delay={1_000}>
             {leftTime => (
@@ -186,8 +188,8 @@ const WalletLockView: React.FC = () => {
         onValuesChange={handleValuesChange}
         onFinish={handleFinish}>
         <Grid flow="row" gap={32}>
-          <Grid flow="col" gap={64} colsTemplate="1fr 1fr">
-            <Grid flow="row" gap={32}>
+          <Grid flow="col"  colsTemplate="1fr 1fr" className='lock'>
+            <Grid flow="row" >
               <Form.Item label="Add lock duration" dependencies={['lockEndDate']}>
                 {() => (
                   <div className="flexbox-list" style={{ '--gap': '8px' } as React.CSSProperties}>
@@ -195,7 +197,7 @@ const WalletLockView: React.FC = () => {
                       <button
                         key={opt}
                         type="button"
-                        className={cn('button-ghost-monochrome ph-24 pv-16', {
+                        className={cn('button-ghost-monochrome ', {
                           selected: state.lockDurationOption === opt,
                         })}
                         disabled={
@@ -219,7 +221,7 @@ const WalletLockView: React.FC = () => {
                   </div>
                 )}
               </Form.Item>
-              <Text type="p1" color="primary">
+              <Text type="p1" color="primary" className='mt-16 mb-16'>
                 OR
               </Text>
               <Form.Item
@@ -253,14 +255,14 @@ const WalletLockView: React.FC = () => {
                         isSameHour(selectedDate, currentDate) ? range(0, getMinutes(currentDate)) : ([] as number[]),
                     };
                   }}
-                  format="DD/MM/YYYY HH:mm"
                   size="large"
                   disabled={formDisabled || state.saving}
+                  format="DD/MM/YYYY HH:mm"
+                  className='data-pikcher'
                 />
               </Form.Item>
-              <Alert message="All locked balances will be unavailable for withdrawal until the lock timer ends. All future deposits will be locked for the same time." />
             </Grid>
-            <Grid flow="row">
+            <Grid flow="row" className="gas-fee-section" >
               <Form.Item
                 name="gasPrice"
                 label="Gas Fee (Gwei)"
@@ -270,21 +272,14 @@ const WalletLockView: React.FC = () => {
               </Form.Item>
             </Grid>
           </Grid>
-
-          {/* <Form.Item shouldUpdate> */}
-          {/*  {({ getFieldsValue }) => { */}
-          {/*    const { lockEndDate } = getFieldsValue(); */}
-          {/*    return lockEndDate ? <WalletLockChart lockEndDate={lockEndDate} /> : null; */}
-          {/*  }} */}
-          {/* </Form.Item> */}
-
+          <Alert message="All locked balances will be unavailable for withdrawal until the lock timer ends. All future deposits will be locked for the same time." className="alert-section" />
           <Button
             type="primary"
             htmlType="submit"
             loading={state.saving}
             disabled={formDisabled}
-            style={{ justifySelf: 'start' }}>
-            Lock
+            style={{ justifySelf: 'start', padding: '14px 124px'}}>
+            Deposit
           </Button>
         </Grid>
       </Form>

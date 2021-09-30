@@ -14,7 +14,7 @@ import Grid from 'components/custom/grid';
 import Icon from 'components/custom/icon';
 import { Text } from 'components/custom/typography';
 import { useGeneral } from 'components/providers/general-provider';
-import { EnterToken } from 'components/providers/known-tokens-provider';
+import { XyzToken } from 'components/providers/known-tokens-provider';
 import { useWarning } from 'components/providers/warning-provider';
 import ConnectedWallet from 'wallets/components/connected-wallet';
 import { MetamaskConnector } from 'wallets/connectors/metamask';
@@ -59,10 +59,10 @@ const LayoutHeader: React.FC = () => {
         await connector.addToken({
           type: 'ERC20',
           options: {
-            address: EnterToken.address,
-            symbol: EnterToken.symbol,
-            decimals: EnterToken.decimals,
-            image: `${window.location.origin}/enterdao.png`,
+            address: XyzToken.address,
+            symbol: XyzToken.symbol,
+            decimals: XyzToken.decimals,
+            image: `${window.location.origin}/android-chrome-192x192.png`,
           },
         });
       } catch (e) {
@@ -73,13 +73,87 @@ const LayoutHeader: React.FC = () => {
 
   return (
     <div className={s.component} ref={setReferenceElement}>
-      <ExternalLink href="https://enterdao.xyz/" target="_self">
-        <Icon name="png/enterdao" width="auto" height="auto" className={s.logo} />
+      <ExternalLink href="https://universe.xyz/" target="_self">
+        <Icon name={isDarkTheme ? "png/leaguedaodark" : "png/leaguedaolight"} width="67" height="44" className={s.logo} />
       </ExternalLink>
       <div className={s.titleDelimiter} />
       <h1 className={s.title}>{isGovernancePage ? 'Governance' : 'Yield Farming'}</h1>
 
       <nav className={s.nav}>
+        <Popover
+          visible={popper1visible}
+          onVisibleChange={setPopper1visible}
+          trigger={['click', 'hover']}
+          noPadding
+          content={
+            <div className={cn('card', s.dropdown)}>
+              <span className={s.dropdownLink} aria-disabled="true">
+                <Icon name="auction" width={20} height={20} className={s.dropdownIcon} />
+                <Tooltip title="Coming soon" placement="top" hint>
+                  <span>Auction house</span>
+                </Tooltip>
+              </span>
+              <span className={s.dropdownLink} aria-disabled="true">
+                <Icon name="marketplace" width={20} height={20} className={s.dropdownIcon} />
+                <Tooltip title="Coming soon" placement="top" hint>
+                  <span>NFT marketplace</span>
+                </Tooltip>
+              </span>
+              <span className={s.dropdownLink} aria-disabled="true">
+                <Icon name="social-media" width={20} height={20} className={s.dropdownIcon} />
+                <Tooltip title="Coming soon" placement="top" hint>
+                  <span>Social media</span>
+                </Tooltip>
+              </span>
+            </div>
+          }>
+          <Button type="link" className={s.navLink}>
+            <Grid flow="col" align="center">
+              <Text type="p1" weight="500" color="primary" className="mr-4">
+                Products
+              </Text>
+              <Icon name="dropdown-arrow" width={12} height={12} className={s.dropdownArrow} />
+            </Grid>
+          </Button>
+        </Popover>
+        <Popover
+          visible={popper4visible}
+          onVisibleChange={setPopper4visible}
+          trigger={['click', 'hover']}
+          noPadding
+          content={
+            <div className={cn('card', s.dropdown)}>
+              <ExternalLink
+                href="https://universe.xyz/polymorphs"
+                className={s.dropdownLink}
+                onClick={() => setPopper4visible(false)}>
+                <Icon name="polymorphs" width={20} height={20} className={s.dropdownIcon} />
+                <span>Polymorphs</span>
+              </ExternalLink>
+              <ExternalLink
+                href="https://universe.xyz/lobby-lobsters"
+                className={s.dropdownLink}
+                onClick={() => setPopper4visible(false)}>
+                <Icon name="lobby-lobsters" width={20} height={20} className={s.dropdownIcon} />
+                <span>Lobby Lobsters</span>
+              </ExternalLink>
+              <span className={s.dropdownLink} aria-disabled="true">
+                <Icon name="core-drops" width={20} height={20} className={s.dropdownIcon} />
+                <Tooltip title="Coming soon" placement="top" hint>
+                  <span>Core drops</span>
+                </Tooltip>
+              </span>
+            </div>
+          }>
+          <Button type="link" className={s.navLink}>
+            <Grid flow="col" align="center">
+              <Text type="p1" weight="500" color="primary" className="mr-4">
+                Player drops
+              </Text>
+              <Icon name="dropdown-arrow" width={12} height={12} className={s.dropdownArrow} />
+            </Grid>
+          </Button>
+        </Popover>
         <Popover
           visible={popper2visible}
           onVisibleChange={setPopper2visible}
@@ -88,23 +162,30 @@ const LayoutHeader: React.FC = () => {
           content={
             <div className={cn('card', s.dropdown)}>
               <ExternalLink
-                href="https://medium.com/enterdao/enterdao-whitepaper-27447f7400c8"
+                href="https://universe.xyz/about"
+                className={s.dropdownLink}
+                onClick={() => setPopper2visible(false)}>
+                <Icon name="about" width={20} height={20} className={s.dropdownIcon} />
+                <span>About</span>
+              </ExternalLink>
+              <ExternalLink
+                href="https://github.com/UniverseXYZ/UniverseXYZ-Whitepaper"
                 className={s.dropdownLink}
                 onClick={() => setPopper2visible(false)}>
                 <Icon name="whitepaper" width={20} height={20} className={s.dropdownIcon} />
                 <span>Whitepaper</span>
               </ExternalLink>
               <ExternalLink
-                href="https://enterdao.xyz/team"
+                href="https://universe.xyz/team"
                 className={s.dropdownLink}
                 onClick={() => setPopper2visible(false)}>
                 <Icon name="team" width={20} height={20} className={s.dropdownIcon} />
                 <span>Team</span>
               </ExternalLink>
               <ExternalLink
-                href="https://docs.enterdao.xyz/"
+                href="https://docs.universe.xyz/"
                 className={s.dropdownLink}
-                onClick={() => setPopper3visible(false)}>
+                onClick={() => setPopper2visible(false)}>
                 <Icon name="docs" width={20} height={20} className={s.dropdownIcon} />
                 <span>Docs</span>
               </ExternalLink>
@@ -149,7 +230,7 @@ const LayoutHeader: React.FC = () => {
       {!isMobile && wallet.isActive && wallet.connector?.id === 'metamask' && (
         <div className={s.addTokenWrapper}>
           <button type="button" onClick={handleAddProjectToken} className={s.addTokenButton}>
-            <Icon name="png/add-enter" width={32} height={32} />
+            <Icon name="static/add-token" width={28} height={28} />
           </button>
         </div>
       )}
@@ -174,23 +255,74 @@ const LayoutHeader: React.FC = () => {
             <div className={s.mobileInner}>
               <div className={s.mobileMenuInner}>
                 <div className={s.mobileMenuBlock}>
+                  <h3>Products</h3>
+                  <span className={s.dropdownLink} aria-disabled="true">
+                    <Icon name="auction" width={20} height={20} className={s.dropdownIcon} />
+                    <Tooltip title="Coming soon" placement="top" hint>
+                      <span>Auction house</span>
+                    </Tooltip>
+                  </span>
+                  <span className={s.dropdownLink} aria-disabled="true">
+                    <Icon name="marketplace" width={20} height={20} className={s.dropdownIcon} />
+                    <Tooltip title="Coming soon" placement="top" hint>
+                      <span>NFT marketplace</span>
+                    </Tooltip>
+                  </span>
+                  <span className={s.dropdownLink} aria-disabled="true">
+                    <Icon name="social-media" width={20} height={20} className={s.dropdownIcon} />
+                    <Tooltip title="Coming soon" placement="top" hint>
+                      <span>Social media</span>
+                    </Tooltip>
+                  </span>
+                </div>
+                <div className={s.mobileMenuBlock}>
+                  <h3>Player drops</h3>
+                  <ExternalLink
+                    href="https://universe.xyz/polymorphs"
+                    className={s.dropdownLink}
+                    onClick={() => setNavOpen(false)}>
+                    <Icon name="polymorphs" width={20} height={20} className={s.dropdownIcon} />
+                    <span>Polymorphs</span>
+                  </ExternalLink>
+                  <ExternalLink
+                    href="https://universe.xyz/lobby-lobsters"
+                    className={s.dropdownLink}
+                    onClick={() => setNavOpen(false)}>
+                    <Icon name="lobby-lobsters" width={20} height={20} className={s.dropdownIcon} />
+                    <span>Lobby Lobsters</span>
+                  </ExternalLink>
+                  <span className={s.dropdownLink} aria-disabled="true">
+                    <Icon name="core-drops" width={20} height={20} className={s.dropdownIcon} />
+                    <Tooltip title="Coming soon" placement="top" hint>
+                      <span>Core drops</span>
+                    </Tooltip>
+                  </span>
+                </div>
+                <div className={s.mobileMenuBlock}>
                   <h3>Info</h3>
                   <ExternalLink
-                    href="https://medium.com/enterdao/enterdao-whitepaper-27447f7400c8"
+                    href="https://universe.xyz/about"
+                    className={s.dropdownLink}
+                    onClick={() => setNavOpen(false)}>
+                    <Icon name="about" width={20} height={20} className={s.dropdownIcon} />
+                    <span>About</span>
+                  </ExternalLink>
+                  <ExternalLink
+                    href="https://github.com/UniverseXYZ/UniverseXYZ-Whitepaper"
                     className={s.dropdownLink}
                     onClick={() => setNavOpen(false)}>
                     <Icon name="whitepaper" width={20} height={20} className={s.dropdownIcon} />
                     <span>Whitepaper</span>
                   </ExternalLink>
                   <ExternalLink
-                    href="https://enterdao.xyz/team"
+                    href="https://universe.xyz/team"
                     className={s.dropdownLink}
                     onClick={() => setNavOpen(false)}>
                     <Icon name="team" width={20} height={20} className={s.dropdownIcon} />
                     <span>Team</span>
                   </ExternalLink>
                   <ExternalLink
-                    href="https://docs.enterdao.xyz/"
+                    href="https://docs.universe.xyz/"
                     className={s.dropdownLink}
                     onClick={() => setNavOpen(false)}>
                     <Icon name="docs" width={20} height={20} className={s.dropdownIcon} />
@@ -219,7 +351,7 @@ const LayoutHeader: React.FC = () => {
                         wallet.showWalletsModal();
                       }}
                       style={{ margin: '20px auto 0' }}>
-                      <span>Sign in</span>
+                      <span>Connect wallet</span>
                     </button>
                   </div>
                 ) : null}

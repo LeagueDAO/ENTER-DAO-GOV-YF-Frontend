@@ -16,7 +16,7 @@ const DeleteProposalActionModal: React.FC<DeleteProposalActionModalProps> = prop
         <div className="flex col-gap-16 align-center">
           <Icon name="warning-outlined" width={40} height={40} color="red" />
           <Text type="h3" weight="semibold" color="primary">
-            Are you sure you want to delete the action?
+          Are you sure you want to delete the action? 
           </Text>
         </div>
         <div className="flex justify-space-between">
