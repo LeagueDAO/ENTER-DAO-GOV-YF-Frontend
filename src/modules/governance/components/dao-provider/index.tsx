@@ -108,6 +108,7 @@ const DAOProvider: React.FC = props => {
       thresholdRate = votingPower.multipliedBy(100).div(xyzStaked).toNumber();
       thresholdRate = Math.min(thresholdRate, 100);
     }
+    
 
     setState({
       isActive,

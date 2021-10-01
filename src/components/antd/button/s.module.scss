@@ -147,13 +147,13 @@
   }
 
   &:global(.ant-btn-primary) {
-    box-shadow: 0 10px 20px rgba(136, 120, 172, 0.2);
+    // box-shadow: 0 10px 20px rgba(136, 120, 172, 0.2);
     border: var(--btn-primary-border);
     background: var(--theme-yellow-color);
     color: var(--btn-primary-text);
 
     &:hover {
-      box-shadow: var(--btn-primary-shadow-hover);
+      // box-shadow: var(--btn-primary-shadow-hover);
       border: var(--btn-primary-border-hover);
       background: rgba(255, 209, 44, 1);
       color: var(--btn-primary-text-hover);

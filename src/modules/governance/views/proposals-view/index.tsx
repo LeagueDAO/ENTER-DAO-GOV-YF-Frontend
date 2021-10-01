@@ -19,6 +19,7 @@ import { useWallet } from 'wallets/wallet';
 import { useDAO } from '../../components/dao-provider';
 import ActivationThreshold from '../overview-view/components/activation-threshold';
 import ProposalsTable from './components/proposals-table';
+import { useGeneral } from 'components/providers/general-provider';
 
 import s from './s.module.scss';
 
@@ -37,6 +38,8 @@ const ProposalsViewInner: React.FC = () => {
   const wallet = useWallet();
   const daoCtx = useDAO();
   const proposalsCtx = useProposals();
+
+  const { isDarkTheme } = useGeneral();
 
   const [state, setState] = useMergeState<ProposalsViewState>(InitialState);
 
@@ -129,6 +132,7 @@ const ProposalsViewInner: React.FC = () => {
             prefix={<Icon name="search-outlined" width={16} height={16} />}
             placeholder="Search proposal"
             onChange={ev => handleSearchChange(ev)}
+            style={{background: isDarkTheme ? '#252641' : '#FFFFFF'}}
           />
         </div>
         <ProposalsTable />

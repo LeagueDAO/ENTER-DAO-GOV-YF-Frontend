@@ -32,6 +32,8 @@ import WalletLockConfirmModal from './components/wallet-lock-confirm-modal';
 
 import { getFormattedDuration, isValidAddress } from 'utils';
 
+import { useGeneral } from 'components/providers/general-provider';
+
 import './module.scss'
 
 type WalletLockViewState = {
@@ -94,6 +96,8 @@ const WalletLockView: React.FC = () => {
 
   const daoCtx = useDAO();
   const [state, setState] = useMergeState<WalletLockViewState>(InitialState);
+
+  const { isDarkTheme } = useGeneral();
 
   const { balance: stakedBalance, userLockedUntil, userDelegatedTo } = daoCtx.daoBarn;
 
@@ -259,6 +263,7 @@ const WalletLockView: React.FC = () => {
                   disabled={formDisabled || state.saving}
                   format="DD/MM/YYYY HH:mm"
                   className='data-pikcher'
+                  style={{background: isDarkTheme ? '#252641' : '#ffffff'}}
                 />
               </Form.Item>
             </Grid>

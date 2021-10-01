@@ -1,0 +1,54 @@
+.withdraw{
+    @media (max-width: 767px){
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+.gas-fee-withdraw{
+    @media (max-width: 767px) {
+        width: 100%;
+    }
+}
+
+.leag-withdraw{
+    @media (max-width: 767px) {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+    }
+    .leag-withdraw-text{
+        margin-left: 15px;
+        @media (max-width: 767px) {
+            margin-left: 5px;
+        }
+    }
+}
+
+.staked-withdraw{
+    @media (max-width: 767px) {
+        margin-top: 7px;
+        margin-left: 33px;
+    }
+    .blance-staked{
+        font-size: 12px;
+    }
+}
+
+.wallet-withdraw{
+    @media (max-width: 767px) {
+        margin-top: 20px;
+    }
+    .balance-wallet{
+        font-size: 12px;
+    }
+}
+
+.alert-withdraw{
+    --alert-bg-color: rgba(25, 185, 161, 0.1) !important;
+    --alert-text-color:  rgba(25, 185, 161, 1) !important;
+    --alert-border-color: rgba(25, 185, 161, 1)  !important;
+    max-width: 54%;
+    @media (max-width: 767px) {
+        max-width: 100%;
+    }
+}

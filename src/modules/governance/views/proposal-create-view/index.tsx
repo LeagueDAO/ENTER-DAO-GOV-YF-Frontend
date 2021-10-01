@@ -21,6 +21,8 @@ import { useDAO } from '../../components/dao-provider';
 import DeleteProposalActionModal from '../../components/delete-proposal-action-modal';
 import ProposalActionCard from '../../components/proposal-action-card';
 
+import { useGeneral } from 'components/providers/general-provider';
+
 import s from './s.module.scss';
 
 type NewProposalForm = {
@@ -49,6 +51,8 @@ const ProposalCreateView: React.FC = () => {
   const history = useHistory();
   const wallet = useWallet();
   const daoCtx = useDAO();
+
+  const { isDarkTheme } = useGeneral();
 
   const [form] = AntdForm.useForm<NewProposalForm>();
   const [state, setState] = useMergeState<ProposalCreateViewState>(InitialState);
@@ -210,6 +214,7 @@ const ProposalCreateView: React.FC = () => {
                   rows={6}
                   disabled={state.submitting}
                   className="textera-desc"
+                  style={{background: isDarkTheme ? '#252641' : '#FFFFFF'}}
                 />
               </Form.Item>
             </div>
@@ -240,6 +245,8 @@ const ProposalCreateView: React.FC = () => {
                 ]}>
                 {(fields, _, { errors }) => (
                   <>
+
+                  
                     {fields.map((field, index) => {
                       const fieldData: CreateProposalActionForm = form.getFieldValue(['actions', index]);
                       const { targetAddress, functionSignature, functionEncodedParams } = fieldData;
@@ -293,7 +300,12 @@ const ProposalCreateView: React.FC = () => {
           </div>
         </div>
         <div>
-          <Button type="primary" htmlType="submit" size="large" loading={state.submitting} className="btn-propsl">
+          <Button 
+            type="primary" 
+            htmlType="submit" 
+            size="large" 
+            loading={state.submitting} 
+            style={{background: isDarkTheme ? '#252641' : '#DFDFE0', color: '#717282'}}>
             Create proposal
           </Button>
         </div>

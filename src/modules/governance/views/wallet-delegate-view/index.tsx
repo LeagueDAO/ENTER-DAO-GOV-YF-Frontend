@@ -152,7 +152,7 @@ const WalletDelegateView: React.FC = () => {
                   htmlType="submit"
                   loading={state.saving}
                   disabled={formDisabled || !delegateAddress}
-                  style={{ justifySelf: 'start' }}>
+                  style={{ justifySelf: 'start', padding: '14px 124px'}}>
                   {userDelegatedTo === delegateAddress ? 'Stop Delegate' : 'Delegate'}
                 </Button>
               );

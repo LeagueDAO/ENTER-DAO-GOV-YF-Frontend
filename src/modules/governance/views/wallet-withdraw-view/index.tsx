@@ -17,6 +17,8 @@ import useMergeState from 'hooks/useMergeState';
 import Erc20Contract from '../../../../web3/erc20Contract';
 import { useDAO } from '../../components/dao-provider';
 
+import './module.scss';
+
 type WithdrawFormData = {
   amount?: BigNumber;
   gasPrice?: {
@@ -71,15 +73,15 @@ const WalletWithdrawView: React.FC = () => {
   return (
     <div className="card">
       <Grid className="card-header" flow="col" gap={24} colsTemplate="1fr 1fr 1fr 1fr 42px" align="start">
-        <Grid flow="col" gap={12} align="center">
+        <Grid flow="col"  align="center" className="leag-withdraw">
           <Icon name="png/universe" width={40} height={40} />
-          <Text type="p1" weight="semibold" color="primary">
+          <Text type="p1" weight="semibold" color="primary" className="leag-withdraw-text">
             {XyzToken.symbol}
           </Text>
         </Grid>
 
-        <Grid flow="row" gap={4}>
-          <Text type="small" weight="semibold" color="secondary">
+        <Grid flow="row" gap={4} className="staked-withdraw">
+          <Text type="small" weight="semibold" color="secondary" className="blance-staked">
             Staked Balance
           </Text>
           <Text type="p1" weight="semibold" color="primary">
@@ -87,8 +89,8 @@ const WalletWithdrawView: React.FC = () => {
           </Text>
         </Grid>
 
-        <Grid flow="row" gap={4}>
-          <Text type="small" weight="semibold" color="secondary">
+        <Grid flow="row" gap={4} className="wallet-withdraw">
+          <Text type="small" weight="semibold" color="secondary" className="balance-wallet">
             Wallet Balance
           </Text>
           <Text type="p1" weight="semibold" color="primary">
@@ -105,7 +107,7 @@ const WalletWithdrawView: React.FC = () => {
         validateTrigger={['onSubmit']}
         onFinish={handleSubmit}>
         <Grid flow="row" gap={32}>
-          <Grid flow="col" gap={64} colsTemplate="1fr 1fr">
+          <Grid flow="col" gap={64} colsTemplate="1fr 1fr" className="withdraw">
             <Grid flow="row" gap={32}>
               <Form.Item name="amount" label="Amount" rules={[{ required: true, message: 'Required' }]}>
                 <TokenAmount
@@ -118,9 +120,8 @@ const WalletWithdrawView: React.FC = () => {
                   slider
                 />
               </Form.Item>
-              <Alert message="Locked balances are not available for withdrawal until the timer ends. Withdrawal means you will stop earning staking rewards for the amount withdrawn." />
             </Grid>
-            <Grid flow="row">
+            <Grid flow="row" className="gas-fee-withdraw">
               <Form.Item
                 name="gasPrice"
                 label="Gas Fee (Gwei)"
@@ -130,12 +131,13 @@ const WalletWithdrawView: React.FC = () => {
               </Form.Item>
             </Grid>
           </Grid>
+          <Alert message="Locked balances are not available for withdrawal until the timer ends. Withdrawal means you will stop earning staking rewards for the amount withdrawn." className="alert-withdraw"/>
           <Button
             type="primary"
             htmlType="submit"
             loading={state.saving}
             disabled={formDisabled}
-            style={{ justifySelf: 'start' }}>
+            style={{ justifySelf: 'start', padding: '14px 124px' }}>
             Withdraw
           </Button>
         </Grid>
