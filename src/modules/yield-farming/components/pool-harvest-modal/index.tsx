@@ -13,6 +13,8 @@ import { XyzToken } from 'components/providers/known-tokens-provider';
 
 import { useYFPools } from '../../providers/pools-provider';
 
+import './module.scss'
+
 type PoolHarvestButtonProps = {
   icons: string[];
   label: string;
@@ -96,7 +98,7 @@ const PoolHarvestModal: FC<ModalProps> = props => {
             Select the pool you want to claim your reward from
           </Text>
         </div>
-        <Grid flow="row" gap={24} colsTemplate="repeat(3, 240px)">
+        <Grid flow="row" gap={24}  className='pool-modal'>
           {yfPoolsCtx.yfPools.map(yfPool => (
             <PoolHarvestButton
               key={yfPool.name}

@@ -69,12 +69,11 @@ const VotingHeader: React.FC = () => {
           My Voting Power
         </Text>
         <Grid flow="col" gap={24} className={s.items}>
-          <Grid flow="row" gap={4} className='mr-24'> 
-          {/* {s.item1} */}
+          <Grid flow="row" gap={4} className={s.item1} > 
             <Text type="p2" color="secondary">
               Current reward
             </Text>
-            <Grid flow="col" align="center" className='mt-8'>
+            <Grid flow="col" align="center" className={`mt-8 ${s.currentReward}`}>
               <Tooltip title={<Text type="p2">{formatBigValue(claimValue, XyzToken.decimals)}</Text>}>
                 <Skeleton loading={claimValue === undefined}>
                   <Text type="h3" weight="bold" color="primary">
@@ -83,7 +82,7 @@ const VotingHeader: React.FC = () => {
                   </Text>
                 </Skeleton>
               </Tooltip>
-              <Icon name="png/universe" width={40} height={40} className='ml-8 , mr-16'/>
+              <Icon name="png/universe" width={24} height={24} className='ml-8 , mr-16'/>
               <Button
                 type="primary"
                 size="small"
@@ -95,17 +94,17 @@ const VotingHeader: React.FC = () => {
             </Grid>
           </Grid>
           <Divider type="vertical" />
-          <Grid flow="row" gap={4} className='mr-24'>
+          <Grid flow="row" gap={4} className={s.item2}>
             <Text type="p2" color="secondary">
               {XyzToken.symbol} Balance
             </Text>
-            <Grid flow="col" align="center" className='mt-8'>
+            <Grid flow="col" align="center"  className='mt-16'>
               <Skeleton loading={xyzBalance === undefined}>
                 <Text type="h3" weight="bold" color="primary">
                   {formatXYZValue(xyzBalance)}
                 </Text>
               </Skeleton>
-              <Icon name="png/universe" src={imgSrc} width={40} height={40} className='ml-8 , mr-24'/>
+              <Icon name="png/universe" src={imgSrc} width={24} height={24} className='ml-8 , mr-24'/>
             </Grid>
           </Grid>
           <Divider type="vertical" />
@@ -113,17 +112,15 @@ const VotingHeader: React.FC = () => {
             <Text type="p2" color="secondary">
               Total voting power
             </Text>
-            <div className="flex col-gap-16 align-center mt-8" style={{ height: `40px` }}>
+            <div className={`flex col-gap-16 align-center mt-8 ${s.detaliedView}`} >
               <Skeleton loading={votingPower === undefined}>
                 <Text type="h3" weight="bold" color="primary">
                   {formatXYZValue(votingPower) || '-'}
                 </Text>
               </Skeleton>
+              <Icon name="png/universe" width={24} height={24} className=' mr-16'/>
               <Button type="light" onClick={() => setState({ showDetailedView: true })} >
               Detailed view
-                {/* <Text type="p1" weight="semibold" color="var(--gradient-blue-safe)" textGradient="var(--gradient-blue)">
-                
-                </Text> */}
               </Button>
 
               {state.showDetailedView && <VotingDetailedModal onCancel={() => setState({ showDetailedView: false })} />}

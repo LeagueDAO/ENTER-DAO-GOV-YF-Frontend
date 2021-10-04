@@ -5,24 +5,67 @@
 
 
 .items.items {
+  
+  & .item1 {
+    margin-right: 24px;
+  }
+  & .item2{
+    margin-right: 24px;
+  }
+
+
   @media (max-width: 767px) {
-    grid-template-columns: none;
+    grid-template-columns: 50% 50%;
     grid-template-rows: none;
     grid-template-areas: "item1 item2" "item3 item4";
+    background:
+    repeating-linear-gradient(to bottom,
+      transparent -60px,
+      transparent 121px,
+      rgba(67, 72, 77, 1) 122px,
+      
+    );
 
     & > [role="separator"] {
       display: none;
     }
     & .item1 {
       grid-area: item1;
+      border-right: 1px solid rgba(67, 72, 77, 0.8);
+      width: 100%;
+      .currentReward {
+        width: fit-content;
+        grid-template-columns: auto auto;
+        grid-row-gap: 20px;
+        button {
+          grid-row: 2/3;
+          grid-column: 1/3;
+          margin-left: 0;
+          max-width: 143px;
+        }
+      }
     }
     & .item2 {
       grid-area: item2;
-      padding-left: 26px;
+      padding-left: 46px;
     }
     & .item3 {
       grid-area: item3;
-      padding-top: 26px;
+      border-right: 1px solid rgba(67, 72, 77, 0.8);
+      .detaliedView{
+        display: grid;
+        grid-template-columns: auto auto;
+        width: fit-content;
+        grid-row-gap: 20px;
+        grid-column-gap: 0;
+        grid-auto-flow: column;
+        button {
+          grid-row: 2/3;
+          grid-column: 1/3;
+          margin-left: 0;
+          max-width: 143px;
+        }
+      }
     }
     & .item4 {
       grid-area: item4;
