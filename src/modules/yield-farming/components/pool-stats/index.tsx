@@ -13,6 +13,8 @@ import { useYFPools } from '../../providers/pools-provider';
 
 import { getFormattedDuration } from 'utils';
 
+import { useGeneral } from 'components/providers/general-provider';
+
 import s from './s.module.scss';
 
 type Props = {
@@ -23,6 +25,7 @@ const PoolStats: React.FC<Props> = ({ className }) => {
   const yfPoolsCtx = useYFPools();
   const yfPoolCtx = useYFPool();
   const { poolMeta } = yfPoolCtx;
+  const { isDarkTheme } = useGeneral();
 
   const yfTotalStakedInUSD = yfPoolsCtx.getYFTotalStakedInUSD();
   const yfTotalEffectiveStakedInUSD = yfPoolsCtx.getYFTotalEffectiveStakedInUSD();
@@ -100,7 +103,7 @@ const PoolStats: React.FC<Props> = ({ className }) => {
               {formatUSD(XyzToken.price) ?? '-'}
             </Text>
             <ExternalLink href={XYZ_MARKET_LINK} className="link-gradient">
-              <Text type="p1" weight="semibold" color="#fff" textGradient="var(--gradient-blue)">
+              <Text type="p1" weight="semibold" style={{color: isDarkTheme ? '#FFFFFF' : '#000000'}} textGradient="var(--gradient-blue)">
                 SushiSwap market
               </Text>
             </ExternalLink>

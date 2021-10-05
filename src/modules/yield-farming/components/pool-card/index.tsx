@@ -33,6 +33,7 @@ const PoolCard: React.FC<PoolCardProps> = props => {
 
   const poolMeta = yfPoolsCtx.getYFKnownPoolByName(poolId);
   const isEnded = poolMeta?.contract.isPoolEnded === true;
+console.log(poolMeta, poolId);
 
   const { totalEpochs, lastActiveEpoch, epochReward, potentialReward, poolEndDate = 0 } = poolMeta?.contract ?? {};
 
@@ -68,7 +69,7 @@ const PoolCard: React.FC<PoolCardProps> = props => {
             {poolMeta?.label ?? '-'}
           </Text>
           <Text type="lb2" weight="semibold" color="primary" ellipsis>
-            EPOCH {lastActiveEpoch ?? '-'} / {totalEpochs ?? '-'}
+            WEEK {lastActiveEpoch ?? '-'} / {totalEpochs ?? '-'}
           </Text>
         </div>
         {walletCtx.isActive && isPoolAvailable && (
