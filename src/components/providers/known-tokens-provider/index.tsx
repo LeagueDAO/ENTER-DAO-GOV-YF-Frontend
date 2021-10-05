@@ -83,6 +83,26 @@ export const AaveToken: TokenMeta = {
   contract: new Erc20Contract([], config.tokens.aave),
 };
 
+export const EntrToken: TokenMeta = {
+  address: config.tokens.entr,
+  symbol: KnownTokens.XYZ,
+  name: 'Xyz',
+  decimals: 18,
+  icon: 'png/aave',
+  coinGeckoId: 'xyz',
+  contract: new Erc20Contract([], config.tokens.xyz),
+};
+
+export const IonxToken: TokenMeta = {
+  address: config.tokens.ionx,
+  symbol: KnownTokens.XYZ,
+  name: 'Xyz',
+  decimals: 18,
+  icon: 'png/aave',
+  coinGeckoId: 'xyz',
+  contract: new Erc20Contract([], config.tokens.xyz),
+};
+
 export const CompToken: TokenMeta = {
   address: config.tokens.comp,
   symbol: KnownTokens.COMP,

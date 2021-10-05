@@ -8,6 +8,9 @@ import {
   AaveToken,
   BondToken,
   CompToken,
+  XyzToken,
+  IonxToken,
+  EntrToken,
   IlvToken,
   LinkToken,
   SnxToken,
@@ -25,6 +28,9 @@ import { useWallet } from 'wallets/wallet';
 export enum YFPoolID {
   BOND = 'bond',
   AAVE = 'aave',
+  XYZ = 'xyz',
+  IONX = 'ionx',
+  ENTR = 'entr',
   COMP = 'comp',
   SNX = 'snx',
   SUSHI = 'sushi',
@@ -59,6 +65,35 @@ export const AaveYfPool: YFPoolMeta = {
   tokens: [AaveToken],
   contract: new YfPoolContract(config.contracts.yf.aave),
 };
+
+export const XyzYfPool: YFPoolMeta = {
+  name: YFPoolID.XYZ,
+  label: 'XYZ',
+  icons: ['png/aave'],
+  colors: ['var(--theme-red-color)'],
+  tokens: [XyzToken],
+  contract: new YfPoolContract(config.contracts.yf.xyz),
+};
+
+export const IonxYfPool: YFPoolMeta = {
+  name: YFPoolID.IONX,
+  label: 'IONX',
+  icons: ['png/aave'],
+  colors: ['var(--theme-red-color)'],
+  tokens: [IonxToken],
+  contract: new YfPoolContract(config.contracts.yf.ionx),
+};
+
+export const EntrYfPool: YFPoolMeta = {
+  name: YFPoolID.ENTR,
+  label: 'ENTR',
+  icons: ['png/aave'],
+  colors: ['var(--theme-red-color)'],
+  tokens: [EntrToken],
+  contract: new YfPoolContract(config.contracts.yf.entr),
+};
+
+
 
 export const CompYfPool: YFPoolMeta = {
   name: YFPoolID.COMP,
@@ -119,6 +154,9 @@ const KNOWN_POOLS: YFPoolMeta[] = [
   BondYfPool,
   CompYfPool,
   SnxYfPool,
+  XyzYfPool,
+  IonxYfPool,
+  EntrYfPool,
   SushiYfPool,
   LinkYfPool,
   IlvYfPool,
@@ -126,6 +164,10 @@ const KNOWN_POOLS: YFPoolMeta[] = [
 ];
 
 export function getYFKnownPoolByName(name: string): YFPoolMeta | undefined {
+  // if(name === 'xyz') {
+  //   debugger
+  // }
+    
   return KNOWN_POOLS.find(pool => pool.name === name);
 }
 
@@ -421,6 +463,9 @@ const YFPoolsProvider: FC = props => {
       <ContractListener contract={merkleDistributor} />
       <ContractListener contract={BondYfPool.contract} />
       <ContractListener contract={AaveYfPool.contract} />
+      <ContractListener contract={XyzYfPool.contract} />
+      <ContractListener contract={IonxYfPool.contract} />
+      <ContractListener contract={EntrYfPool.contract} />
       <ContractListener contract={CompYfPool.contract} />
       <ContractListener contract={SnxYfPool.contract} />
       <ContractListener contract={SushiYfPool.contract} />
