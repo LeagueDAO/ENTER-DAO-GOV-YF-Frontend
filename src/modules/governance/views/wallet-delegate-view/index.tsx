@@ -12,10 +12,12 @@ import TokenInput from 'components/custom/token-input';
 import { Text } from 'components/custom/typography';
 import useMergeState from 'hooks/useMergeState';
 
-import { EnterToken } from '../../../../components/providers/known-tokens-provider';
+import { XyzToken } from '../../../../components/providers/known-tokens-provider';
 import { useDAO } from '../../components/dao-provider';
 
 import { isValidAddress } from 'utils';
+
+import './module.scss'
 
 type DelegateFormData = {
   delegateAddress?: string;
@@ -82,9 +84,9 @@ const WalletDelegateView: React.FC = () => {
     <div className="card">
       <Grid className="card-header" flow="col" gap={24} colsTemplate="auto" align="start">
         <Grid flow="col" gap={12} align="center">
-          <Icon name="png/enterdao" width={40} height={40} />
+          <Icon name="png/universe" width={40} height={40} />
           <Text type="p1" weight="semibold" color="primary">
-            {EnterToken.symbol}
+            {XyzToken.symbol}
           </Text>
         </Grid>
 
@@ -117,7 +119,7 @@ const WalletDelegateView: React.FC = () => {
         validateTrigger={['onSubmit']}
         onFinish={handleSubmit}>
         <Grid flow="row" gap={32}>
-          <Grid flow="col" gap={64} colsTemplate="1fr 1fr">
+          <Grid flow="col" gap={64} colsTemplate="1fr 1fr" className="delagate">
             <Grid flow="row" gap={32}>
               <Form.Item
                 name="delegateAddress"
@@ -125,12 +127,11 @@ const WalletDelegateView: React.FC = () => {
                 rules={[{ required: true, message: 'Required' }]}>
                 <TokenInput disabled={formDisabled || state.saving} />
               </Form.Item>
-              <Alert message="Delegating your voting power to this address means that they will be able to vote in your place. You can’t delegate the voting bonus, only the staked balance." />
               {isLocked && (
                 <Alert message="Switching back to manual voting while a lock is active will put the amount back under lock. Delegation does not stop the lock timer." />
               )}
             </Grid>
-            <Grid flow="row">
+            <Grid flow="row" className='gas-gwei-section'>
               <Form.Item
                 name="gasPrice"
                 label="Gas Fee (Gwei)"
@@ -140,6 +141,7 @@ const WalletDelegateView: React.FC = () => {
               </Form.Item>
             </Grid>
           </Grid>
+          <Alert message="Delegating your voting power to this address means that they will be able to vote in your place. You can’t delegate the voting bonus, only the staked balance."  className="alert-delegate"/>
           <Form.Item shouldUpdate>
             {({ getFieldsValue }) => {
               const { delegateAddress } = getFieldsValue();
@@ -150,7 +152,7 @@ const WalletDelegateView: React.FC = () => {
                   htmlType="submit"
                   loading={state.saving}
                   disabled={formDisabled || !delegateAddress}
-                  style={{ justifySelf: 'start' }}>
+                  style={{ justifySelf: 'start', padding: '14px 124px'}}>
                   {userDelegatedTo === delegateAddress ? 'Stop Delegate' : 'Delegate'}
                 </Button>
               );

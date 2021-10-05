@@ -26,7 +26,7 @@ const PoolHeader: FC = () => {
 
   const apr =
     poolBalance?.isGreaterThan(BigNumber.ZERO) && poolMeta?.contract.epochReward
-      ? convertTokenInUSD(poolMeta?.contract.epochReward * 52, KnownTokens.ENTR)?.dividedBy(poolBalance)
+      ? convertTokenInUSD(poolMeta?.contract.epochReward * 52, KnownTokens.XYZ)?.dividedBy(poolBalance)
       : undefined;
 
   return (
@@ -53,7 +53,7 @@ const PoolHeader: FC = () => {
           </Text>
         </div>
       </div>
-      <div className="card p-24 flex col-gap-48 mb-24">
+      <div className="card p-24 flex col-gap-48 mb-24 wrap">
         <div>
           <Text type="small" weight="semibold" color="secondary" className="mb-8">
             APR
@@ -64,7 +64,7 @@ const PoolHeader: FC = () => {
             </Text>
           </div>
         </div>
-        <div>
+        <div className='mb-16 ml-16'>
           <Text type="small" weight="semibold" color="secondary" className="mb-8">
             Pool balance
           </Text>
@@ -87,7 +87,7 @@ const PoolHeader: FC = () => {
             Epoch rewards
           </Text>
           <div className="flex align-center">
-            <Icon name="png/enterdao" width={24} height={24} className="mr-8" />
+            <Icon name="png/universe" width={24} height={24} className="mr-8" />
             <Text type="p1" weight="semibold" color="primary">
               {formatNumber(poolMeta.contract.epochReward) ?? '-'}
             </Text>

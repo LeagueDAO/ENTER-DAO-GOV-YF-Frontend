@@ -79,14 +79,14 @@ const AbrogationVotesCard: React.FC = () => {
           <Text type="p1" weight="semibold" color="primary">
             Abrogation proposal votes
           </Text>
-          <Button type="link" onClick={handleShowVotersModal}>
+          <Button type="link" onClick={handleShowVotersModal} color='white'>
             View voters
           </Button>
         </div>
         <Grid className="card-row p-24" flow="row" gap={32}>
           <Grid flow="row" gap={16}>
             <Grid flow="col" justify="space-between">
-              <Text className="card-label" type="p1" weight="semibold" color="primary">
+              <Text type="p1" weight="semibold" color="primary">
                 For
               </Text>
               <Grid flow="col" gap={8}>
@@ -105,7 +105,7 @@ const AbrogationVotesCard: React.FC = () => {
           </Grid>
           <Grid flow="row" gap={16}>
             <Grid flow="col" justify="space-between">
-              <Text className="card-label" type="p1" weight="semibold" color="primary">
+              <Text type="p1" weight="semibold" color="primary">
                 Against
               </Text>
               <Grid flow="col" gap={8}>

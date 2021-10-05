@@ -1,15 +1,15 @@
 .ledger {
-  color: #1d2028;
+  color: rgba(29, 32, 40, 1);
 
   [data-theme='dark'] & {
-    color: #fff;
+    color: rgba(255, 255, 255, 1);
   }
 }
 
 .metamask {
-  color: #161616;
+  color: rgba(22, 22, 22, 1);
 
   [data-theme='dark'] & {
-    color: #fff;
+    color: rgba(255, 255, 255, 1);
   }
 }

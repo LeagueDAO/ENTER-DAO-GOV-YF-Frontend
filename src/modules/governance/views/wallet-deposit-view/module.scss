@@ -1,0 +1,47 @@
+.deposit-leag{
+    @media (max-width: 767px) {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+     }
+     .leag-depo{
+         margin-left: 13px;
+     }
+     .icon-leag{
+        @media (max-width: 767px) {
+            margin-left: 6px;
+        }
+     }
+}
+
+.voting-vleag{
+    margin-left: 92px;
+    @media (max-width: 767px) {
+        margin-top: 20px;
+        margin-left: 14px;
+    }
+    .dao-votig{
+        font-size: 12px;
+    }
+}
+
+.leag-gavr{
+    margin-left: 98px;
+    @media (max-width: 767px) {
+        margin-top: 33px;
+        margin-left: 14px;
+    }
+    .leag-vl{
+        font-size: 12px;
+    }
+}
+
+.enable-token{
+    margin-left: 550px;
+    @media (max-width: 767px) {
+        margin-top: 15px;
+        margin-left: 7px;
+    }
+    .token-depo{
+        font-size: 12px;
+    }
+}

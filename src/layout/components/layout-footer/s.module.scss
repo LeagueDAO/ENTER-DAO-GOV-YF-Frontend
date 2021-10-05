@@ -1,14 +1,13 @@
 .footer {
-  background: #080629;
+  background: rgba(37, 38, 65, 1);
   grid-area: footer;
   margin-top: auto;
 
   .row {
-    border-bottom: 1px solid #2F2B73;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding: 60px 0;
     display: flex;
-    flex-wrap: wrap;
-
+    
     &:last-of-type {
       border: 0;
     }
@@ -22,19 +21,22 @@
     display: flex;
     width: 50%;
     flex-direction: column;
+    margin-right: 221px;
 
     .subscribeWrap {
-      max-width: 380px;
+      max-width: 500px;
       width: 100%;
+
     }
 
     @media (max-width: 1024px) {
       width: 100%;
       text-align: center;
-      align-items: center;
+      align-items:flex-start;
     }
 
     @media (max-width: 480px) {
+      text-align: right;
       .subscribeWrap {
         max-width: 100%;
       }
@@ -45,7 +47,7 @@
     margin: 0 auto;
 
     @media (max-width: 1024px) {
-      text-align: center;
+      // text-align: center;
       margin: 44px auto 0;
     }
   }
@@ -61,15 +63,15 @@
     height: 50px;
     align-items: center;
     justify-content: center;
-    background: #131044;
-    border: 1px solid #2E2978;
-    border-radius: 4px;
-    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: rgba(255, 255, 255, 1);
 
     @media (max-width: 768px) {
       width: 44px;
       height: 44px;
-      margin: 0 8px 16px;
+      margin: 0 11px 16px;
     }
 
     &:last-of-type {
@@ -77,10 +79,15 @@
     }
 
     > svg {
-      color: #fff;
+      color: rgba(255, 255, 255, 1);
     }
 
-    &:hover,
+    &:hover{
+      background: transparent;
+      > svg {
+        color: rgba(255, 230, 84, 1);
+      }
+    }
     &:active {
       border-color: rgba(255, 255, 255, 0.5);
     }
@@ -125,7 +132,7 @@
     .link {
       display: flex;
       align-items: center;
-      color: #fff;
+      color: rgba(255, 255, 255, 1);
       margin-bottom: 10px;
       font-size: 14px;
       font-style: normal;
@@ -140,15 +147,24 @@
 
     .link[aria-disabled='true'] {
       cursor: default;
-      color: #717980;
+      color: rgba(113, 121, 128, 1);
     }
   }
 
   .logoWrap {
     max-width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 88px;
+    > div{
+      font-size: 12px;
+      margin-left: 24px;
+    }
 
     @media (max-width: 768px) {
       max-width: 100%;
+      margin-bottom: 0;
     }
   }
 
@@ -161,8 +177,8 @@
 
   .logo {
     margin-right: 3px;
-    width: 56px;
-    height: 56px;
+    width: 70px;
+    height: 45px;
 
     @media (max-width: 768px) {
       width: 44px;
@@ -171,7 +187,7 @@
   }
 
   .logoText {
-    color: #fff;
+    color: rgba(255, 255, 255, 1);
   }
 
   .title {
@@ -184,13 +200,13 @@
 
   .subscribeWrap {
     position: relative;
-    margin-top: 12px;
+    margin-top: 14px;
 
     .subscribeInput {
-      background: #fff;
+      background: rgba(255, 255, 255, 1);
       border: 1px solid rgba(0, 0, 0, 0.1);
       box-sizing: border-box;
-      border-radius: 4px;
+      border-radius: 14px;
       font-family: inherit;
       font-size: 16px;
       font-style: normal;
@@ -198,9 +214,9 @@
       line-height: 20px;
       letter-spacing: 0;
       text-align: left;
-      padding: 15px 148px 15px 16px;
+      padding: 20px 148px 15px 16px;
       width: 100%;
-      color: #000;
+      color: rgba(0, 0, 0, 1);
 
       @media (max-width: 767px) {
         padding: 15px 16px;
@@ -210,8 +226,7 @@
     .subscribeButton {
       position: absolute;
       top: 50%;
-      right: 8px;
-      padding: 8px;
+      right: 4px;
       transform: translate(0, -50%);
 
       @media (max-width: 767px) {
@@ -242,7 +257,7 @@
     }
 
     a.copyrightLink:hover {
-      color: #fff;
+      color: rgba(255, 255, 255, 1);
     }
 
     .copyrightLink + .copyrightLink {

@@ -1,7 +1,4 @@
-/* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */
-/* stylelint-disable no-duplicate-selectors */
-/* stylelint-disable */
-/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors,string-no-newline */
+
 [class^=ant-]::-ms-clear,
 [class*= ant-]::-ms-clear,
 [class^=ant-] input::-ms-clear,
@@ -143,7 +140,7 @@ sup {
   top: -0.5em;
 }
 a {
-  color: #ff4339;
+  color: #fff;
   text-decoration: none;
   background-color: transparent;
   outline: none;
@@ -318,7 +315,7 @@ mark {
 }
 ::selection {
   color: #fff;
-  background: var(--theme-selection-color);
+  background: var(--gradient-green-safe);
 }
 .clearfix::before {
   display: table;
@@ -6778,7 +6775,7 @@ _:-ms-fullscreen .ant-picker-range-wrapper .ant-picker-year-panel .ant-picker-ce
   position: relative;
   top: -0.06em;
   display: inline-block;
-  height: 0.9em;
+  /* height: 0.9em; */
   margin: 0 8px;
   vertical-align: middle;
   border-top: 0;
@@ -7669,6 +7666,7 @@ _:-ms-fullscreen .ant-picker-range-wrapper .ant-picker-year-panel .ant-picker-ce
   }
   .ant-form .ant-form-item {
     flex-wrap: wrap;
+    display: grid;
   }
   .ant-form .ant-form-item .ant-form-item-label,
   .ant-form .ant-form-item .ant-form-item-control {
@@ -15631,7 +15629,7 @@ textarea.ant-mentions {
 .ant-menu-inline,
 .ant-menu-vertical,
 .ant-menu-vertical-left {
-  border-right: 1px solid #f0f0f0;
+  border-right: 1px solid rgba(37, 38, 65, 1);
 }
 .ant-menu-vertical-right {
   border-left: 1px solid #f0f0f0;
@@ -16479,7 +16477,7 @@ textarea.ant-mentions {
 }
 .ant-modal-content {
   position: relative;
-  background-color: var(--theme-body-color);
+  background-color: #fff;
   background-clip: padding-box;
   border: 0;
   border-radius: 4px;
@@ -16547,6 +16545,7 @@ textarea.ant-mentions {
 }
 .ant-modal-centered {
   text-align: center;
+  background: rgba(0, 0, 0, 0.9);
 }
 .ant-modal-centered::before {
   display: inline-block;
@@ -21848,6 +21847,7 @@ tr.ant-table-expanded-row .ant-descriptions-view table {
   position: relative;
   display: flex;
   transition: transform 0.3s;
+  /* flex-wrap: wrap; */
 }
 .ant-tabs > .ant-tabs-nav .ant-tabs-nav-operations,
 .ant-tabs > div > .ant-tabs-nav .ant-tabs-nav-operations {
@@ -23042,6 +23042,9 @@ span.ant-transfer-list-search-action {
   vertical-align: middle;
   outline: none;
   cursor: pointer;
+  
+  
+
 }
 .ant-tree-checkbox-wrapper:hover .ant-tree-checkbox-inner,
 .ant-tree-checkbox:hover .ant-tree-checkbox-inner,
