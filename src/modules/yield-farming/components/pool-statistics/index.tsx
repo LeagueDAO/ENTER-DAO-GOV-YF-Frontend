@@ -38,7 +38,7 @@ const PoolStatistics: FC = () => {
     return null;
   }
 
-  const { lastActiveEpoch } = poolMeta.contract;
+  const { lastActiveWeek } = poolMeta.contract;
 
   const selectedStakedToken = yfPoolsCtx.stakingContract?.stakedTokens.get(activeToken?.address!);
 
@@ -86,7 +86,7 @@ const PoolStatistics: FC = () => {
               </Text>
             </div>
           </div>
-          {!isEnded && !!lastActiveEpoch && (
+          {!isEnded && !!lastActiveWeek && (
             <div className="flex align-center justify-space-between">
               <Text type="small" weight="semibold" color="secondary">
                 Potential reward this epoch
@@ -184,7 +184,7 @@ const PoolStatistics: FC = () => {
               </Tooltip>
             </div>
 
-            {!!lastActiveEpoch && (
+            {!!lastActiveWeek && (
               <div className="flex align-center justify-space-between mb-24">
                 <Text type="small" weight="semibold" color="secondary">
                   Effective Staked balance

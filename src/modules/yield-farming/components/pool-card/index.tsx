@@ -33,9 +33,8 @@ const PoolCard: React.FC<PoolCardProps> = props => {
 
   const poolMeta = yfPoolsCtx.getYFKnownPoolByName(poolId);
   const isEnded = poolMeta?.contract.isPoolEnded === true;
-console.log(poolMeta, poolId);
 
-  const { totalEpochs, lastActiveEpoch, epochReward, potentialReward, poolEndDate = 0 } = poolMeta?.contract ?? {};
+  const { totalEpochs, lastActiveWeek, epochReward, potentialReward, poolEndDate = 0 } = poolMeta?.contract ?? {};
 
   const enabled = true;
 
@@ -69,7 +68,7 @@ console.log(poolMeta, poolId);
             {poolMeta?.label ?? '-'}
           </Text>
           <Text type="lb2" weight="semibold" color="primary" ellipsis>
-            WEEK {lastActiveEpoch ?? '-'} / {totalEpochs ?? '-'}
+            WEEK {lastActiveWeek ?? '-'} / {totalEpochs ?? '-'}
           </Text>
         </div>
         {walletCtx.isActive && isPoolAvailable && (
@@ -101,7 +100,7 @@ console.log(poolMeta, poolId);
               </Text>
             </div>
           </div>
-          {walletCtx.isActive && !!lastActiveEpoch && (
+          {walletCtx.isActive && !!lastActiveWeek && (
             <div className="card-row card-row-border p-24">
               <Text type="lb2" weight="semibold" color="secondary">
                 My Potential Reward
@@ -142,7 +141,7 @@ console.log(poolMeta, poolId);
               <Text type="p2" color="secondary">
                 Effective balance
               </Text>
-              {!!lastActiveEpoch && (
+              {!!lastActiveWeek && (
                 <Text type="p2" color="secondary">
                   {formatUSD(poolEffectiveBalanceInUSD) ?? '-'}
                 </Text>
@@ -172,7 +171,7 @@ console.log(poolMeta, poolId);
           <Text type="p1" weight="semibold" color="primary">
             {formatUSD(myPoolBalanceInUSD)}
           </Text>
-          {!isEnded && isPoolAvailable && !!lastActiveEpoch && (
+          {!isEnded && isPoolAvailable && !!lastActiveWeek && (
             <>
               <Text type="p2" color="secondary">
                 {formatUSD(myPoolEffectiveBalanceInUSD)} effective balance

@@ -74,7 +74,7 @@ function getColumns(isAll: boolean): ColumnsType<TableEntity> {
     },
     {
       title: 'Amount',
-      width: '25%',
+      width: '20%',
       render: function AmountColumn(_, entity) {
         const isStake = entity.actionType === APIYFPoolActionType.DEPOSIT;
         const knownToken = getTokenByAddress(entity.tokenAddress);
@@ -96,8 +96,8 @@ function getColumns(isAll: boolean): ColumnsType<TableEntity> {
               className="mb-4">
               {isStake ? '+' : '-'}
               {formatToken(amount, {
-                tokenName: knownToken.symbol,
-                decimals: knownToken.decimals,
+                // tokenName: knownToken.symbol,
+                // decimals: knownToken.decimals,
               }) ?? '-'}
             </Text>
             <Text type="small" weight="semibold" wrap={false}>
@@ -111,10 +111,10 @@ function getColumns(isAll: boolean): ColumnsType<TableEntity> {
       ? {
           title: 'Address',
           dataIndex: 'from',
-          width: '25%',
+          width: '20%',
           render: (_, entity) => (
-            <ExternalLink href={getEtherscanAddressUrl(entity.userAddress)} className="link-blue">
-              <Text type="p1" weight="semibold" color="#fff" textGradient="var(--gradient-blue)">
+            <ExternalLink href={getEtherscanAddressUrl(entity.userAddress)}>
+              <Text type="p1" weight="semibold" color="primary" >
                 {shortenAddr(entity.userAddress)}
               </Text>
             </ExternalLink>
@@ -122,17 +122,25 @@ function getColumns(isAll: boolean): ColumnsType<TableEntity> {
         }
       : {},
     {
-      title: 'Transaction hash/timestamp',
-      width: '25%',
+      title: 'Transaction hash',
+      width: '20%',
       render: (_, entity) => (
         <>
-          <ExternalLink href={getEtherscanTxUrl(entity.transactionHash)} className="link-blue mb-4">
-            <Text type="p1" weight="semibold" color="#fff" textGradient="var(--gradient-blue)">
+          <ExternalLink href={getEtherscanTxUrl(entity.transactionHash)} className="mb-4">
+            <Text type="p1" weight="semibold" color="primary" >
               {shortenAddr(entity.transactionHash)}
             </Text>
           </ExternalLink>
+        </>
+      ),
+    },
+    {
+      title: 'Time',
+      width: '20%',
+      render: (_, entity) => (
+        <>
           <Text type="small" weight="semibold" color="secondary">
-            {format(entity.blockTimestamp * 1_000, 'MM.dd.yyyy HH:mm')}
+            ~{format(entity.blockTimestamp * 1_000, 'MM.dd.yyyy HH:mm')}
           </Text>
         </>
       ),
@@ -156,6 +164,7 @@ const TX_OPTS: SelectOption[] = [
 ];
 
 const PoolTransactions: FC = () => {
+  
   const walletCtx = useWallet();
   const poolsCtx = useYFPools();
   const poolCtx = useYFPool();
@@ -311,6 +320,7 @@ const PoolTransactions: FC = () => {
             <Select
               className="mr-16 all-tokens"
               style={{ minWidth: 150 }}
+              label="Period"
               options={[
                 {
                   value: 'all',
@@ -328,6 +338,7 @@ const PoolTransactions: FC = () => {
 
           <Select
             style={{ minWidth: 200 }}
+            label="Show"
             options={TX_OPTS}
             value={state.filters.actionType}
             onChange={handleTypeFilterChange}
