@@ -9,6 +9,9 @@ import ExternalLink from 'components/custom/externalLink';
 import Identicon from 'components/custom/identicon';
 import { Text } from 'components/custom/typography';
 import { APIVoterEntity, fetchVoters } from 'modules/governance/api';
+import { useGeneral } from 'components/providers/general-provider';
+
+import  './module.scss'
 
 const Columns: ColumnsType<APIVoterEntity> = [
   {
@@ -30,7 +33,7 @@ const Columns: ColumnsType<APIVoterEntity> = [
   },
   {
     title: 'Staked Balance',
-    dataIndex: 'tokensStaked',
+    dataIndex: 'kekStaked',
     align: 'right',
     render: (value: BigNumber) => (
       <Text type="p1" weight="semibold" className="ml-auto">
@@ -78,6 +81,7 @@ export type VotersTableProps = {
 const VotersTable: React.FC<VotersTableProps> = props => {
   const { className } = props;
 
+  const { isDarkTheme } = useGeneral();
   const [loading, setLoading] = React.useState<boolean>(false);
   const [voters, setVoters] = React.useState<APIVoterEntity[]>([]);
   const [totalVoters, setTotal] = React.useState<number>(0);
@@ -111,28 +115,14 @@ const VotersTable: React.FC<VotersTableProps> = props => {
         dataSource={voters}
         rowKey="address"
         loading={loading}
-        pagination={{
-          total: totalVoters,
-          pageSize,
-          current: page,
-          position: ['bottomRight'],
-          showTotal: (total: number, [from, to]: [number, number]) => (
-            <>
-              <Text type="p2" weight="semibold" color="secondary" className="hidden-mobile">
-                Showing {from} to {to} out of {total} stakers
-              </Text>
-              <Text type="p2" weight="semibold" color="secondary" className="hidden-tablet hidden-desktop">
-                {from}..{to} of {total}
-              </Text>
-            </>
-          ),
-          onChange: setPage,
-        }}
         scroll={{
           x: true,
         }}
-      />
-    </div>
+        />
+        <div className='card-gover-futter'>
+          <button style={{color: isDarkTheme ? '#FFFFFF' : '#000000'}}>Show more voters</button>
+        </div>
+      </div>
   );
 };
 

@@ -20,11 +20,11 @@ import startOfMonth from 'date-fns/startOfMonth';
 import startOfWeek from 'date-fns/startOfWeek';
 import flow from 'lodash/fp/flow';
 import * as ReCharts from 'recharts';
-import { formatBigValue, formatEntrValue } from 'web3/utils';
+import { formatBigValue, formatXYZValue } from 'web3/utils';
 
 import ExternalLink from 'components/custom/externalLink';
 import { Hint, Text } from 'components/custom/typography';
-import { EnterToken } from 'components/providers/known-tokens-provider';
+import { XyzToken } from 'components/providers/known-tokens-provider';
 
 import { useDAO } from '../../../../components/dao-provider';
 
@@ -176,27 +176,27 @@ const WalletLockChart: React.FC<WalletLockChartProps> = props => {
           text={
             <>
               <Text type="p2">
-                The multiplier mechanic allows users to lock ${EnterToken.symbol} for a period up to 1 year and get a
-                bonus of up to 2x v{EnterToken.symbol}. The bonus is linear, as per the following example:
+                The multiplier mechanic allows users to lock ${XyzToken.symbol} for a period up to 1 year and get a
+                bonus of up to 2x v{XyzToken.symbol}. The bonus is linear, as per the following example:
               </Text>
               <ul>
                 <li>
                   <Text type="p2">
-                    lock 1000 ${EnterToken.symbol} for 1 year → get back 2000 v{EnterToken.symbol}
+                    lock 1000 ${XyzToken.symbol} for 1 year → get back 2000 v{XyzToken.symbol}
                   </Text>
                 </li>
                 <li>
                   <Text type="p2">
-                    lock 1000 ${EnterToken.symbol} for 6 months → get back 1500 v{EnterToken.symbol}
+                    lock 1000 ${XyzToken.symbol} for 6 months → get back 1500 v{XyzToken.symbol}
                   </Text>
                 </li>
               </ul>
-              <ExternalLink href="https://docs.enterdao.xyz/">Learn more</ExternalLink>
+              <ExternalLink href="https://docs.universe.xyz/">Learn more</ExternalLink>
             </>
           }>
           <Text type="small" weight="semibold">
-            {formatEntrValue(myBonus)}
-            <span> v{EnterToken.symbol} bonus - </span>
+            {formatXYZValue(myBonus)}
+            <span> v{XyzToken.symbol} bonus - </span>
             {inRange(multiplier, 1, 1.01) ? '>' : ''}
             {formatBigValue(multiplier, 2)}x<span> for </span>
             {formatDistanceToNow(lockEndDate)}

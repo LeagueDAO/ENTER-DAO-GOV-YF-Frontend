@@ -1,0 +1,22 @@
+.delagate{
+    @media (max-width: 767px){
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+.gas-gwei-section{
+    @media (max-width: 767px) {
+        width: 100%;
+    }
+}
+
+.alert-delegate{
+    --alert-bg-color: rgba(25, 185, 161, 0.1) !important;
+    --alert-text-color:  rgba(25, 185, 161, 1) !important;
+    --alert-border-color: rgba(25, 185, 161, 1)  !important;
+    max-width: 54%;
+    @media (max-width: 767px){
+       max-width: 100%;
+    }
+}

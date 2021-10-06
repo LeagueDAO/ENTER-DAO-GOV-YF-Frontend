@@ -54,7 +54,7 @@ export const Text: React.FC<TextProps> = React.memo(props => {
         font && s[`font-${font}`],
         className,
       ),
-      style: textGradient ? { ...style, '--text-gradient': textGradient || '', '--text-color': color } : style,
+      style: textGradient ? { ...style, '--text-gradient': textGradient || '', 'color': color } : style,
       ...textProps,
     },
     children,

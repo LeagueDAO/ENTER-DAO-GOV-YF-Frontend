@@ -3,6 +3,8 @@ import 'styles/index.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
+import TimeAgo from 'javascript-time-ago'
+import en from 'javascript-time-ago/locale/en.json'
 
 import ErrorBoundary from 'components/custom/error-boundary';
 import EthWeb3Provider from 'components/providers/eth-web3-provider';
@@ -13,10 +15,10 @@ import WindowStateProvider from 'components/providers/window-state';
 import LayoutView from 'layout';
 import { ReactComponent as StaticSprite } from 'resources/svg/static-sprite.svg';
 import Web3WalletProvider from 'wallets/wallet';
-import ScrollToTop from "./top-scroll";
 
 import { checkFlexGapSupport } from './checkFlexGap';
 import * as sw from './serviceWorker';
+TimeAgo.addDefaultLocale(en)
 
 const App: React.FC = () => {
   return (
@@ -28,7 +30,6 @@ const App: React.FC = () => {
             <Web3WalletProvider>
               <KnownTokensProvider>
                 <Router>
-                  <ScrollToTop />
                   <NotificationsProvider>
                     <LayoutView />
                   </NotificationsProvider>
