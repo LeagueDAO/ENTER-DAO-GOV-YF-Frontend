@@ -15,8 +15,8 @@ export enum KnownTokens {
   XYZ = 'LEAG',
   USDC = 'USDC',
   BOND = 'BOND',
-  ENTR = 'ENTR',
-  IONX = 'IONX',
+  AAVE = 'AAVE',
+  COMP = 'COMP',
   SNX = 'SNX',
   SUSHI = 'SUSHI',
   LINK = 'LINK',
@@ -73,24 +73,44 @@ export const BondToken: TokenMeta = {
   contract: new Erc20Contract([], config.tokens.bond),
 };
 
+export const AaveToken: TokenMeta = {
+  address: config.tokens.aave,
+  symbol: KnownTokens.AAVE,
+  name: 'Aave',
+  decimals: 18,
+  icon: 'png/aave',
+  coinGeckoId: 'aave',
+  contract: new Erc20Contract([], config.tokens.aave),
+};
+
 export const EntrToken: TokenMeta = {
   address: config.tokens.entr,
-  symbol: KnownTokens.ENTR,
-  name: 'Entr',
+  symbol: KnownTokens.XYZ,
+  name: 'Xyz',
   decimals: 18,
-  icon: 'png/entr',
-  coinGeckoId: 'entr',
+  icon: 'png/aave',
+  coinGeckoId: 'xyz',
   contract: new Erc20Contract([], config.tokens.xyz),
 };
 
 export const IonxToken: TokenMeta = {
   address: config.tokens.ionx,
-  symbol: KnownTokens.IONX,
-  name: 'Ionx',
+  symbol: KnownTokens.XYZ,
+  name: 'Xyz',
   decimals: 18,
-  icon: 'png/ionx',
-  coinGeckoId: 'ionx',
+  icon: 'png/aave',
+  coinGeckoId: 'xyz',
   contract: new Erc20Contract([], config.tokens.xyz),
+};
+
+export const CompToken: TokenMeta = {
+  address: config.tokens.comp,
+  symbol: KnownTokens.COMP,
+  name: 'Compound',
+  decimals: 18,
+  icon: 'compound',
+  coinGeckoId: 'compound-governance-token',
+  contract: new Erc20Contract([], config.tokens.comp),
 };
 
 export const SnxToken: TokenMeta = {
@@ -147,6 +167,8 @@ const KNOWN_TOKENS: TokenMeta[] = [
   XyzToken,
   UsdcToken,
   BondToken,
+  AaveToken,
+  CompToken,
   SnxToken,
   SushiToken,
   LinkToken,
@@ -336,7 +358,7 @@ const KnownTokensProvider: FC = props => {
 
           console.log(`[Token Price] ${token.symbol} = ${formatUSD(token.price)}`);
         });
-      } catch { }
+      } catch {}
 
       reload();
     })();

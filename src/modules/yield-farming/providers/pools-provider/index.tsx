@@ -5,7 +5,9 @@ import MerkleDistributor from 'web3/merkleDistributor';
 import Web3Contract from 'web3/web3Contract';
 
 import {
+  AaveToken,
   BondToken,
+  CompToken,
   XyzToken,
   IonxToken,
   EntrToken,
@@ -25,9 +27,11 @@ import { useWallet } from 'wallets/wallet';
 
 export enum YFPoolID {
   BOND = 'bond',
+  AAVE = 'aave',
   XYZ = 'xyz',
   IONX = 'ionx',
   ENTR = 'entr',
+  COMP = 'comp',
   SNX = 'snx',
   SUSHI = 'sushi',
   LINK = 'link',
@@ -53,10 +57,19 @@ export const BondYfPool: YFPoolMeta = {
   contract: new YfPoolContract(config.contracts.yf.bond),
 };
 
+export const AaveYfPool: YFPoolMeta = {
+  name: YFPoolID.AAVE,
+  label: 'AAVE',
+  icons: ['png/aave'],
+  colors: ['var(--theme-red-color)'],
+  tokens: [AaveToken],
+  contract: new YfPoolContract(config.contracts.yf.aave),
+};
+
 export const XyzYfPool: YFPoolMeta = {
   name: YFPoolID.XYZ,
   label: 'XYZ',
-  icons: ['png/xyz'],
+  icons: ['png/aave'],
   colors: ['var(--theme-red-color)'],
   tokens: [XyzToken],
   contract: new YfPoolContract(config.contracts.yf.xyz),
@@ -65,7 +78,7 @@ export const XyzYfPool: YFPoolMeta = {
 export const IonxYfPool: YFPoolMeta = {
   name: YFPoolID.IONX,
   label: 'IONX',
-  icons: ['png/ionx'],
+  icons: ['png/aave'],
   colors: ['var(--theme-red-color)'],
   tokens: [IonxToken],
   contract: new YfPoolContract(config.contracts.yf.ionx),
@@ -74,10 +87,21 @@ export const IonxYfPool: YFPoolMeta = {
 export const EntrYfPool: YFPoolMeta = {
   name: YFPoolID.ENTR,
   label: 'ENTR',
-  icons: ['png/entr'],
+  icons: ['png/aave'],
   colors: ['var(--theme-red-color)'],
   tokens: [EntrToken],
   contract: new YfPoolContract(config.contracts.yf.entr),
+};
+
+
+
+export const CompYfPool: YFPoolMeta = {
+  name: YFPoolID.COMP,
+  label: 'COMP',
+  icons: ['compound'],
+  colors: ['var(--theme-red-color)'],
+  tokens: [CompToken],
+  contract: new YfPoolContract(config.contracts.yf.comp),
 };
 
 export const SnxYfPool: YFPoolMeta = {
@@ -126,7 +150,9 @@ export const UsdcXyzSLPYfPool: YFPoolMeta = {
 };
 
 const KNOWN_POOLS: YFPoolMeta[] = [
+  AaveYfPool,
   BondYfPool,
+  CompYfPool,
   SnxYfPool,
   XyzYfPool,
   IonxYfPool,
@@ -141,7 +167,7 @@ export function getYFKnownPoolByName(name: string): YFPoolMeta | undefined {
   // if(name === 'xyz') {
   //   debugger
   // }
-
+    
   return KNOWN_POOLS.find(pool => pool.name === name);
 }
 
@@ -436,9 +462,11 @@ const YFPoolsProvider: FC = props => {
       <ContractListener contract={stakingContract} />
       <ContractListener contract={merkleDistributor} />
       <ContractListener contract={BondYfPool.contract} />
+      <ContractListener contract={AaveYfPool.contract} />
       <ContractListener contract={XyzYfPool.contract} />
       <ContractListener contract={IonxYfPool.contract} />
       <ContractListener contract={EntrYfPool.contract} />
+      <ContractListener contract={CompYfPool.contract} />
       <ContractListener contract={SnxYfPool.contract} />
       <ContractListener contract={SushiYfPool.contract} />
       <ContractListener contract={LinkYfPool.contract} />

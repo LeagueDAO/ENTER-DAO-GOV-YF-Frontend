@@ -1,8 +1,6 @@
 import React, { CSSProperties } from 'react';
 import cn from 'classnames';
-import ionxSrc from 'resources/png/token-ionx.png';
-import entrSrc from 'resources/png/token-entr.png';
-import xyzSrc from 'resources/png/token-xyz.png';
+import aaveSrc from 'resources/png/token-aave.png';
 import ilvSrc from 'resources/png/token-ilv.png';
 import linkSrc from 'resources/png/token-link.png';
 import sushiSrc from 'resources/png/token-sushi.png';
@@ -35,9 +33,8 @@ export type TokenIconNames =
   | 'token-uniswap'
   | 'token-usdt'
   | 'token-snx'
-  | 'png/ionx'
-  | 'png/entr'
-  | 'png/xyz'
+  | 'compound'
+  | 'png/aave'
   | 'png/sushi'
   | 'png/link'
   | 'png/ilv'
@@ -182,12 +179,8 @@ const Icon: React.FC<IconProps> = props => {
           return LeagueDaoDark;
         case 'png/leaguedaolight':
           return LeagueDaoLight;
-        case 'png/ionx':
-          return ionxSrc;
-        case 'png/xyz':
-          return xyzSrc;
-        case 'png/entr':
-          return entrSrc;
+        case 'png/aave':
+          return aaveSrc;
         case 'png/ilv':
           return ilvSrc;
         case 'png/link':

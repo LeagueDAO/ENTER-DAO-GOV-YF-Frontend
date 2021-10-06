@@ -3,8 +3,6 @@ import 'styles/index.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
-import TimeAgo from 'javascript-time-ago'
-import en from 'javascript-time-ago/locale/en.json'
 
 import ErrorBoundary from 'components/custom/error-boundary';
 import EthWeb3Provider from 'components/providers/eth-web3-provider';
@@ -18,7 +16,6 @@ import Web3WalletProvider from 'wallets/wallet';
 
 import { checkFlexGapSupport } from './checkFlexGap';
 import * as sw from './serviceWorker';
-TimeAgo.addDefaultLocale(en)
 
 const App: React.FC = () => {
   return (
