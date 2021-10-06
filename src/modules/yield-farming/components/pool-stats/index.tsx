@@ -103,7 +103,7 @@ const PoolStats: React.FC<Props> = ({ className }) => {
               {formatUSD(XyzToken.price) ?? '-'}
             </Text>
             <ExternalLink href={XYZ_MARKET_LINK} className="link-gradient">
-              <Text type="p1" weight="semibold" style={{color: isDarkTheme ? '#FFFFFF' : '#000000'}} textGradient="var(--gradient-blue)">
+              <Text type="p1" weight="semibold" style={{ color: isDarkTheme ? '#FFFFFF' : '#000000' }} textGradient="var(--gradient-blue)">
                 SushiSwap market
               </Text>
             </ExternalLink>

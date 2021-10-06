@@ -18,7 +18,6 @@ const LayoutFooter: React.FC = () => {
   const handlerSubscribe = async (e: FormEvent) => {
     e.preventDefault();
     setLoading(true);
-
     fetch(`https://shielded-sands-48363.herokuapp.com/addContact?email=${email}`)
       .then(() => {
         setEmail('');
@@ -32,7 +31,6 @@ const LayoutFooter: React.FC = () => {
           message: 'Sorry, something went wrong.',
         });
       });
-
     setLoading(false);
   };
 
@@ -93,7 +91,7 @@ const LayoutFooter: React.FC = () => {
               {/* <Icon name="universe-text" width="94" height="15" className={s.logoText} /> */}
             </Link>
             <Text type="p2" color="white">
-              Join one of our Tokenized Fantasy Sports leagues and become a part of the LeagueDAO community. 
+              Join one of our Tokenized Fantasy Sports leagues and become a part of the LeagueDAO community.
             </Text>
           </div>
           <div className={s.navBlocksWrap}>
