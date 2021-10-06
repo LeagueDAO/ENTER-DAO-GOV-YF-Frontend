@@ -49,7 +49,7 @@ const PoolHeader: FC = () => {
             {poolMeta.label}
           </Text>
           <Text type="small" weight="semibold" color="primary">
-            Epoch {poolMeta.contract.lastActiveEpoch ?? '-'} / {poolMeta.contract.totalEpochs ?? '-'}
+            Epoch {poolMeta.contract.lastActiveWeek ?? '-'} / {poolMeta.contract.totalEpochs ?? '-'}
           </Text>
         </div>
       </div>
@@ -72,7 +72,7 @@ const PoolHeader: FC = () => {
             {formatUSD(poolBalance) ?? '-'}
           </Text>
         </div>
-        {!!poolMeta.contract.lastActiveEpoch && (
+        {!!poolMeta.contract.lastActiveWeek && (
           <div>
             <Text type="small" weight="semibold" color="secondary" className="mb-8">
               Effective pool balance

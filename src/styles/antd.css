@@ -148,9 +148,9 @@ a {
   transition: color 0.1s;
   -webkit-text-decoration-skip: objects;
 }
-a:hover {
+/* a:hover {
   color: #ff6e61;
-}
+} */
 a:active {
   color: #d92825;
 }

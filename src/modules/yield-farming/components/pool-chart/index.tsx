@@ -58,17 +58,17 @@ const PoolChart: FC<Props> = props => {
       return [{ value: 'all', label: 'All epochs' }];
     }
 
-    const { lastActiveEpoch } = activeYfPool.contract;
+    const { lastActiveWeek } = activeYfPool.contract;
 
-    if (!lastActiveEpoch) {
+    if (!lastActiveWeek) {
       return [{ value: 'all', label: 'All epochs' }];
     }
 
     return [
       { value: 'all', label: 'All epochs' },
-      ...Array.from({ length: lastActiveEpoch }).map((_, epoch) => ({
+      ...Array.from({ length: lastActiveWeek }).map((_, epoch) => ({
         value: String(epoch),
-        label: `Epoch ${epoch + 1}`,
+        label: `Week ${epoch + 1}`,
       })),
     ];
   }, [activeYfPool, version]);
@@ -125,10 +125,10 @@ const PoolChart: FC<Props> = props => {
       return [];
     }
 
-    const { epoch1Start, epochDuration, lastActiveEpoch } = activeYfPool.contract;
+    const { epoch1Start, epochDuration, lastActiveWeek } = activeYfPool.contract;
     const historyMap = new Map<string, HistoryChartItem>();
 
-    if (epoch1Start === undefined || epochDuration === undefined || lastActiveEpoch === undefined) {
+    if (epoch1Start === undefined || epochDuration === undefined || lastActiveWeek === undefined) {
       return [];
     }
 
@@ -145,7 +145,7 @@ const PoolChart: FC<Props> = props => {
         const dt = getUnixTime(new Date(timestamp));
         const epoch = Math.floor((dt - epoch1Start) / epochDuration);
 
-        if (epoch > lastActiveEpoch!) {
+        if (epoch > lastActiveWeek!) {
           return;
         }
 
@@ -161,7 +161,7 @@ const PoolChart: FC<Props> = props => {
           ?.multipliedBy(-1);
 
         historyMap.set(timestamp, {
-          label: isAll ? `Epoch ${epoch + 1}` : format(new Date(timestamp), 'dd-MM-yyyy'),
+          label: isAll ? `Week ${epoch + 1}` : format(new Date(timestamp), 'dd-MM-yyyy'),
           deposits: prevDeposits.plus(deposits ?? BigNumber.ZERO),
           withdrawals: prevWithdrawals.plus(withdrawals ?? BigNumber.ZERO),
         });
@@ -241,12 +241,12 @@ const PoolChart: FC<Props> = props => {
                   }}>
                   <defs>
                     <linearGradient id="gradient-red" gradient-transform="rotate(135deg)">
-                      <stop offset="0%" stopColor="#FF7439" />
-                      <stop offset="100%" stopColor="#FF39BC" />
+                      <stop offset="0%" stopColor="#19B9A1" />
+                      <stop offset="100%" stopColor="#19B9A1" />
                     </linearGradient>
                     <linearGradient id="gradient-blue" gradient-transform="rotate(135deg) matrix(1, 0, 0, -1, 0, 0)">
-                      <stop offset="0%" stopColor="#914FE6" />
-                      <stop offset="100%" stopColor="#316CDF" />
+                      <stop offset="0%" stopColor="#EF4A47" />
+                      <stop offset="100%" stopColor="#EF4A47" />
                     </linearGradient>
                   </defs>
                   <ReCharts.CartesianGrid vertical={false} stroke="var(--theme-border-color)" strokeDasharray="3 3" />
@@ -281,7 +281,7 @@ const PoolChart: FC<Props> = props => {
                               className={s.chartLabel}
                               style={
                                 {
-                                  '--dot-color': 'var(--gradient-red)',
+                                  '--dot-color': 'var(--gradient-green-week)',
                                 } as React.CSSProperties
                               }>
                               Deposits
@@ -295,7 +295,7 @@ const PoolChart: FC<Props> = props => {
                               className={s.chartLabel}
                               style={
                                 {
-                                  '--dot-color': 'var(--gradient-blue)',
+                                  '--dot-color': 'var(--gradient-red-week)',
                                 } as React.CSSProperties
                               }>
                               Withdrawals
@@ -331,14 +331,14 @@ const PoolChart: FC<Props> = props => {
                   )}
                 </ReCharts.BarChart>
               </ReCharts.ResponsiveContainer>
-              <footer className="flex flow-col justify-center col-gap-24 row-gap-16">
-                <div className={s.chartLabel} style={{ '--dot-color': 'var(--gradient-red)' } as React.CSSProperties}>
+              {/* <footer className="flex flow-col justify-center col-gap-24 row-gap-16">
+                <div className={s.chartLabel} style={{ '--dot-color': 'var(--gradient-green-week)' } as React.CSSProperties}>
                   Deposits
                 </div>
-                <div className={s.chartLabel} style={{ '--dot-color': 'var(--gradient-blue)' } as React.CSSProperties}>
+                <div className={s.chartLabel} style={{ '--dot-color': 'var(--gradient-red-week)' } as React.CSSProperties}>
                   Withdrawals
                 </div>
-              </footer>
+              </footer> */}
             </div>
           )}
         </Spin>

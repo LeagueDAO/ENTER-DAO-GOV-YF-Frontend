@@ -3,6 +3,7 @@ import { SelectValue } from 'antd/lib/select';
 import { ColumnsType } from 'antd/lib/table/interface';
 import format from 'date-fns/format';
 import { formatToken, formatUSD, getEtherscanAddressUrl, getEtherscanTxUrl, shortenAddr } from 'web3/utils';
+import ReactTimeAgo from 'react-time-ago'
 
 import Select, { SelectOption } from 'components/antd/select';
 import Table from 'components/antd/table';
@@ -48,7 +49,7 @@ function getColumns(isAll: boolean): ColumnsType<TableEntity> {
   return [
     {
       title: 'Transaction type',
-      width: '25%',
+      width: '20%',
       render: function TransactionColumn(_, entity) {
         const knownToken = getTokenByAddress(entity.tokenAddress);
 
@@ -74,7 +75,7 @@ function getColumns(isAll: boolean): ColumnsType<TableEntity> {
     },
     {
       title: 'Amount',
-      width: '25%',
+      width: '20%',
       render: function AmountColumn(_, entity) {
         const isStake = entity.actionType === APIYFPoolActionType.DEPOSIT;
         const knownToken = getTokenByAddress(entity.tokenAddress);
@@ -96,8 +97,8 @@ function getColumns(isAll: boolean): ColumnsType<TableEntity> {
               className="mb-4">
               {isStake ? '+' : '-'}
               {formatToken(amount, {
-                tokenName: knownToken.symbol,
-                decimals: knownToken.decimals,
+                // tokenName: knownToken.symbol,
+                // decimals: knownToken.decimals,
               }) ?? '-'}
             </Text>
             <Text type="small" weight="semibold" wrap={false}>
@@ -109,30 +110,39 @@ function getColumns(isAll: boolean): ColumnsType<TableEntity> {
     },
     isAll
       ? {
-          title: 'Address',
-          dataIndex: 'from',
-          width: '25%',
-          render: (_, entity) => (
-            <ExternalLink href={getEtherscanAddressUrl(entity.userAddress)} className="link-blue">
-              <Text type="p1" weight="semibold" color="#fff" textGradient="var(--gradient-blue)">
-                {shortenAddr(entity.userAddress)}
-              </Text>
-            </ExternalLink>
-          ),
-        }
+        title: 'Address',
+        dataIndex: 'from',
+        width: '20%',
+        render: (_, entity) => (
+          <ExternalLink href={getEtherscanAddressUrl(entity.userAddress)}>
+            <Text type="p1" weight="semibold" color="primary" >
+              {shortenAddr(entity.userAddress)}
+            </Text>
+          </ExternalLink>
+        ),
+      }
       : {},
     {
-      title: 'Transaction hash/timestamp',
-      width: '25%',
+      title: 'Transaction hash',
+      width: '20%',
       render: (_, entity) => (
         <>
-          <ExternalLink href={getEtherscanTxUrl(entity.transactionHash)} className="link-blue mb-4">
-            <Text type="p1" weight="semibold" color="#fff" textGradient="var(--gradient-blue)">
+          <ExternalLink href={getEtherscanTxUrl(entity.transactionHash)} className="mb-4">
+            <Text type="p1" weight="semibold" color="primary" >
               {shortenAddr(entity.transactionHash)}
             </Text>
           </ExternalLink>
+        </>
+      ),
+    },
+    {
+      title: 'Time',
+      width: '20%',
+      render: (_, entity) => (
+        <>
           <Text type="small" weight="semibold" color="secondary">
-            {format(entity.blockTimestamp * 1_000, 'MM.dd.yyyy HH:mm')}
+            ~<ReactTimeAgo date={entity.blockTimestamp * 1_000} locale="en-US" />
+            {/* ~{format(entity.blockTimestamp * 1_000, 'MM.dd.yyyy HH:mm')} */}
           </Text>
         </>
       ),
@@ -156,6 +166,7 @@ const TX_OPTS: SelectOption[] = [
 ];
 
 const PoolTransactions: FC = () => {
+
   const walletCtx = useWallet();
   const poolsCtx = useYFPools();
   const poolCtx = useYFPool();
@@ -293,11 +304,11 @@ const PoolTransactions: FC = () => {
           tabs={[
             ...(hasOwnTab
               ? [
-                  {
-                    id: 'own',
-                    children: 'My transactions',
-                  },
-                ]
+                {
+                  id: 'own',
+                  children: 'My transactions',
+                },
+              ]
               : []),
             {
               id: 'all',
@@ -311,6 +322,7 @@ const PoolTransactions: FC = () => {
             <Select
               className="mr-16 all-tokens"
               style={{ minWidth: 150 }}
+              label="Period"
               options={[
                 {
                   value: 'all',
@@ -328,6 +340,7 @@ const PoolTransactions: FC = () => {
 
           <Select
             style={{ minWidth: 200 }}
+            label="Show"
             options={TX_OPTS}
             value={state.filters.actionType}
             onChange={handleTypeFilterChange}
