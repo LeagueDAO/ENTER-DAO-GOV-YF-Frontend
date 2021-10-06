@@ -8,9 +8,7 @@ import Tooltip from 'components/antd/tooltip';
 import ExternalLink from 'components/custom/externalLink';
 import Icon from 'components/custom/icon';
 import { Text } from 'components/custom/typography';
-// import config, { ENTR_MARKET_LINK, ENTR_MARKET_LIQUIDITY_LINK } from 'config';
 import { XYZ_MARKET_LINK, XYZ_MARKET_LIQUIDITY_LINK } from 'config';
-
 
 import s from './s.module.scss';
 
@@ -20,7 +18,6 @@ const LayoutFooter: React.FC = () => {
   const handlerSubscribe = async (e: FormEvent) => {
     e.preventDefault();
     setLoading(true);
-
     fetch(`https://shielded-sands-48363.herokuapp.com/addContact?email=${email}`)
       .then(() => {
         setEmail('');
@@ -34,7 +31,6 @@ const LayoutFooter: React.FC = () => {
           message: 'Sorry, something went wrong.',
         });
       });
-
     setLoading(false);
   };
 
@@ -168,15 +164,11 @@ const LayoutFooter: React.FC = () => {
         <div className={cn(s.row, s.copyrightsBlock)}>
           <div className={s.copyrightLink}>Universe.xyz © 2021. Open-sourced.</div>
           <div className={s.copyrightLinks}>
-            {/* <ExternalLink href={ENTR_MARKET_LIQUIDITY_LINK} className={s.copyrightLink}> */}
-            <ExternalLink href={XYZ_MARKET_LIQUIDITY_LINK} className={s.copyrightLink}>
-              {/* Add liquidity to SushiSwap USDC/XYZ pool */}
-              Add liquidity to SushiSwap USDC/LEAG pool
-            </ExternalLink>
-            {/* <ExternalLink href={ENTR_MARKET_LINK} className={s.copyrightLink}> */}
             <ExternalLink href={XYZ_MARKET_LINK} className={s.copyrightLink}>
-              {/* SushiSwap USDC/XYZ market */}
-              SushiSwap USDC/LEAG market
+              SushiSwap USDC/XYZ market
+            </ExternalLink>
+            <ExternalLink href={XYZ_MARKET_LIQUIDITY_LINK} className={s.copyrightLink}>
+              Add liquidity to SushiSwap USDC/XYZ pool
             </ExternalLink>
           </div>
         </div>
