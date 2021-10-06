@@ -4,7 +4,7 @@
   font-weight: normal;
 
   &.font-secondary {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Manrope', sans-serif;
   }
 
   &.weight-500 {
@@ -76,7 +76,7 @@
   }
 
   &.white-color {
-    color: #fff;
+    color: rgba(255, 255, 255, 1);
   }
 
   &.green-color {
@@ -92,17 +92,20 @@
   }
 
   &.textGradient {
-    color: var(--text-color);
+    color: rgba(255, 255, 255, 1);
   }
   @supports ((background-clip: text) or (-webkit-background-clip: text)) and
     ((text-fill-color: transparent) or (-webkit-text-fill-color: transparent)) {
     &.textGradient {
-      background: var(--text-gradient);
+      // background: var(--text-gradient);
+      // font-size: var(--font-size-p1);
+      // color: var(--theme-white-color);
+      // -webkit-text-fill-color: transparent;
       background-size: cover;
       -webkit-background-clip: text;
       background-clip: text;
-      -webkit-text-fill-color: transparent;
       text-fill-color: transparent;
+      
     }
 
     &.textGradient::selection {

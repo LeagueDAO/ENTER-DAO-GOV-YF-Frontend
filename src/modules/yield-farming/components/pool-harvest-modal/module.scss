@@ -1,0 +1,6 @@
+.pool-modal{
+    grid-template-columns: repeat(3, 240px);
+    @media (max-width: 767px){
+        grid-template-columns: none;
+    }
+}

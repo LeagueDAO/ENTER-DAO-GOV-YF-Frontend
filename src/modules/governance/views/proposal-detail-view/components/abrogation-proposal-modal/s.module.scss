@@ -1,7 +1,8 @@
 .component {
   top: 0;
   bottom: 0;
-  min-width: 1180px;
+  width: 100vw !important;
+  height: 100vh;
   margin: 0 auto;
   padding: 24px;
 

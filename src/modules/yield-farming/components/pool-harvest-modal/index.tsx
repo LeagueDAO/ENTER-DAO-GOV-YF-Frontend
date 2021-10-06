@@ -9,9 +9,11 @@ import Grid from 'components/custom/grid';
 import Icon, { IconNames } from 'components/custom/icon';
 import IconsSet from 'components/custom/icons-set';
 import { Text } from 'components/custom/typography';
-import { EnterToken } from 'components/providers/known-tokens-provider';
+import { XyzToken } from 'components/providers/known-tokens-provider';
 
 import { useYFPools } from '../../providers/pools-provider';
+
+import './module.scss'
 
 type PoolHarvestButtonProps = {
   icons: string[];
@@ -50,7 +52,7 @@ const PoolHarvestButton: FC<PoolHarvestButtonProps> = props => {
             </Text>
             <Text type="p1" weight="semibold" color="primary" className="mr-4">
               {formatToken(reward, {
-                tokenName: EnterToken.symbol,
+                tokenName: XyzToken.symbol,
               }) ?? '-'}
             </Text>
           </div>
@@ -76,7 +78,7 @@ const PoolHarvestModal: FC<ModalProps> = props => {
       const yfPool = yfPoolsCtx.getYFKnownPoolByName(yfPoolID);
       await yfPool?.contract.claim();
       yfPool?.contract.loadUserData().catch(Error);
-      (EnterToken.contract as Erc20Contract).loadBalance().catch(Error);
+      (XyzToken.contract as Erc20Contract).loadBalance().catch(Error);
     } catch (e) {}
 
     setHarvesting(prevState => {
@@ -96,13 +98,13 @@ const PoolHarvestModal: FC<ModalProps> = props => {
             Select the pool you want to claim your reward from
           </Text>
         </div>
-        <Grid flow="row" gap={24} colsTemplate="repeat(3, 240px)">
+        <Grid flow="row" gap={24}  className='pool-modal'>
           {yfPoolsCtx.yfPools.map(yfPool => (
             <PoolHarvestButton
               key={yfPool.name}
               icons={yfPool.icons}
               label={yfPool.label}
-              reward={yfPool.contract.toClaim?.unscaleBy(EnterToken.decimals)}
+              reward={yfPool.contract.toClaim?.unscaleBy(XyzToken.decimals)}
               loading={harvesting.get(yfPool.name) === true}
               onClick={() => handleHarvest(yfPool.name)}
             />

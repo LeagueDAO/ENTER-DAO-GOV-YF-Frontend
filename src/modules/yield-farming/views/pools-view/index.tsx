@@ -7,6 +7,7 @@ import DAOProvider from 'modules/governance/components/dao-provider';
 import PoolCard from 'modules/yield-farming/components/pool-card';
 import { useWallet } from 'wallets/wallet';
 
+import PoolChart from '../../components/pool-chart';
 import PoolRewards from '../../components/pool-rewards';
 import PoolStats from '../../components/pool-stats';
 import PoolTransactions from '../../components/pool-transactions';
@@ -22,7 +23,7 @@ const PoolsView: React.FC = () => {
       {!isMobile && walletCtx.isActive && <PoolRewards />}
       <div className="content-container-fix content-container">
         <PoolStats className="mb-64" />
-        <Text type="h1" weight="bold" color="primary" className="mb-16" font="secondary">
+        <Text type="h2" weight="bold" color="primary" className="mb-16" font="secondary">
           Pools
         </Text>
         <Text type="p1" weight="semibold" color="secondary" className="mb-32">
@@ -32,15 +33,17 @@ const PoolsView: React.FC = () => {
           <DAOProvider>
             <DaoCard />
           </DAOProvider>
-          <PoolCard poolId={YFPoolID.USDC_ENTR_SLP} />
-          <PoolCard poolId={YFPoolID.SUSHI} />
-          <PoolCard poolId={YFPoolID.XYZ} />
-          <PoolCard poolId={YFPoolID.ILV} />
+          <PoolCard poolId={YFPoolID.USDC_XYZ_SLP} />
           <PoolCard poolId={YFPoolID.BOND} />
-          <PoolCard poolId={YFPoolID.MANA} />
-          <PoolCard poolId={YFPoolID.AXS} />
-          <PoolCard poolId={YFPoolID.SAND} />
+          <PoolCard poolId={YFPoolID.XYZ} />
+          <PoolCard poolId={YFPoolID.IONX} />
+          <PoolCard poolId={YFPoolID.ENTR} />
+          <PoolCard poolId={YFPoolID.SNX} />
+          <PoolCard poolId={YFPoolID.SUSHI} />
+          <PoolCard poolId={YFPoolID.LINK} />
+          <PoolCard poolId={YFPoolID.ILV} />
         </div>
+        <PoolChart className="mb-32" />
         <PoolTransactions />
       </div>
     </>

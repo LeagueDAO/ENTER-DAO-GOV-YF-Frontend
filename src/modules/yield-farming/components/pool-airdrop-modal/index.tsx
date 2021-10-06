@@ -9,7 +9,7 @@ import Modal, { ModalProps } from 'components/antd/modal';
 import Spin from 'components/antd/spin';
 import Grid from 'components/custom/grid';
 import { Text } from 'components/custom/typography';
-import { EnterToken } from 'components/providers/known-tokens-provider';
+import { XyzToken } from 'components/providers/known-tokens-provider';
 import config from 'config';
 import BalanceTree from 'merkle-distributor/balance-tree';
 import { useWallet } from 'wallets/wallet';
@@ -77,7 +77,7 @@ const AirdropModal: FC<AirdropModalProps> = props => {
             Airdrop reward
           </Text>
           <Text type="p1" weight="500" color="secondary">
-            You have claimable tokens from the $ENTR Airdrop. This balance will rise over time and as more people exit
+            You have claimable tokens from the $XYZ Airdrop. This balance will rise over time and as more people exit
             the pool and forfeit their additional rewards. <br></br>
             <Text type="p1" tag="span" weight="bold">
               Warning: You can only claim once!
@@ -85,7 +85,7 @@ const AirdropModal: FC<AirdropModalProps> = props => {
           </Text>
           <br></br>
           <Text type="p1" weight="bold" color="primary" className="mb-8">
-            Available to claim now: {formatToken(adjustedAmount?.unscaleBy(EnterToken.decimals))}
+            Available to claim now: {formatToken(adjustedAmount?.unscaleBy(XyzToken.decimals))}
           </Text>
         </div>
         <Grid flow="col" justify="space-between">

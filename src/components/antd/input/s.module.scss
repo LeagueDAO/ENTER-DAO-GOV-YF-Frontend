@@ -6,19 +6,19 @@
   --input-border: 1px solid #e3e4e6;
   --input-border-focused: 1px solid transparent;
   --input-border-disabled: 1px solid #e3e4e6;
-  --input-bg: #fff;
-  --input-bg-disabled: #f8f8f9;
+  --input-bg: rgba(255, 255, 255, 1);
+  --input-bg-disabled: rgba(248, 248, 249, 1);
   --input-text: var(--theme-primary-color);
-  --input-text-active: #13202b;
-  --input-text-disabled: #717980;
+  --input-text-active: rgba(19, 32, 43,1);
+  --input-text-disabled: rgba(113, 121, 128, 1);
 }
 
 [data-theme='dark'] .component {
   --input-bg-disabled: rgba(19, 19, 19, 0.1);
-  --input-border: 1px solid #43484d;
+  --input-border: 1px solid rgba(67, 72, 77, 1);
   --input-border-disabled: none;
-  --input-text-active: #fff;
-  --input-text-disabled: #939496;
+  --input-text-active: rgba(255, 255, 255, 1);
+  --input-text-disabled: rgba(147, 148, 150, 1);
   --input-bg: var(--theme-body-color);
 }
 
