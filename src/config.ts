@@ -17,6 +17,7 @@ const config = {
   },
   tokens: {
     usdc: toLowerCase(process.env.REACT_APP_TOKEN_USDC_ADDR),
+    leag: toLowerCase(process.env.REACT_APP_TOKEN_LEAG_ADDR),
     entr: toLowerCase(process.env.REACT_APP_TOKEN_ENTR_ADDR),
     mana: toLowerCase(process.env.REACT_APP_TOKEN_MANA_ADDR),
     bond: toLowerCase(process.env.REACT_APP_TOKEN_BOND_ADDR),

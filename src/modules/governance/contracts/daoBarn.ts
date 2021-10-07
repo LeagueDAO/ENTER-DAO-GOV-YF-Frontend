@@ -3,7 +3,7 @@ import BigNumber from 'bignumber.js';
 import { getGasValue, getHumanValue, getNonHumanValue } from 'web3/utils';
 import Web3Contract, { Web3ContractAbiItem } from 'web3/web3Contract';
 
-import { EnterToken } from 'components/providers/known-tokens-provider';
+import { LeagueToken } from 'components/providers/known-tokens-provider';
 import config from 'config';
 import useMergeState from 'hooks/useMergeState';
 import { useReload } from 'hooks/useReload';
@@ -19,7 +19,7 @@ function loadCommonData(): Promise<any> {
   return Contract.batch([
     {
       method: 'entrStaked',
-      transform: (value: string) => getHumanValue(new BigNumber(value), EnterToken.decimals),
+      transform: (value: string) => getHumanValue(new BigNumber(value), LeagueToken.decimals),
     },
   ]).then(([entrStaked]) => {
     return {
@@ -37,17 +37,17 @@ function loadUserData(userAddress?: string): Promise<any> {
     {
       method: 'balanceOf',
       methodArgs: [userAddress],
-      transform: (value: string) => getHumanValue(new BigNumber(value), EnterToken.decimals),
+      transform: (value: string) => getHumanValue(new BigNumber(value), LeagueToken.decimals),
     },
     {
       method: 'votingPower',
       methodArgs: [userAddress],
-      transform: (value: string) => getHumanValue(new BigNumber(value), EnterToken.decimals),
+      transform: (value: string) => getHumanValue(new BigNumber(value), LeagueToken.decimals),
     },
     {
       method: 'multiplierAtTs',
       methodArgs: [userAddress, getNowTs()],
-      transform: (value: string) => getHumanValue(new BigNumber(value), EnterToken.decimals)?.toNumber(),
+      transform: (value: string) => getHumanValue(new BigNumber(value), LeagueToken.decimals)?.toNumber(),
     },
     {
       method: 'userLockedUntil',
@@ -57,7 +57,7 @@ function loadUserData(userAddress?: string): Promise<any> {
     {
       method: 'delegatedPower',
       methodArgs: [userAddress],
-      transform: (value: string) => getHumanValue(new BigNumber(value), EnterToken.decimals),
+      transform: (value: string) => getHumanValue(new BigNumber(value), LeagueToken.decimals),
     },
     {
       method: 'userDelegatedTo',
@@ -75,7 +75,7 @@ function loadUserData(userAddress?: string): Promise<any> {
 
 function entrStakedAtTsCall(timestamp: number): Promise<BigNumber | undefined> {
   return Contract.call('entrStakedAtTs', [timestamp], {}).then((value: string) =>
-    getHumanValue(new BigNumber(value), EnterToken.decimals),
+    getHumanValue(new BigNumber(value), LeagueToken.decimals),
   );
 }
 

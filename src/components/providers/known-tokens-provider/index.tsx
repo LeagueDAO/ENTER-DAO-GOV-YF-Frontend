@@ -12,6 +12,7 @@ import { useWallet } from 'wallets/wallet';
 
 export enum KnownTokens {
   ETH = 'ETH',
+  LEAG = 'LEAG',
   ENTR = 'ENTR',
   XYZ = 'XYZ',
   USDC = 'USDC',
@@ -43,6 +44,15 @@ export const EthToken: TokenMeta = {
   decimals: 18,
   icon: 'token-eth',
   coinGeckoId: 'ethereum',
+};
+
+export const LeagueToken: TokenMeta = {
+  address: config.tokens.leag,
+  symbol: KnownTokens.LEAG,
+  name: 'LeagueDAO Governance Token',
+  decimals: 18,
+  icon: 'png/league-dao-dark' as any,
+  contract: new Erc20Contract([], config.tokens.leag),
 };
 
 export const EnterToken: TokenMeta = {
@@ -145,6 +155,7 @@ export const UsdcEntrSLPToken: TokenMeta = {
 
 const KNOWN_TOKENS: TokenMeta[] = [
   EthToken,
+  LeagueToken,
   EnterToken,
   UsdcToken,
   BondToken,
@@ -214,11 +225,11 @@ async function getEntrPrice(): Promise<BigNumber> {
   let entrReserve;
   let usdcReserve;
 
-  if (String(token0).toLowerCase() === EnterToken.address) {
-    entrReserve = new BigNumber(reserve0).unscaleBy(EnterToken.decimals);
+  if (String(token0).toLowerCase() === LeagueToken.address) {
+    entrReserve = new BigNumber(reserve0).unscaleBy(LeagueToken.decimals);
     usdcReserve = new BigNumber(reserve1).unscaleBy(UsdcToken.decimals);
   } else {
-    entrReserve = new BigNumber(reserve1).unscaleBy(EnterToken.decimals);
+    entrReserve = new BigNumber(reserve1).unscaleBy(LeagueToken.decimals);
     usdcReserve = new BigNumber(reserve0).unscaleBy(UsdcToken.decimals);
   }
 
@@ -242,7 +253,7 @@ async function getUsdcEntrSLPPrice(): Promise<BigNumber> {
 
   let usdcReserve;
 
-  if (String(token0).toLowerCase() === EnterToken.address) {
+  if (String(token0).toLowerCase() === LeagueToken.address) {
     usdcReserve = new BigNumber(reserve1).unscaleBy(UsdcToken.decimals);
   } else {
     usdcReserve = new BigNumber(reserve0).unscaleBy(UsdcToken.decimals);
@@ -315,10 +326,10 @@ const KnownTokensProvider: FC = props => {
   const [reload, version] = useReload();
 
   useEffect(() => {
-    (EnterToken.contract as Erc20Contract).loadCommon().catch(Error);
+    (LeagueToken.contract as Erc20Contract).loadCommon().catch(Error);
 
     (async () => {
-      EnterToken.price = await getEntrPrice().catch(() => undefined);
+      LeagueToken.price = await getEntrPrice().catch(() => undefined);
       UsdcEntrSLPToken.price = await getUsdcEntrSLPPrice().catch(() => undefined);
 
       const ids = KNOWN_TOKENS.map(tk => tk.coinGeckoId)
@@ -360,7 +371,7 @@ const KnownTokensProvider: FC = props => {
 
     // load entr balance for connected wallet
     if (wallet.account) {
-      (EnterToken.contract as Erc20Contract).loadBalance().then(reload).catch(Error);
+      (LeagueToken.contract as Erc20Contract).loadBalance().then(reload).catch(Error);
     }
   }, [wallet.account]);
 

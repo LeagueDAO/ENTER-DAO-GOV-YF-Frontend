@@ -4,7 +4,7 @@ import ContractListener from 'web3/components/contract-listener';
 import Erc20Contract from 'web3/erc20Contract';
 import { ZERO_BIG_NUMBER } from 'web3/utils';
 
-import { EnterToken } from 'components/providers/known-tokens-provider';
+import { LeagueToken } from 'components/providers/known-tokens-provider';
 import config from 'config';
 import useMergeState from 'hooks/useMergeState';
 import { DAOBarnContract, useDAOBarnContract } from 'modules/governance/contracts/daoBarn';
@@ -79,7 +79,7 @@ const DAOProvider: React.FC = props => {
   }, [walletCtx.provider]);
 
   React.useEffect(() => {
-    const entrContract = EnterToken.contract as Erc20Contract;
+    const entrContract = LeagueToken.contract as Erc20Contract;
 
     entrContract.setAccount(walletCtx.account);
     daoBarn.contract.setAccount(walletCtx.account);

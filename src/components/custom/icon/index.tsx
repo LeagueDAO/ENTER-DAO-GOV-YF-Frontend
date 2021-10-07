@@ -9,6 +9,7 @@ import uslpSrc from 'resources/png/token-uslp.png';
 import eslpSrc from 'resources/png/token-eslp.png';
 import universeSrc from 'resources/png/universe.png';
 import enterdaoSrc from 'resources/png/enterdao.png';
+import leaguedaoSrc from 'resources/png/league-dao-dark.png';
 import manaSrc from 'resources/png/mana.png';
 import sandSrc from 'resources/png/sandbox.png';
 import axsSrc from 'resources/png/axie.png';
@@ -19,7 +20,7 @@ import Sprite from 'resources/svg/icons-sprite.svg';
 
 import s from './s.module.scss';
 
-export type LogoIconNames = 'png/enterdao';
+export type LogoIconNames = 'png/league-dao-dark';
 
 export type TokenIconNames =
   | 'bond-circle-token'
@@ -43,6 +44,7 @@ export type TokenIconNames =
   | 'compound'
   | 'png/enter-star'
   | 'png/universe'
+  | 'png/enterdao'
   | 'png/mana'
   | 'png/sandbox'
   | 'png/axie'
@@ -185,6 +187,8 @@ const Icon: React.FC<IconProps> = props => {
   if (isPng) {
     const getSrc = () => {
       switch (name) {
+        case 'png/league-dao-dark':
+          return leaguedaoSrc;
         case 'png/enterdao':
           return enterdaoSrc;
         case 'png/universe':

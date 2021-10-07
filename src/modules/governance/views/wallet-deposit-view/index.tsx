@@ -12,7 +12,7 @@ import Grid from 'components/custom/grid';
 import Icon from 'components/custom/icon';
 import TokenAmount from 'components/custom/token-amount';
 import { Text } from 'components/custom/typography';
-import { EnterToken } from 'components/providers/known-tokens-provider';
+import { LeagueToken } from 'components/providers/known-tokens-provider';
 import useMergeState from 'hooks/useMergeState';
 
 import config from '../../../../config';
@@ -55,15 +55,15 @@ const WalletDepositView: React.FC = () => {
   const [state, setState] = useMergeState<WalletDepositViewState>(InitialState);
 
   const { balance: stakedBalance, userLockedUntil } = daoCtx.daoBarn;
-  const entrBalance = (EnterToken.contract as Erc20Contract).balance?.unscaleBy(EnterToken.decimals);
-  const barnAllowance = (EnterToken.contract as Erc20Contract).getAllowanceOf(config.contracts.dao.barn);
+  const entrBalance = (LeagueToken.contract as Erc20Contract).balance?.unscaleBy(LeagueToken.decimals);
+  const barnAllowance = (LeagueToken.contract as Erc20Contract).getAllowanceOf(config.contracts.dao.barn);
   const isLocked = (userLockedUntil ?? 0) > Date.now();
 
   async function handleSwitchChange(checked: boolean) {
     setState({ enabling: true });
 
     try {
-      await (EnterToken.contract as Erc20Contract).approve(checked, config.contracts.dao.barn);
+      await (LeagueToken.contract as Erc20Contract).approve(checked, config.contracts.dao.barn);
     } catch (e) {
       console.error(e);
     }
@@ -84,7 +84,7 @@ const WalletDepositView: React.FC = () => {
       await daoCtx.daoBarn.actions.deposit(amount, gasPrice.value);
       form.setFieldsValue(InitialFormValues);
       daoCtx.daoBarn.reload();
-      (EnterToken.contract as Erc20Contract).loadBalance().catch(Error);
+      (LeagueToken.contract as Erc20Contract).loadBalance().catch(Error);
     } catch {}
 
     setState({ saving: false });
@@ -112,9 +112,9 @@ const WalletDepositView: React.FC = () => {
     <div className="card">
       <Grid className="card-header" flow="col" gap={24} colsTemplate="1fr 1fr 1fr 1fr 42px" align="start">
         <Grid flow="col" gap={12} align="center">
-          <Icon name="png/enterdao" width={40} height={40} />
+          <Icon name="png/league-dao-dark" width={40} height={40} />
           <Text type="p1" weight="semibold" color="primary">
-            {EnterToken.symbol}
+            {LeagueToken.symbol}
           </Text>
         </Grid>
 
@@ -177,10 +177,10 @@ const WalletDepositView: React.FC = () => {
               <Grid flow="row" gap={32}>
                 <Form.Item name="amount" label="Amount" rules={[{ required: true, message: 'Required' }]}>
                   <TokenAmount
-                    tokenIcon="png/enterdao"
+                    tokenIcon="png/league-dao-dark"
                     max={entrBalance}
-                    maximumFractionDigits={EnterToken.decimals}
-                    name={EnterToken.symbol}
+                    maximumFractionDigits={LeagueToken.decimals}
+                    name={LeagueToken.symbol}
                     displayDecimals={4}
                     disabled={state.saving}
                     slider
