@@ -5,20 +5,20 @@
   // primary regular
   --btn-primary-shadow: 0 10px 20px rgba(136, 120, 172, 0.2);
   --btn-primary-border: 0;
-  --btn-primary-bg: linear-gradient(135deg, #DD3DCB 15.57%, #EF9C92 84.88%);
-  --btn-primary-text: #000;
+  --btn-primary-bg: linear-gradient(135deg, #BCEB00 15.57%, #00EAEA 84.88%);
+  --btn-primary-text: rgba(0, 0, 0, 1);
 
   // primary hover
   --btn-primary-shadow-hover: 0 10px 20px rgba(136, 120, 172, 0.2);
   --btn-primary-border-hover: none;
-  --btn-primary-bg-hover: linear-gradient(0deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), linear-gradient(135deg, #DD3DCB 15.57%, #EF9C92 84.88%);
-  --btn-primary-text-hover: #000;
+  --btn-primary-bg-hover: linear-gradient(0deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), linear-gradient(135deg, #BCEB00 15.57%, #00EAEA 84.88%);
+  --btn-primary-text-hover: rgba(0, 0, 0, 1);
 
   // primary active
   --btn-primary-shadow-active: 0 10px 20px rgba(136, 120, 172, 0.2);
   --btn-primary-border-active: none;
-  --btn-primary-bg-active: linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), linear-gradient(135deg, #DD3DCB 15.57%, #EF9C92 84.88%), #CC362E;
-  --btn-primary-text-active: #000;
+  --btn-primary-bg-active: linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), linear-gradient(135deg, #BCEB00 15.57%, #00EAEA 84.88%), #CC362E;
+  --btn-primary-text-active: rgba(0, 0, 0, 1);
 
   // primary disabled
   --btn-primary-shadow-disabled: none;
@@ -29,19 +29,19 @@
   // default regular
   --btn-default-shadow: none;
   --btn-default-border: 0;
-  --btn-default-bg: linear-gradient(135deg, #DD3DCB 15.57%, #EF9C92 84.88%);
+  --btn-default-bg: linear-gradient(135deg, #BCEB00 15.57%, #00EAEA 84.88%);
   --btn-default-text: var(--theme-primary-color);
 
   // default hover
   --btn-default-shadow-hover: none;
   --btn-default-border-hover: none;
-  --btn-default-bg-hover: linear-gradient(0deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), linear-gradient(135deg, #DD3DCB 15.57%, #EF9C92 84.88%);
+  --btn-default-bg-hover: linear-gradient(0deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), linear-gradient(135deg, #BCEB00 15.57%, #00EAEA 84.88%);
   --btn-default-text-hover: var(--theme-secondary-color);
 
   // default active
   --btn-default-shadow-active: none;
   --btn-default-border-active: none;
-  --btn-default-bg-active: linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), linear-gradient(135deg, #DD3DCB 15.57%, #EF9C92 84.88%), #CC362E;
+  --btn-default-bg-active: linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), linear-gradient(135deg, #BCEB00 15.57%, #00EAEA 84.88%), #CC362E;
   --btn-default-text-active: var(--theme-primary-color);
 
   // default disabled
@@ -53,19 +53,19 @@
   // ghost regular
   --btn-ghost-shadow: none;
   --btn-ghost-border: 0;
-  --btn-ghost-bg: linear-gradient(135deg, #DD3DCB 15.57%, #EF9C92 84.88%);
+  --btn-ghost-bg: linear-gradient(135deg, #BCEB00 15.57%, #00EAEA 84.88%);
   --btn-ghost-text: var(--theme-primary-color);
 
   // ghost hover
   --btn-ghost-shadow-hover: none;
   --btn-ghost-border-hover: none;
-  --btn-ghost-bg-hover: linear-gradient(0deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), linear-gradient(135deg, #DD3DCB 15.57%, #EF9C92 84.88%);
+  --btn-ghost-bg-hover: linear-gradient(0deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), linear-gradient(135deg, #BCEB00 15.57%, #00EAEA 84.88%);
   --btn-ghost-text-hover: var(--theme-secondary-color);
 
   // ghost active
   --btn-ghost-shadow-active: none;
   --btn-ghost-border-active: none;
-  --btn-ghost-bg-active: linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), linear-gradient(135deg, #DD3DCB 15.57%, #EF9C92 84.88%), #CC362E;
+  --btn-ghost-bg-active: linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), linear-gradient(135deg, #BCEB00 15.57%, #00EAEA 84.88%), #CC362E;
   --btn-ghost-text-active: var(--theme-primary-color);
 
   // ghost disabled
@@ -91,14 +91,14 @@
   --btn-select-border: 1px solid var(--btn-primary-border);
   --btn-select-border-hover: 1px solid var(--btn-primary-border-active);
   --btn-select-border-active: 1px solid var(--btn-primary-border-active);
-  --btn-select-bg: #F1DBEE;
-  --btn-select-selected-bg: #F1DBEE;
+  --btn-select-bg: rgba(255, 255, 255, 1);
+  --btn-select-selected-bg: var(--gradient-green);
 }
 
 [data-theme='dark'] .component {
   // default disabled
   --btn-default-bg-disabled: rgba(147, 148, 150, 0.08);
-  --btn-default-text-disabled: #939496;
+  --btn-default-text-disabled: rgba(248, 248, 249, 1);
 
   // primary disabled
   --btn-primary-bg-disabled: rgba(255, 255, 255, 0.1);
@@ -107,7 +107,7 @@
   // ghost disabled
   --btn-ghost-border-disabled: 1px solid #43484d;
   --btn-ghost-bg-disabled: rgba(147, 148, 150, 0.08);
-  --btn-ghost-text-disabled: #939496;
+  --btn-ghost-text-disabled: rgba(248, 248, 249, 1);
 
   // link
   --btn-link-text: #{$color-blue400};
@@ -118,8 +118,8 @@
   --btn-select-border: 1px solid var(--btn-primary-border);
   --btn-select-border-hover: 1px solid var(--btn-primary-border-active);
   --btn-select-border-active: 1px solid var(--btn-primary-border-active);
-  --btn-select-bg: #1F1B59;
-  --btn-select-bg-hover: #1F1B59;
+  --btn-select-bg: rgba(32, 41, 82, 1);
+  --btn-select-bg-hover: rgba(32, 37, 41, 1);
 }
 
 .component:global(.ant-btn) {
@@ -147,15 +147,15 @@
   }
 
   &:global(.ant-btn-primary) {
-    box-shadow: var(--btn-primary-shadow);
+    // box-shadow: 0 10px 20px rgba(136, 120, 172, 0.2);
     border: var(--btn-primary-border);
-    background: var(--btn-primary-bg);
+    background: var(--theme-yellow-color);
     color: var(--btn-primary-text);
 
     &:hover {
-      box-shadow: var(--btn-primary-shadow-hover);
+      // box-shadow: var(--btn-primary-shadow-hover);
       border: var(--btn-primary-border-hover);
-      background: var(--btn-primary-bg-hover);
+      background: rgba(255, 209, 44, 1);
       color: var(--btn-primary-text-hover);
     }
 
@@ -170,15 +170,13 @@
     &:disabled:hover {
       box-shadow: var(--btn-primary-shadow-disabled);
       border: var(--btn-primary-border-disabled);
-      background: var(--btn-primary-bg-disabled);
-      color: var(--btn-primary-text-disabled);
     }
   }
 
   &:global(.ant-btn-default) {
     box-shadow: var(--btn-default-shadow);
     border: var(--btn-default-border);
-    background: var(--btn-default-bg);
+    background: transparent;
     color: var(--btn-default-text);
 
     & {
@@ -198,9 +196,10 @@
         bottom: -1px;
         display: block;
         position: absolute;
-        background: linear-gradient(135deg, #DD3DCB 15.57%, #EF9C92 84.88%);
+        background: transparent;
         border-radius: 12px;
         z-index: 0 !important;
+        border: 2px solid rgba(255, 209, 44, 1);
       }
       &::after {
         content: '';
@@ -211,7 +210,7 @@
         display: block;
         position: absolute;
         border-radius: 12px;
-        background: var(--btn-select-bg);
+        background: rgba(37, 38, 65, 1);
         z-index: 0 !important;
       }
 
@@ -294,7 +293,7 @@
         bottom: -1px;
         display: block;
         position: absolute;
-        background: linear-gradient(135deg, #DD3DCB 15.57%, #EF9C92 84.88%);
+        background: linear-gradient(135deg, #BCEB00 15.57%, #00EAEA 84.88%);
         border-radius: 12px;
         z-index: 0 !important;
       }
@@ -327,7 +326,7 @@
     height: auto;
     padding: 0;
     border: 0;
-    color: var(--btn-link-text);
+    color: rgba(255, 255, 255, 1);
 
     &:hover {
       color: var(--btn-link-text-hover);
@@ -338,10 +337,14 @@
     }
 
     &.light {
-      color: var(--btn-light-text);
+      color: rgba(0, 0, 0, 1);
+      background: var(--theme-yellow-color);
+      padding: 8px 16px;
+      border-radius: 6px;
+      margin-left: 18px;
 
       &:hover {
-        color: var(--btn-light-text-hover);
+        background: rgba(255, 209, 44, 1);
       }
 
       &:active {

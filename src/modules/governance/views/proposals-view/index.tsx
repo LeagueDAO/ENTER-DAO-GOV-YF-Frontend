@@ -11,7 +11,7 @@ import ExternalLink from 'components/custom/externalLink';
 import Grid from 'components/custom/grid';
 import Icon from 'components/custom/icon';
 import { Text } from 'components/custom/typography';
-import { EnterToken } from 'components/providers/known-tokens-provider';
+import { XyzToken } from 'components/providers/known-tokens-provider';
 import useMergeState from 'hooks/useMergeState';
 import ProposalsProvider, { useProposals } from 'modules/governance/views/proposals-view/providers/ProposalsProvider';
 import { useWallet } from 'wallets/wallet';
@@ -19,6 +19,7 @@ import { useWallet } from 'wallets/wallet';
 import { useDAO } from '../../components/dao-provider';
 import ActivationThreshold from '../overview-view/components/activation-threshold';
 import ProposalsTable from './components/proposals-table';
+import { useGeneral } from 'components/providers/general-provider';
 
 import s from './s.module.scss';
 
@@ -37,6 +38,8 @@ const ProposalsViewInner: React.FC = () => {
   const wallet = useWallet();
   const daoCtx = useDAO();
   const proposalsCtx = useProposals();
+
+  const { isDarkTheme } = useGeneral();
 
   const [state, setState] = useMergeState<ProposalsViewState>(InitialState);
 
@@ -72,7 +75,7 @@ const ProposalsViewInner: React.FC = () => {
             {hasCreateRestrictions && !canCreateProposal && (
               <Grid flow="col" gap={8} align="center">
                 <Text type="small" weight="semibold" color="secondary">
-                  You are not able to create a proposal.
+                  {/* You are not able to create a proposal. */}
                 </Text>
                 <Popover
                   title="Why you can’t create a proposal"
@@ -93,13 +96,13 @@ const ProposalsViewInner: React.FC = () => {
                         <li>
                           <Text type="p2" weight="semibold" color="primary">
                             You don’t have enough voting power to create a proposal. The creator of a proposal needs to
-                            have a voting power of at least {daoCtx.minThreshold}% of the amount of ${EnterToken.symbol}{' '}
+                            have a voting power of at least {daoCtx.minThreshold}% of the amount of ${XyzToken.symbol}{' '}
                             staked in the DAO.
                           </Text>
                         </li>
                       </ul>
 
-                      <ExternalLink href="https://docs.enterdao.xyz/">
+                      <ExternalLink href="https://docs.universe.xyz/">
                         <Text type="p2" weight="semibold" color="blue">
                           Learn more
                         </Text>
@@ -108,7 +111,7 @@ const ProposalsViewInner: React.FC = () => {
                   }
                   visible={state.showWhyReason}
                   onVisibleChange={visible => setState({ showWhyReason: visible })}>
-                  <Button type="link">See why</Button>
+                  {/* <Button type="link">See why</Button> */}
                 </Popover>
               </Grid>
             )}
@@ -124,6 +127,13 @@ const ProposalsViewInner: React.FC = () => {
             <Tabs.Tab key="executed" tab="Executed" />
             <Tabs.Tab key="failed" tab="Failed" />
           </Tabs>
+          <Input
+            className={s.search}
+            prefix={<Icon name="search-outlined" width={16} height={16} />}
+            placeholder="Search proposal"
+            onChange={ev => handleSearchChange(ev)}
+            style={{background: isDarkTheme ? '#252641' : '#FFFFFF'}}
+          />
         </div>
         <ProposalsTable />
       </div>

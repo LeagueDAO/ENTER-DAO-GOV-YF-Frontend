@@ -8,6 +8,7 @@
 
     :global(.ant-menu) {
       border-radius: 4px;
+      background: #252641;
     }
 
     :global(.ant-menu-item) {
@@ -19,7 +20,7 @@
       align-items: center;
       justify-content: flex-start;
       margin: 4px;
-      color: var(--theme-secondary-color);
+      color: rgba(255, 255, 255, 1);
 
       &:global(.ant-menu-item-active) {
         background: var(--theme-body-color);

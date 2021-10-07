@@ -1,19 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
 @font-face {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-style: normal;
-  font-weight: 500;
-  src: url('../resources/fonts/poppins/Poppins-Medium.eot') format('eot');
-  src: url('../resources/fonts/poppins/Poppins-Medium.woff2') format('woff2'),
-  url('../resources/fonts/poppins/Poppins-Medium.woff') format('woff');
+  font-weight: 600;
+  src: url('../resources/fonts/SharpGroteskMedium25.eot') format('eot');
+  src: url('../resources/fonts/SharpGroteskMedium25.woff2') format('woff2'),
+  url('../resources/fonts/SharpGroteskMedium25.woff') format('woff');
 }
 
 @font-face {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-style: normal;
   font-weight: 700;
-  src: url('../resources/fonts/poppins/Poppins-Bold.eot') format('eot');
-  src: url('../resources/fonts/poppins/Poppins-Bold.woff2') format('woff2'),
-  url('../resources/fonts/poppins/Poppins-Bold.woff') format('woff');
+  src: url('../resources/fonts/SharpGroteskSmBold25.eot') format('eot');
+  src: url('../resources/fonts/SharpGroteskSmBold25.woff2') format('woff2'),
+  url('../resources/fonts/SharpGroteskSmBold25.woff') format('woff');
 }
 
 @mixin font($size, $height, $weight: normal, $style: normal, $family: var(--font-family)) {

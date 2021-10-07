@@ -40,7 +40,7 @@ export class YfPoolContract extends Web3Contract {
   toClaim?: BigNumber;
 
   // computed data
-  get lastActiveEpoch(): number | undefined {
+  get lastActiveWeek(): number | undefined {
     if (this.currentEpoch === undefined || this.totalEpochs === undefined) {
       return undefined;
     }
@@ -95,18 +95,18 @@ export class YfPoolContract extends Web3Contract {
   }
 
   get distributedReward(): number | undefined {
-    const lastActiveEpoch = this.lastActiveEpoch;
+    const lastActiveWeek = this.lastActiveWeek;
     const epochReward = this.epochReward;
 
-    if (lastActiveEpoch === undefined || epochReward === undefined) {
+    if (lastActiveWeek === undefined || epochReward === undefined) {
       return undefined;
     }
 
-    if (lastActiveEpoch === 0) {
+    if (lastActiveWeek === 0) {
       return 0;
     }
 
-    return epochReward * (lastActiveEpoch === this.totalEpochs ? lastActiveEpoch : lastActiveEpoch - 1);
+    return epochReward * (lastActiveWeek === this.totalEpochs ? lastActiveWeek : lastActiveWeek - 1);
   }
 
   async loadCommon(): Promise<void> {

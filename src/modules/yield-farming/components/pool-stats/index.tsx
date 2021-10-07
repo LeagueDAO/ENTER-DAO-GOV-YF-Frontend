@@ -4,14 +4,16 @@ import { formatToken, formatUSD } from 'web3/utils';
 
 import ExternalLink from 'components/custom/externalLink';
 import { Hint, Text } from 'components/custom/typography';
-import { EnterToken } from 'components/providers/known-tokens-provider';
-import { ENTR_MARKET_LINK } from 'config';
+import { XyzToken } from 'components/providers/known-tokens-provider';
+import { XYZ_MARKET_LINK } from 'config';
 import { UseLeftTime } from 'hooks/useLeftTime';
 
 import { useYFPool } from '../../providers/pool-provider';
 import { useYFPools } from '../../providers/pools-provider';
 
 import { getFormattedDuration } from 'utils';
+
+import { useGeneral } from 'components/providers/general-provider';
 
 import s from './s.module.scss';
 
@@ -23,6 +25,7 @@ const PoolStats: React.FC<Props> = ({ className }) => {
   const yfPoolsCtx = useYFPools();
   const yfPoolCtx = useYFPool();
   const { poolMeta } = yfPoolCtx;
+  const { isDarkTheme } = useGeneral();
 
   const yfTotalStakedInUSD = yfPoolsCtx.getYFTotalStakedInUSD();
   const yfTotalEffectiveStakedInUSD = yfPoolsCtx.getYFTotalEffectiveStakedInUSD();
@@ -71,12 +74,12 @@ const PoolStats: React.FC<Props> = ({ className }) => {
             className="mb-48"
             text={
               <Text type="p2">
-                This number shows the ${EnterToken.symbol} token rewards distributed so far out of the total of{' '}
+                This number shows the ${XyzToken.symbol} token rewards distributed so far out of the total of{' '}
                 {formatToken(yfTotalSupply) ?? '-'} that are going to be available for Yield Farming.
               </Text>
             }>
             <Text type="lb2" weight="semibold" color="primary" className={s.label}>
-              {EnterToken.symbol} Rewards
+              {XyzToken.symbol} Rewards
             </Text>
           </Hint>
           <div className="flex flow-row">
@@ -90,24 +93,23 @@ const PoolStats: React.FC<Props> = ({ className }) => {
         </div>
       </div>
 
-      {/* ToDo: Uncomment after SushiSwap deployment */}
-      {/* <div className="card p-24">
+      <div className="card p-24">
         <div className="flex flow-row justify-space-between full-height">
           <Text type="lb2" weight="semibold" color="primary" className={cn(s.label, 'mb-48')}>
-            {EnterToken.symbol} Price
+            {XyzToken.symbol} Price
           </Text>
           <div className="flex flow-row">
             <Text type="h2" weight="bold" color="primary" className="mb-4">
-              {formatUSD(EnterToken.price) ?? '-'}
+              {formatUSD(XyzToken.price) ?? '-'}
             </Text>
-            <ExternalLink href={ENTR_MARKET_LINK} className="link-gradient">
-              <Text type="p1" weight="semibold" color="var(--gradient-blue-safe)" textGradient="var(--gradient-blue)">
+            <ExternalLink href={XYZ_MARKET_LINK} className="link-gradient">
+              <Text type="p1" weight="semibold" style={{ color: isDarkTheme ? '#FFFFFF' : '#000000' }} textGradient="var(--gradient-blue)">
                 SushiSwap market
               </Text>
             </ExternalLink>
           </div>
         </div>
-      </div> */}
+      </div>
 
       {!isEnded && (
         <div className="card p-24">

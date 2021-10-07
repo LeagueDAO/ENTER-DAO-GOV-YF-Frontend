@@ -3,6 +3,7 @@ import { SelectValue } from 'antd/lib/select';
 import { ColumnsType } from 'antd/lib/table/interface';
 import format from 'date-fns/format';
 import { formatToken, formatUSD, getEtherscanAddressUrl, getEtherscanTxUrl, shortenAddr } from 'web3/utils';
+import ReactTimeAgo from 'react-time-ago'
 
 import Select, { SelectOption } from 'components/antd/select';
 import Table from 'components/antd/table';
@@ -13,7 +14,7 @@ import { Text } from 'components/custom/typography';
 import { convertTokenInUSD, getTokenByAddress } from 'components/providers/known-tokens-provider';
 import { useReload } from 'hooks/useReload';
 import { useWallet } from 'wallets/wallet';
-
+import './index.scss'
 import { APIYFPoolActionType, APIYFPoolTransaction, fetchYFPoolTransactions } from '../../api';
 import { useYFPool } from '../../providers/pool-provider';
 import { useYFPools } from '../../providers/pools-provider';
@@ -47,8 +48,8 @@ const InitialState: State = {
 function getColumns(isAll: boolean): ColumnsType<TableEntity> {
   return [
     {
-      title: 'Transaction',
-      width: '25%',
+      title: 'Transaction type',
+      width: '20%',
       render: function TransactionColumn(_, entity) {
         const knownToken = getTokenByAddress(entity.tokenAddress);
 
@@ -74,7 +75,7 @@ function getColumns(isAll: boolean): ColumnsType<TableEntity> {
     },
     {
       title: 'Amount',
-      width: '25%',
+      width: '20%',
       render: function AmountColumn(_, entity) {
         const isStake = entity.actionType === APIYFPoolActionType.DEPOSIT;
         const knownToken = getTokenByAddress(entity.tokenAddress);
@@ -96,8 +97,8 @@ function getColumns(isAll: boolean): ColumnsType<TableEntity> {
               className="mb-4">
               {isStake ? '+' : '-'}
               {formatToken(amount, {
-                tokenName: knownToken.symbol,
-                decimals: knownToken.decimals,
+                // tokenName: knownToken.symbol,
+                // decimals: knownToken.decimals,
               }) ?? '-'}
             </Text>
             <Text type="small" weight="semibold" wrap={false}>
@@ -111,10 +112,10 @@ function getColumns(isAll: boolean): ColumnsType<TableEntity> {
       ? {
         title: 'Address',
         dataIndex: 'from',
-        width: '25%',
+        width: '20%',
         render: (_, entity) => (
-          <ExternalLink href={getEtherscanAddressUrl(entity.userAddress)} className="link-blue">
-            <Text type="p1" weight="semibold" color="var(--gradient-blue-safe)" textGradient="var(--gradient-blue)">
+          <ExternalLink href={getEtherscanAddressUrl(entity.userAddress)}>
+            <Text type="p1" weight="semibold" color="primary" >
               {shortenAddr(entity.userAddress)}
             </Text>
           </ExternalLink>
@@ -122,17 +123,26 @@ function getColumns(isAll: boolean): ColumnsType<TableEntity> {
       }
       : {},
     {
-      title: 'Transaction hash/timestamp',
-      width: '25%',
+      title: 'Transaction hash',
+      width: '20%',
       render: (_, entity) => (
         <>
-          <ExternalLink href={getEtherscanTxUrl(entity.transactionHash)} className="link-blue mb-4">
-            <Text type="p1" weight="semibold" color="var(--gradient-blue-safe)" textGradient="var(--gradient-blue)">
+          <ExternalLink href={getEtherscanTxUrl(entity.transactionHash)} className="mb-4">
+            <Text type="p1" weight="semibold" color="primary" >
               {shortenAddr(entity.transactionHash)}
             </Text>
           </ExternalLink>
+        </>
+      ),
+    },
+    {
+      title: 'Time',
+      width: '20%',
+      render: (_, entity) => (
+        <>
           <Text type="small" weight="semibold" color="secondary">
-            {format(entity.blockTimestamp * 1_000, 'MM.dd.yyyy HH:mm')}
+            ~<ReactTimeAgo date={entity.blockTimestamp * 1_000} locale="en-US" />
+            {/* ~{format(entity.blockTimestamp * 1_000, 'MM.dd.yyyy HH:mm')} */}
           </Text>
         </>
       ),
@@ -156,6 +166,7 @@ const TX_OPTS: SelectOption[] = [
 ];
 
 const PoolTransactions: FC = () => {
+
   const walletCtx = useWallet();
   const poolsCtx = useYFPools();
   const poolCtx = useYFPool();
@@ -285,8 +296,9 @@ const PoolTransactions: FC = () => {
 
   return (
     <div className="card mb-32">
-      <div className="card-header flex flow-col align-center justify-space-between pv-0" style={{ overflowX: 'auto' }}>
+      <div className="card-header flex flow-col align-center  pv-0 header-select-section" style={{ overflowX: 'auto' }}>
         <Tabs
+          className="tab-section"
           activeKey={activeTab}
           style={{ flexShrink: 0 }}
           tabs={[
@@ -305,11 +317,12 @@ const PoolTransactions: FC = () => {
           ]}
           onClick={setActiveTab}
         />
-        <div className="flex align-center">
+        <div className="flex align-center mobile-select">
           {tokens.length! > 1 && (
             <Select
-              className="mr-16"
+              className="mr-16 all-tokens"
               style={{ minWidth: 150 }}
+              label="Period"
               options={[
                 {
                   value: 'all',
@@ -327,6 +340,7 @@ const PoolTransactions: FC = () => {
 
           <Select
             style={{ minWidth: 200 }}
+            label="Show"
             options={TX_OPTS}
             value={state.filters.actionType}
             onChange={handleTypeFilterChange}
@@ -339,18 +353,18 @@ const PoolTransactions: FC = () => {
         dataSource={state.transactions}
         loading={state.loading}
         rowKey="transactionHash"
-        pagination={{
-          total: state.total,
-          current: state.page,
-          pageSize: state.pageSize,
-          position: ['bottomRight'],
-          showTotal: (total: number, [from, to]: [number, number]) => (
-            <Text type="p2" weight="semibold" color="secondary">
-              Showing {from} to {to} the most recent {total}
-            </Text>
-          ),
-          onChange: handlePageChange,
-        }}
+        // pagination={{
+        //   total: state.total,
+        //   current: state.page,
+        //   pageSize: state.pageSize,
+        //   position: ['bottomRight'],
+        //   showTotal: (total: number, [from, to]: [number, number]) => (
+        //     <Text type="p2" weight="semibold" color="secondary">
+        //       Showing {from} to {to} out of {total} transactions
+        //     </Text>
+        //   ),
+        //   onChange: handlePageChange,
+        // }}
         scroll={{
           x: true,
         }}
