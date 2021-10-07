@@ -9,8 +9,9 @@ import uslpSrc from 'resources/png/token-uslp.png';
 import eslpSrc from 'resources/png/token-eslp.png';
 import universeSrc from 'resources/png/universe.png';
 import enterdaoSrc from 'resources/png/enterdao.png';
+import snxSrc from 'resources/png/snx.png';
 import leaguedaoSrc from 'resources/png/league-dao-dark.png';
-import manaSrc from 'resources/png/mana.png';
+import ionxSrc from 'resources/png/ionx.png';
 import sandSrc from 'resources/png/sandbox.png';
 import axsSrc from 'resources/png/axie.png';
 import addEnterSrc from 'resources/png/add-enter.png';
@@ -45,7 +46,8 @@ export type TokenIconNames =
   | 'png/enter-star'
   | 'png/universe'
   | 'png/enterdao'
-  | 'png/mana'
+  | 'png/snx'
+  | 'png/ionx'
   | 'png/sandbox'
   | 'png/axie'
   | 'png/aave'
@@ -191,10 +193,12 @@ const Icon: React.FC<IconProps> = props => {
           return leaguedaoSrc;
         case 'png/enterdao':
           return enterdaoSrc;
+        case 'png/snx':
+          return snxSrc;
         case 'png/universe':
           return universeSrc;
-        case 'png/mana':
-          return manaSrc;
+        case 'png/ionx':
+          return ionxSrc;
         case 'png/sandbox':
           return sandSrc;
         case 'png/axie':

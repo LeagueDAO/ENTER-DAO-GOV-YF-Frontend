@@ -17,13 +17,13 @@ export enum KnownTokens {
   XYZ = 'XYZ',
   USDC = 'USDC',
   BOND = 'BOND',
-  MANA = 'MANA',
+  IONX = 'IONX',
   AAVE = 'AAVE',
-  SAND = 'SAND',
+  LINK = 'LINK',
   SUSHI = 'SUSHI',
-  AXS = 'AXS',
+  SNX = 'SNX',
   ILV = 'ILV',
-  USDC_ENTR_SLP = 'USDC_ENTR_SUSHI_LP',
+  USDC_LEAG_SLP = 'USDC_LEAG_SUSHI_LP',
 }
 
 export type TokenMeta = {
@@ -61,6 +61,7 @@ export const EnterToken: TokenMeta = {
   name: 'EnterDAO Governance Token',
   decimals: 18,
   icon: 'png/enterdao' as any,
+  coinGeckoId: 'enterdao',
   contract: new Erc20Contract([], config.tokens.entr),
 };
 
@@ -74,14 +75,14 @@ export const UsdcToken: TokenMeta = {
   contract: new Erc20Contract([], config.tokens.usdc),
 };
 
-export const ManaToken: TokenMeta = {
-  address: config.tokens.mana,
-  symbol: KnownTokens.MANA,
-  name: 'MANA',
+export const IonxToken: TokenMeta = {
+  address: config.tokens.ionx,
+  symbol: KnownTokens.IONX,
+  name: 'IONX',
   decimals: 18,
-  icon: 'png/mana',
-  coinGeckoId: 'decentraland',
-  contract: new Erc20Contract([], config.tokens.mana),
+  icon: 'png/ionx',
+  coinGeckoId: 'charged-particles',
+  contract: new Erc20Contract([], config.tokens.ionx),
 };
 
 export const BondToken: TokenMeta = {
@@ -104,14 +105,14 @@ export const XyzToken: TokenMeta = {
   contract: new Erc20Contract([], config.tokens.xyz),
 };
 
-export const SandToken: TokenMeta = {
-  address: config.tokens.sand,
-  symbol: KnownTokens.SAND,
-  name: 'Sandbox',
+export const LinkToken: TokenMeta = {
+  address: config.tokens.link,
+  symbol: KnownTokens.LINK,
+  name: 'Chainlink',
   decimals: 18,
-  icon: 'png/sandbox',
-  coinGeckoId: 'the-sandbox',
-  contract: new Erc20Contract([], config.tokens.sand),
+  icon: 'png/link',
+  coinGeckoId: 'chainlink',
+  contract: new Erc20Contract([], config.tokens.link),
 };
 
 export const SushiToken: TokenMeta = {
@@ -124,14 +125,14 @@ export const SushiToken: TokenMeta = {
   contract: new Erc20Contract([], config.tokens.sushi),
 };
 
-export const AxsToken: TokenMeta = {
-  address: config.tokens.axs,
-  symbol: KnownTokens.AXS,
-  name: 'Axie Infinity',
+export const SnxToken: TokenMeta = {
+  address: config.tokens.snx,
+  symbol: KnownTokens.SNX,
+  name: 'Synthetix Network Token',
   decimals: 18,
-  icon: 'png/axie',
-  coinGeckoId: 'axie-infinity',
-  contract: new Erc20Contract([], config.tokens.axs),
+  icon: 'png/snx',
+  coinGeckoId: 'synthetix-network-token',
+  contract: new Erc20Contract([], config.tokens.snx),
 };
 
 export const IlvToken: TokenMeta = {
@@ -144,13 +145,13 @@ export const IlvToken: TokenMeta = {
   contract: new Erc20Contract([], config.tokens.ilv),
 };
 
-export const UsdcEntrSLPToken: TokenMeta = {
-  address: config.tokens.usdcEntrSLP,
-  symbol: KnownTokens.USDC_ENTR_SLP,
-  name: 'USDC ENTR SUSHI LP',
+export const UsdcLeagSLPToken: TokenMeta = {
+  address: config.tokens.usdcLeagSLP,
+  symbol: KnownTokens.USDC_LEAG_SLP,
+  name: 'USDC LEAG SUSHI LP',
   decimals: 18,
   icon: 'png/eslp',
-  contract: new Erc20Contract([], config.tokens.usdcEntrSLP),
+  contract: new Erc20Contract([], config.tokens.usdcLeagSLP),
 };
 
 const KNOWN_TOKENS: TokenMeta[] = [
@@ -159,13 +160,13 @@ const KNOWN_TOKENS: TokenMeta[] = [
   EnterToken,
   UsdcToken,
   BondToken,
-  ManaToken,
+  IonxToken,
   XyzToken,
-  SandToken,
+  LinkToken,
   SushiToken,
-  AxsToken,
+  SnxToken,
   IlvToken,
-  UsdcEntrSLPToken,
+  UsdcLeagSLPToken,
 ];
 
 (window as any).KNOWN_TOKENS = KNOWN_TOKENS;
@@ -215,7 +216,7 @@ const LP_PRICE_FEED_ABI: AbiItem[] = [
 
 // ToDo: Check the ENTR price calculation
 async function getEntrPrice(): Promise<BigNumber> {
-  const priceFeedContract = new Erc20Contract(LP_PRICE_FEED_ABI, UsdcEntrSLPToken.address);
+  const priceFeedContract = new Erc20Contract(LP_PRICE_FEED_ABI, UsdcLeagSLPToken.address);
 
   const [token0, { 0: reserve0, 1: reserve1 }] = await priceFeedContract.batch([
     { method: 'token0' },
@@ -242,7 +243,7 @@ async function getEntrPrice(): Promise<BigNumber> {
 
 // ToDo: Check the SLP price calculation
 async function getUsdcEntrSLPPrice(): Promise<BigNumber> {
-  const priceFeedContract = new Erc20Contract(LP_PRICE_FEED_ABI, UsdcEntrSLPToken.address);
+  const priceFeedContract = new Erc20Contract(LP_PRICE_FEED_ABI, UsdcLeagSLPToken.address);
 
   const [decimals, totalSupply, token0, { 0: reserve0, 1: reserve1 }] = await priceFeedContract.batch([
     { method: 'decimals', transform: Number },
@@ -330,7 +331,7 @@ const KnownTokensProvider: FC = props => {
 
     (async () => {
       LeagueToken.price = await getEntrPrice().catch(() => undefined);
-      UsdcEntrSLPToken.price = await getUsdcEntrSLPPrice().catch(() => undefined);
+      UsdcLeagSLPToken.price = await getUsdcEntrSLPPrice().catch(() => undefined);
 
       const ids = KNOWN_TOKENS.map(tk => tk.coinGeckoId)
         .filter(Boolean)
