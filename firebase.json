@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "enterdao",
+    "site": "dao-yf",
     "public": "build",
     "ignore": [
       "firebase.json",
