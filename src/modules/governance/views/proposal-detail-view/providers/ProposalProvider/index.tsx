@@ -120,11 +120,11 @@ const ProposalProvider: React.FC<ProposalProviderProps> = props => {
       againstRate,
     });
 
-    daoCtx.daoBarn.actions.entrStakedAtTs(createTime + warmUpDuration).then(entrStakedAt => {
+    daoCtx.daoBarn.actions.leagStakedAtTs(createTime + warmUpDuration).then(leagStakedAt => {
       let quorum: number | undefined;
 
-      if (entrStakedAt?.gt(ZERO_BIG_NUMBER)) {
-        quorum = total.multipliedBy(100).div(entrStakedAt).toNumber();
+      if (leagStakedAt?.gt(ZERO_BIG_NUMBER)) {
+        quorum = total.multipliedBy(100).div(leagStakedAt).toNumber();
       }
 
       setState({ quorum });
@@ -142,9 +142,9 @@ const ProposalProvider: React.FC<ProposalProviderProps> = props => {
       thresholdRate: undefined,
     });
 
-    const { entrStaked } = daoCtx.daoBarn;
+    const { leagStaked } = daoCtx.daoBarn;
 
-    if (!state.proposal || !entrStaked || entrStaked.isEqualTo(ZERO_BIG_NUMBER)) {
+    if (!state.proposal || !leagStaked || leagStaked.isEqualTo(ZERO_BIG_NUMBER)) {
       return;
     }
 
@@ -153,11 +153,11 @@ const ProposalProvider: React.FC<ProposalProviderProps> = props => {
     daoCtx.daoBarn.actions.votingPower(proposer).then(votingPower => {
       if (votingPower) {
         setState({
-          thresholdRate: votingPower.div(entrStaked).multipliedBy(100).toNumber(),
+          thresholdRate: votingPower.div(leagStaked).multipliedBy(100).toNumber(),
         });
       }
     });
-  }, [state.proposal, daoCtx.daoBarn.entrStaked]);
+  }, [state.proposal, daoCtx.daoBarn.leagStaked]);
 
   React.useEffect(() => {
     setState({

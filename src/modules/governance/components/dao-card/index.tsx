@@ -49,7 +49,7 @@ const DaoCard: FC = () => {
         <div className="flex flow-col">
           <Icon name="png/league-dao-dark" className="mr-4" />
           <Text type="p1" weight="semibold" color="primary">
-            {formatToken(daoBarn.entrStaked) ?? '-'}
+            {formatToken(daoBarn.leagStaked) ?? '-'}
           </Text>
         </div>
       </div>
