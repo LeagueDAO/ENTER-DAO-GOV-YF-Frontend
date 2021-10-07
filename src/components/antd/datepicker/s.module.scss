@@ -18,8 +18,8 @@
   }
 
   &:global(.ant-picker-disabled) {
-    background: var(--theme-overlay-color);
-    border: 0;
+    // background: rgba(37, 38, 65, 1);
+    border: 1;
 
     &::placeholder {
       color: var(--theme-secondary-color);

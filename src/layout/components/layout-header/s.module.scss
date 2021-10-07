@@ -5,7 +5,7 @@
   display: flex;
   padding: 12px var(--horizontal-padding);
   position: relative;
-  box-shadow: var(--theme-header-shadow);
+
 
   @media (max-width: 1024px) {
     padding: 24px 12px;
@@ -110,19 +110,19 @@
 
 .logo {
   margin-right: 3px;
-  width: 56px;
-  height: 56px;
+  width: 67px;
+  height: 44px;
 
   @media (max-width: 1023px) {
-    width: 44px;
-    height: 44px;
+    width: 54px;
+    height: 36px;
   }
 }
 
 .title {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Gilroy', sans-serif;
   color: var(--theme-primary-color);
-  font-size: 18px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 600;
   line-height: 24px;
@@ -193,7 +193,7 @@
 }
 
 .dropdownLink:hover {
-  background: var(--theme-overlay-color);
+  background: rgba(0, 0, 0, 0.05);
   color: var(--theme-primary-color);
 
   .dropdownIcon {
@@ -202,7 +202,7 @@
 }
 
 .dropdownLink:active {
-  background: var(--theme-overlay-color);
+  background: rgba(0, 0, 0, 0.1);
   color: var(--theme-primary-color);
 
   .dropdownIcon {
@@ -222,7 +222,7 @@
 .themeSwitcher {
   margin: 20px auto;
   padding: 11px 24px;
-  font-family: inherit;
+  font-family: 'Manrope';
   font-size: 16px;
   font-weight: 500;
   line-height: 20px;
@@ -234,10 +234,10 @@
   border: 1px solid rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   border-radius: 12px;
-  color: #fff;
+  color: rgba(255, 255, 255, 1);
 
   svg {
-    color: #fff;
+    color: rgba(255, 255, 255, 1);
     margin-right: 10px;
   }
 }
@@ -245,13 +245,14 @@
 .addTokenWrapper {
   padding-right: 20px;
   margin-right: 20px;
-  border-right: 1px solid var(--theme-border-color);
+  // border-right: 1px solid var(--theme-border-color);
+  display: none;
 }
 
 .addTokenButton {
   width: 28px;
   height: 28px;
-  display: flex;
+  // display: flex;
   align-items: center;
   justify-content: center;
   border: 0;

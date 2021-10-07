@@ -26,10 +26,10 @@ const AbrogationDetailsCard: React.FC = () => {
               Created by
             </Text>
             <Grid flow="col" gap={8}>
-              <Identicon address={abrogationCtx.abrogation?.creator} width={24} height={24} />
-              <ExternalLink href={`${getEtherscanAddressUrl(abrogationCtx.abrogation?.creator)}`}>
+              <Identicon address={abrogationCtx.abrogation?.caller} width={24} height={24} />
+              <ExternalLink href={`${getEtherscanAddressUrl(abrogationCtx.abrogation?.caller)}`}>
                 <Text type="p1" weight="semibold" color="blue">
-                  {shortenAddr(abrogationCtx.abrogation?.creator)}
+                  {shortenAddr(abrogationCtx.abrogation?.caller)}
                 </Text>
               </ExternalLink>
             </Grid>

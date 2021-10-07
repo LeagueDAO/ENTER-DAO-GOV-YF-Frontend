@@ -9,6 +9,7 @@ const OverviewView: React.FC = () => {
   const dao = useDAO();
 
   return (
+    
     <>
       {dao.isActive === false && <ActivationThreshold className="full-width mb-32" />}
       <VotingStatList className="mb-32" />

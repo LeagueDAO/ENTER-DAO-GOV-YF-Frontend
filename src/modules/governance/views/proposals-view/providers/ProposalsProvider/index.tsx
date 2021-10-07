@@ -67,7 +67,7 @@ const ProposalsProvider: React.FC<ProposalsProviderProps> = props => {
       loading: true,
     });
 
-    fetchProposals(state.page, state.pageSize, state.stateFilter)
+    fetchProposals(state.page, state.pageSize, state.stateFilter, state.searchFilter)
       .then(data => {
         setState({
           loading: false,

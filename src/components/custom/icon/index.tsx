@@ -1,25 +1,20 @@
 import React, { CSSProperties } from 'react';
 import cn from 'classnames';
-
-import aaveSrc from 'resources/png/token-aave.png';
+import ionxSrc from 'resources/png/token-ionx.png';
+import entrSrc from 'resources/png/token-entr.png';
+import xyzSrc from 'resources/png/token-xyz.png';
 import ilvSrc from 'resources/png/token-ilv.png';
 import linkSrc from 'resources/png/token-link.png';
 import sushiSrc from 'resources/png/token-sushi.png';
 import uslpSrc from 'resources/png/token-uslp.png';
-import eslpSrc from 'resources/png/token-eslp.png';
 import universeSrc from 'resources/png/universe.png';
-import enterdaoSrc from 'resources/png/enterdao.png';
-import manaSrc from 'resources/png/mana.png';
-import sandSrc from 'resources/png/sandbox.png';
-import axsSrc from 'resources/png/axie.png';
-import addEnterSrc from 'resources/png/add-enter.png';
-import enterStarSrc from 'resources/png/enter-star.png';
-import telegramSrc from 'resources/png/telegram.png';
 import Sprite from 'resources/svg/icons-sprite.svg';
+import LeagueDaoDark from 'resources/png/league-dao-dark.png';
+import LeagueDaoLight from 'resources/png/league-dao-light.png';
 
 import s from './s.module.scss';
 
-export type LogoIconNames = 'png/enterdao';
+export type LogoIconNames = 'png/universe' | 'universe-text';
 
 export type TokenIconNames =
   | 'bond-circle-token'
@@ -39,19 +34,16 @@ export type TokenIconNames =
   | 'token-susd'
   | 'token-uniswap'
   | 'token-usdt'
-  | 'token-sushi'
-  | 'compound'
-  | 'png/enter-star'
-  | 'png/universe'
-  | 'png/mana'
-  | 'png/sandbox'
-  | 'png/axie'
-  | 'png/aave'
+  | 'token-snx'
+  | 'png/ionx'
+  | 'png/entr'
+  | 'png/xyz'
   | 'png/sushi'
   | 'png/link'
   | 'png/ilv'
   | 'png/uslp'
-  | 'png/eslp'
+  | 'png/leaguedaodark'
+  | 'png/leaguedaolight'
   | 'cream_finance'
   | 'yearn_finance';
 
@@ -160,9 +152,8 @@ export type IconNames =
   | 'youtube'
   | 'medium'
   | 'polymorphs'
+  | 'lobby-lobsters'
   | 'core-drops'
-  | 'png/add-enter'
-  | 'png/telegram'
   | 'static/add-token';
 
 export type IconProps = {
@@ -185,18 +176,18 @@ const Icon: React.FC<IconProps> = props => {
   if (isPng) {
     const getSrc = () => {
       switch (name) {
-        case 'png/enterdao':
-          return enterdaoSrc;
         case 'png/universe':
           return universeSrc;
-        case 'png/mana':
-          return manaSrc;
-        case 'png/sandbox':
-          return sandSrc;
-        case 'png/axie':
-          return axsSrc;
-        case 'png/aave':
-          return aaveSrc;
+        case 'png/leaguedaodark':
+          return LeagueDaoDark;
+        case 'png/leaguedaolight':
+          return LeagueDaoLight;
+        case 'png/ionx':
+          return ionxSrc;
+        case 'png/xyz':
+          return xyzSrc;
+        case 'png/entr':
+          return entrSrc;
         case 'png/ilv':
           return ilvSrc;
         case 'png/link':
@@ -205,14 +196,6 @@ const Icon: React.FC<IconProps> = props => {
           return sushiSrc;
         case 'png/uslp':
           return uslpSrc;
-        case 'png/eslp':
-          return eslpSrc;
-        case 'png/add-enter':
-          return addEnterSrc;
-        case 'png/enter-star':
-          return enterStarSrc;
-        case 'png/telegram':
-          return telegramSrc;
         default:
           return '';
       }

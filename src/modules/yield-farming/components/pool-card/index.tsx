@@ -12,7 +12,7 @@ import Grid from 'components/custom/grid';
 import Icon, { IconNames } from 'components/custom/icon';
 import IconsSet from 'components/custom/icons-set';
 import { Hint, Text } from 'components/custom/typography';
-import { EnterToken } from 'components/providers/known-tokens-provider';
+import { XyzToken } from 'components/providers/known-tokens-provider';
 import { KnownTokens } from 'components/providers/known-tokens-provider';
 import { convertTokenInUSD } from 'components/providers/known-tokens-provider';
 import { YFPoolID, useYFPools } from 'modules/yield-farming/providers/pools-provider';
@@ -34,7 +34,7 @@ const PoolCard: React.FC<PoolCardProps> = props => {
   const poolMeta = yfPoolsCtx.getYFKnownPoolByName(poolId);
   const isEnded = poolMeta?.contract.isPoolEnded === true;
 
-  const { totalEpochs, lastActiveEpoch, epochReward, potentialReward, poolEndDate = 0 } = poolMeta?.contract ?? {};
+  const { totalEpochs, lastActiveWeek, epochReward, potentialReward, poolEndDate = 0 } = poolMeta?.contract ?? {};
 
   const enabled = true;
 
@@ -50,7 +50,7 @@ const PoolCard: React.FC<PoolCardProps> = props => {
   const isPoolAvailable = poolMeta?.contract.isPoolAvailable;
   const apr =
     poolBalanceInUSD?.isGreaterThan(BigNumber.ZERO) && epochReward
-      ? convertTokenInUSD(epochReward * 52, KnownTokens.ENTR)?.dividedBy(poolBalanceInUSD)
+      ? convertTokenInUSD(epochReward * 52, KnownTokens.XYZ)?.dividedBy(poolBalanceInUSD)
       : undefined;
 
   function handleStaking() {
@@ -68,7 +68,7 @@ const PoolCard: React.FC<PoolCardProps> = props => {
             {poolMeta?.label ?? '-'}
           </Text>
           <Text type="lb2" weight="semibold" color="primary" ellipsis>
-            EPOCH {lastActiveEpoch ?? '-'} / {totalEpochs ?? '-'}
+            WEEK {lastActiveWeek ?? '-'} / {totalEpochs ?? '-'}
           </Text>
         </div>
         {walletCtx.isActive && isPoolAvailable && (
@@ -94,19 +94,19 @@ const PoolCard: React.FC<PoolCardProps> = props => {
               Reward
             </Text>
             <div className="flex flow-col">
-              <Icon name="png/enterdao" className={s.entrReward} />
+              <Icon name="png/universe" className={s.xyzReward} />
               <Text type="p1" weight="semibold" color="primary">
                 {formatToken(epochReward) ?? '-'}
               </Text>
             </div>
           </div>
-          {walletCtx.isActive && !!lastActiveEpoch && (
+          {walletCtx.isActive && !!lastActiveWeek && (
             <div className="card-row card-row-border p-24">
               <Text type="lb2" weight="semibold" color="secondary">
                 My Potential Reward
               </Text>
               <div className="flex flow-col">
-                <Icon name="png/enterdao" className={s.entrReward} />
+                <Icon name="png/universe" className={s.xyzReward} />
                 <Text type="p1" weight="semibold" color="primary">
                   {formatToken(potentialReward) ?? '-'}
                 </Text>
@@ -141,7 +141,7 @@ const PoolCard: React.FC<PoolCardProps> = props => {
               <Text type="p2" color="secondary">
                 Effective balance
               </Text>
-              {!!lastActiveEpoch && (
+              {!!lastActiveWeek && (
                 <Text type="p2" color="secondary">
                   {formatUSD(poolEffectiveBalanceInUSD) ?? '-'}
                 </Text>
@@ -171,7 +171,7 @@ const PoolCard: React.FC<PoolCardProps> = props => {
           <Text type="p1" weight="semibold" color="primary">
             {formatUSD(myPoolBalanceInUSD)}
           </Text>
-          {!isEnded && isPoolAvailable && !!lastActiveEpoch && (
+          {!isEnded && isPoolAvailable && !!lastActiveWeek && (
             <>
               <Text type="p2" color="secondary">
                 {formatUSD(myPoolEffectiveBalanceInUSD)} effective balance
@@ -187,7 +187,7 @@ const PoolCard: React.FC<PoolCardProps> = props => {
               The ${poolMeta?.label} staking pool ended after {totalEpochs} epochs on {formattedEndDate}. Deposits are
               now disabled, but you can still withdraw your tokens and collect any unclaimed rewards.
             </Text>
-            {poolMeta?.tokens.some(tk => tk === EnterToken) && (
+            {poolMeta?.tokens.some(tk => tk === XyzToken) && (
               <Link to="/governance" className="link-gradient">
                 <Text
                   type="p2"
@@ -201,11 +201,11 @@ const PoolCard: React.FC<PoolCardProps> = props => {
           </Grid>
         </div>
       )}
-      {poolId === YFPoolID.USDC_ENTR_SLP && !isPoolAvailable && (
+      {poolId === YFPoolID.USDC_XYZ_SLP && !isPoolAvailable && (
         <div className={s.box}>
           <Grid className="card-row" flow="row" align="start">
             <Text type="p2" weight="semibold" color="secondary" className="mb-4">
-              The ${poolMeta?.label} is not available yet. The pool will start shortly after epoch 2 starts.
+              The ${poolMeta?.label} is not available yet. The pool will start at the beginning of the 2nd epoch.
             </Text>
           </Grid>
         </div>

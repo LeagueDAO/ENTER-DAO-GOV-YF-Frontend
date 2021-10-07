@@ -5,15 +5,16 @@ import MerkleDistributor from 'web3/merkleDistributor';
 import Web3Contract from 'web3/web3Contract';
 
 import {
-  XyzToken,
   BondToken,
-  ManaToken,
-  SandToken,
+  XyzToken,
+  IonxToken,
+  EntrToken,
   IlvToken,
-  AxsToken,
+  LinkToken,
+  SnxToken,
   SushiToken,
   TokenMeta,
-  UsdcEntrSLPToken,
+  UsdcXyzSLPToken,
   useKnownTokens,
 } from 'components/providers/known-tokens-provider';
 import config from 'config';
@@ -24,13 +25,14 @@ import { useWallet } from 'wallets/wallet';
 
 export enum YFPoolID {
   BOND = 'bond',
-  MANA = 'mana',
   XYZ = 'xyz',
-  SAND = 'sand',
+  IONX = 'ionx',
+  ENTR = 'entr',
+  SNX = 'snx',
   SUSHI = 'sushi',
-  AXS = 'axs',
+  LINK = 'link',
   ILV = 'ilv',
-  USDC_ENTR_SLP = 'usdc-entr-slp',
+  USDC_XYZ_SLP = 'usdc-xyz-slp',
 }
 
 export type YFPoolMeta = {
@@ -54,28 +56,37 @@ export const BondYfPool: YFPoolMeta = {
 export const XyzYfPool: YFPoolMeta = {
   name: YFPoolID.XYZ,
   label: 'XYZ',
-  icons: ['png/universe'],
+  icons: ['png/xyz'],
   colors: ['var(--theme-red-color)'],
   tokens: [XyzToken],
   contract: new YfPoolContract(config.contracts.yf.xyz),
 };
 
-export const ManaYfPool: YFPoolMeta = {
-  name: YFPoolID.MANA,
-  label: 'MANA',
-  icons: ['png/mana'],
+export const IonxYfPool: YFPoolMeta = {
+  name: YFPoolID.IONX,
+  label: 'IONX',
+  icons: ['png/ionx'],
   colors: ['var(--theme-red-color)'],
-  tokens: [ManaToken],
-  contract: new YfPoolContract(config.contracts.yf.mana),
+  tokens: [IonxToken],
+  contract: new YfPoolContract(config.contracts.yf.ionx),
 };
 
-export const SandYfPool: YFPoolMeta = {
-  name: YFPoolID.SAND,
-  label: 'SAND',
-  icons: ['png/sandbox'],
+export const EntrYfPool: YFPoolMeta = {
+  name: YFPoolID.ENTR,
+  label: 'ENTR',
+  icons: ['png/entr'],
   colors: ['var(--theme-red-color)'],
-  tokens: [SandToken],
-  contract: new YfPoolContract(config.contracts.yf.sand),
+  tokens: [EntrToken],
+  contract: new YfPoolContract(config.contracts.yf.entr),
+};
+
+export const SnxYfPool: YFPoolMeta = {
+  name: YFPoolID.SNX,
+  label: 'SNX',
+  icons: ['token-snx'],
+  colors: ['var(--theme-red-color)'],
+  tokens: [SnxToken],
+  contract: new YfPoolContract(config.contracts.yf.snx),
 };
 
 export const SushiYfPool: YFPoolMeta = {
@@ -87,13 +98,13 @@ export const SushiYfPool: YFPoolMeta = {
   contract: new YfPoolContract(config.contracts.yf.sushi),
 };
 
-export const AxsYfPool: YFPoolMeta = {
-  name: YFPoolID.AXS,
-  label: 'AXS',
-  icons: ['png/axie'],
+export const LinkYfPool: YFPoolMeta = {
+  name: YFPoolID.LINK,
+  label: 'LINK',
+  icons: ['png/link'],
   colors: ['var(--theme-red-color)'],
-  tokens: [AxsToken],
-  contract: new YfPoolContract(config.contracts.yf.axs),
+  tokens: [LinkToken],
+  contract: new YfPoolContract(config.contracts.yf.link),
 };
 
 export const IlvYfPool: YFPoolMeta = {
@@ -105,27 +116,32 @@ export const IlvYfPool: YFPoolMeta = {
   contract: new YfPoolContract(config.contracts.yf.ilv),
 };
 
-export const UsdcEntrSLPYfPool: YFPoolMeta = {
-  name: YFPoolID.USDC_ENTR_SLP,
-  label: 'USDC_ENTR_SUSHI_LP',
-  icons: ['png/eslp'],
+export const UsdcXyzSLPYfPool: YFPoolMeta = {
+  name: YFPoolID.USDC_XYZ_SLP,
+  label: 'USDC_XYZ_SUSHI_LP',
+  icons: ['png/uslp'],
   colors: ['var(--theme-red-color)'],
-  tokens: [UsdcEntrSLPToken],
-  contract: new YfPoolContract(config.contracts.yf.usdcEntrSLP),
+  tokens: [UsdcXyzSLPToken],
+  contract: new YfPoolContract(config.contracts.yf.usdcXyzSLP),
 };
 
 const KNOWN_POOLS: YFPoolMeta[] = [
-  XyzYfPool,
-  ManaYfPool,
   BondYfPool,
-  SandYfPool,
+  SnxYfPool,
+  XyzYfPool,
+  IonxYfPool,
+  EntrYfPool,
   SushiYfPool,
-  AxsYfPool,
+  LinkYfPool,
   IlvYfPool,
-  UsdcEntrSLPYfPool,
+  UsdcXyzSLPYfPool,
 ];
 
 export function getYFKnownPoolByName(name: string): YFPoolMeta | undefined {
+  // if(name === 'xyz') {
+  //   debugger
+  // }
+
   return KNOWN_POOLS.find(pool => pool.name === name);
 }
 
@@ -420,13 +436,14 @@ const YFPoolsProvider: FC = props => {
       <ContractListener contract={stakingContract} />
       <ContractListener contract={merkleDistributor} />
       <ContractListener contract={BondYfPool.contract} />
-      <ContractListener contract={ManaYfPool.contract} />
       <ContractListener contract={XyzYfPool.contract} />
-      <ContractListener contract={SandYfPool.contract} />
+      <ContractListener contract={IonxYfPool.contract} />
+      <ContractListener contract={EntrYfPool.contract} />
+      <ContractListener contract={SnxYfPool.contract} />
       <ContractListener contract={SushiYfPool.contract} />
-      <ContractListener contract={AxsYfPool.contract} />
+      <ContractListener contract={LinkYfPool.contract} />
       <ContractListener contract={IlvYfPool.contract} />
-      <ContractListener contract={UsdcEntrSLPYfPool.contract} />
+      <ContractListener contract={UsdcXyzSLPYfPool.contract} />
     </YFPoolsContext.Provider>
   );
 };
