@@ -28,6 +28,7 @@ const LayoutHeader: React.FC = () => {
   const { navOpen, setNavOpen, toggleDarkTheme, isDarkTheme } = useGeneral();
   const [referenceElement, setReferenceElement] = useState<any>();
   const [popperElement, setPopperElement] = useState<any>();
+  const [popper0visible, setPopper0visible] = useState<boolean>(false);
   const [popper1visible, setPopper1visible] = useState<boolean>(false);
   const [popper2visible, setPopper2visible] = useState<boolean>(false);
   const [popper3visible, setPopper3visible] = useState<boolean>(false);
@@ -62,7 +63,7 @@ const LayoutHeader: React.FC = () => {
             address: LeagueToken.address,
             symbol: LeagueToken.symbol,
             decimals: LeagueToken.decimals,
-            image: `${window.location.origin}/league-dao-dark.png`,
+            image: `${window.location.origin}/token-league.png`,
           },
         });
       } catch (e) {
@@ -84,6 +85,56 @@ const LayoutHeader: React.FC = () => {
       <h1 className={s.title}>{isGovernancePage ? 'Governance' : 'Yield Farming'}</h1>
 
       <nav className={s.nav}>
+        <Popover
+          visible={popper0visible}
+          onVisibleChange={setPopper0visible}
+          trigger={['click', 'hover']}
+          noPadding
+          content={
+            <div className={cn('card', s.dropdown)}>
+              <ExternalLink
+                aria-disabled='true'
+                className={s.dropdownLink}
+                onClick={() => setPopper0visible(false)}>
+                <Icon name="static/trophy-disable" width={20} height={20} className={s.dropdownIcon} />
+                <span>Nomo Leagues</span>
+              </ExternalLink>
+            </div>
+          }>
+          <Button type="link" className={s.navLink}>
+            <Grid flow="col" align="center">
+              <Text type="p1" weight="500" color="primary" className="mr-4">
+                Products
+              </Text>
+              <Icon name="dropdown-arrow" width={12} height={12} className={s.dropdownArrow} />
+            </Grid>
+          </Button>
+        </Popover>
+        <Popover
+          visible={popper1visible}
+          onVisibleChange={setPopper1visible}
+          trigger={['click', 'hover']}
+          noPadding
+          content={
+            <div className={cn('card', s.dropdown)}>
+              <ExternalLink
+                aria-disabled='true'
+                className={s.dropdownLink}
+                onClick={() => setPopper1visible(false)}>
+                <Icon name="static/american_footbal-disable" width={20} height={20} className={s.dropdownIcon} />
+                <span>Nomo Fantasy Football</span>
+              </ExternalLink>
+            </div>
+          }>
+          <Button type="link" className={s.navLink}>
+            <Grid flow="col" align="center">
+              <Text type="p1" weight="500" color="primary" className="mr-4">
+                Player drops
+              </Text>
+              <Icon name="dropdown-arrow" width={12} height={12} className={s.dropdownArrow} />
+            </Grid>
+          </Button>
+        </Popover>
         <Popover
           visible={popper2visible}
           onVisibleChange={setPopper2visible}
@@ -130,10 +181,10 @@ const LayoutHeader: React.FC = () => {
           onVisibleChange={setPopper3visible}
           content={
             <div className={cn('card', s.dropdown)}>
-              <Link to="/governance" className={s.dropdownLink} onClick={() => setPopper3visible(false)}>
-                <Icon name="governance" width={20} height={20} className={s.dropdownIcon} />
-                <span>Governance</span>
-              </Link>
+              {/*<Link to="/governance" className={s.dropdownLink} onClick={() => setPopper3visible(false)}>*/}
+              {/*  <Icon name="governance" width={20} height={20} className={s.dropdownIcon} />*/}
+              {/*  <span>Governance</span>*/}
+              {/*</Link>*/}
               <Link to="/yield-farming" className={s.dropdownLink} onClick={() => setPopper3visible(false)}>
                 <Icon name="yield-farming" width={20} height={20} className={s.dropdownIcon} />
                 <span>Yield farming</span>
@@ -153,7 +204,7 @@ const LayoutHeader: React.FC = () => {
       {!isMobile && wallet.isActive && wallet.connector?.id === 'metamask' && (
         <div className={s.addTokenWrapper}>
           <button type="button" onClick={handleAddProjectToken} className={s.addTokenButton}>
-            <Icon name="png/add-enter" width={32} height={32} />
+            <Icon name="png/league" width={32} height={32} />
           </button>
         </div>
       )}
@@ -177,6 +228,26 @@ const LayoutHeader: React.FC = () => {
             {...attributes.popper}>
             <div className={s.mobileInner}>
               <div className={s.mobileMenuInner}>
+                <div className={s.mobileMenuBlock}>
+                  <h3>Products</h3>
+                  <ExternalLink
+                    className={s.dropdownLink}
+                    aria-disabled="true"
+                    onClick={() => setNavOpen(false)}>
+                    <Icon name="static/trophy-disable" width={20} height={20} className={s.dropdownIcon} />
+                    <span>Nomo Leagues</span>
+                  </ExternalLink>
+                </div>
+                <div className={s.mobileMenuBlock}>
+                  <h3>Player drops</h3>
+                  <ExternalLink
+                    className={s.dropdownLink}
+                    aria-disabled="true"
+                    onClick={() => setNavOpen(false)}>
+                    <Icon name="static/american_footbal-disable" width={20} height={20} className={s.dropdownIcon} />
+                    <span>Nomo Fantasy Football</span>
+                  </ExternalLink>
+                </div>
                 <div className={s.mobileMenuBlock}>
                   <h3>Info</h3>
                   <ExternalLink

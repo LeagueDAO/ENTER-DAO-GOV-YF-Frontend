@@ -163,6 +163,8 @@ export type IconNames =
   | 'social-media'
   | 'about'
   | 'whitepaper'
+  | 'static/trophy-disable'
+  | 'static/american_footbal-disable'
   | 'team'
   | 'governance'
   | 'yield-farming'
