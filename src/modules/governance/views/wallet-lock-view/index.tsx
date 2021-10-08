@@ -26,7 +26,6 @@ import { LeagueToken } from 'components/providers/known-tokens-provider';
 import { UseLeftTime } from 'hooks/useLeftTime';
 import useMergeState from 'hooks/useMergeState';
 
-import { useGeneral } from '../../../../components/providers/general-provider';
 import { useDAO } from '../../components/dao-provider';
 // import WalletLockChart from './components/wallet-lock-chart';
 import WalletLockConfirmModal from './components/wallet-lock-confirm-modal';
@@ -90,7 +89,6 @@ function getLockEndDate(startDate: Date, duration: string): Date | undefined {
 
 const WalletLockView: React.FC = () => {
   const [form] = Antd.Form.useForm<LockFormData>();
-  const { isDarkTheme } = useGeneral();
 
   const daoCtx = useDAO();
   const [state, setState] = useMergeState<WalletLockViewState>(InitialState);
@@ -149,11 +147,7 @@ const WalletLockView: React.FC = () => {
     <div className="card">
       <Grid className="card-header" flow="col" gap={24} colsTemplate="1fr 1fr 1fr 1fr 42px" align="start">
         <Grid flow="col" gap={12} align="center">
-          {isDarkTheme ? (
-            <Icon name="png/league-dao-dark" width={40} height={40} />
-          ) : (
-            <Icon name="png/league-dao-light" width={40} height={40} />
-          )}
+          <Icon name="png/league" width={40} height={40} />
           <Text type="p1" weight="semibold" color="primary">
             {LeagueToken.symbol}
           </Text>
@@ -261,7 +255,7 @@ const WalletLockView: React.FC = () => {
                   }}
                   format="DD/MM/YYYY HH:mm"
                   size="large"
-                  disabled={formDisabled || state.saving}
+                  // disabled={formDisabled || state.saving}
                 />
               </Form.Item>
               <Alert message="All locked balances will be unavailable for withdrawal until the lock timer ends. All future deposits will be locked for the same time." />

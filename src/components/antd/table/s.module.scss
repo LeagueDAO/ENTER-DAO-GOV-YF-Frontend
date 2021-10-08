@@ -16,6 +16,7 @@
     padding: 16px 24px;
     background: var(--L11-D11);
     color: var(--L7-D7);
+    border-bottom: 1px solid var(--L4-D4);
 
     :global(.ant-table-column-sorters) {
       padding: 0;
@@ -36,7 +37,7 @@
   }
 
   :global(.ant-table-tbody) {
-    border-radius: 12px;
+    border-radius: 6px;
 
     :global(.ant-table-placeholder):hover {
       :global(.ant-table-cell) {
@@ -68,7 +69,7 @@
 
       &:first-of-type:last-of-type {
         border: 0;
-        border-radius: 12px;
+        border-radius: 6px;
       }
     }
   }

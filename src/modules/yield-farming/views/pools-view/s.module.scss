@@ -1,6 +1,6 @@
 .poolCards {
   display: grid;
-  gap: 32px;
+  grid-gap: 30px;
   grid-template-columns: repeat(auto-fit, minmax(336px, 1fr));
   margin-bottom: 32px;
 

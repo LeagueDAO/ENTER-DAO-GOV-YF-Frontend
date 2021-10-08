@@ -1,11 +1,11 @@
 @import 'src/styles/text';
 
 .component {
-  border-radius: 12px;
+  border-radius: 6px;
 
   :global(.ant-modal-content) {
     box-shadow: var(--theme-card-shadow);
-    border-radius: 12px;
+    border-radius: 6px;
   }
 
   :global(.ant-modal-close) {
@@ -27,7 +27,7 @@
     padding: 32px;
     background: var(--L11-D11);
     border-bottom: 1px solid var(--L4-D4);
-    border-radius: 12px 12px 0 0;
+    border-radius: 6px 12px 0 0;
 
     :global(.ant-modal-title) {
       @include font-p1-semi-bold;
@@ -40,7 +40,7 @@
   :global(.ant-modal-body) {
     background: var(--L11-D11);
     overflow-y: auto;
-    border-radius: 12px;
+    border-radius: 6px;
   }
 
   :global(.ant-modal-header) + :global(.ant-modal-body) {

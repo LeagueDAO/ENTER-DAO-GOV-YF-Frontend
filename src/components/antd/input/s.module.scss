@@ -24,7 +24,7 @@
 
 .component {
   width: 100%;
-  border-radius: 12px;
+  border-radius: 6px;
 
   :global(.ant-input),
   &:global(.ant-input) {
@@ -33,7 +33,7 @@
     padding: 12px 16px;
     box-shadow: var(--input-shadow);
     border: var(--input-border);
-    border-radius: 12px;
+    border-radius: 6px;
     background: transparent;
     outline: none;
     color: var(--input-text);
@@ -79,7 +79,7 @@
   :global(.ant-input-group) {
     border: var(--input-border);
     //background: var(--gradient-green);
-    border-radius: 12px;
+    border-radius: 6px;
     //padding: 1px;
 
 
@@ -88,7 +88,7 @@
       border: 0;
 
       &:first-of-type {
-        border-radius: 12px 0 0 12px;
+        border-radius: 6px 0 0 12px;
         border-right: var(--input-border);
       }
       &:last-of-type:not(:first-of-type) {
@@ -101,7 +101,7 @@
       padding: 12px 16px;
       box-shadow: none;
       border: 0;
-      border-radius: 12px;
+      border-radius: 6px;
 
       &:global(.ant-input-lg) {
         height: 64px;

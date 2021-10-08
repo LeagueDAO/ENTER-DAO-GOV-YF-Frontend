@@ -2,7 +2,7 @@
 
 .component:global(.ant-alert) {
   padding: 16px 24px;
-  border-radius: 12px;
+  border-radius: 6px;
 
   background: var(--alert-bg-color);
   border: 1px solid var(--alert-border-color);
@@ -51,7 +51,7 @@
       --alert-text-color: var(--L8-D8);
     }
     &:global(.ant-alert-info) :global(.ant-alert-icon) {
-      color: rgb(145, 79, 230);
+      color: var(--L10-D10);
     }
     &:global(.ant-alert-success) :global(.ant-alert-message) {
       --alert-bg-color: var(--theme-green-color-rgb);
@@ -94,6 +94,6 @@
   > :global(.ant-alert-icon),
   > :global(.ant-alert-content .ant-alert-message),
   > :global(.ant-alert-content .ant-alert-description) {
-    color: var(--alert-text-color);
+    color: var(--L10-D10);
   }
 }

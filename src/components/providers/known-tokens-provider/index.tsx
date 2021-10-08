@@ -52,8 +52,7 @@ export const LeagueToken: TokenMeta = {
   symbol: KnownTokens.LEAG,
   name: 'LeagueDAO Governance Token',
   decimals: 18,
-  icon: 'png/league-dao-dark' as any,
-  iconLight: 'png/league-dao-light' as any,
+  icon: 'png/league' as any,
   contract: new Erc20Contract([], config.tokens.leag),
 };
 

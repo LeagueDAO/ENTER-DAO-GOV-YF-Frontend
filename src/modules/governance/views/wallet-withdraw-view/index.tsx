@@ -14,7 +14,6 @@ import { Text } from 'components/custom/typography';
 import { LeagueToken } from 'components/providers/known-tokens-provider';
 import useMergeState from 'hooks/useMergeState';
 
-import { useGeneral } from '../../../../components/providers/general-provider';
 import Erc20Contract from '../../../../web3/erc20Contract';
 import { useDAO } from '../../components/dao-provider';
 
@@ -41,7 +40,6 @@ const InitialState: WalletWithdrawViewState = {
 const WalletWithdrawView: React.FC = () => {
   const daoCtx = useDAO();
   const [form] = Antd.Form.useForm<WithdrawFormData>();
-  const { isDarkTheme } = useGeneral();
 
   const [state, setState] = useMergeState<WalletWithdrawViewState>(InitialState);
 
@@ -74,11 +72,7 @@ const WalletWithdrawView: React.FC = () => {
     <div className="card">
       <Grid className="card-header" flow="col" gap={24} colsTemplate="1fr 1fr 1fr 1fr 42px" align="start">
         <Grid flow="col" gap={12} align="center">
-          {isDarkTheme ? (
-            <Icon name="png/league-dao-dark" width={40} height={40} />
-          ) : (
-            <Icon name="png/league-dao-light" width={40} height={40} />
-          )}
+          <Icon name="png/league" width={40} height={40} />
           <Text type="p1" weight="semibold" color="primary">
             {LeagueToken.symbol}
           </Text>
@@ -115,7 +109,7 @@ const WalletWithdrawView: React.FC = () => {
             <Grid flow="row" gap={32}>
               <Form.Item name="amount" label="Amount" rules={[{ required: true, message: 'Required' }]}>
                 <TokenAmount
-                  tokenIcon={isDarkTheme ? 'png/league-dao-dark' : 'png/league-dao-light'}
+                  tokenIcon="png/league"
                   name={LeagueToken.symbol}
                   max={stakedBalance}
                   maximumFractionDigits={LeagueToken.decimals}

@@ -8,7 +8,7 @@
   padding: 24px;
   background: var(--L4-D4); // border
   border: none;
-  border-radius: 12px;
+  border-radius: 6px;
   position: relative;
   color: var(--L8-D8);
 
@@ -22,7 +22,7 @@
     right: 1px;
     bottom: 1px;
     z-index: 0;
-    border-radius: 12px;
+    border-radius: 6px;
   }
   &::before {
     background: var(--L11-D11); //bg dark stable
@@ -60,7 +60,7 @@
     }
     :global(.ant-radio-inner) {
       border: 0;
-      background: linear-gradient(135deg, #DD3DCB 15.57%, #EF9C92 84.88%);
+      background: #19b9a1;
 
       &::before {
         content: '';

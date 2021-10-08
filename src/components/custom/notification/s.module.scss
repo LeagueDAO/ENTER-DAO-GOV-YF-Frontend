@@ -15,7 +15,7 @@
 
   &.toast {
     background-color: var(--L11-D11);
-    box-shadow: var(--theme-overlay-shadow);
+    box-shadow: var(--theme-card-shadow);
     border-radius: 4px;
 
     & + & {

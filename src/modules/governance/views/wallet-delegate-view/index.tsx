@@ -12,7 +12,6 @@ import TokenInput from 'components/custom/token-input';
 import { Text } from 'components/custom/typography';
 import useMergeState from 'hooks/useMergeState';
 
-import { useGeneral } from '../../../../components/providers/general-provider';
 import { LeagueToken } from '../../../../components/providers/known-tokens-provider';
 import { useDAO } from '../../components/dao-provider';
 
@@ -49,7 +48,6 @@ const WalletDelegateView: React.FC = () => {
   const isLocked = (userLockedUntil ?? 0) > Date.now();
   const hasStakedBalance = stakedBalance?.gt(ZERO_BIG_NUMBER);
   const formDisabled = !hasStakedBalance;
-  const { isDarkTheme } = useGeneral();
 
   React.useEffect(() => {
     form.setFieldsValue({
@@ -84,11 +82,7 @@ const WalletDelegateView: React.FC = () => {
     <div className="card">
       <Grid className="card-header" flow="col" gap={24} colsTemplate="auto" align="start">
         <Grid flow="col" gap={12} align="center">
-          {isDarkTheme ? (
-            <Icon name="png/league-dao-dark" width={40} height={40} />
-          ) : (
-            <Icon name="png/league-dao-light" width={40} height={40} />
-          )}
+          <Icon name="png/league" width={40} height={40} />
           <Text type="p1" weight="semibold" color="primary">
             {LeagueToken.symbol}
           </Text>

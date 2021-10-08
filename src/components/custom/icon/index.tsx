@@ -7,6 +7,7 @@ import linkSrc from 'resources/png/token-link.png';
 import sushiSrc from 'resources/png/token-sushi.png';
 import uslpSrc from 'resources/png/token-uslp.png';
 import eslpSrc from 'resources/png/token-eslp.png';
+import leagueSrc from 'resources/png/token-league.png';
 import universeSrc from 'resources/png/universe.png';
 import enterdaoSrc from 'resources/png/enterdao.png';
 import snxSrc from 'resources/png/snx.png';
@@ -58,6 +59,7 @@ export type TokenIconNames =
   | 'png/ilv'
   | 'png/uslp'
   | 'png/eslp'
+  | 'png/league'
   | 'cream_finance'
   | 'yearn_finance';
 
@@ -221,6 +223,8 @@ const Icon: React.FC<IconProps> = props => {
           return uslpSrc;
         case 'png/eslp':
           return eslpSrc;
+        case 'png/league':
+          return leagueSrc;
         case 'png/add-enter':
           return addEnterSrc;
         case 'png/enter-star':

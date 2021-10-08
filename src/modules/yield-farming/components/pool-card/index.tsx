@@ -18,11 +18,7 @@ import { convertTokenInUSD } from 'components/providers/known-tokens-provider';
 import { YFPoolID, useYFPools } from 'modules/yield-farming/providers/pools-provider';
 import { useWallet } from 'wallets/wallet';
 
-import { useGeneral } from '../../../../components/providers/general-provider';
-
 import s from './s.module.scss';
-import imgSrc from '../../../../resources/png/league-dao-dark.png';
-import imgSrcLight from '../../../../resources/png/league-dao-light.png';
 
 export type PoolCardProps = {
   poolId: YFPoolID;
@@ -30,7 +26,6 @@ export type PoolCardProps = {
 
 const PoolCard: React.FC<PoolCardProps> = props => {
   const { poolId } = props;
-  const { isDarkTheme } = useGeneral();
 
   const walletCtx = useWallet();
   const history = useHistory();
@@ -85,7 +80,7 @@ const PoolCard: React.FC<PoolCardProps> = props => {
       {!isEnded && isPoolAvailable && (
         <>
           <div className="card-row card-row-border p-24">
-            <Text type="lb2" weight="semibold" color="primary">
+            <Text type="lb2" weight="semibold" color="secondary">
               APR
             </Text>
             <div className="flex flow-col">
@@ -95,15 +90,11 @@ const PoolCard: React.FC<PoolCardProps> = props => {
             </div>
           </div>
           <div className="card-row card-row-border p-24">
-            <Text type="lb2" weight="semibold" color="primary">
+            <Text type="lb2" weight="semibold" color="secondary">
               Reward
             </Text>
             <div className="flex flow-col">
-              {isDarkTheme ? (
-                <Icon name="png/league-dao-dark" className={s.entrReward} />
-              ) : (
-                <Icon name="png/league-dao-light" className={s.entrReward} />
-              )}
+              <Icon name="png/league" className={s.entrReward} />
               <Text type="p1" weight="semibold" color="primary">
                 {formatToken(epochReward) ?? '-'}
               </Text>
@@ -111,15 +102,11 @@ const PoolCard: React.FC<PoolCardProps> = props => {
           </div>
           {walletCtx.isActive && !!lastActiveEpoch && (
             <div className="card-row card-row-border p-24">
-              <Text type="lb2" weight="semibold" color="primary">
+              <Text type="lb2" weight="semibold" color="secondary">
                 My Potential Reward
               </Text>
               <div className="flex flow-col">
-                {isDarkTheme ? (
-                  <Icon name="png/league-dao-dark" className={s.entrReward} />
-                ) : (
-                  <Icon name="png/league-dao-light" className={s.entrReward} />
-                )}
+                <Icon name="png/league" className={s.entrReward} />
                 <Text type="p1" weight="semibold" color="primary">
                   {formatToken(potentialReward) ?? '-'}
                 </Text>
@@ -141,7 +128,7 @@ const PoolCard: React.FC<PoolCardProps> = props => {
                     balance will differ in most cases.
                   </span>
                 }>
-                <Text type="lb2" weight="semibold" color="primary">
+                <Text type="lb2" weight="semibold" color="secondary">
                   Pool Balance
                 </Text>
               </Hint>
@@ -151,11 +138,11 @@ const PoolCard: React.FC<PoolCardProps> = props => {
               </Text>
             </div>
             <div className="card-row">
-              <Text type="p2" color="secondary">
+              <Text type="small" color="secondary">
                 Effective balance
               </Text>
               {!!lastActiveEpoch && (
-                <Text type="p2" color="secondary">
+                <Text type="small" color="secondary">
                   {formatUSD(poolEffectiveBalanceInUSD) ?? '-'}
                 </Text>
               )}
@@ -177,7 +164,7 @@ const PoolCard: React.FC<PoolCardProps> = props => {
                 pool balance will differ in most cases.
               </span>
             }>
-            <Text type="lb2" weight="semibold" color="primary">
+            <Text type="lb2" weight="semibold" color="secondary">
               My Pool Balance
             </Text>
           </Hint>

@@ -85,6 +85,11 @@
     &:hover,
     &:active {
       background: transparent;
+      color: $light-mode-9;
+
+      > svg {
+        color: $light-mode-9;
+      }
     }
   }
 
@@ -200,7 +205,7 @@
       line-height: 20px;
       letter-spacing: 0;
       text-align: left;
-      padding: 15px 148px 15px 16px;
+      padding: 12px 148px 12px 16px;
       width: 100%;
       color: #000;
 
@@ -212,8 +217,8 @@
     .subscribeButton {
       position: absolute;
       top: 50%;
-      right: 8px;
-      padding: 8px;
+      right: 5px;
+      padding: 10px;
       transform: translate(0, -50%);
 
       @media (max-width: 767px) {

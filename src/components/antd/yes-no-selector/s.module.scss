@@ -16,7 +16,7 @@
     height: auto;
     background: var(--L11-D11);
     border: 1px solid var(--L4-D4);
-    border-radius: 12px;
+    border-radius: 6px;
     color: var(--L8-D8);
     position: relative;
 
@@ -42,7 +42,7 @@
         display: flex;
         z-index: 0;
         background: var(--theme-input-background);
-        border-radius: 12px;
+        border-radius: 6px;
       }
       background: var(--gradient-green);
     }

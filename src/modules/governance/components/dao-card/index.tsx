@@ -10,21 +10,18 @@ import { UseLeftTime } from 'hooks/useLeftTime';
 import { useDAO } from 'modules/governance/components/dao-provider';
 import { useWallet } from 'wallets/wallet';
 
-import { useGeneral } from '../../../../components/providers/general-provider';
-
 import s from './s.module.scss';
 
 const DaoCard: FC = () => {
   const walletCtx = useWallet();
   const daoCtx = useDAO();
   const { daoBarn, daoReward } = daoCtx;
-  const { isDarkTheme } = useGeneral();
 
   return (
     <div className="card">
       <div className={cn('card-header', s.cardTitleContainer)}>
         <div className={s.cardTitleTexts}>
-          <Icon name="png/enter-star" width={40} height={40} className="mr-4" />
+          <Icon name="png/enter-star" width={40} height={40} className="mr-8" />
           <Text type="p1" weight="semibold" color="primary" ellipsis>
             DAO Rewards
           </Text>
@@ -36,7 +33,7 @@ const DaoCard: FC = () => {
         )}
       </div>
       <div className="card-row card-row-border p-24">
-        <Text type="lb2" weight="semibold" color="primary">
+        <Text type="lb2" weight="semibold" color="secondary">
           APR
         </Text>
         <div className="flex flow-col">
@@ -46,15 +43,11 @@ const DaoCard: FC = () => {
         </div>
       </div>
       <div className="card-row card-row-border p-24">
-        <Text type="lb2" weight="semibold" color="primary">
+        <Text type="lb2" weight="semibold" color="secondary">
           {LeagueToken.symbol} Staked
         </Text>
         <div className="flex flow-col">
-          {isDarkTheme ? (
-            <Icon name="png/league-dao-dark" className="mr-4" />
-          ) : (
-            <Icon name="png/league-dao-light" className="mr-4" />
-          )}
+          <Icon name="png/league" className="mr-8" />
           <Text type="p1" weight="semibold" color="primary">
             {formatToken(daoBarn.leagStaked) ?? '-'}
           </Text>
@@ -62,15 +55,11 @@ const DaoCard: FC = () => {
       </div>
       {walletCtx.isActive && (
         <div className="card-row card-row-border p-24">
-          <Text type="lb2" weight="semibold" color="primary">
+          <Text type="lb2" weight="semibold" color="secondary">
             My Staked Balance
           </Text>
           <div className="flex flow-col">
-            {isDarkTheme ? (
-              <Icon name="png/league-dao-dark" className="mr-4" />
-            ) : (
-              <Icon name="png/league-dao-light" className="mr-4" />
-            )}
+            <Icon name="png/league" className="mr-8" />
             <Text type="p1" weight="semibold" color="primary">
               {formatToken(daoBarn.balance) ?? '-'}
             </Text>
@@ -79,19 +68,15 @@ const DaoCard: FC = () => {
       )}
       <div className="card-row card-row-border p-24">
         <div className="flex flow-row">
-          <Text type="lb2" weight="semibold" color="primary" className="mb-4">
+          <Text type="lb2" weight="semibold" color="secondary" className="mb-4">
             {LeagueToken.symbol} Rewards
           </Text>
-          <Text type="p2" color="secondary">
+          <Text type="small" color="secondary">
             out of {formatToken(daoReward.poolFeature?.totalAmount)}
           </Text>
         </div>
         <div className="flex flow-col">
-          {isDarkTheme ? (
-            <Icon name="png/league-dao-dark" className="mr-4" />
-          ) : (
-            <Icon name="png/league-dao-light" className="mr-4" />
-          )}
+          <Icon name="png/league" className="mr-8" />
           <UseLeftTime end={(daoReward.poolFeature?.endTs ?? 0) * 1000} delay={5_000}>
             {() => (
               <Text type="p1" weight="bold" color="primary">
@@ -103,15 +88,11 @@ const DaoCard: FC = () => {
       </div>
       {walletCtx.isActive && (
         <div className="card-row card-row-border p-24">
-          <Text type="lb2" weight="semibold" color="primary">
+          <Text type="lb2" weight="semibold" color="secondary">
             My {LeagueToken.symbol} Rewards
           </Text>
           <div className="flex flow-col">
-            {isDarkTheme ? (
-              <Icon name="png/league-dao-dark" className="mr-4" />
-            ) : (
-              <Icon name="png/league-dao-light" className="mr-4" />
-            )}
+            <Icon name="png/league" className="mr-8" />
             <Text type="p1" weight="semibold" color="primary">
               {formatToken(daoReward.claimValue) ?? '-'}
             </Text>

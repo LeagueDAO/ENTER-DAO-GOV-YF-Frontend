@@ -90,8 +90,6 @@ body.mobile-menu-open {
   --theme-default-color: #aaafb3; // grey300
 
   --theme-card-shadow: 0 0 0.5px rgba(6, 10, 13, 0.4), 0 8px 16px rgba(113, 121, 128, 0.08);
-  --theme-modal-shadow: 0 0 1px rgba(6, 10, 13, 0.4), 0 16px 32px rgba(19, 32, 43, 0.4);
-  --theme-overlay-shadow: 0 0 1px rgba(0, 0, 0, 0.4), 0 32px 64px rgba(113, 121, 128, 0.32);
 
   --theme-modal-overlay: rgba(0, 0, 0, 0.7);
 
@@ -138,7 +136,7 @@ body.mobile-menu-open {
   --theme-tooltip-item-bg-active: #ef9c92;
 
   --theme-header-shadow: 5px 0 20px #f1dbee;
-  --theme-selection-color: #ef9c92;
+  --theme-selection-color: #19b9a1;
 
   --L1-D1: #{$light-mode-1};
   --L2-D2: #{$light-mode-2};
@@ -189,8 +187,6 @@ body.mobile-menu-open {
   --theme-default-color: #b3b1cf;
 
   --theme-card-shadow: 0 0 0.5px #fff, 0 32px 64px rgba(0, 0, 0, 0.32);
-  --theme-modal-shadow: 0 12px 25px #161344;
-  --theme-overlay-shadow: 0 12px 25px #161344;
 
   --theme-input-background: #1d1d1d;
   --theme-input-placeholder: #606268;

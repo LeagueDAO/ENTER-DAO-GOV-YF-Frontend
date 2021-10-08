@@ -6,7 +6,7 @@
   padding: 12px 16px;
   background: var(--L2-D2);
   border: 1px solid var(--L4-D4);
-  border-radius: 12px;
+  border-radius: 6px;
 
   &:hover {
     background: var(--L2-D2) !important;
@@ -50,7 +50,7 @@
 .dropdown:global(.ant-picker-dropdown) {
   :global(.ant-picker-panel-container) {
     background: var(--L3-D3);
-    border-radius: 12px;
+    border-radius: 6px;
 
     :global(.ant-picker-panel) {
       border: 0;

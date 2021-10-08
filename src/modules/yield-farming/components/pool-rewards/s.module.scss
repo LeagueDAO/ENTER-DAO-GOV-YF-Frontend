@@ -3,6 +3,10 @@
   border-bottom: 1px solid var(--L4-D4);
   gap: 16px;
   //box-shadow: var(--theme-header-shadow);
+
+  &__head {
+    margin-bottom: 12px;
+  }
 }
 
 .items.items {

@@ -18,7 +18,7 @@ const LayoutFooter: React.FC = () => {
 
   const getYear = () => {
     return new Date().getFullYear();
-  }
+  };
 
   return (
     <footer className={s.footer}>
@@ -28,27 +28,37 @@ const LayoutFooter: React.FC = () => {
             <Text type="p1" weight="bold" color="white" font="secondary">
               Stay up to date with our newsletter
             </Text>
-            <form className={s.subscribeWrap}  action={config.mailchimp.url} method="POST" noValidate target="_blank">
-                <input type="hidden" name="u" value={config.mailchimp.u}/>
-                <input type="hidden" name="id" value={config.mailchimp.id}/>
-                <input
-                    className={s.subscribeInput}
-                    placeholder="Enter your email"
-                    type="email"
-                    name="EMAIL"
-                    id="MERGE0"
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
-                    autoCapitalize="off"
-                    autoCorrect="off"
-                  />
-                <button type="submit" className={cn(s.subscribeButton, 'button-primary')} disabled={loading}>
+            <form className={s.subscribeWrap} action={config.mailchimp.url} method="POST" noValidate target="_blank">
+              <input type="hidden" name="u" value={config.mailchimp.u} />
+              <input type="hidden" name="id" value={config.mailchimp.id} />
+              <input
+                className={s.subscribeInput}
+                placeholder="Enter your email"
+                type="email"
+                name="EMAIL"
+                id="MERGE0"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+                autoCapitalize="off"
+                autoCorrect="off"
+              />
+              <button type="submit" className={cn(s.subscribeButton, 'button-primary')} disabled={loading}>
                 {loading && <AntdSpin style={{ marginRight: 8 }} spinning />}
                 Subscribe
               </button>
-              <div style={{position: 'absolute', left: '-5000px'}} aria-hidden='true' aria-label="Please leave the following three fields empty">
-                  <label htmlFor="b_email">Email: </label>
-                  <input type="email" name="b_email" tabIndex={-1} value="" placeholder="youremail@gmail.com" id="b_email"/>
+              <div
+                style={{ position: 'absolute', left: '-5000px' }}
+                aria-hidden="true"
+                aria-label="Please leave the following three fields empty">
+                <label htmlFor="b_email">Email: </label>
+                <input
+                  type="email"
+                  name="b_email"
+                  tabIndex={-1}
+                  value=""
+                  placeholder="youremail@gmail.com"
+                  id="b_email"
+                />
               </div>
             </form>
           </div>
@@ -82,12 +92,13 @@ const LayoutFooter: React.FC = () => {
               <Icon name="png/league-dao-dark" width="auto" height="auto" className={s.logo} />
             </Link>
             <Text type="p1" color="white">
-              EnterDAO is a decentralized autonomous organization on the Ethereum blockchain founded with the mission to build products enabling new markets within the metaverse economy. EnterDAO is governed by the ENTR token.
+              EnterDAO is a decentralized autonomous organization on the Ethereum blockchain founded with the mission to
+              build products enabling new markets within the metaverse economy. EnterDAO is governed by the ENTR token.
             </Text>
           </div>
           <div className={s.navBlocksWrap}>
             <nav className={s.navBlock}>
-              <Text type="p1" color="white" font="secondary" className={s.navTitle}>
+              <Text type="p1" weight="bold" color="white" font="secondary" className={s.navTitle}>
                 Info
               </Text>
               <ExternalLink href="https://medium.com/enterdao/enterdao-whitepaper-27447f7400c8" className={s.link}>
@@ -104,7 +115,7 @@ const LayoutFooter: React.FC = () => {
               </ExternalLink>
             </nav>
             <nav className={s.navBlock}>
-              <Text type="p1" color="white" font="secondary" className={s.navTitle}>
+              <Text type="p1" weight="bold" color="white" font="secondary" className={s.navTitle}>
                 DAO
               </Text>
               <Link to="/governance" className={s.link}>

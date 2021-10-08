@@ -1,5 +1,9 @@
 .component {
   background: var(--L11-D11);
+
+  &__head {
+    margin-bottom: 12px;
+  }
 }
 
 .items.items {
