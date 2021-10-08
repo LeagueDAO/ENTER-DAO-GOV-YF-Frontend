@@ -84,7 +84,7 @@ const LayoutFooter: React.FC = () => {
                       />
                     </a>
                     <a
-                      href="https://discord.gg/A2dDGheh"
+                      href="https://discord.com/invite/A2dDGheh"
                       target="_blank"
                       rel="noopener noreferrer"
                       className={s.sLink}
