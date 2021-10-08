@@ -31,6 +31,7 @@ function loadCommonData(): Promise<any> {
       }),
     },
   ]).then(([poolFeature]) => {
+    return {
       poolFeature,
     };
   });
