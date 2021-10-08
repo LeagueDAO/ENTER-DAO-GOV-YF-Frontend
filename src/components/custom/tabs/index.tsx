@@ -12,7 +12,7 @@ type NavTabsProps = {
   /**
    * @example
    * <Tabs shadows="--theme-card-color" /> in case of string, place background color variable,
-   * <Tabs shadows /> `--theme-body-color` will be used in case of `true`
+   * <Tabs shadows /> `--L2-D2` will be used in case of `true`
    */
   shadows?: boolean | string;
 };
@@ -25,7 +25,7 @@ export const NavTabs: FC<NavTabsProps> = ({ className, tabs, shadows = false }) 
       })}
       style={
         {
-          '--tabs-bg': `var(${typeof shadows === 'string' ? shadows : '--theme-body-color'})`,
+          '--tabs-bg': `var(${typeof shadows === 'string' ? shadows : '--L2-D2'})`,
         } as CSSProperties
       }>
       {tabs.map(({ className, children, ...restTab }, idx) => {

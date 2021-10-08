@@ -14,7 +14,9 @@ import { Text } from 'components/custom/typography';
 import { UseLeftTime } from 'hooks/useLeftTime';
 import useMergeState from 'hooks/useMergeState';
 import imgSrc from 'resources/png/league-dao-dark.png';
+import imgSrcLight from 'resources/png/league-dao-light.png';
 
+import { useGeneral } from '../../../../components/providers/general-provider';
 import { LeagueToken } from '../../../../components/providers/known-tokens-provider';
 import Erc20Contract from '../../../../web3/erc20Contract';
 import { useDAO } from '../dao-provider';
@@ -44,6 +46,7 @@ const VotingHeader: React.FC = () => {
   const { votingPower, userLockedUntil, multiplier = 1 } = daoCtx.daoBarn;
 
   const loadedUserLockedUntil = (userLockedUntil ?? Date.now()) - Date.now();
+  const { isDarkTheme } = useGeneral();
 
   function handleLeftTimeEnd() {
     daoCtx.daoBarn.reload();
@@ -82,7 +85,11 @@ const VotingHeader: React.FC = () => {
                   </Text>
                 </Skeleton>
               </Tooltip>
-              <Icon name="png/league-dao-dark" width={40} height={40} />
+              {isDarkTheme ? (
+                <Icon name="png/league-dao-dark" width={40} height={40} />
+              ) : (
+                <Icon name="png/league-dao-light" width={40} height={40} />
+              )}
               <Button
                 type="primary"
                 size="small"
@@ -104,7 +111,11 @@ const VotingHeader: React.FC = () => {
                   {formatEntrValue(entrBalance)}
                 </Text>
               </Skeleton>
-              <Icon name="png/league-dao-dark" src={imgSrc} width={40} height={40} />
+              {isDarkTheme ? (
+                <Icon name="png/league-dao-dark" src={imgSrc} width={40} height={40} />
+              ) : (
+                <Icon name="png/league-dao-light" src={imgSrcLight} width={40} height={40} />
+              )}
             </Grid>
           </Grid>
           <Divider type="vertical" />

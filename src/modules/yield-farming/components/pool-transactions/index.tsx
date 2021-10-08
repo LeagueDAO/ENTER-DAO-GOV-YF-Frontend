@@ -109,17 +109,17 @@ function getColumns(isAll: boolean): ColumnsType<TableEntity> {
     },
     isAll
       ? {
-        title: 'Address',
-        dataIndex: 'from',
-        width: '25%',
-        render: (_, entity) => (
-          <ExternalLink href={getEtherscanAddressUrl(entity.userAddress)} className="link-blue">
-            <Text type="p1" weight="semibold" color="var(--gradient-blue-safe)" textGradient="var(--gradient-blue)">
-              {shortenAddr(entity.userAddress)}
-            </Text>
-          </ExternalLink>
-        ),
-      }
+          title: 'Address',
+          dataIndex: 'from',
+          width: '25%',
+          render: (_, entity) => (
+            <ExternalLink href={getEtherscanAddressUrl(entity.userAddress)} className="link-blue">
+              <Text type="p1" weight="semibold" color="var(--gradient-blue-safe)" textGradient="var(--gradient-blue)">
+                {shortenAddr(entity.userAddress)}
+              </Text>
+            </ExternalLink>
+          ),
+        }
       : {},
     {
       title: 'Transaction hash/timestamp',
@@ -292,11 +292,11 @@ const PoolTransactions: FC = () => {
           tabs={[
             ...(hasOwnTab
               ? [
-                {
-                  id: 'own',
-                  children: 'My transactions',
-                },
-              ]
+                  {
+                    id: 'own',
+                    children: 'My transactions',
+                  },
+                ]
               : []),
             {
               id: 'all',

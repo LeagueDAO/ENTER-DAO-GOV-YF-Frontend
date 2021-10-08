@@ -14,6 +14,7 @@ import { LeagueToken, convertTokenInUSD, useKnownTokens } from 'components/provi
 import { YfPoolContract } from 'modules/yield-farming/contracts/yfPool';
 import { useWallet } from 'wallets/wallet';
 
+import { useGeneral } from '../../../../components/providers/general-provider';
 import { useYFPool } from '../../providers/pool-provider';
 import { useYFPools } from '../../providers/pools-provider';
 
@@ -33,6 +34,8 @@ const PoolStatistics: FC = () => {
 
   const entrContract = LeagueToken.contract as Erc20Contract;
   const activeContract = activeToken?.contract as Erc20Contract;
+
+  const { isDarkTheme } = useGeneral();
 
   if (!walletCtx.isActive || !poolMeta) {
     return null;
@@ -80,7 +83,12 @@ const PoolStatistics: FC = () => {
               {LeagueToken.symbol} balance
             </Text>
             <div className="flex align-center">
-              <Icon name={LeagueToken.icon!} width={16} height={16} className="mr-8" />
+              <Icon
+                name={isDarkTheme ? LeagueToken.icon! : LeagueToken.iconLight!}
+                width={16}
+                height={16}
+                className="mr-8"
+              />
               <Text type="p1" weight="semibold" color="primary">
                 {formatToken(entrContract.balance?.unscaleBy(LeagueToken.decimals)) ?? '-'}
               </Text>
@@ -92,7 +100,12 @@ const PoolStatistics: FC = () => {
                 Potential reward this epoch
               </Text>
               <div className="flex align-center">
-                <Icon name={LeagueToken.icon!} width={16} height={16} className="mr-8" />
+                <Icon
+                  name={isDarkTheme ? LeagueToken.icon! : LeagueToken.iconLight!}
+                  width={16}
+                  height={16}
+                  className="mr-8"
+                />
                 <Text type="p1" weight="semibold" color="primary">
                   {formatToken(poolMeta.contract.potentialReward) ?? '-'}
                 </Text>
@@ -121,7 +134,7 @@ const PoolStatistics: FC = () => {
                     }) ?? '-'}
                   </Text>
                 </Tooltip>
-                <Icon name={LeagueToken.icon!} width={24} height={24} />
+                <Icon name={isDarkTheme ? LeagueToken.icon! : LeagueToken.iconLight!} width={24} height={24} />
               </div>
               <Text type="small" weight="semibold" color="secondary">
                 Current reward
@@ -236,7 +249,7 @@ const PoolStatistics: FC = () => {
               <Text type="h2" weight="semibold" color="primary">
                 {formatToken(poolMeta.contract.toClaim?.unscaleBy(LeagueToken.decimals)) ?? '-'}
               </Text>
-              <Icon name={LeagueToken.icon!} width={32} height={32} />
+              <Icon name={isDarkTheme ? LeagueToken.icon! : LeagueToken.iconLight!} width={32} height={32} />
             </div>
           }
           submitText="Claim"

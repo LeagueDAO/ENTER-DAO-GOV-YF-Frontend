@@ -1,11 +1,11 @@
 .component {
   align-items: center;
-  background: var(--theme-card-color);
-  border-bottom: 1px solid var(--theme-border-color);
+  background: var(--L11-D11);
+  border-bottom: 1px solid var(--L4-D4);
   display: flex;
   padding: 12px var(--horizontal-padding);
   position: relative;
-  box-shadow: var(--theme-header-shadow);
+  //box-shadow: var(--theme-header-shadow);
 
   @media (max-width: 1024px) {
     padding: 24px 12px;
@@ -20,8 +20,8 @@
     margin-left: 16px;
     border-radius: 12px;
     padding: 10px !important;
-    border: 1px solid var(--theme-border-color) !important;
-    color: var(--theme-primary-color);
+    border: 1px solid var(--L4-D4) !important;
+    color: var(--L8-D8);
 
     @media (max-width: 768px) {
       display: flex;
@@ -65,7 +65,7 @@
 }
 
 .mobileMenuInner {
-  background: var(--theme-card-color);
+  background: var(--L11-D11);
   padding: 20px 0;
   border-radius: 0 0 12px 12px;
   display: flex;
@@ -84,19 +84,19 @@
     line-height: 22px;
     text-align: left;
     text-transform: uppercase;
-    color: var(--theme-secondary-color);
+    color: var(--L7-D7);
     margin: 0 0 16px;
   }
 
   .dropdownLink {
     padding-left: 8px;
     padding-right: 8px;
-    color: var(--theme-primary-color) !important;
+    color: var(--L8-D8) !important;
   }
 }
 
 .titleDelimiter {
-  background: var(--theme-border-color);
+  background: var(--L4-D4);
   width: 1px;
   height: 34px;
   margin-left: 14px;
@@ -110,18 +110,18 @@
 
 .logo {
   margin-right: 3px;
-  width: 56px;
+  //width: 56px;
   height: 56px;
 
   @media (max-width: 1023px) {
-    width: 44px;
+    //width: 44px;
     height: 44px;
   }
 }
 
 .title {
   font-family: 'Poppins', sans-serif;
-  color: var(--theme-primary-color);
+  color: var(--L8-D8);
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -139,7 +139,7 @@
 
 .nav {
   display: flex;
-  border-right: 1px solid var(--theme-border-color);
+  border-right: 1px solid var(--L4-D4);
   margin-right: 20px;
   min-height: 28px;
 
@@ -152,7 +152,7 @@
   margin-right: 30px;
 
   .dropdownArrow {
-    color: var(--theme-primary-color);
+    color: var(--L8-D8);
   }
 
   &:global(.ant-popover-open) {
@@ -178,7 +178,7 @@
 .dropdownLink {
   display: flex;
   align-items: center;
-  color: var(--theme-primary-color);
+  color: var(--L8-D8);
   padding: 16px 12px 14px;
   font-size: 14px;
   font-style: normal;
@@ -189,33 +189,33 @@
 
 .dropdownIcon {
   margin-right: 6px;
-  color: var(--theme-primary-color);
+  color: var(--L8-D8);
 }
 
 .dropdownLink:hover {
-  background: var(--theme-overlay-color);
-  color: var(--theme-primary-color);
+  background: var(--L3-D3);
+  color: var(--L8-D8);
 
   .dropdownIcon {
-    color: var(--theme-primary-color);
+    color: var(--L8-D8);
   }
 }
 
 .dropdownLink:active {
-  background: var(--theme-overlay-color);
-  color: var(--theme-primary-color);
+  background: var(--L3-D3);
+  color: var(--L8-D8);
 
   .dropdownIcon {
-    color: var(--theme-primary-color);
+    color: var(--L8-D8);
   }
 }
 
 .dropdownLink[aria-disabled='true'] {
-  color: var(--theme-secondary-color) !important;
+  color: var(--L7-D7) !important;
   cursor: default;
 
   .dropdownIcon {
-    color: var(--theme-secondary-color) !important;
+    color: var(--L7-D7) !important;
   }
 }
 
@@ -245,7 +245,7 @@
 .addTokenWrapper {
   padding-right: 20px;
   margin-right: 20px;
-  border-right: 1px solid var(--theme-border-color);
+  border-right: 1px solid var(--L4-D4);
 }
 
 .addTokenButton {

@@ -5,16 +5,16 @@ import MerkleDistributor from 'web3/merkleDistributor';
 import Web3Contract from 'web3/web3Contract';
 
 import {
-  XyzToken,
-  EnterToken,
   BondToken,
+  EnterToken,
+  IlvToken,
   IonxToken,
   LinkToken,
-  IlvToken,
   SnxToken,
   SushiToken,
   TokenMeta,
   UsdcLeagSLPToken,
+  XyzToken,
   useKnownTokens,
 } from 'components/providers/known-tokens-provider';
 import config from 'config';

@@ -1,10 +1,12 @@
+@import '../../../../src/styles/colors';
+
 .footer {
-  background: #080629;
+  background: $dark-mode-11;
   grid-area: footer;
   margin-top: auto;
 
   .row {
-    border-bottom: 1px solid #2F2B73;
+    border-bottom: 1px solid $dark-mode-4;
     padding: 60px 0;
     display: flex;
     flex-wrap: wrap;
@@ -61,8 +63,8 @@
     height: 50px;
     align-items: center;
     justify-content: center;
-    background: #131044;
-    border: 1px solid #2E2978;
+    background: $dark-mode-13;
+    border: 1px solid $dark-mode-14;
     border-radius: 4px;
     color: #fff;
 
@@ -82,7 +84,7 @@
 
     &:hover,
     &:active {
-      border-color: rgba(255, 255, 255, 0.5);
+      background: transparent;
     }
   }
 

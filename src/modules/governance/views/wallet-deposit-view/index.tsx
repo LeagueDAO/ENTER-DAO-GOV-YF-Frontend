@@ -15,6 +15,7 @@ import { Text } from 'components/custom/typography';
 import { LeagueToken } from 'components/providers/known-tokens-provider';
 import useMergeState from 'hooks/useMergeState';
 
+import { useGeneral } from '../../../../components/providers/general-provider';
 import config from '../../../../config';
 import Erc20Contract from '../../../../web3/erc20Contract';
 import { useDAO } from '../../components/dao-provider';
@@ -51,6 +52,8 @@ const InitialState: WalletDepositViewState = {
 const WalletDepositView: React.FC = () => {
   const daoCtx = useDAO();
   const [form] = AntdForm.useForm<DepositFormData>();
+
+  const { isDarkTheme } = useGeneral();
 
   const [state, setState] = useMergeState<WalletDepositViewState>(InitialState);
 
@@ -112,7 +115,11 @@ const WalletDepositView: React.FC = () => {
     <div className="card">
       <Grid className="card-header" flow="col" gap={24} colsTemplate="1fr 1fr 1fr 1fr 42px" align="start">
         <Grid flow="col" gap={12} align="center">
-          <Icon name="png/league-dao-dark" width={40} height={40} />
+          {isDarkTheme ? (
+            <Icon name="png/league-dao-dark" width={40} height={40} />
+          ) : (
+            <Icon name="png/league-dao-light" width={40} height={40} />
+          )}
           <Text type="p1" weight="semibold" color="primary">
             {LeagueToken.symbol}
           </Text>

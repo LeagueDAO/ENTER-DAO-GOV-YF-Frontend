@@ -12,7 +12,7 @@
 div.paragraph:global(.ant-typography) {
   @include font-p1-regular;
   margin: 0;
-  color: var(--theme-primary-color);
+  color: var(--L8-D8);
 
   &.expanded {
     white-space: pre-wrap;

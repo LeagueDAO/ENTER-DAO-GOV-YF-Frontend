@@ -7,14 +7,14 @@
     @include font-p1-regular;
     max-width: 360px;
     padding: 16px;
-    background: var(--theme-tooltip-bg);
+    background: var(--L12-D12);
     box-shadow: var(--theme-overlay-shadow);
     border-radius: 4px;
-    color: var(--theme-primary-color);
+    color: var(--L8-D8);
   }
 
   :global(.ant-tooltip-arrow-content) {
-    background: var(--theme-tooltip-bg);
+    background: var(--L12-D12);
   }
 
   &.hint {
@@ -25,14 +25,14 @@
       line-height: 18px;
       text-align: center;
       padding: 4px 12px;
-      background: var(--theme-primary-color);
-      color: var(--theme-card-color);
+      background: var(--L8-D8);
+      color: var(--L11-D11);
       border-radius: 100px;
       box-shadow: 0 0 2px 0 rgba(255, 255, 255, 0.6);
     }
 
     :global(.ant-tooltip-arrow-content) {
-      background: var(--theme-primary-color);
+      background: var(--L8-D8);
       box-shadow: 0 0 2px 0 rgba(255, 255, 255, 0.6);
     }
   }

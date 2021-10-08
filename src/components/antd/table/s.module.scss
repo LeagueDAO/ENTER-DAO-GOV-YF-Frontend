@@ -3,7 +3,7 @@
 .component {
   :global(.ant-table-title) {
     padding: 24px;
-    border: 1px solid var(--theme-border-color);
+    border: 1px solid var(--L4-D4);
     border-bottom: 0;
 
     &:empty {
@@ -14,8 +14,8 @@
   :global(.ant-table-thead .ant-table-cell) {
     @include font-sm-semi-bold;
     padding: 16px 24px;
-    background: var(--theme-card-color);
-    color: var(--theme-default-color);
+    background: var(--L11-D11);
+    color: var(--L7-D7);
 
     :global(.ant-table-column-sorters) {
       padding: 0;
@@ -24,13 +24,13 @@
 
   &:not(:global(.ant-table-in-card)) {
     :global(.ant-table-container) {
-      //border-left: 1px solid var(--theme-border-color);
-      //border-right: 1px solid var(--theme-border-color);
+      //border-left: 1px solid var(--L4-D4);
+      //border-right: 1px solid var(--L4-D4);
     }
 
     :global(.ant-table-thead .ant-table-cell) {
-      border-top: 1px solid var(--theme-border-color);
-      border-bottom: 1px solid var(--theme-border-color);
+      border-top: 1px solid var(--L4-D4);
+      border-bottom: 1px solid var(--L4-D4);
       border-radius: 0;
     }
   }
@@ -40,26 +40,26 @@
 
     :global(.ant-table-placeholder):hover {
       :global(.ant-table-cell) {
-        background: var(--theme-card-color);
+        background: var(--L11-D11);
       }
     }
 
     :global(.ant-table-row):hover {
       :global(.ant-table-cell) {
-        background: var(--theme-overlay-color);
+        background: var(--L3-D3);
 
         &:not(:last-of-type):first-of-type {
-          border-left: 2px solid var(--theme-border-color);
+          border-left: 2px solid var(--L4-D4);
         }
       }
     }
 
     :global(.ant-table-cell) {
       padding: 16px 24px;
-      background: var(--theme-card-color);
-      border-bottom: 1px solid var(--theme-border-color);
+      background: var(--L11-D11);
+      border-bottom: 1px solid var(--L4-D4);
       vertical-align: top;
-      color: var(--theme-secondary-color);
+      color: var(--L7-D7);
       white-space: nowrap;
 
       &:first-of-type {
@@ -74,7 +74,7 @@
   }
 
   :global(.ant-table-footer) {
-    background: var(--theme-card-color);
+    background: var(--L11-D11);
 
     &:empty {
       display: none;
@@ -84,14 +84,14 @@
   :global(.ant-pagination) {
     margin: 0;
     padding: 24px;
-    background: var(--theme-card-color);
-    // border: 1px solid var(--theme-border-color);
+    background: var(--L11-D11);
+    // border: 1px solid var(--L4-D4);
     border-radius: 0 0 12px 12px;
 
     :global(.ant-pagination-total-text) {
       @include font-p2-semi-bold;
       width: 100%;
-      color: var(--theme-secondary-color);
+      color: var(--L7-D7);
       display: flex;
       align-items: center;
     }
@@ -108,7 +108,7 @@
       font-weight: 600;
 
       &:global(.ant-pagination-item-active) > a {
-        color: var(--theme-primary-color);
+        color: var(--L8-D8);
       }
 
       > a {

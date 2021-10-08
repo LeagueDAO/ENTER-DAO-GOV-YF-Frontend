@@ -4,7 +4,7 @@
   font-weight: 500;
   src: url('../resources/fonts/poppins/Poppins-Medium.eot') format('eot');
   src: url('../resources/fonts/poppins/Poppins-Medium.woff2') format('woff2'),
-  url('../resources/fonts/poppins/Poppins-Medium.woff') format('woff');
+    url('../resources/fonts/poppins/Poppins-Medium.woff') format('woff');
 }
 
 @font-face {
@@ -13,7 +13,7 @@
   font-weight: 700;
   src: url('../resources/fonts/poppins/Poppins-Bold.eot') format('eot');
   src: url('../resources/fonts/poppins/Poppins-Bold.woff2') format('woff2'),
-  url('../resources/fonts/poppins/Poppins-Bold.woff') format('woff');
+    url('../resources/fonts/poppins/Poppins-Bold.woff') format('woff');
 }
 
 @mixin font($size, $height, $weight: normal, $style: normal, $family: var(--font-family)) {

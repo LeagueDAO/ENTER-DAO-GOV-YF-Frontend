@@ -14,10 +14,10 @@
     align-items: center;
     justify-content: center;
     height: auto;
-    background: var(--theme-card-color);
-    border: 1px solid var(--theme-border-color);
+    background: var(--L11-D11);
+    border: 1px solid var(--L4-D4);
     border-radius: 12px;
-    color: var(--theme-primary-color);
+    color: var(--L8-D8);
     position: relative;
 
     &::before {
@@ -27,7 +27,7 @@
     &:global(.ant-radio-button-wrapper-checked) {
       position: relative;
       border: none !important;
-      color: var(--theme-primary-color) !important;
+      color: var(--L8-D8) !important;
 
       & > span {
         z-index: 1;

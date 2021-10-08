@@ -32,6 +32,7 @@ export type TokenMeta = {
   address: string;
   decimals: number;
   icon?: TokenIconNames;
+  iconLight?: TokenIconNames;
   coinGeckoId?: string;
   contract?: Web3Contract;
   price?: BigNumber;
@@ -52,6 +53,7 @@ export const LeagueToken: TokenMeta = {
   name: 'LeagueDAO Governance Token',
   decimals: 18,
   icon: 'png/league-dao-dark' as any,
+  iconLight: 'png/league-dao-light' as any,
   contract: new Erc20Contract([], config.tokens.leag),
 };
 

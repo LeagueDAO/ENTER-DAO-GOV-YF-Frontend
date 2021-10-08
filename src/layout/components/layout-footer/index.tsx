@@ -68,7 +68,7 @@ const LayoutFooter: React.FC = () => {
               {/*</ExternalLink>*/}
 
               <ExternalLink href="https://t.me/joinchat/ftcnxgCO36owNGNk" className={s.sLink}>
-                <Icon name="png/telegram" width="20" height="20" />
+                <Icon name="telegram" width="20" height="20" />
               </ExternalLink>
               <ExternalLink href="https://medium.com/enterdao" className={s.sLink}>
                 <Icon name="medium" width="20" height="20" />

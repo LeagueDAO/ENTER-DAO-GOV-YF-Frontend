@@ -74,7 +74,11 @@ const LayoutHeader: React.FC = () => {
   return (
     <div className={s.component} ref={setReferenceElement}>
       <ExternalLink href="https://enterdao.xyz/" target="_self">
-        <Icon name="png/league-dao-dark" width="auto" height="auto" className={s.logo} />
+        {isDarkTheme ? (
+          <Icon name="png/league-dao-dark" width="auto" height="auto" className={s.logo} />
+        ) : (
+          <Icon name="png/league-dao-light" width="auto" height="auto" className={s.logo} />
+        )}
       </ExternalLink>
       <div className={s.titleDelimiter} />
       <h1 className={s.title}>{isGovernancePage ? 'Governance' : 'Yield Farming'}</h1>
@@ -155,7 +159,7 @@ const LayoutHeader: React.FC = () => {
       )}
       <ConnectedWallet />
       <Button type="link" className={s.burger} onClick={() => setNavOpen(prevState => !prevState)}>
-        <Icon name={navOpen ? 'burger-close' : 'burger'} style={{ color: 'var(--theme-primary-color)' }} />
+        <Icon name={navOpen ? 'burger-close' : 'burger'} style={{ color: 'var(--L8-D8)' }} />
       </Button>
       {navOpen &&
         ReactDOM.createPortal(

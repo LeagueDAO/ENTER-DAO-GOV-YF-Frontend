@@ -11,6 +11,7 @@ import universeSrc from 'resources/png/universe.png';
 import enterdaoSrc from 'resources/png/enterdao.png';
 import snxSrc from 'resources/png/snx.png';
 import leaguedaoSrc from 'resources/png/league-dao-dark.png';
+import leaguedaoLightSrc from 'resources/png/league-dao-light.png';
 import ionxSrc from 'resources/png/ionx.png';
 import sandSrc from 'resources/png/sandbox.png';
 import axsSrc from 'resources/png/axie.png';
@@ -22,6 +23,7 @@ import Sprite from 'resources/svg/icons-sprite.svg';
 import s from './s.module.scss';
 
 export type LogoIconNames = 'png/league-dao-dark';
+export type LogoIconNamesLight = 'png/league-dao-light';
 
 export type TokenIconNames =
   | 'bond-circle-token'
@@ -77,6 +79,7 @@ export type ThemeIconNames = 'moon' | 'sun';
 
 export type IconNames =
   | LogoIconNames
+  | LogoIconNamesLight
   | TokenIconNames
   | NavIconNames
   | ThemeIconNames
@@ -157,6 +160,7 @@ export type IconNames =
   | 'docs'
   | 'twitter'
   | 'discord'
+  | 'telegram'
   | 'dropdown'
   | 'theme-switcher-sun'
   | 'theme-switcher-moon'
@@ -191,6 +195,8 @@ const Icon: React.FC<IconProps> = props => {
       switch (name) {
         case 'png/league-dao-dark':
           return leaguedaoSrc;
+        case 'png/league-dao-light':
+          return leaguedaoLightSrc;
         case 'png/enterdao':
           return enterdaoSrc;
         case 'png/snx':

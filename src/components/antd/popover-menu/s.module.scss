@@ -19,15 +19,15 @@
       align-items: center;
       justify-content: flex-start;
       margin: 4px;
-      color: var(--theme-secondary-color);
+      color: var(--L7-D7);
 
       &:global(.ant-menu-item-active) {
-        background: var(--theme-body-color);
+        background: var(--L2-D2);
         border-radius: 4px;
-        color: var(--theme-primary-color);
+        color: var(--L8-D8);
 
         svg {
-          color: var(--theme-secondary-color);
+          color: var(--L7-D7);
         }
       }
     }
