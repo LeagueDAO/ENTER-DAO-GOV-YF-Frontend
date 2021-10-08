@@ -151,7 +151,7 @@ const PoolStake: FC = () => {
           <Alert
             message={
               <div className="flex flow-row row-gap-16 align-start">
-                <Text type="p2" weight="semibold" color="blue">
+                <Text type="p2" weight="semibold" color="yellow">
                   Deposits made after an epoch started will be considered as pro-rata figures in relation to the length
                   of the epoch.
                 </Text>
@@ -164,10 +164,10 @@ const PoolStake: FC = () => {
               className="mb-32"
               message={
                 <div className="flex flow-row row-gap-16 align-start">
-                  <Text type="p2" weight="semibold" color="blue">
+                  <Text type="p2" weight="semibold" color="yellow">
                     You can still deposit {activeToken.symbol} in the DAO governance to earn interest for your funds.
                   </Text>
-                  <Link to="/governance" className="link-blue">
+                  <Link to="/governance" className="link-yellow">
                     <Text type="p2" weight="bold" style={{ textDecoration: 'underline' }}>
                       Go to governance staking
                     </Text>

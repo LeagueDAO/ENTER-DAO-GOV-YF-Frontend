@@ -138,7 +138,7 @@ const PoolUnstake: FC = () => {
           <Alert
             message={
               <div className="flex flow-row row-gap-16 align-start">
-                <Text type="p2" weight="semibold" color="blue">
+                <Text type="p2" weight="semibold" color="yellow">
                   Any funds withdrawn before the end of this epoch will not accrue any rewards for this epoch.
                 </Text>
               </div>
@@ -150,10 +150,10 @@ const PoolUnstake: FC = () => {
               className="mb-32"
               message={
                 <div className="flex flow-row row-gap-16 align-start">
-                  <Text type="p2" weight="semibold" color="blue">
+                  <Text type="p2" weight="semibold" color="yellow">
                     You can still deposit {KnownTokens.ENTR} in the DAO governance to earn interest for your funds.
                   </Text>
-                  <Link to="/governance" className="link-blue">
+                  <Link to="/governance" className="link-yellow">
                     <Text type="p2" weight="bold" className="text-underline">
                       Go to governance staking
                     </Text>

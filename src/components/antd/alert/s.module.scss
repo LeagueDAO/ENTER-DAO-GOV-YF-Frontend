@@ -74,8 +74,8 @@
       text-fill-color: transparent;
     }
     &:global(.ant-alert-info) :global(.ant-alert-message)::selection {
-      -webkit-text-fill-color: var(--theme-blue-color);
-      text-fill-color: var(--theme-blue-color);
+      -webkit-text-fill-color: var(--L9-D9);
+      text-fill-color: var(--L9-D9);
     }
     &:global(.ant-alert-success) :global(.ant-alert-message)::selection {
       -webkit-text-fill-color: var(--theme-green-color);

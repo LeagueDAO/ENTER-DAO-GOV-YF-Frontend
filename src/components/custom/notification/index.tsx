@@ -27,14 +27,15 @@ import s from './s.module.scss';
 
 // @ts-ignore
 window['dateFns'] = dateFns;
-const colorPairs: Record<'green' | 'red' | 'blue', [string, string]> = {
+const colorPairs: Record<'green' | 'red' | 'blue' | 'yellow', [string, string]> = {
   green: ['--theme-green-color', '--theme-green-color-rgb'],
   red: ['--theme-red-color', '--theme-red-color-rgb'],
   blue: ['--theme-blue-color', '--theme-blue-color-rgb'],
+  yellow: ['--theme-yellow-color', '--theme-yellow-color-rgb'],
 };
 
 function getProposalLink(id: number): React.ReactNode {
-  return <Link className="link-blue" to={`/governance/proposals/${id}`}>{`PID-${id}`}</Link>;
+  return <Link className="link-yellow" to={`/governance/proposals/${id}`}>{`PID-${id}`}</Link>;
 }
 
 function getStrongText(text: string = ''): React.ReactNode {
@@ -80,7 +81,7 @@ function getData(n: NotificationType, reload: Function): [IconNames, [string, st
         colorPairs.red,
         <Text type="p2" weight="semibold" color="secondary">
           Proposal {getProposalLink(n.metadata.proposalId)} has been cancelled by{' '}
-          <ExternalLink href={getEtherscanAddressUrl(n.metadata.caller)} className="link-blue">
+          <ExternalLink href={getEtherscanAddressUrl(n.metadata.caller)} className="link-yellow">
             {shortenAddr(n.metadata.caller)}
           </ExternalLink>
         </Text>,
@@ -216,7 +217,7 @@ function getData(n: NotificationType, reload: Function): [IconNames, [string, st
             `${getHumanValue(new BigNumber(n.metadata.amount ?? 0), LeagueToken.decimals)?.toFixed()} v${LeagueToken.symbol}`,
           )}{' '}
           has been delegated to you from{' '}
-          <ExternalLink href={getEtherscanAddressUrl(n.metadata.from)} className="link-blue">
+          <ExternalLink href={getEtherscanAddressUrl(n.metadata.from)} className="link-yellow">
             {shortenAddr(n.metadata.from)}
           </ExternalLink>
         </Text>,

@@ -113,8 +113,8 @@ function getColumns(isAll: boolean): ColumnsType<TableEntity> {
           dataIndex: 'from',
           width: '25%',
           render: (_, entity) => (
-            <ExternalLink href={getEtherscanAddressUrl(entity.userAddress)} className="link-blue">
-              <Text type="p1" weight="semibold" color="var(--gradient-blue-safe)" textGradient="var(--gradient-blue)">
+            <ExternalLink href={getEtherscanAddressUrl(entity.userAddress)} className="link-yellow">
+              <Text type="p1" weight="semibold" color="var(--gradient-yellow-safe)" textGradient="var(--gradient-yellow)">
                 {shortenAddr(entity.userAddress)}
               </Text>
             </ExternalLink>
@@ -126,8 +126,8 @@ function getColumns(isAll: boolean): ColumnsType<TableEntity> {
       width: '25%',
       render: (_, entity) => (
         <>
-          <ExternalLink href={getEtherscanTxUrl(entity.transactionHash)} className="link-blue mb-4">
-            <Text type="p1" weight="semibold" color="var(--gradient-blue-safe)" textGradient="var(--gradient-blue)">
+          <ExternalLink href={getEtherscanTxUrl(entity.transactionHash)} className="link-yellow mb-4">
+            <Text type="p1" weight="semibold" color="var(--gradient-yellow-safe)" textGradient="var(--gradient-yellow)">
               {shortenAddr(entity.transactionHash)}
             </Text>
           </ExternalLink>
@@ -345,7 +345,7 @@ const PoolTransactions: FC = () => {
           pageSize: state.pageSize,
           position: ['bottomRight'],
           showTotal: (total: number, [from, to]: [number, number]) => (
-            <Text type="p2" weight="semibold" color="secondary">
+            <Text type="p2" weight="semibold" color="yellow">
               Showing {from} to {to} the most recent {total}
             </Text>
           ),

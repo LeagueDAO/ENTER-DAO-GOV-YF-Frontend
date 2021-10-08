@@ -150,7 +150,7 @@ const ProposalActionCard: React.FC<ProposalActionCardProps> = props => {
       {...cardProps}>
       <div className={s.content}>
         <ExternalLink href={etherscanLink}>
-          <Text type="p1" weight="semibold" className={s.address} color="blue">
+          <Text type="p1" weight="semibold" className={s.address} color="yellow">
             {shortenAddr(target)}
           </Text>
         </ExternalLink>

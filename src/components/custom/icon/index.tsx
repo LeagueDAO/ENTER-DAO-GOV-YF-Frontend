@@ -10,15 +10,22 @@ import eslpSrc from 'resources/png/token-eslp.png';
 import leagueSrc from 'resources/png/token-league.png';
 import universeSrc from 'resources/png/universe.png';
 import enterdaoSrc from 'resources/png/enterdao.png';
-import snxSrc from 'resources/png/snx.png';
+// import snxSrc from 'resources/png/snx.png';
 import leaguedaoSrc from 'resources/png/league-dao-dark.png';
 import leaguedaoLightSrc from 'resources/png/league-dao-light.png';
-import ionxSrc from 'resources/png/ionx.png';
+// import ionxSrc from 'resources/png/ionx.png';
 import sandSrc from 'resources/png/sandbox.png';
 import axsSrc from 'resources/png/axie.png';
 import addEnterSrc from 'resources/png/add-enter.png';
 import enterStarSrc from 'resources/png/enter-star.png';
 import telegramSrc from 'resources/png/telegram.png';
+import entrLogo from 'resources/png/ENTR.png';
+import ilvLogo from 'resources/png/ILV.png';
+import ionxLogo from 'resources/png/IONX.png';
+import linkLogo from 'resources/png/LINK.png';
+import snxLogo from 'resources/png/SNX.png';
+import sushiLogo from 'resources/png/SUSHI.png';
+import xyzLogo from 'resources/png/XYZ.png';
 import Sprite from 'resources/svg/icons-sprite.svg';
 
 import s from './s.module.scss';
@@ -173,13 +180,20 @@ export type IconNames =
   | 'core-drops'
   | 'png/add-enter'
   | 'png/telegram'
+  | 'png/XYZ'
+  | 'png/ENTR'
+  | 'png/IONX'
+  | 'png/LINK'
+  | 'png/SUSHI'
+  | 'png/SNX'
+  | 'png/ILV'
   | 'static/add-token';
 
 export type IconProps = {
   name: IconNames;
   width?: number | string;
   height?: number | string;
-  color?: 'primary' | 'secondary' | 'red' | 'green' | 'blue' | 'inherit';
+  color?: 'primary' | 'secondary' | 'red' | 'green' | 'blue' | 'yellow' | 'inherit';
   rotate?: 0 | 90 | 180 | 270;
   className?: string;
   style?: CSSProperties;
@@ -197,16 +211,30 @@ const Icon: React.FC<IconProps> = props => {
       switch (name) {
         case 'png/league-dao-dark':
           return leaguedaoSrc;
+        case 'png/XYZ':
+          return xyzLogo;
+        case 'png/ENTR':
+          return entrLogo;
+        case 'png/IONX':
+          return ionxLogo;
+        case 'png/LINK':
+          return linkLogo;
+        case 'png/SUSHI':
+          return sushiLogo;
+        case 'png/SNX':
+          return snxLogo;
+        case 'png/ILV':
+          return ilvLogo;
         case 'png/league-dao-light':
           return leaguedaoLightSrc;
         case 'png/enterdao':
           return enterdaoSrc;
-        case 'png/snx':
-          return snxSrc;
+        // case 'png/snx':
+        //   return snxSrc;
         case 'png/universe':
           return universeSrc;
-        case 'png/ionx':
-          return ionxSrc;
+        // case 'png/ionx':
+        //   return ionxSrc;
         case 'png/sandbox':
           return sandSrc;
         case 'png/axie':
