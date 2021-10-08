@@ -6,7 +6,7 @@ import ilvSrc from 'resources/png/token-ilv.png';
 import linkSrc from 'resources/png/token-link.png';
 import sushiSrc from 'resources/png/token-sushi.png';
 import uslpSrc from 'resources/png/token-uslp.png';
-import eslpSrc from 'resources/png/token-eslp.png';
+import eslpSrc from 'resources/png/USDC_LEAG_SUSHI_LP.png';
 import leagueSrc from 'resources/png/token-league.png';
 import universeSrc from 'resources/png/universe.png';
 import enterdaoSrc from 'resources/png/enterdao.png';
@@ -163,6 +163,8 @@ export type IconNames =
   | 'social-media'
   | 'about'
   | 'whitepaper'
+  | 'static/trophy-disable'
+  | 'static/american_footbal-disable'
   | 'team'
   | 'governance'
   | 'yield-farming'
