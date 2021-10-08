@@ -22,6 +22,11 @@
     --color: var(--theme-blue-color);
   }
 
+  &.yellow {
+    --bg-color: rgba(var(--theme-yellow-color-rgb), 0.08);
+    --color: var(--theme-yellow-color);
+  }
+
   label {
     color: var(--color);
     display: block;

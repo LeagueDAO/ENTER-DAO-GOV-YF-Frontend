@@ -25,7 +25,7 @@ const Columns: ColumnsType<APIVoteEntity> = [
       <Grid flow="col" gap={8} align="center">
         <Identicon address={address} width={32} height={32} />
         <ExternalLink href={getEtherscanAddressUrl(address)}>
-          <Text type="p1" weight="semibold" color="blue">
+          <Text type="p1" weight="semibold" color="yellow">
             {shortenAddr(address)}
           </Text>
         </ExternalLink>

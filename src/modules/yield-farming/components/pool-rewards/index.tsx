@@ -13,6 +13,7 @@ import { Hint, Text } from 'components/custom/typography';
 import { LeagueToken } from 'components/providers/known-tokens-provider';
 import { useWallet } from 'wallets/wallet';
 
+import { useGeneral } from '../../../../components/providers/general-provider';
 import AirdropModal from '../../components/pool-airdrop-modal';
 import PoolHarvestModal from '../../components/pool-harvest-modal';
 import { useYFPools } from '../../providers/pools-provider';
@@ -22,6 +23,8 @@ import s from './s.module.scss';
 const PoolRewards: React.FC = () => {
   const walletCtx = useWallet();
   const yfPoolsCtx = useYFPools();
+
+  const { isDarkTheme } = useGeneral();
 
   const [harvestModalVisible, showHarvestModal] = useState(false);
   const [airdropModalVisible, showAirdropModal] = useState(false);
@@ -60,20 +63,20 @@ const PoolRewards: React.FC = () => {
   return (
     <div className={cn(s.component, 'pv-24')}>
       <div className="container-limit">
-        <Text type="lb2" weight="semibold" color="primary">
+        <Text type="lb2" weight="semibold" color="primary" className={s.component__head}>
           My Rewards
         </Text>
 
         <Grid flow="col" gap={24} className={s.items}>
-          <Grid flow="row" gap={2} className={s.item1}>
+          <Grid flow="row" gap={8} className={s.item1}>
             <Text type="p2" color="secondary">
               Current reward
             </Text>
-            <Grid flow="col" align="center" gap={4}>
+            <Grid flow="col" align="center" gap={12}>
               <Text type="h3" weight="bold" color="primary">
                 {formatToken(totalToClaim?.unscaleBy(LeagueToken.decimals)) ?? '-'}
               </Text>
-              <Icon name={LeagueToken.icon!} width={40} height={40} />
+              <Icon name={LeagueToken.icon!} width={24} height={24} />
               {walletCtx.isActive && (
                 <button
                   type="button"
@@ -86,21 +89,21 @@ const PoolRewards: React.FC = () => {
             </Grid>
           </Grid>
           <Divider type="vertical" />
-          <Grid flow="row" gap={2} className={s.item2}>
+          <Grid flow="row" gap={12} className={s.item2}>
             <Text type="p2" color="secondary">
               {LeagueToken.symbol} Balance
             </Text>
-            <Grid flow="col" gap={4} align="center">
+            <Grid flow="col" gap={12} align="center">
               <Text type="h3" weight="bold" color="primary">
                 {formatToken(entrContract.balance?.unscaleBy(LeagueToken.decimals)) ?? '-'}
               </Text>
-              <Icon name={LeagueToken.icon!} width={40} height={40} />
+              <Icon name={LeagueToken.icon!} width={24} height={24} />
             </Grid>
           </Grid>
           {!!currentEpoch && (
             <>
               <Divider type="vertical" />
-              <Grid flow="row" gap={2} className={s.item4}>
+              <Grid flow="row" gap={12} className={s.item4}>
                 <Grid flow="col" gap={8} align="center">
                   <Hint
                     text={`This number shows the $${LeagueToken.symbol} rewards you would potentially be able to harvest this epoch, but is subject to change - in case more users deposit, or you withdraw some of your stake.`}>
@@ -109,11 +112,11 @@ const PoolRewards: React.FC = () => {
                     </Text>
                   </Hint>
                 </Grid>
-                <Grid flow="col" gap={4} align="center">
+                <Grid flow="col" gap={12} align="center">
                   <Text type="h3" weight="bold" color="primary">
                     {formatToken(totalPotentialReward) ?? '-'}
                   </Text>
-                  <Icon name={LeagueToken.icon!} width={40} height={40} />
+                  <Icon name={LeagueToken.icon!} width={24} height={24} />
                 </Grid>
               </Grid>
             </>

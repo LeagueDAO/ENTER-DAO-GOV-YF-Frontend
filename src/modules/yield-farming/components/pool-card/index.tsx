@@ -94,7 +94,7 @@ const PoolCard: React.FC<PoolCardProps> = props => {
               Reward
             </Text>
             <div className="flex flow-col">
-              <Icon name="png/league-dao-dark" className={s.entrReward} />
+              <Icon name="png/league" className={s.entrReward} />
               <Text type="p1" weight="semibold" color="primary">
                 {formatToken(epochReward) ?? '-'}
               </Text>
@@ -106,7 +106,7 @@ const PoolCard: React.FC<PoolCardProps> = props => {
                 My Potential Reward
               </Text>
               <div className="flex flow-col">
-                <Icon name="png/league-dao-dark" className={s.entrReward} />
+                <Icon name="png/league" className={s.entrReward} />
                 <Text type="p1" weight="semibold" color="primary">
                   {formatToken(potentialReward) ?? '-'}
                 </Text>
@@ -138,11 +138,11 @@ const PoolCard: React.FC<PoolCardProps> = props => {
               </Text>
             </div>
             <div className="card-row">
-              <Text type="p2" color="secondary">
+              <Text type="small" color="secondary">
                 Effective balance
               </Text>
               {!!lastActiveEpoch && (
-                <Text type="p2" color="secondary">
+                <Text type="small" color="secondary">
                   {formatUSD(poolEffectiveBalanceInUSD) ?? '-'}
                 </Text>
               )}

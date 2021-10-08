@@ -1,8 +1,12 @@
 .component {
-  background: var(--theme-card-color);
-  border-bottom: 1px solid var(--theme-border-color);
+  background: var(--L11-D11);
+  border-bottom: 1px solid var(--L4-D4);
   gap: 16px;
-  box-shadow: var(--theme-header-shadow);
+  //box-shadow: var(--theme-header-shadow);
+
+  &__head {
+    margin-bottom: 12px;
+  }
 }
 
 .items.items {
@@ -16,17 +20,17 @@
     }
 
     .item2 {
-      border-left: 1px solid var(--theme-border-color);
+      border-left: 1px solid var(--L4-D4);
       padding-left: 26px;
     }
 
     .item3 {
-      border-top: 1px solid var(--theme-border-color);
+      border-top: 1px solid var(--L4-D4);
       padding-top: 26px;
     }
 
     .item4 {
-      border-top: 1px solid var(--theme-border-color);
+      border-top: 1px solid var(--L4-D4);
       padding-top: 26px;
     }
 
@@ -40,7 +44,7 @@
         content: '';
         position: absolute;
         display: block;
-        background: var(--theme-border-color);
+        background: var(--L4-D4);
       }
 
       &::before {

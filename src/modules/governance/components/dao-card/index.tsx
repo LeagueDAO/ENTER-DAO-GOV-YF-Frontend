@@ -21,7 +21,7 @@ const DaoCard: FC = () => {
     <div className="card">
       <div className={cn('card-header', s.cardTitleContainer)}>
         <div className={s.cardTitleTexts}>
-          <Icon name="png/enter-star" width={40} height={40} className="mr-4" />
+          <Icon name="png/enter-star" width={40} height={40} className="mr-8" />
           <Text type="p1" weight="semibold" color="primary" ellipsis>
             DAO Rewards
           </Text>
@@ -47,7 +47,7 @@ const DaoCard: FC = () => {
           {LeagueToken.symbol} Staked
         </Text>
         <div className="flex flow-col">
-          <Icon name="png/league-dao-dark" className="mr-4" />
+          <Icon name="png/league" className="mr-8" />
           <Text type="p1" weight="semibold" color="primary">
             {formatToken(daoBarn.leagStaked) ?? '-'}
           </Text>
@@ -59,7 +59,7 @@ const DaoCard: FC = () => {
             My Staked Balance
           </Text>
           <div className="flex flow-col">
-            <Icon name="png/league-dao-dark" className="mr-4" />
+            <Icon name="png/league" className="mr-8" />
             <Text type="p1" weight="semibold" color="primary">
               {formatToken(daoBarn.balance) ?? '-'}
             </Text>
@@ -71,12 +71,12 @@ const DaoCard: FC = () => {
           <Text type="lb2" weight="semibold" color="secondary" className="mb-4">
             {LeagueToken.symbol} Rewards
           </Text>
-          <Text type="p2" color="secondary">
+          <Text type="small" color="secondary">
             out of {formatToken(daoReward.poolFeature?.totalAmount)}
           </Text>
         </div>
         <div className="flex flow-col">
-          <Icon name="png/league-dao-dark" className="mr-4" />
+          <Icon name="png/league" className="mr-8" />
           <UseLeftTime end={(daoReward.poolFeature?.endTs ?? 0) * 1000} delay={5_000}>
             {() => (
               <Text type="p1" weight="bold" color="primary">
@@ -92,7 +92,7 @@ const DaoCard: FC = () => {
             My {LeagueToken.symbol} Rewards
           </Text>
           <div className="flex flow-col">
-            <Icon name="png/league-dao-dark" className="mr-4" />
+            <Icon name="png/league" className="mr-8" />
             <Text type="p1" weight="semibold" color="primary">
               {formatToken(daoReward.claimValue) ?? '-'}
             </Text>

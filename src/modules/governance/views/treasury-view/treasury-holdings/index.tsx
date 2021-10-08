@@ -107,7 +107,7 @@ const Columns: ColumnsType<APITreasuryHistory> = [
     title: 'Transaction Hash',
     render: (_, entity) => (
       <ExternalLink href={getEtherscanTxUrl(entity.transactionHash)}>
-        <Text type="p1" weight="semibold" color="blue">
+        <Text type="p1" weight="semibold" color="yellow">
           {shortenAddr(entity.transactionHash)}
         </Text>
       </ExternalLink>
@@ -159,7 +159,7 @@ const Columns: ColumnsType<APITreasuryHistory> = [
 
       return (
         <ExternalLink href={getEtherscanAddressUrl(address)}>
-          <Text type="p1" weight="semibold" color="blue">
+          <Text type="p1" weight="semibold" color="yellow">
             {label}
           </Text>
         </ExternalLink>
@@ -182,7 +182,7 @@ const Columns: ColumnsType<APITreasuryHistory> = [
 
       return (
         <ExternalLink href={getEtherscanAddressUrl(address)}>
-          <Text type="p1" weight="semibold" color="blue">
+          <Text type="p1" weight="semibold" color="yellow">
             {label}
           </Text>
         </ExternalLink>

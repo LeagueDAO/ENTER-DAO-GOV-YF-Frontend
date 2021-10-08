@@ -1,11 +1,11 @@
 @import 'src/styles/text';
 
 .component {
-  border-radius: 12px;
+  border-radius: 6px;
 
   :global(.ant-modal-content) {
-    box-shadow: var(--theme-modal-shadow);
-    border-radius: 12px;
+    box-shadow: var(--theme-card-shadow);
+    border-radius: 6px;
   }
 
   :global(.ant-modal-close) {
@@ -25,22 +25,22 @@
 
   :global(.ant-modal-header) {
     padding: 32px;
-    background: var(--theme-card-color);
-    border-bottom: 1px solid var(--theme-border-color);
-    border-radius: 12px 12px 0 0;
+    background: var(--L11-D11);
+    border-bottom: 1px solid var(--L4-D4);
+    border-radius: 6px 12px 0 0;
 
     :global(.ant-modal-title) {
       @include font-p1-semi-bold;
-      color: var(--theme-primary-color);
+      color: var(--L8-D8);
       font-size: 14px;
       font-family: 'Poppins', sans-serif;
     }
   }
 
   :global(.ant-modal-body) {
-    background: var(--theme-card-color);
+    background: var(--L11-D11);
     overflow-y: auto;
-    border-radius: 12px;
+    border-radius: 6px;
   }
 
   :global(.ant-modal-header) + :global(.ant-modal-body) {

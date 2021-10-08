@@ -80,7 +80,12 @@ const PoolStatistics: FC = () => {
               {LeagueToken.symbol} balance
             </Text>
             <div className="flex align-center">
-              <Icon name={LeagueToken.icon!} width={16} height={16} className="mr-8" />
+              <Icon
+                name={LeagueToken.icon!}
+                width={16}
+                height={16}
+                className="mr-8"
+              />
               <Text type="p1" weight="semibold" color="primary">
                 {formatToken(entrContract.balance?.unscaleBy(LeagueToken.decimals)) ?? '-'}
               </Text>
@@ -92,7 +97,12 @@ const PoolStatistics: FC = () => {
                 Potential reward this epoch
               </Text>
               <div className="flex align-center">
-                <Icon name={LeagueToken.icon!} width={16} height={16} className="mr-8" />
+                <Icon
+                  name={LeagueToken.icon!}
+                  width={16}
+                  height={16}
+                  className="mr-8"
+                />
                 <Text type="p1" weight="semibold" color="primary">
                   {formatToken(poolMeta.contract.potentialReward) ?? '-'}
                 </Text>

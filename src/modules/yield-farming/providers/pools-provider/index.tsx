@@ -5,16 +5,16 @@ import MerkleDistributor from 'web3/merkleDistributor';
 import Web3Contract from 'web3/web3Contract';
 
 import {
-  XyzToken,
-  EnterToken,
   BondToken,
+  EnterToken,
+  IlvToken,
   IonxToken,
   LinkToken,
-  IlvToken,
   SnxToken,
   SushiToken,
   TokenMeta,
   UsdcLeagSLPToken,
+  XyzToken,
   useKnownTokens,
 } from 'components/providers/known-tokens-provider';
 import config from 'config';
@@ -56,7 +56,7 @@ export const BondYfPool: YFPoolMeta = {
 export const XyzYfPool: YFPoolMeta = {
   name: YFPoolID.XYZ,
   label: 'XYZ',
-  icons: ['png/universe'],
+  icons: ['png/XYZ'],
   colors: ['var(--theme-red-color)'],
   tokens: [XyzToken],
   contract: new YfPoolContract(config.contracts.yf.xyz),
@@ -65,7 +65,7 @@ export const XyzYfPool: YFPoolMeta = {
 export const EntrYfPool: YFPoolMeta = {
   name: YFPoolID.ENTR,
   label: 'ENTR',
-  icons: ['png/enterdao'],
+  icons: ['png/ENTR'],
   colors: ['var(--theme-red-color)'],
   tokens: [EnterToken],
   contract: new YfPoolContract(config.contracts.yf.entr),
@@ -74,7 +74,7 @@ export const EntrYfPool: YFPoolMeta = {
 export const IonxYfPool: YFPoolMeta = {
   name: YFPoolID.IONX,
   label: 'IONX',
-  icons: ['png/ionx'],
+  icons: ['png/IONX'],
   colors: ['var(--theme-red-color)'],
   tokens: [IonxToken],
   contract: new YfPoolContract(config.contracts.yf.ionx),
@@ -83,7 +83,7 @@ export const IonxYfPool: YFPoolMeta = {
 export const LinkYfPool: YFPoolMeta = {
   name: YFPoolID.LINK,
   label: 'LINK',
-  icons: ['png/link'],
+  icons: ['png/LINK'],
   colors: ['var(--theme-red-color)'],
   tokens: [LinkToken],
   contract: new YfPoolContract(config.contracts.yf.link),
@@ -92,7 +92,7 @@ export const LinkYfPool: YFPoolMeta = {
 export const SushiYfPool: YFPoolMeta = {
   name: YFPoolID.SUSHI,
   label: 'SUSHI',
-  icons: ['png/sushi'],
+  icons: ['png/SUSHI'],
   colors: ['var(--theme-red-color)'],
   tokens: [SushiToken],
   contract: new YfPoolContract(config.contracts.yf.sushi),
@@ -101,7 +101,7 @@ export const SushiYfPool: YFPoolMeta = {
 export const SnxYfPool: YFPoolMeta = {
   name: YFPoolID.SNX,
   label: 'SNX',
-  icons: ['png/snx'],
+  icons: ['png/SNX'],
   colors: ['var(--theme-red-color)'],
   tokens: [SnxToken],
   contract: new YfPoolContract(config.contracts.yf.snx),
@@ -110,7 +110,7 @@ export const SnxYfPool: YFPoolMeta = {
 export const IlvYfPool: YFPoolMeta = {
   name: YFPoolID.ILV,
   label: 'ILV',
-  icons: ['png/ilv'],
+  icons: ['png/ILV'],
   colors: ['var(--theme-red-color)'],
   tokens: [IlvToken],
   contract: new YfPoolContract(config.contracts.yf.ilv),

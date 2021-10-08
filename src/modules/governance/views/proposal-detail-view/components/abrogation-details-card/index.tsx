@@ -28,7 +28,7 @@ const AbrogationDetailsCard: React.FC = () => {
             <Grid flow="col" gap={8}>
               <Identicon address={abrogationCtx.abrogation?.creator} width={24} height={24} />
               <ExternalLink href={`${getEtherscanAddressUrl(abrogationCtx.abrogation?.creator)}`}>
-                <Text type="p1" weight="semibold" color="blue">
+                <Text type="p1" weight="semibold" color="yellow">
                   {shortenAddr(abrogationCtx.abrogation?.creator)}
                 </Text>
               </ExternalLink>

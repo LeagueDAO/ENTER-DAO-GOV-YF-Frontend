@@ -7494,7 +7494,7 @@ _:-ms-fullscreen .ant-picker-range-wrapper .ant-picker-year-panel .ant-picker-ce
 }
 .ant-empty-normal {
   margin: 32px 0;
-  color: rgba(0, 0, 0, 0.25);
+  /*color: rgba(0, 0, 0, 0.25);*/
 }
 .ant-empty-normal .ant-empty-image {
   height: 40px;
@@ -16479,7 +16479,7 @@ textarea.ant-mentions {
 }
 .ant-modal-content {
   position: relative;
-  background-color: var(--theme-body-color);
+  background-color: var(--L2-D2);
   background-clip: padding-box;
   border: 0;
   border-radius: 4px;
@@ -17595,14 +17595,14 @@ textarea.ant-pagination-options-quick-jumper input {
   background-color: #fff;
   background-clip: padding-box;
   border-radius: 4px;
-  box-shadow: var(--theme-modal-shadow);
+  box-shadow: var(--theme-card-shadow);
 }
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   .ant-popover {
     /* IE10+ */
   }
   .ant-popover-inner {
-    box-shadow: var(--theme-modal-shadow);
+    box-shadow: var(--theme-card-shadow);
   }
 }
 .ant-popover-title {
@@ -20821,7 +20821,7 @@ span.ant-radio + * {
   font-feature-settings: 'tnum';
   position: relative;
   font-size: 14px;
-  background: var(--theme-card-color);
+  background: var(--L11-D11);
   border-radius: 12px;
 }
 .ant-table table {

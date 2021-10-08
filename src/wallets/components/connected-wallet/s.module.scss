@@ -10,7 +10,7 @@
 .popover {
   :global(.ant-popover-inner) {
     box-shadow: var(--theme-card-shadow);
-    border-radius: 12px;
+    border-radius: 6px;
   }
 }
 
@@ -24,7 +24,7 @@
 
 .statusTag {
   background: rgba(0, 211, 149, 0.1);
-  border-radius: 12px;
+  border-radius: 6px;
   padding: 4px 12px;
 }
 

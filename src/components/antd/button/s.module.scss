@@ -5,19 +5,19 @@
   // primary regular
   --btn-primary-shadow: 0 10px 20px rgba(136, 120, 172, 0.2);
   --btn-primary-border: 0;
-  --btn-primary-bg: linear-gradient(135deg, #DD3DCB 15.57%, #EF9C92 84.88%);
+  --btn-primary-bg: #19b9a1;
   --btn-primary-text: #000;
 
   // primary hover
   --btn-primary-shadow-hover: 0 10px 20px rgba(136, 120, 172, 0.2);
   --btn-primary-border-hover: none;
-  --btn-primary-bg-hover: linear-gradient(0deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), linear-gradient(135deg, #DD3DCB 15.57%, #EF9C92 84.88%);
+  --btn-primary-bg-hover: linear-gradient(0deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), #19b9a1;
   --btn-primary-text-hover: #000;
 
   // primary active
   --btn-primary-shadow-active: 0 10px 20px rgba(136, 120, 172, 0.2);
   --btn-primary-border-active: none;
-  --btn-primary-bg-active: linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), linear-gradient(135deg, #DD3DCB 15.57%, #EF9C92 84.88%), #CC362E;
+  --btn-primary-bg-active: linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), #19b9a1, #CC362E;
   --btn-primary-text-active: #000;
 
   // primary disabled
@@ -29,20 +29,20 @@
   // default regular
   --btn-default-shadow: none;
   --btn-default-border: 0;
-  --btn-default-bg: linear-gradient(135deg, #DD3DCB 15.57%, #EF9C92 84.88%);
-  --btn-default-text: var(--theme-primary-color);
+  --btn-default-bg: #19b9a1;
+  --btn-default-text: var(--L8-D8);
 
   // default hover
   --btn-default-shadow-hover: none;
   --btn-default-border-hover: none;
-  --btn-default-bg-hover: linear-gradient(0deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), linear-gradient(135deg, #DD3DCB 15.57%, #EF9C92 84.88%);
-  --btn-default-text-hover: var(--theme-secondary-color);
+  --btn-default-bg-hover: linear-gradient(0deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), #19b9a1;
+  --btn-default-text-hover: var(--L7-D7);
 
   // default active
   --btn-default-shadow-active: none;
   --btn-default-border-active: none;
-  --btn-default-bg-active: linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), linear-gradient(135deg, #DD3DCB 15.57%, #EF9C92 84.88%), #CC362E;
-  --btn-default-text-active: var(--theme-primary-color);
+  --btn-default-bg-active: linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), #19b9a1, #CC362E;
+  --btn-default-text-active: var(--L8-D8);
 
   // default disabled
   --btn-default-shadow-disabled: none;
@@ -53,20 +53,20 @@
   // ghost regular
   --btn-ghost-shadow: none;
   --btn-ghost-border: 0;
-  --btn-ghost-bg: linear-gradient(135deg, #DD3DCB 15.57%, #EF9C92 84.88%);
-  --btn-ghost-text: var(--theme-primary-color);
+  --btn-ghost-bg: #19b9a1;
+  --btn-ghost-text: var(--L8-D8);
 
   // ghost hover
   --btn-ghost-shadow-hover: none;
   --btn-ghost-border-hover: none;
-  --btn-ghost-bg-hover: linear-gradient(0deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), linear-gradient(135deg, #DD3DCB 15.57%, #EF9C92 84.88%);
-  --btn-ghost-text-hover: var(--theme-secondary-color);
+  --btn-ghost-bg-hover: linear-gradient(0deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), #19b9a1;
+  --btn-ghost-text-hover: var(--L7-D7);
 
   // ghost active
   --btn-ghost-shadow-active: none;
   --btn-ghost-border-active: none;
-  --btn-ghost-bg-active: linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), linear-gradient(135deg, #DD3DCB 15.57%, #EF9C92 84.88%), #CC362E;
-  --btn-ghost-text-active: var(--theme-primary-color);
+  --btn-ghost-bg-active: linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), #19b9a1, #CC362E;
+  --btn-ghost-text-active: var(--L8-D8);
 
   // ghost disabled
   --btn-ghost-shadow-disabled: none;
@@ -130,7 +130,7 @@
   column-gap: 12px;
   height: auto;
   padding: 14px 26px;
-  border-radius: 12px;
+  border-radius: 6px;
   text-align: center;
 
   &:global(.ant-btn-lg) {
@@ -185,7 +185,7 @@
       height: auto;
       box-shadow: var(--btn-select-shadow);
       border: var(--btn-select-border);
-      background: var(--btn-select-bg);
+      background: var(--L12-D12);
 
       & > * {
         z-index: 1;
@@ -198,8 +198,8 @@
         bottom: -1px;
         display: block;
         position: absolute;
-        background: linear-gradient(135deg, #DD3DCB 15.57%, #EF9C92 84.88%);
-        border-radius: 12px;
+        background: #19b9a1;
+        border-radius: 6px;
         z-index: 0 !important;
       }
       &::after {
@@ -210,8 +210,8 @@
         bottom: 0;
         display: block;
         position: absolute;
-        border-radius: 12px;
-        background: var(--btn-select-bg);
+        border-radius: 6px;
+        background: var(--L12-D12);
         z-index: 0 !important;
       }
 
@@ -281,7 +281,7 @@
       height: auto;
       box-shadow: var(--btn-select-shadow);
       border: var(--btn-select-border);
-      background: var(--btn-select-bg);
+      background: var(--L12-D12);
 
       & > * {
         z-index: 1;
@@ -294,8 +294,8 @@
         bottom: -1px;
         display: block;
         position: absolute;
-        background: linear-gradient(135deg, #DD3DCB 15.57%, #EF9C92 84.88%);
-        border-radius: 12px;
+        background: var(--L4-D4);
+        border-radius: 6px;
         z-index: 0 !important;
       }
       &::after {
@@ -306,8 +306,8 @@
         bottom: 0;
         display: block;
         position: absolute;
-        border-radius: 12px;
-        background: var(--btn-select-bg);
+        border-radius: 6px;
+        background: var(--L12-D12);
         z-index: 0 !important;
       }
 

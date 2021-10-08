@@ -72,7 +72,7 @@ const ProposalDetailsCard: React.FC = () => {
           <Grid flow="col" gap={8}>
             <Identicon address={proposalCtx.proposal?.proposer} width={24} height={24} />
             <ExternalLink href={`${getEtherscanAddressUrl(proposalCtx.proposal?.proposer)}`}>
-              <Text type="p1" weight="semibold" color="blue">
+              <Text type="p1" weight="semibold" color="yellow">
                 {shortenAddr(proposalCtx.proposal?.proposer)}
               </Text>
             </ExternalLink>

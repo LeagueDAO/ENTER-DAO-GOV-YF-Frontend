@@ -26,7 +26,7 @@ function getEventIcon(index: number, name: string): React.ReactNode {
   }
 
   if (index === 0) {
-    return <Icon name="history-circle-outlined" width={40} height={40} color="blue" />;
+    return <Icon name="history-circle-outlined" width={40} height={40} color="yellow" />;
   }
 
   return <Icon name="check-circle-outlined" width={40} height={40} color="green" />;

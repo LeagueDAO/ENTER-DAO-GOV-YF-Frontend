@@ -4,7 +4,7 @@
   display: flex;
   align-items: flex-start;
   word-break: break-word;
-  color: var(--theme-secondary-color);
+  color: var(--L7-D7);
   padding: 24px;
   max-width: 400px;
   width: 100%;
@@ -14,8 +14,8 @@
   }
 
   &.toast {
-    background-color: var(--theme-card-color);
-    box-shadow: var(--theme-overlay-shadow);
+    background-color: var(--L11-D11);
+    box-shadow: var(--theme-card-shadow);
     border-radius: 4px;
 
     & + & {

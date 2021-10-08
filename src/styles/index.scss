@@ -2,6 +2,7 @@
 @import 'flex';
 @import 'grid';
 @import 'box';
+@import 'colors';
 @import 'text';
 @import 'utils';
 @import 'button';
@@ -13,9 +14,9 @@ html {
 }
 
 body {
-  background: var(--theme-body-color);
-  color: var(--theme-secondary-color);
-  font-family: var(--font-family);
+  background: var(--L2-D2);
+  color: var(--L7-D7);
+  font-family: var(--font-family-Manrope);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-block-size: 100%;
@@ -65,6 +66,7 @@ body.mobile-menu-open {
 
 :root {
   --font-family: 'Poppins', sans-serif;
+  --font-family-Manrope: 'Manrope', sans-serif;
   --font-size-h1: 32px;
   --font-size-h2: 24px;
   --font-size-h3: 18px;
@@ -74,22 +76,20 @@ body.mobile-menu-open {
   --font-size-lb2: 12px;
   --font-size-sm: 12px;
 
-  --theme-body-color: #f8f8f9; // grey50
-  --theme-card-color: #fff;
-  --theme-overlay-color: #F9F0F8;
+  //--theme-body-color: #f8f8f9; // grey50
+  //--theme-card-color: #fff;
+  //--theme-overlay-color: #f9f0f8;
   --theme-mask-color: rgba(0, 0, 0, 0.08);
-  --theme-border-color: #F2EDF1; // grey100
+  //--theme-border-color: #f2edf1; // grey100
   --theme-icon-color: #aaafb3; // grey300
   --theme-icon-hover-color: #060a0d; // grey900
 
-  --theme-primary-color: #552C49;
-  --theme-secondary-color: #83767F;
+  --theme-primary-color: #552c49;
+  --theme-secondary-color: #83767f;
   --theme-secondary-color-rgb: 113, 121, 128; // grey500
   --theme-default-color: #aaafb3; // grey300
 
-  --theme-card-shadow: 0px 5px 18px #F7F0F6;
-  --theme-modal-shadow: 0 0 1px rgba(6, 10, 13, 0.4), 0 16px 32px rgba(19, 32, 43, 0.4);
-  --theme-overlay-shadow: 0 0 1px rgba(0, 0, 0, 0.4), 0 32px 64px rgba(113, 121, 128, 0.32);
+  --theme-card-shadow: 0 0 0.5px rgba(6, 10, 13, 0.4), 0 8px 16px rgba(113, 121, 128, 0.08);
 
   --theme-modal-overlay: rgba(0, 0, 0, 0.7);
 
@@ -108,8 +108,8 @@ body.mobile-menu-open {
   --theme-blue-color-rgb: 79, 106, 230; // blue500
   --theme-blue400-color: #7288ea;
 
-  --theme-yellow-color: #cca74d; // yellow600
-  --theme-yellow-color-rgb: 204, 167, 77; // yellow600
+  --theme-yellow-color: #FFE654; // yellow600
+  --theme-yellow-color-rgb: 255, 230, 84; // yellow600
 
   --theme-purple-color: #a26ee3; // purple500
   --theme-purple-color-rgb: 162, 110, 227; // purple500
@@ -121,22 +121,37 @@ body.mobile-menu-open {
 
   --horizontal-padding: 64px;
 
-  --gradient-green: linear-gradient(135deg, #2DD867 15.57%, #27DDC3 84.88%); // rgb(188, 235, 0) rgb(0, 234, 234)
+  --gradient-green: linear-gradient(135deg, #2dd867 15.57%, #27ddc3 84.88%); // rgb(188, 235, 0) rgb(0, 234, 234)
   --gradient-green-opacity: linear-gradient(135deg, rgba(188, 235, 0, 0.16) 15.57%, rgba(0, 234, 234, 0.16) 84.88%);
   --gradient-green-safe: #2ad0ca;
-  --gradient-red: linear-gradient(135deg, #DE4B4B 0%, #F15E1F 100%); // rgb(255, 116, 57) rgb(255, 57, 188)
+  --gradient-red: linear-gradient(135deg, #de4b4b 0%, #f15e1f 100%); // rgb(255, 116, 57) rgb(255, 57, 188)
   --gradient-red-opacity: linear-gradient(135deg, rgba(255, 116, 57, 0.16) 15.57%, rgba(255, 57, 188, 0.16) 84.88%);
   --gradient-red-safe: #ff4949;
-  --gradient-blue: linear-gradient(135deg, #81B5F3 0%, #13A5D3 100%); // rgb(145, 79, 230) rgb(49, 108, 223)
+  --gradient-blue: linear-gradient(135deg, #81b5f3 0%, #13a5d3 100%); // rgb(145, 79, 230) rgb(49, 108, 223)
   --gradient-blue-opacity: linear-gradient(135deg, rgba(145, 79, 230, 0.16) 15.57%, rgba(49, 108, 223, 0.16) 84.88%);
-  --gradient-blue-safe: #81B5F3;
-  --gradient-pink: linear-gradient(135deg, #DD3DCB 0%, #EF9C92 100%);
+  --gradient-blue-safe: #81b5f3;
+  --gradient-yellow: #{$light-mode-9};
+  --gradient-yellow-safe: #{$light-mode-9};
+  --gradient-pink: linear-gradient(135deg, #dd3dcb 0%, #ef9c92 100%);
 
-  --theme-tooltip-bg: #F9F0F8;
-  --theme-tooltip-item-bg-active: #EF9C92;
+  --theme-tooltip-bg: #f9f0f8;
+  --theme-tooltip-item-bg-active: #ef9c92;
 
-  --theme-header-shadow: 5px 0px 20px #F1DBEE;
-  --theme-selection-color: #EF9C92
+  --theme-header-shadow: 5px 0 20px #f1dbee;
+  --theme-selection-color: #19b9a1;
+
+  --L1-D1: #{$light-mode-1};
+  --L2-D2: #{$light-mode-2};
+  --L3-D3: #{$light-mode-3};
+  --L4-D4: #{$light-mode-4};
+  --L5-D5: #{$light-mode-5};
+  --L6-D6: #{$light-mode-6};
+  --L7-D7: #{$light-mode-7};
+  --L8-D8: #{$light-mode-8};
+  --L9-D9: #{$light-mode-9};
+  --L10-D10: #{$light-mode-10};
+  --L11-D11: #{$light-mode-1};
+  --L12-D12: #{$dark-mode-8};
 }
 
 @media (max-width: 1024px) {
@@ -160,30 +175,41 @@ body.mobile-menu-open {
 }
 
 [data-theme='dark'] {
-  --theme-body-color: #0B0834;
-  --theme-card-color: #0B0834;
-  --theme-overlay-color: #1F1B59;
+  //--theme-body-color: #0b0834;
+  //--theme-card-color: #0b0834;
+  //--theme-overlay-color: #1f1b59;
   --theme-mask-color: rgba(32, 37, 41, 0.8);
-  --theme-border-color: #1A164F;
+  //--theme-border-color: #1a164f;
   --theme-icon-color: #606268;
   --theme-icon-hover-color: #fff;
-  --theme-icon-hover-gradient: linear-gradient(135deg, #DD3DCB 15%, #EF9C92 85%);
+  --theme-icon-hover-gradient: linear-gradient(135deg, #dd3dcb 15%, #ef9c92 85%);
 
   --theme-primary-color: #fff;
-  --theme-secondary-color: #B3B1CF;
-  --theme-default-color: #B3B1CF;
+  --theme-secondary-color: #b3b1cf;
+  --theme-default-color: #b3b1cf;
 
-  --theme-card-shadow: 0px 12px 25px #161344;
-  --theme-modal-shadow: 0px 12px 25px #161344;
-  --theme-overlay-shadow: 0px 12px 25px #161344;
+  --theme-card-shadow: 0 0 0.5px #fff, 0 32px 64px rgba(0, 0, 0, 0.32);
 
   --theme-input-background: #1d1d1d;
   --theme-input-placeholder: #606268;
 
-  --theme-tooltip-bg: #1F1B59;
+  --theme-tooltip-bg: #1f1b59;
   --theme-tooltip-item-bg-active: #161344;
 
-  --theme-header-shadow: 0px 12px 25px #161344;
+  --theme-header-shadow: 0 12px 25px #161344;
+
+  --L1-D1: #{$dark-mode-1};
+  --L2-D2: #{$dark-mode-2};
+  --L3-D3: #{$dark-mode-3};
+  --L4-D4: #{$dark-mode-4};
+  --L5-D5: #{$dark-mode-5};
+  --L6-D6: #{$dark-mode-6};
+  --L7-D7: #{$dark-mode-7};
+  --L8-D8: #{$dark-mode-8};
+  --L9-D9: #{$dark-mode-9};
+  --L10-D10: #{$dark-mode-10};
+  --L11-D11: #{$dark-mode-11};
+  --L12-D12: #{$dark-mode-12};
 }
 
 :focus:not(:focus-visible) {
@@ -225,11 +251,11 @@ button {
 
 
 .ant-spin .ant-spin-dot {
-  color: var(--theme-secondary-color);
+  color: var(--L7-D7);
 }
 
 .ant-spin .ant-spin-dot .ant-spin-dot-item {
-  background: var(--theme-secondary-color);
+  background: var(--L7-D7);
 }
 
 .link-gradient:hover {
@@ -238,6 +264,6 @@ button {
 
 ul {
   ::marker {
-    color: var(--theme-primary-color);
+    color: var(--L8-D8);
   }
 }

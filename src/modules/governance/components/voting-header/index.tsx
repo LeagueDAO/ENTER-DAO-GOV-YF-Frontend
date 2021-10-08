@@ -13,7 +13,6 @@ import Icon from 'components/custom/icon';
 import { Text } from 'components/custom/typography';
 import { UseLeftTime } from 'hooks/useLeftTime';
 import useMergeState from 'hooks/useMergeState';
-import imgSrc from 'resources/png/league-dao-dark.png';
 
 import { LeagueToken } from '../../../../components/providers/known-tokens-provider';
 import Erc20Contract from '../../../../web3/erc20Contract';
@@ -65,15 +64,15 @@ const VotingHeader: React.FC = () => {
   return (
     <div className={cn(s.component, 'pv-24')}>
       <div className="container-limit">
-        <Text type="lb2" weight="semibold" color="primary" className="mb-16">
+        <Text type="lb2" weight="semibold" color="primary" className={s.component__head}>
           My Voting Power
         </Text>
         <Grid flow="col" gap={24} className={s.items}>
-          <Grid flow="row" gap={4} className={s.item1}>
+          <Grid flow="row" gap={8} className={s.item1}>
             <Text type="p2" color="secondary">
               Current reward
             </Text>
-            <Grid flow="col" align="center">
+            <Grid flow="col" gap={12} align="center">
               <Tooltip title={<Text type="p2">{formatBigValue(claimValue, LeagueToken.decimals)}</Text>}>
                 <Skeleton loading={claimValue === undefined}>
                   <Text type="h3" weight="bold" color="primary">
@@ -82,7 +81,7 @@ const VotingHeader: React.FC = () => {
                   </Text>
                 </Skeleton>
               </Tooltip>
-              <Icon name="png/league-dao-dark" width={40} height={40} />
+              <Icon name="png/league" width={24} height={24} />
               <Button
                 type="primary"
                 size="small"
@@ -94,17 +93,17 @@ const VotingHeader: React.FC = () => {
             </Grid>
           </Grid>
           <Divider type="vertical" />
-          <Grid flow="row" gap={4} className={s.item2}>
+          <Grid flow="row" gap={12} className={s.item2}>
             <Text type="p2" color="secondary">
               {LeagueToken.symbol} Balance
             </Text>
-            <Grid flow="col" align="center">
+            <Grid flow="col" gap={12} align="center">
               <Skeleton loading={entrBalance === undefined}>
                 <Text type="h3" weight="bold" color="primary">
                   {formatEntrValue(entrBalance)}
                 </Text>
               </Skeleton>
-              <Icon name="png/league-dao-dark" src={imgSrc} width={40} height={40} />
+              <Icon name="png/league" width={24} height={24} />
             </Grid>
           </Grid>
           <Divider type="vertical" />
@@ -119,7 +118,7 @@ const VotingHeader: React.FC = () => {
                 </Text>
               </Skeleton>
               <Button type="light" onClick={() => setState({ showDetailedView: true })}>
-                <Text type="p1" weight="semibold" color="var(--gradient-blue-safe)" textGradient="var(--gradient-blue)">
+                <Text type="p1" weight="semibold" color="var(--L8-D8)" textGradient="var(--L8-D8)">
                   Detailed view
                 </Text>
               </Button>

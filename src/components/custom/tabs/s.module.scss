@@ -7,7 +7,7 @@
   height: 70px;
 
   &.shadows {
-    --tabs-bg: var(--theme-body-color);
+    --tabs-bg: var(--L2-D2);
     background-size: 40px 100%, 40px 100%, 8px 100%, 8px 100%;
     background: var(--tabs-bg) linear-gradient(to right, var(--tabs-bg) 30%, rgba(255, 255, 255, 0))
       linear-gradient(to right, rgba(255, 255, 255, 0), var(--tabs-bg) 70%)
@@ -19,7 +19,7 @@
   .tab {
     @include font-p1-semi-bold;
     margin-right: 32px;
-    color: var(--theme-secondary-color);
+    color: var(--L7-D7);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -31,10 +31,10 @@
     scroll-snap-align: start;
 
     &:hover {
-      color: var(--theme-primary-color);
+      color: var(--L8-D8);
 
       > svg {
-        color: var(--theme-primary-color);
+        color: var(--L8-D8);
       }
     }
 
@@ -57,7 +57,7 @@
     }
 
     &.active {
-      color: var(--theme-primary-color);
+      color: var(--L8-D8);
 
       &::after {
         content: '';
@@ -66,12 +66,12 @@
         left: 0;
         right: 0;
         height: 2px;
-        background: var(--theme-primary-color);
+        background: var(--L8-D8);
         border-radius: 4px 4px 0 0;
       }
 
       > svg {
-        color: var(--theme-primary-color);
+        color: var(--L8-D8);
       }
     }
   }
@@ -96,7 +96,7 @@
     height: calc(100% - 8px);
     transition: left 0.2s linear;
 
-    background-color: var(--theme-card-color);
+    background-color: var(--L11-D11);
     box-shadow: var(--theme-card-shadow);
     border-radius: 20px;
 
@@ -108,7 +108,7 @@
 
   .tab {
     @include font-sm-semi-bold;
-    color: var(--theme-secondary-color);
+    color: var(--L7-D7);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -122,7 +122,7 @@
     border-radius: 20px;
 
     &:hover {
-      color: var(--theme-primary-color);
+      color: var(--L8-D8);
 
       > svg {
         color: var(--theme-red-color);
@@ -130,7 +130,7 @@
     }
 
     &.active {
-      color: var(--theme-primary-color);
+      color: var(--L8-D8);
 
       > svg {
         color: var(--theme-red-color);

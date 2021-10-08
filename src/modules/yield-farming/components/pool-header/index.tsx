@@ -9,12 +9,14 @@ import { Text } from 'components/custom/typography';
 import { KnownTokens } from 'components/providers/known-tokens-provider';
 import { convertTokenInUSD } from 'components/providers/known-tokens-provider';
 
+import { useGeneral } from '../../../../components/providers/general-provider';
 import { useYFPool } from '../../providers/pool-provider';
 
 const PoolHeader: FC = () => {
   const yfPoolCtx = useYFPool();
 
   const { poolMeta, poolBalance, effectivePoolBalance } = yfPoolCtx;
+  const { isDarkTheme } = useGeneral();
 
   useEffect(() => {
     document.documentElement.scrollTop = 0;
@@ -87,7 +89,11 @@ const PoolHeader: FC = () => {
             Epoch rewards
           </Text>
           <div className="flex align-center">
-            <Icon name="png/league-dao-dark" width={24} height={24} className="mr-8" />
+            {isDarkTheme ? (
+              <Icon name="png/league-dao-dark" width={24} height={24} className="mr-8" />
+            ) : (
+              <Icon name="png/league-dao-light" width={24} height={24} className="mr-8" />
+            )}
             <Text type="p1" weight="semibold" color="primary">
               {formatNumber(poolMeta.contract.epochReward) ?? '-'}
             </Text>
