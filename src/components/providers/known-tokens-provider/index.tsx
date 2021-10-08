@@ -132,7 +132,7 @@ export const SnxToken: TokenMeta = {
   name: 'Synthetix Network Token',
   decimals: 18,
   icon: 'png/snx',
-  coinGeckoId: 'synthetix-network-token',
+  coinGeckoId: 'havven',
   contract: new Erc20Contract([], config.tokens.snx),
 };
 
