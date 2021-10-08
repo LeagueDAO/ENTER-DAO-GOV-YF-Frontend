@@ -33,14 +33,14 @@ const PoolsView: React.FC = () => {
             <DaoCard />
           </DAOProvider>
           <PoolCard poolId={YFPoolID.USDC_LEAG_SLP} />
-          <PoolCard poolId={YFPoolID.ILV} />
           <PoolCard poolId={YFPoolID.BOND} />
-          <PoolCard poolId={YFPoolID.XYZ} />
+          <PoolCard poolId={YFPoolID.ENTR} />
+          <PoolCard poolId={YFPoolID.ILV} />
           <PoolCard poolId={YFPoolID.IONX} />
           <PoolCard poolId={YFPoolID.LINK} />
           <PoolCard poolId={YFPoolID.SNX} />
-          <PoolCard poolId={YFPoolID.ENTR} />
           <PoolCard poolId={YFPoolID.SUSHI} />
+          <PoolCard poolId={YFPoolID.XYZ} />
         </div>
         <PoolTransactions />
       </div>
