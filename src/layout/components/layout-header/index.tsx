@@ -74,7 +74,7 @@ const LayoutHeader: React.FC = () => {
 
   return (
     <div className={s.component} ref={setReferenceElement}>
-      <ExternalLink href="https://dao.leaguedao.com" target="_self">
+      <ExternalLink href="https://leaguedao.com" target="_self">
         {isDarkTheme ? (
           <Icon name="png/league-dao-dark" width="auto" height="auto" className={s.logo} />
         ) : (
