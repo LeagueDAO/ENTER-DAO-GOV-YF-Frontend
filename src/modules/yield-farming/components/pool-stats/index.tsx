@@ -41,8 +41,7 @@ const PoolStats: React.FC<Props> = ({ className }) => {
             className="mb-48"
             text={
               <Text type="p2">
-                This number shows the Total Value Locked across the staking pool(s). It is the USD and ETH conversion of
-                the amounts in the pool balance(s).
+                This number shows the Total Value Locked across the staking pools, and the effective Total Value Locked.
               </Text>
             }>
             <Text type="lb2" weight="semibold" color="primary" className={s.label}>
@@ -71,7 +70,7 @@ const PoolStats: React.FC<Props> = ({ className }) => {
             className="mb-48"
             text={
               <Text type="p2">
-                This number shows the ${LeagueToken.symbol} token rewards distributed so far out of the total of{' '}
+                This number shows the ${LeagueToken.symbol} token rewards distributed so far out of the total{' '}
                 {formatToken(yfTotalSupply) ?? '-'} that are going to be available for Yield Farming.
               </Text>
             }>
@@ -117,8 +116,10 @@ const PoolStats: React.FC<Props> = ({ className }) => {
                 className="mb-48"
                 text={
                   <Text type="p2">
-                    This counter shows the time left until the first epoch starts. The pool(s) below are synchronized
-                    and have epochs that last a epoch. You can deposit to the pool(s) during the warm-up duration.
+                    This counter shows the time left in the current epoch. The pools below are synchronized and have
+                    epochs that last an epoch. You can deposit to the pools during the duration of an epoch and receive
+                    rewards proportional to the time they are staked, but the funds must stay staked until the clock
+                    runs out and the epoch ends in order to be able to harvest the rewards.
                   </Text>
                 }>
                 <Text type="lb2" weight="semibold" color="primary" className={s.label}>
