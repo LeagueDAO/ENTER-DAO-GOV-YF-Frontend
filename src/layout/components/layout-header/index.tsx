@@ -16,6 +16,7 @@ import { Text } from 'components/custom/typography';
 import { useGeneral } from 'components/providers/general-provider';
 import { LeagueToken } from 'components/providers/known-tokens-provider';
 import { useWarning } from 'components/providers/warning-provider';
+import LeagueLogo from 'resources/svg/add_leag_icon.svg';
 import ConnectedWallet from 'wallets/components/connected-wallet';
 import { MetamaskConnector } from 'wallets/connectors/metamask';
 import { useWallet } from 'wallets/wallet';
@@ -198,7 +199,7 @@ const LayoutHeader: React.FC = () => {
       {!isMobile && wallet.isActive && wallet.connector?.id === 'metamask' && (
         <div className={s.addTokenWrapper}>
           <button type="button" onClick={handleAddProjectToken} className={s.addTokenButton}>
-            <Icon name="png/league" width={32} height={32} />
+            <Icon width={32} height={32} name="png/add-league" />
           </button>
         </div>
       )}

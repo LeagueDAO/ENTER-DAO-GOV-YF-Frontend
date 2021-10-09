@@ -27,6 +27,7 @@ import snxLogo from 'resources/png/SNX.png';
 import sushiLogo from 'resources/png/SUSHI.png';
 import xyzLogo from 'resources/png/XYZ.png';
 import Sprite from 'resources/svg/icons-sprite.svg';
+import addLeag from 'resources/svg/add_leag_icon.svg';
 
 import s from './s.module.scss';
 
@@ -171,7 +172,7 @@ export type IconNames =
   | 'docs'
   | 'twitter'
   | 'discord'
-  | 'telegram'
+  | 'png/add-league'
   | 'dropdown'
   | 'theme-switcher-sun'
   | 'theme-switcher-moon'
@@ -261,6 +262,8 @@ const Icon: React.FC<IconProps> = props => {
           return enterStarSrc;
         case 'png/telegram':
           return telegramSrc;
+        case 'png/add-league':
+          return addLeag;
         default:
           return '';
       }
