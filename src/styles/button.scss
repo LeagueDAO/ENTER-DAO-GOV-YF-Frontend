@@ -124,6 +124,10 @@
     z-index: 0;
   }
 
+  @media (max-width: 768px) {
+    padding: 11px 14px;
+  }
+
   span {
     z-index: 1;
   }

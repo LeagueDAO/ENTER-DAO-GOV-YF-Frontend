@@ -119,12 +119,9 @@ const PoolCard: React.FC<PoolCardProps> = props => {
                 className="mb-4"
                 text={
                   <span>
-                    This number shows the total staked balance of the pool, and the effective balance of the pool.
-                    <br />
-                    <br />
                     When staking tokens during an epoch that is currently running, your effective deposit amount will be
                     proportionally reduced by the time that has passed from that epoch. Once an epoch ends, your staked
-                    balance and effective staked balance will be the equal, therefore pool balance and effective pool
+                    balance and effective staked balance will be equal, therefore pool balance and effective pool
                     balance will differ in most cases.
                   </span>
                 }>
@@ -151,32 +148,38 @@ const PoolCard: React.FC<PoolCardProps> = props => {
         </>
       )}
       {walletCtx.isActive && (
-        <div className="card-row p-24 card-row-border">
-          <Hint
-            text={
-              <span>
-                This number shows your total staked balance in the pool, and your effective staked balance in the pool.
-                <br />
-                <br />
-                When staking tokens during an epoch that is currently running, your effective deposit amount will be
-                proportionally reduced by the time that has passed from that epoch. Once an epoch ends, your staked
-                balance and effective staked balance will be the equal, therefore your pool balance and your effective
-                pool balance will differ in most cases.
-              </span>
-            }>
-            <Text type="lb2" weight="semibold" color="secondary">
-              My Pool Balance
-            </Text>
-          </Hint>
-          <Text type="p1" weight="semibold" color="primary">
-            {formatUSD(myPoolBalanceInUSD)}
-          </Text>
-          {!isEnded && isPoolAvailable && !!lastActiveEpoch && (
-            <>
-              <Text type="p2" color="secondary">
-                {formatUSD(myPoolEffectiveBalanceInUSD)} effective balance
+        <div className="flex flow-row p-24 card-row-border">
+          <div className="card-row">
+            <Hint
+              text={
+                <span>
+                  This number shows your total staked balance in the pool, and your effective staked balance in the
+                  pool.
+                  <br />
+                  <br />
+                  When staking tokens during an epoch that is currently running, your effective deposit amount will be
+                  proportionally reduced by the time that has passed from that epoch. Once an epoch ends, your staked
+                  balance and effective staked balance will be equal, therefore your pool balance and your effective
+                  pool balance will differ in most cases.
+                </span>
+              }>
+              <Text type="lb2" weight="semibold" color="secondary">
+                My Pool Balance
               </Text>
-            </>
+            </Hint>
+            <Text type="p1" weight="semibold" color="primary">
+              {formatUSD(myPoolBalanceInUSD)}
+            </Text>
+          </div>
+          {!isEnded && isPoolAvailable && !!lastActiveEpoch && (
+            <div className="card-row">
+              <Text type="p2" color="secondary">
+                Effective balance
+              </Text>
+              <Text type="p2" color="secondary">
+                {formatUSD(myPoolEffectiveBalanceInUSD)}
+              </Text>
+            </div>
           )}
         </div>
       )}

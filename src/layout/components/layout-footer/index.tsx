@@ -13,7 +13,7 @@ const LayoutFooter: React.FC = () => {
     <footer>
       <div className={s.footer}>
         <div className={s.footer__top}>
-          <div className="main--container">
+          <div className="content-container">
             <div className={s.footer__top__container}>
               <div className={s.subscribe}>
                 <p>Stay up to date with our newsletter</p>
@@ -130,7 +130,7 @@ const LayoutFooter: React.FC = () => {
           </div>
         </div>
         <div className={s.footer__middle}>
-          <div className="main--container">
+          <div className="content-container">
             <div className={s.footer__middle__container}>
               <div>
                 <div className={s.universe}>
@@ -189,7 +189,7 @@ const LayoutFooter: React.FC = () => {
                     </li>
                     <li>
                       <Link to={'/token-vesting'}>
-                        $LEAG Token Vesting
+                        LEAG Token Vesting
                       </Link>
                     </li>
                   </ul>
@@ -223,7 +223,7 @@ const LayoutFooter: React.FC = () => {
         </div>
       </div>
       <div className={s.footer__bottom}>
-        <div className="main--container">
+        <div className="content-container">
           <div className={s.footer__bottom__container}>
             <div>
               <span>LeagueDAO © 2021. Open-sourced.</span>

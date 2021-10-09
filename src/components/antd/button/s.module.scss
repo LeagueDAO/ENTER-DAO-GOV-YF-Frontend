@@ -5,19 +5,19 @@
   // primary regular
   --btn-primary-shadow: 0 10px 20px rgba(136, 120, 172, 0.2);
   --btn-primary-border: 0;
-  --btn-primary-bg: #19b9a1;
+  --btn-primary-bg: var(--L9-D9);
   --btn-primary-text: #000;
 
   // primary hover
   --btn-primary-shadow-hover: 0 10px 20px rgba(136, 120, 172, 0.2);
   --btn-primary-border-hover: none;
-  --btn-primary-bg-hover: linear-gradient(0deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), #19b9a1;
+  --btn-primary-bg-hover: var(--L9-D9);
   --btn-primary-text-hover: #000;
 
   // primary active
   --btn-primary-shadow-active: 0 10px 20px rgba(136, 120, 172, 0.2);
   --btn-primary-border-active: none;
-  --btn-primary-bg-active: linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), #19b9a1, #CC362E;
+  --btn-primary-bg-active: var(--L9-D9);
   --btn-primary-text-active: #000;
 
   // primary disabled
@@ -29,19 +29,19 @@
   // default regular
   --btn-default-shadow: none;
   --btn-default-border: 0;
-  --btn-default-bg: #19b9a1;
+  --btn-default-bg: var(--L9-D9);
   --btn-default-text: var(--L8-D8);
 
   // default hover
   --btn-default-shadow-hover: none;
   --btn-default-border-hover: none;
-  --btn-default-bg-hover: linear-gradient(0deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), #19b9a1;
+  --btn-default-bg-hover: var(--L9-D9);
   --btn-default-text-hover: var(--L7-D7);
 
   // default active
   --btn-default-shadow-active: none;
   --btn-default-border-active: none;
-  --btn-default-bg-active: linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), #19b9a1, #CC362E;
+  --btn-default-bg-active: var(--L9-D9);
   --btn-default-text-active: var(--L8-D8);
 
   // default disabled
@@ -59,7 +59,7 @@
   // ghost hover
   --btn-ghost-shadow-hover: none;
   --btn-ghost-border-hover: none;
-  --btn-ghost-bg-hover: linear-gradient(0deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), #19b9a1;
+  --btn-ghost-bg-hover: var(--L9-D9);
   --btn-ghost-text-hover: var(--L7-D7);
 
   // ghost active

@@ -74,7 +74,7 @@ const LayoutHeader: React.FC = () => {
 
   return (
     <div className={s.component} ref={setReferenceElement}>
-      <ExternalLink href="https://enterdao.xyz/" target="_self">
+      <ExternalLink href="https://dao.leaguedao.com" target="_self">
         {isDarkTheme ? (
           <Icon name="png/league-dao-dark" width="auto" height="auto" className={s.logo} />
         ) : (
@@ -92,10 +92,7 @@ const LayoutHeader: React.FC = () => {
           noPadding
           content={
             <div className={cn('card', s.dropdown)}>
-              <ExternalLink
-                aria-disabled='true'
-                className={s.dropdownLink}
-                onClick={() => setPopper0visible(false)}>
+              <ExternalLink aria-disabled="true" className={s.dropdownLink} onClick={() => setPopper0visible(false)}>
                 <Icon name="static/trophy-disable" width={20} height={20} className={s.dropdownIcon} />
                 <span>Nomo Leagues</span>
               </ExternalLink>
@@ -117,10 +114,7 @@ const LayoutHeader: React.FC = () => {
           noPadding
           content={
             <div className={cn('card', s.dropdown)}>
-              <ExternalLink
-                aria-disabled='true'
-                className={s.dropdownLink}
-                onClick={() => setPopper1visible(false)}>
+              <ExternalLink aria-disabled="true" className={s.dropdownLink} onClick={() => setPopper1visible(false)}>
                 <Icon name="static/american_footbal-disable" width={20} height={20} className={s.dropdownIcon} />
                 <span>Nomo Fantasy Football</span>
               </ExternalLink>
@@ -143,7 +137,7 @@ const LayoutHeader: React.FC = () => {
           content={
             <div className={cn('card', s.dropdown)}>
               <ExternalLink
-                href="https://medium.com/enterdao/enterdao-whitepaper-27447f7400c8"
+                href="https://medium.com/leaguedao/leaguedao-white-paper-a3dbf82050f7"
                 className={s.dropdownLink}
                 onClick={() => setPopper2visible(false)}>
                 <Icon name="whitepaper" width={20} height={20} className={s.dropdownIcon} />
@@ -157,7 +151,7 @@ const LayoutHeader: React.FC = () => {
                 <span>Team</span>
               </ExternalLink>
               <ExternalLink
-                href="https://docs.enterdao.xyz/"
+                href="https://docs.leaguedao.com/"
                 className={s.dropdownLink}
                 onClick={() => setPopper3visible(false)}>
                 <Icon name="docs" width={20} height={20} className={s.dropdownIcon} />
@@ -230,20 +224,14 @@ const LayoutHeader: React.FC = () => {
               <div className={s.mobileMenuInner}>
                 <div className={s.mobileMenuBlock}>
                   <h3>Products</h3>
-                  <ExternalLink
-                    className={s.dropdownLink}
-                    aria-disabled="true"
-                    onClick={() => setNavOpen(false)}>
+                  <ExternalLink className={s.dropdownLink} aria-disabled="true" onClick={() => setNavOpen(false)}>
                     <Icon name="static/trophy-disable" width={20} height={20} className={s.dropdownIcon} />
                     <span>Nomo Leagues</span>
                   </ExternalLink>
                 </div>
                 <div className={s.mobileMenuBlock}>
                   <h3>Player drops</h3>
-                  <ExternalLink
-                    className={s.dropdownLink}
-                    aria-disabled="true"
-                    onClick={() => setNavOpen(false)}>
+                  <ExternalLink className={s.dropdownLink} aria-disabled="true" onClick={() => setNavOpen(false)}>
                     <Icon name="static/american_footbal-disable" width={20} height={20} className={s.dropdownIcon} />
                     <span>Nomo Fantasy Football</span>
                   </ExternalLink>

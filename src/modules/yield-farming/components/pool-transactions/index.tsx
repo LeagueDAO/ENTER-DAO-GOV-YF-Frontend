@@ -285,7 +285,7 @@ const PoolTransactions: FC = () => {
 
   return (
     <div className="card mb-32">
-      <div className="card-header flex flow-col align-center justify-space-between pv-0" style={{ overflowX: 'auto' }}>
+      <div className="card-header flex flow-col align-center justify-space-between pv-0" style={{ overflowX: 'auto', border: '0' }}>
         <Tabs
           activeKey={activeTab}
           style={{ flexShrink: 0 }}
@@ -345,7 +345,7 @@ const PoolTransactions: FC = () => {
           pageSize: state.pageSize,
           position: ['bottomRight'],
           showTotal: (total: number, [from, to]: [number, number]) => (
-            <Text type="p2" weight="semibold" color="yellow">
+            <Text type="p2" weight="semibold" color="primary">
               Showing {from} to {to} the most recent {total}
             </Text>
           ),
