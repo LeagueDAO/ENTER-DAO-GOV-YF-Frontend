@@ -3,8 +3,13 @@
   background: #252641;
   margin: auto 0 0;
 
+  &__container {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
   .footer__top {
-    padding: 60px;
+    padding: 58px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
     &__container {
