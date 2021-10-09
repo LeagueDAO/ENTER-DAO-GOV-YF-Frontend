@@ -174,9 +174,13 @@ const LayoutFooter: React.FC = () => {
                       </a>
                     </li>
                     <li>
-                      <Link to={'/contributors'}>
+                    <a
+                        href="https://leaguedao.com/contributors"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         Contributors
-                      </Link>
+                      </a>
                     </li>
                     <li>
                       <a
@@ -199,7 +203,7 @@ const LayoutFooter: React.FC = () => {
                     <li>DAO</li>
                     <li>
                       <a
-                        href="https://leaguedao.com/governance"
+                        href="https://dao.leaguedao.com/governance"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -208,7 +212,7 @@ const LayoutFooter: React.FC = () => {
                     </li>
                     <li>
                       <a
-                        href="https://leaguedao.com/yield-farming"
+                        href="https://dao.leaguedao.com/yield-farming"
                         target="_blank"
                         rel="noopener noreferrer"
                       >

@@ -144,7 +144,7 @@ const LayoutHeader: React.FC = () => {
                 <span>Whitepaper</span>
               </ExternalLink>
               <ExternalLink
-                href="https://enterdao.xyz/team"
+                href="https://leaguedao.com/contributors"
                 className={s.dropdownLink}
                 onClick={() => setPopper2visible(false)}>
                 <Icon name="team" width={20} height={20} className={s.dropdownIcon} />
