@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import cn from 'classnames';
+
 import Icon from 'components/custom/icon';
 import { Text } from 'components/custom/typography';
 import config from 'config';
@@ -13,34 +15,20 @@ const LayoutFooter: React.FC = () => {
     <footer>
       <div className={s.footer}>
         <div className={s.footer__top}>
-          <div className="content-container">
+          <div className={cn('content-container', s.footer__container)}>
             <div className={s.footer__top__container}>
               <div className={s.subscribe}>
                 <p>Stay up to date with our newsletter</p>
-                <form
-                  className={s.form}
-                  action={config.mailchimp.url}
-                  method="POST"
-                  noValidate
-                  target="_blank"
-                >
-                  <input
-                    type="hidden"
-                    name="u"
-                    value={config.mailchimp.u}
-                  />
-                  <input
-                    type="hidden"
-                    name="id"
-                    value={config.mailchimp.id}
-                  />
+                <form className={s.form} action={config.mailchimp.url} method="POST" noValidate target="_blank">
+                  <input type="hidden" name="u" value={config.mailchimp.u} />
+                  <input type="hidden" name="id" value={config.mailchimp.id} />
                   <input
                     placeholder="Enter your email"
                     type="email"
                     name="EMAIL"
                     id="MERGE0"
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={e => setEmail(e.target.value)}
                     autoCapitalize="off"
                     autoCorrect="off"
                   />
@@ -50,8 +38,7 @@ const LayoutFooter: React.FC = () => {
                   <div
                     style={{ position: 'absolute', left: '-5000px' }}
                     aria-hidden="true"
-                    aria-label="Please leave the following three fields empty"
-                  >
+                    aria-label="Please leave the following three fields empty">
                     <label htmlFor="b_email">Email: </label>
                     <input
                       type="email"
@@ -74,27 +61,15 @@ const LayoutFooter: React.FC = () => {
                       href="https://twitter.com/LeagueDAO"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={s.sLink}
-                    >
-                      <Icon
-                        name="twitter"
-                        width="20"
-                        height="20"
-                        src="/assets/icons/twitter-icon.svg"
-                      />
+                      className={s.sLink}>
+                      <Icon name="twitter" width="20" height="20" src="/assets/icons/twitter-icon.svg" />
                     </a>
                     <a
                       href="https://discord.com/invite/A2dDGheh"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={s.sLink}
-                    >
-                      <Icon
-                        name="discord"
-                        width="20"
-                        height="20"
-                        src="/assets/icons/discord-white.svg"
-                      />
+                      className={s.sLink}>
+                      <Icon name="discord" width="20" height="20" src="/assets/icons/discord-white.svg" />
                     </a>
                     {/*<ExternalLink*/}
                     {/*  href="https://www.coingecko.com/en/coins/universe-xyz"*/}
@@ -111,16 +86,14 @@ const LayoutFooter: React.FC = () => {
                       href="https://www.youtube.com/channel/UCU0TSe-ZWBuWodKACBqju6A"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={s.sLink}
-                    >
+                      className={s.sLink}>
                       <Icon name="youtube" width="20" height="20" src="/assets/icons/Frame.svg" />
                     </a>
                     <a
                       href="https://medium.com/@Craven_JE"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={s.sLink}
-                    >
+                      className={s.sLink}>
                       <Icon name="medium" width="20" height="20" src="/assets/icons/medium.svg" />
                     </a>
                   </div>
@@ -130,7 +103,7 @@ const LayoutFooter: React.FC = () => {
           </div>
         </div>
         <div className={s.footer__middle}>
-          <div className="content-container">
+          <div className={cn('content-container', s.footer__container)}>
             <div className={s.footer__middle__container}>
               <div>
                 <div className={s.universe}>
@@ -138,10 +111,7 @@ const LayoutFooter: React.FC = () => {
                     <Icon name="png/league-dao-dark" width={100} height={62} />
                     {/*<img src="/assets/icons/footer-logo.svg" width={100} height={62} alt="logo" />*/}
                   </div>
-                  <p>
-                    Join one of our Tokenized Fantasy Sports leagues and become a part of the
-                    LeagueDAO community.
-                  </p>
+                  <p>Join one of our Tokenized Fantasy Sports leagues and become a part of the LeagueDAO community.</p>
                 </div>
               </div>
               <div className={s.universeList}>
@@ -168,29 +138,20 @@ const LayoutFooter: React.FC = () => {
                       <a
                         href="https://medium.com/leaguedao/leaguedao-white-paper-a3dbf82050f7"
                         target="_blank"
-                        rel="noopener noreferrer"
-                      >
+                        rel="noopener noreferrer">
                         Whitepaper
                       </a>
                     </li>
                     <li>
-                      <Link to={'/contributors'}>
-                        Contributors
-                      </Link>
+                      <Link to={'/contributors'}>Contributors</Link>
                     </li>
                     <li>
-                      <a
-                        href="https://app.gitbook.com/@leaguedao/s/leaguedao-docs/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
+                      <a href="https://docs.leaguedao.com/" target="_blank" rel="noopener noreferrer">
                         Docs
                       </a>
                     </li>
                     <li>
-                      <Link to={'/token-vesting'}>
-                        LEAG Token Vesting
-                      </Link>
+                      <a className={s.disabledLink}>LEAG Token Vesting</a>
                     </li>
                   </ul>
                 </div>
@@ -198,20 +159,10 @@ const LayoutFooter: React.FC = () => {
                   <ul>
                     <li>DAO</li>
                     <li>
-                      <a
-                        href="https://leaguedao.com/governance"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Governance
-                      </a>
+                      <a className={s.disabledLink}>Governance</a>
                     </li>
                     <li>
-                      <a
-                        href="https://leaguedao.com/yield-farming"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
+                      <a href="https://dao.leaguedao.com/yield-farming" target="_blank" rel="noopener noreferrer">
                         Yield farming
                       </a>
                     </li>
@@ -223,7 +174,7 @@ const LayoutFooter: React.FC = () => {
         </div>
       </div>
       <div className={s.footer__bottom}>
-        <div className="content-container">
+        <div className={cn('content-container', s.footer__container)}>
           <div className={s.footer__bottom__container}>
             <div>
               <span>LeagueDAO © 2021. Open-sourced.</span>
