@@ -370,7 +370,6 @@ const KnownTokensProvider: FC = props => {
       token.contract?.setAccount(wallet.account);
     });
 
-    // load entr balance for connected wallet
     if (wallet.account) {
       (LeagueToken.contract as Erc20Contract).loadBalance().then(reload).catch(Error);
     }

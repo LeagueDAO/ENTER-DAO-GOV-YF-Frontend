@@ -10,10 +10,10 @@ import eslpSrc from 'resources/png/USDC_LEAG_SUSHI_LP.png';
 import leagueSrc from 'resources/png/token-league.png';
 import universeSrc from 'resources/png/universe.png';
 import enterdaoSrc from 'resources/png/enterdao.png';
-// import snxSrc from 'resources/png/snx.png';
+import snxSrc from 'resources/png/SNX.png';
 import leaguedaoSrc from 'resources/png/league-dao-dark.png';
 import leaguedaoLightSrc from 'resources/png/league-dao-light.png';
-// import ionxSrc from 'resources/png/ionx.png';
+import ionxSrc from 'resources/png/IONX.png';
 import sandSrc from 'resources/png/sandbox.png';
 import axsSrc from 'resources/png/axie.png';
 import addEnterSrc from 'resources/png/add-enter.png';
@@ -232,12 +232,12 @@ const Icon: React.FC<IconProps> = props => {
           return leaguedaoLightSrc;
         case 'png/enterdao':
           return enterdaoSrc;
-        // case 'png/snx':
-        //   return snxSrc;
+        case 'png/snx':
+          return snxSrc;
         case 'png/universe':
           return universeSrc;
-        // case 'png/ionx':
-        //   return ionxSrc;
+        case 'png/ionx':
+          return ionxSrc;
         case 'png/sandbox':
           return sandSrc;
         case 'png/axie':
