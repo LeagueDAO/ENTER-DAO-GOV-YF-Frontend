@@ -20,7 +20,7 @@ import startOfMonth from 'date-fns/startOfMonth';
 import startOfWeek from 'date-fns/startOfWeek';
 import flow from 'lodash/fp/flow';
 import * as ReCharts from 'recharts';
-import { formatBigValue, formatEntrValue } from 'web3/utils';
+import { formatBigValue, formatLeagValue } from 'web3/utils';
 
 import ExternalLink from 'components/custom/externalLink';
 import { Hint, Text } from 'components/custom/typography';
@@ -195,7 +195,7 @@ const WalletLockChart: React.FC<WalletLockChartProps> = props => {
             </>
           }>
           <Text type="small" weight="semibold">
-            {formatEntrValue(myBonus)}
+            {formatLeagValue(myBonus)}
             <span> v{LeagueToken.symbol} bonus - </span>
             {inRange(multiplier, 1, 1.01) ? '>' : ''}
             {formatBigValue(multiplier, 2)}x<span> for </span>

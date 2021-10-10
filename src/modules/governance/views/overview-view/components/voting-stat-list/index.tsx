@@ -1,6 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
-import { formatToken, formatUSD, formatEntrValue } from 'web3/utils';
+import { formatToken, formatUSD, formatLeagValue } from 'web3/utils';
 
 import ExternalLink from 'components/custom/externalLink';
 import Grid from 'components/custom/grid';
@@ -137,10 +137,10 @@ const VotingStatList: React.FC<VotingStatListProps> = props => {
           </Hint>
           <Grid flow="row" gap={4}>
             <Text type="h2" weight="bold" color="primary">
-              {formatEntrValue(overview?.totalDelegatedPower)}
+              {formatLeagValue(overview?.totalDelegatedPower)}
             </Text>
             <Text type="p1" color="secondary">
-              out of {formatEntrValue((LeagueToken.contract as Erc20Contract).totalSupply?.unscaleBy(LeagueToken.decimals))}
+              out of {formatLeagValue((LeagueToken.contract as Erc20Contract).totalSupply?.unscaleBy(LeagueToken.decimals))}
             </Text>
           </Grid>
         </Grid>

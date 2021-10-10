@@ -215,8 +215,7 @@ const LP_PRICE_FEED_ABI: AbiItem[] = [
   createAbiItem('token0', [], ['address']),
 ];
 
-// ToDo: Check the ENTR price calculation
-async function getEntrPrice(): Promise<BigNumber> {
+async function getLeagPrice(): Promise<BigNumber> {
   const priceFeedContract = new Erc20Contract(LP_PRICE_FEED_ABI, UsdcLeagSLPToken.address);
 
   const [token0, { 0: reserve0, 1: reserve1 }] = await priceFeedContract.batch([
@@ -224,26 +223,26 @@ async function getEntrPrice(): Promise<BigNumber> {
     { method: 'getReserves' },
   ]);
 
-  let entrReserve;
+  let leagReserve;
   let usdcReserve;
 
   if (String(token0).toLowerCase() === LeagueToken.address) {
-    entrReserve = new BigNumber(reserve0).unscaleBy(LeagueToken.decimals);
+    leagReserve = new BigNumber(reserve0).unscaleBy(LeagueToken.decimals);
     usdcReserve = new BigNumber(reserve1).unscaleBy(UsdcToken.decimals);
   } else {
-    entrReserve = new BigNumber(reserve1).unscaleBy(LeagueToken.decimals);
+    leagReserve = new BigNumber(reserve1).unscaleBy(LeagueToken.decimals);
     usdcReserve = new BigNumber(reserve0).unscaleBy(UsdcToken.decimals);
   }
 
-  if (!usdcReserve || !entrReserve || entrReserve.eq(BigNumber.ZERO)) {
+  if (!usdcReserve || !leagReserve || leagReserve.eq(BigNumber.ZERO)) {
     return BigNumber.ZERO;
   }
 
-  return usdcReserve.dividedBy(entrReserve);
+  return usdcReserve.dividedBy(leagReserve);
 }
 
 // ToDo: Check the SLP price calculation
-async function getUsdcEntrSLPPrice(): Promise<BigNumber> {
+async function getUsdcLeagSLPPrice(): Promise<BigNumber> {
   const priceFeedContract = new Erc20Contract(LP_PRICE_FEED_ABI, UsdcLeagSLPToken.address);
 
   const [decimals, totalSupply, token0, { 0: reserve0, 1: reserve1 }] = await priceFeedContract.batch([
@@ -331,8 +330,8 @@ const KnownTokensProvider: FC = props => {
     (LeagueToken.contract as Erc20Contract).loadCommon().catch(Error);
 
     (async () => {
-      LeagueToken.price = await getEntrPrice().catch(() => undefined);
-      UsdcLeagSLPToken.price = await getUsdcEntrSLPPrice().catch(() => undefined);
+      LeagueToken.price = await getLeagPrice().catch(() => undefined);
+      UsdcLeagSLPToken.price = await getUsdcLeagSLPPrice().catch(() => undefined);
 
       const ids = KNOWN_TOKENS.map(tk => tk.coinGeckoId)
         .filter(Boolean)

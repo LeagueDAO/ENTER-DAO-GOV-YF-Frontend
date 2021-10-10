@@ -1,6 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
-import { formatEntrValue } from 'web3/utils';
+import { formatLeagValue } from 'web3/utils';
 
 import Button from 'components/antd/button';
 import Grid from 'components/custom/grid';
@@ -37,7 +37,7 @@ const ActivationThreshold: React.FC<ActivationThresholdProps> = props => {
         <Hint
           text={
             <Text type="p2">
-              For the {LeagueToken.symbol} to be activated, a threshold of {formatEntrValue(dao.activationThreshold)}{' '}
+              For the {LeagueToken.symbol} to be activated, a threshold of {formatLeagValue(dao.activationThreshold)}{' '}
               {LeagueToken.symbol}
               tokens staked has to be met.
             </Text>
@@ -60,10 +60,10 @@ const ActivationThreshold: React.FC<ActivationThresholdProps> = props => {
         <Grid flow="col" gap={8} align="center">
           <Icon name="png/league-dao-dark" width={32} height={32} />
           <Text type="p1" weight="bold" color="primary">
-            {formatEntrValue(dao.leagStaked)}
+            {formatLeagValue(dao.leagStaked)}
           </Text>
           <Text type="p1" weight="semibold" color="secondary">
-            / {formatEntrValue(dao.activationThreshold)} already staked.
+            / {formatLeagValue(dao.activationThreshold)} already staked.
           </Text>
         </Grid>
         {dao.activationRate === 100 && !dao.isActive && (

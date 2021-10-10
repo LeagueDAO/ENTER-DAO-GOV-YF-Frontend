@@ -1,6 +1,6 @@
 import React from 'react';
 import BigNumber from 'bignumber.js';
-import { formatEntrValue } from 'web3/utils';
+import { formatLeagValue } from 'web3/utils';
 
 import Button from 'components/antd/button';
 import Modal, { ModalProps } from 'components/antd/modal';
@@ -29,7 +29,7 @@ const WalletLockConfirmModal: React.FC<WalletLockConfirmModalProps> = props => {
               Are you sure you want to lock your balance?
             </Text>
             <Text type="p2" weight="semibold" color="secondary">
-              You are about to lock {formatEntrValue(balance)} ${LeagueToken.symbol} for {getFormattedDuration(0, duration)}
+              You are about to lock {formatLeagValue(balance)} ${LeagueToken.symbol} for {getFormattedDuration(0, duration)}
               .
               <br />
               <br />

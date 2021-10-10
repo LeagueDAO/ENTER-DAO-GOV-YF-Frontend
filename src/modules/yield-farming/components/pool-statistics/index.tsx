@@ -31,7 +31,7 @@ const PoolStatistics: FC = () => {
   const [claiming, setClaiming] = useState(false);
   const [confirmClaimVisible, setConfirmClaimVisible] = useState(false);
 
-  const entrContract = LeagueToken.contract as Erc20Contract;
+  const leagContract = LeagueToken.contract as Erc20Contract;
   const activeContract = activeToken?.contract as Erc20Contract;
 
   if (!walletCtx.isActive || !poolMeta) {
@@ -57,7 +57,7 @@ const PoolStatistics: FC = () => {
 
     try {
       await poolMeta.contract.claim(args.gasPrice);
-      entrContract.loadBalance().catch(Error);
+      leagContract.loadBalance().catch(Error);
       (poolMeta.contract as YfPoolContract).loadUserData().catch(Error);
     } catch {}
 
@@ -87,7 +87,7 @@ const PoolStatistics: FC = () => {
                 className="mr-8"
               />
               <Text type="p1" weight="semibold" color="primary">
-                {formatToken(entrContract.balance?.unscaleBy(LeagueToken.decimals)) ?? '-'}
+                {formatToken(leagContract.balance?.unscaleBy(LeagueToken.decimals)) ?? '-'}
               </Text>
             </div>
           </div>

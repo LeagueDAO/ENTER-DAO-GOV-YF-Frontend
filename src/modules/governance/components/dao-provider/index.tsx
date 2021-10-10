@@ -79,15 +79,15 @@ const DAOProvider: React.FC = props => {
   }, [walletCtx.provider]);
 
   React.useEffect(() => {
-    const entrContract = LeagueToken.contract as Erc20Contract;
+    const leagContract = LeagueToken.contract as Erc20Contract;
 
-    entrContract.setAccount(walletCtx.account);
+    leagContract.setAccount(walletCtx.account);
     daoBarn.contract.setAccount(walletCtx.account);
     daoReward.contract.setAccount(walletCtx.account);
     daoGovernance.contract.setAccount(walletCtx.account);
 
     if (walletCtx.isActive) {
-      entrContract.loadAllowance(config.contracts.dao.barn).catch(Error);
+      leagContract.loadAllowance(config.contracts.dao.barn).catch(Error);
     }
   }, [walletCtx.account]);
 

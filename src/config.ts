@@ -84,8 +84,8 @@ const config = {
   },
 };
 
-export const ENTR_MARKET_LINK = `https://app.sushi.com/swap?inputCurrency=${config.tokens.usdc}&outputCurrency=${config.tokens.entr}`;
+export const LEAG_MARKET_LINK = `https://app.sushi.com/swap?inputCurrency=${config.tokens.usdc}&outputCurrency=${config.tokens.leag}`;
 
-export const ENTR_MARKET_LIQUIDITY_LINK = `https://app.sushi.com/add/${config.tokens.usdc}/${config.tokens.entr}`;
+export const LEAG_MARKET_LIQUIDITY_LINK = `https://app.sushi.com/add/${config.tokens.usdc}/${config.tokens.leag}`;
 
 export default config;

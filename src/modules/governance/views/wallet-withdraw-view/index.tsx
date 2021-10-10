@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Antd from 'antd';
 import BigNumber from 'bignumber.js';
-import { ZERO_BIG_NUMBER, formatEntrValue } from 'web3/utils';
+import { ZERO_BIG_NUMBER, formatLeagValue } from 'web3/utils';
 
 import Alert from 'components/antd/alert';
 import Button from 'components/antd/button';
@@ -44,7 +44,7 @@ const WalletWithdrawView: React.FC = () => {
   const [state, setState] = useMergeState<WalletWithdrawViewState>(InitialState);
 
   const { balance: stakedBalance, userLockedUntil } = daoCtx.daoBarn;
-  const entrBalance = (LeagueToken.contract as Erc20Contract).balance?.unscaleBy(LeagueToken.decimals);
+  const leagBalance = (LeagueToken.contract as Erc20Contract).balance?.unscaleBy(LeagueToken.decimals);
   const isLocked = (userLockedUntil ?? 0) > Date.now();
   const hasStakedBalance = stakedBalance?.gt(ZERO_BIG_NUMBER);
   const formDisabled = !hasStakedBalance || isLocked;
@@ -83,7 +83,7 @@ const WalletWithdrawView: React.FC = () => {
             Staked Balance
           </Text>
           <Text type="p1" weight="semibold" color="primary">
-            {formatEntrValue(stakedBalance)}
+            {formatLeagValue(stakedBalance)}
           </Text>
         </Grid>
 
@@ -92,7 +92,7 @@ const WalletWithdrawView: React.FC = () => {
             Wallet Balance
           </Text>
           <Text type="p1" weight="semibold" color="primary">
-            {formatEntrValue(entrBalance)}
+            {formatLeagValue(leagBalance)}
           </Text>
         </Grid>
 

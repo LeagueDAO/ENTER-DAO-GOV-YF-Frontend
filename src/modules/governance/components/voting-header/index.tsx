@@ -2,7 +2,7 @@ import React from 'react';
 import { Spin } from 'antd';
 import BigNumber from 'bignumber.js';
 import cn from 'classnames';
-import { formatBigValue, formatEntrValue, isSmallEntrValue } from 'web3/utils';
+import { formatBigValue, formatLeagValue, isSmallLeagValue } from 'web3/utils';
 
 import Button from 'components/antd/button';
 import Divider from 'components/antd/divider';
@@ -39,7 +39,7 @@ const VotingHeader: React.FC = () => {
   const [state, setState] = useMergeState<VotingHeaderState>(InitialState);
 
   const { claimValue } = daoCtx.daoReward;
-  const entrBalance = (LeagueToken.contract as Erc20Contract).balance?.unscaleBy(LeagueToken.decimals);
+  const leagBalance = (LeagueToken.contract as Erc20Contract).balance?.unscaleBy(LeagueToken.decimals);
   const { votingPower, userLockedUntil, multiplier = 1 } = daoCtx.daoBarn;
 
   const loadedUserLockedUntil = (userLockedUntil ?? Date.now()) - Date.now();
@@ -76,8 +76,8 @@ const VotingHeader: React.FC = () => {
               <Tooltip title={<Text type="p2">{formatBigValue(claimValue, LeagueToken.decimals)}</Text>}>
                 <Skeleton loading={claimValue === undefined}>
                   <Text type="h3" weight="bold" color="primary">
-                    {isSmallEntrValue(claimValue) && '> '}
-                    {formatEntrValue(claimValue)}
+                    {isSmallLeagValue(claimValue) && '> '}
+                    {formatLeagValue(claimValue)}
                   </Text>
                 </Skeleton>
               </Tooltip>
@@ -98,9 +98,9 @@ const VotingHeader: React.FC = () => {
               {LeagueToken.symbol} Balance
             </Text>
             <Grid flow="col" gap={12} align="center">
-              <Skeleton loading={entrBalance === undefined}>
+              <Skeleton loading={leagBalance === undefined}>
                 <Text type="h3" weight="bold" color="primary">
-                  {formatEntrValue(entrBalance)}
+                  {formatLeagValue(leagBalance)}
                 </Text>
               </Skeleton>
               <Icon name="png/league" width={24} height={24} />
@@ -114,7 +114,7 @@ const VotingHeader: React.FC = () => {
             <div className="flex col-gap-16 align-center" style={{ height: `40px` }}>
               <Skeleton loading={votingPower === undefined}>
                 <Text type="h3" weight="bold" color="primary">
-                  {formatEntrValue(votingPower) || '-'}
+                  {formatLeagValue(votingPower) || '-'}
                 </Text>
               </Skeleton>
               <Button type="light" onClick={() => setState({ showDetailedView: true })}>
