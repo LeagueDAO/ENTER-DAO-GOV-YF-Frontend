@@ -69,7 +69,7 @@ const VotingStatList: React.FC<VotingStatListProps> = props => {
                   This counter shows the average amount of time ${LeagueToken.symbol} stakers locked their deposits in
                   order to take advantage of the voting power bonus.
                 </Text>
-                <ExternalLink href="https://docs.enterdao.xyz/" className="link-yellow" style={{ fontWeight: 600 }}>
+                <ExternalLink href="https://docs.leaguedao.com/" className="link-yellow" style={{ fontWeight: 600 }}>
                   Learn more
                 </ExternalLink>
               </Grid>
@@ -126,7 +126,7 @@ const VotingStatList: React.FC<VotingStatListProps> = props => {
                 <Text type="p2">
                   This number shows the amount of v{LeagueToken.symbol} that is delegated to other addresses.
                 </Text>
-                <ExternalLink href="https://docs.enterdao.xyz/" className="link-yellow" style={{ fontWeight: 600 }}>
+                <ExternalLink href="https://docs.leaguedao.com/" className="link-yellow" style={{ fontWeight: 600 }}>
                   Learn more
                 </ExternalLink>
               </Grid>

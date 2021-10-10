@@ -99,7 +99,7 @@ const ProposalsViewInner: React.FC = () => {
                         </li>
                       </ul>
 
-                      <ExternalLink href="https://docs.enterdao.xyz/">
+                      <ExternalLink href="https://docs.leaguedao.com/">
                         <Text type="p2" weight="semibold" color="yellow">
                           Learn more
                         </Text>

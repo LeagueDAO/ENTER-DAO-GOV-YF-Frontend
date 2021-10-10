@@ -50,7 +50,7 @@ const PoolCard: React.FC<PoolCardProps> = props => {
   const isPoolAvailable = poolMeta?.contract.isPoolAvailable;
   const apr =
     poolBalanceInUSD?.isGreaterThan(BigNumber.ZERO) && epochReward
-      ? convertTokenInUSD(epochReward * 52, KnownTokens.ENTR)?.dividedBy(poolBalanceInUSD)
+      ? convertTokenInUSD(epochReward * 52, KnownTokens.LEAG)?.dividedBy(poolBalanceInUSD)
       : undefined;
 
   function handleStaking() {

@@ -240,21 +240,21 @@ const LayoutHeader: React.FC = () => {
                 <div className={s.mobileMenuBlock}>
                   <h3>Info</h3>
                   <ExternalLink
-                    href="https://medium.com/enterdao/enterdao-whitepaper-27447f7400c8"
+                    href="https://medium.com/leaguedao/leaguedao-white-paper-a3dbf82050f7"
                     className={s.dropdownLink}
                     onClick={() => setNavOpen(false)}>
                     <Icon name="whitepaper" width={20} height={20} className={s.dropdownIcon} />
                     <span>Whitepaper</span>
                   </ExternalLink>
                   <ExternalLink
-                    href="https://enterdao.xyz/team"
+                    href="https://leaguedao.com/contributors"
                     className={s.dropdownLink}
                     onClick={() => setNavOpen(false)}>
                     <Icon name="team" width={20} height={20} className={s.dropdownIcon} />
                     <span>Team</span>
                   </ExternalLink>
                   <ExternalLink
-                    href="https://docs.enterdao.xyz/"
+                    href="https://docs.leaguedao.com/"
                     className={s.dropdownLink}
                     onClick={() => setNavOpen(false)}>
                     <Icon name="docs" width={20} height={20} className={s.dropdownIcon} />

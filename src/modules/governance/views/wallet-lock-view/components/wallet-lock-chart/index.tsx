@@ -191,7 +191,7 @@ const WalletLockChart: React.FC<WalletLockChartProps> = props => {
                   </Text>
                 </li>
               </ul>
-              <ExternalLink href="https://docs.enterdao.xyz/">Learn more</ExternalLink>
+              <ExternalLink href="https://docs.leaguedao.com/">Learn more</ExternalLink>
             </>
           }>
           <Text type="small" weight="semibold">
