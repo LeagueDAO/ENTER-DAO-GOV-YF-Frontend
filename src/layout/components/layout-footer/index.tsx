@@ -143,7 +143,13 @@ const LayoutFooter: React.FC = () => {
                       </a>
                     </li>
                     <li>
-                      <Link to={'/contributors'}>Contributors</Link>
+                    <a
+                        href="https://leaguedao.com/contributors"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Contributors
+                      </a>
                     </li>
                     <li>
                       <a href="https://docs.leaguedao.com/" target="_blank" rel="noopener noreferrer">
