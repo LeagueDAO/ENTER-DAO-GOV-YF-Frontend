@@ -74,10 +74,25 @@
     .card-label {
       margin-right: 5px;
     }
+
+    @media (max-width: 480px) {
+      padding-left: 17px;
+      padding-right: 17px;
+
+      &-border {
+        padding-left: 17px;
+        padding-right: 17px;
+      }
+    }
   }
 
   .card-row-border {
     border-bottom: 1px solid var(--L4-D4);
+
+    > .card-row {
+      padding-left: 0;
+      padding-right: 0;
+    }
 
     &:last-of-type {
       border-bottom: 0;
@@ -88,6 +103,10 @@
 .card-header {
   border-bottom: 1px solid var(--L4-D4);
   padding: 24px;
+
+  @media (max-width: 480px) {
+    padding: 24px 17px;
+  }
 }
 
 .css-grid {

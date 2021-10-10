@@ -3,8 +3,13 @@
   background: #252641;
   margin: auto 0 0;
 
+  &__container {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
   .footer__top {
-    padding: 60px;
+    padding: 58px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
     &__container {
@@ -12,7 +17,7 @@
       grid-template-columns: 1fr auto;
       grid-gap: 222px;
 
-      @media (max-width: s1200px) {
+      @media (max-width: 1200px) {
         grid-gap: 90px;
       }
 
@@ -22,7 +27,7 @@
         max-width: 540px;
 
         p {
-          font-family: "Kumbh Sans", sans-serif;
+          font-family: 'Kumbh Sans', sans-serif;
           font-style: normal;
           font-weight: bold;
           font-size: 16px;
@@ -45,20 +50,20 @@
           position: relative;
 
           input {
-            font-family: "Manrope", sans-serif;
+            font-family: 'Manrope', sans-serif;
             font-style: normal;
             font-size: 16px;
-            background: white;
+            background: #fff;
             box-sizing: border-box;
             border-radius: 6px;
             width: 100%;
             padding: 11px 152px 11px 16px;
             height: 50px;
-            border: none;
+            border: 0;
             outline: none;
 
             &::placeholder {
-              font-family: "Manrope", sans-serif;
+              font-family: 'Manrope', sans-serif;
               font-style: normal;
               font-weight: normal;
               font-size: 16px;
@@ -96,7 +101,7 @@
         position: relative;
 
         p {
-          font-family: "Kumbh Sans", sans-serif;
+          font-family: 'Kumbh Sans', sans-serif;
           font-style: normal;
           font-weight: bold;
           font-size: 16px;
@@ -205,7 +210,7 @@
         grid-template-columns: auto 1fr;
         grid-gap: 24px;
 
-        @media (max-width: s1200px) {
+        @media (max-width: 1200px) {
           grid-template-columns: 1fr;
         }
 
@@ -215,12 +220,12 @@
         }
 
         p {
-          font-family: "Manrope", sans-serif;
+          font-family: 'Manrope', sans-serif;
           font-style: normal;
           font-weight: 400;
           font-size: 12px;
           line-height: 160%;
-          color: white;
+          color: #fff;
           max-width: 255px;
 
           @media (max-width: 768px) {
@@ -235,8 +240,12 @@
         grid-gap: 28px;
         list-style: none;
 
+        ul {
+          padding-left: 0;
+        }
+
         li {
-          font-family: "Kumbh Sans", sans-serif;
+          font-family: 'Kumbh Sans', sans-serif;
           font-style: normal;
           font-weight: bold;
           font-size: 16px;
@@ -262,7 +271,7 @@
         a {
           text-decoration: underline;
           position: relative;
-          font-family: "Manrope", sans-serif;
+          font-family: 'Manrope', sans-serif;
           font-style: normal;
           font-weight: 600;
           font-size: 12px;
@@ -277,13 +286,13 @@
 
             .tooltiptext {
               visibility: hidden;
-              font-family: "Manrope", sans-serif;
+              font-family: 'Manrope', sans-serif;
               font-style: normal;
               font-weight: normal;
               font-size: 12px;
               width: 120px;
               background-color: #252641;
-              color: white;
+              color: #fff;
               text-align: center;
               border-radius: 100px;
               padding: 5px 0;
@@ -314,7 +323,7 @@
                 margin-left: -5px;
                 border-width: 5px;
                 border-style: solid;
-                border-color: black transparent transparent;
+                border-color: #000 transparent transparent;
               }
             }
 
@@ -350,7 +359,7 @@
     }
 
     @media (max-width: 768px) {
-      padding: 60px 0;
+      padding: 50px 0;
     }
   }
 }
@@ -370,7 +379,7 @@
     }
 
     span {
-      font-family: "Manrope", sans-serif;
+      font-family: 'Manrope', sans-serif;
       font-style: normal;
       font-weight: 600;
       font-size: 12px;
@@ -380,7 +389,7 @@
       @media (max-width: 768px) {
         display: block;
         width: 100%;
-        margin-bottom: 20px;
+        //margin-bottom: 20px;
         text-align: center;
       }
     }
@@ -394,7 +403,7 @@
       }
 
       a {
-        font-family: "Manrope", sans-serif;
+        font-family: 'Manrope', sans-serif;
         font-size: 12px;
         cursor: pointer;
         text-decoration: none;
@@ -402,7 +411,7 @@
         margin-right: 10px;
 
         &:hover {
-          color: white;
+          color: #fff;
           transition: 0.3s;
         }
 
@@ -424,7 +433,7 @@
   }
 
   @media (max-width: 768px) {
-    padding: 40px 0 25px;
+    padding: 25px 0;
   }
 }
 
@@ -438,7 +447,7 @@
   background: #ffe654;
   box-shadow: 0 6px 20px rgba(255, 230, 84, 0.35);
   border-radius: 4px;
-  font-family: "Manrope", sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 16px;

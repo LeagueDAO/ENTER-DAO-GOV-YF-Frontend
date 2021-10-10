@@ -6,13 +6,15 @@
 
   @media (max-width: 480px) {
     gap: 24px 8px;
-    display: flex;
-    flex-wrap: wrap;
+    //display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    //flex-wrap: wrap;
     min-height: inherit;
 
-    button {
-      width: 100%;
-    }
+    //button {
+    //  width: 100%;
+    //}
   }
 }
 

@@ -108,7 +108,7 @@ body.mobile-menu-open {
   --theme-blue-color-rgb: 79, 106, 230; // blue500
   --theme-blue400-color: #7288ea;
 
-  --theme-yellow-color: #FFE654; // yellow600
+  --theme-yellow-color: #ffe654; // yellow600
   --theme-yellow-color-rgb: 255, 230, 84; // yellow600
 
   --theme-purple-color: #a26ee3; // purple500
@@ -126,7 +126,7 @@ body.mobile-menu-open {
   --gradient-green-safe: #2ad0ca;
   --gradient-red: linear-gradient(135deg, #de4b4b 0%, #f15e1f 100%); // rgb(255, 116, 57) rgb(255, 57, 188)
   --gradient-red-opacity: linear-gradient(135deg, rgba(255, 116, 57, 0.16) 15.57%, rgba(255, 57, 188, 0.16) 84.88%);
-  --gradient-red-safe: #ff4949;
+  --gradient-red-safe: rgba(239, 74, 71, 0.04);
   --gradient-blue: linear-gradient(135deg, #81b5f3 0%, #13a5d3 100%); // rgb(145, 79, 230) rgb(49, 108, 223)
   --gradient-blue-opacity: linear-gradient(135deg, rgba(145, 79, 230, 0.16) 15.57%, rgba(49, 108, 223, 0.16) 84.88%);
   --gradient-blue-safe: #81b5f3;
@@ -156,14 +156,14 @@ body.mobile-menu-open {
 
 @media (max-width: 1024px) {
   :root {
-    --font-size-h1: 24px;
-    --font-size-h2: 18px;
-    --font-size-h3: 14px;
-    --font-size-p1: 12px;
-    --font-size-p2: 11px;
-    --font-size-lb1: 11px;
-    --font-size-lb2: 9px;
-    --font-size-sm: 9px;
+    --font-size-h1: 28px;
+    --font-size-h2: 24px;
+    --font-size-h3: 18px;
+    --font-size-p1: 16px;
+    --font-size-p2: 14px;
+    --font-size-lb1: 13px;
+    --font-size-lb2: 12px;
+    --font-size-sm: 14px;
   }
 }
 

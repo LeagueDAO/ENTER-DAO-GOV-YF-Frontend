@@ -38,7 +38,7 @@ const PoolStats: React.FC<Props> = ({ className }) => {
       <div className="card p-24">
         <div className="flex flow-row justify-space-between full-height">
           <Hint
-            className="mb-48"
+            className="mb-48 sm-mb-24"
             text={
               <Text type="p2">
                 This number shows the Total Value Locked across the staking pools, and the effective Total Value Locked.
@@ -67,7 +67,7 @@ const PoolStats: React.FC<Props> = ({ className }) => {
       <div className="card p-24">
         <div className="flex flow-row justify-space-between full-height">
           <Hint
-            className="mb-48"
+            className="mb-48 sm-mb-24"
             text={
               <Text type="p2">
                 This number shows the ${LeagueToken.symbol} token rewards distributed so far out of the total{' '}
@@ -113,7 +113,7 @@ const PoolStats: React.FC<Props> = ({ className }) => {
           {currentEpoch === 0 && (
             <div className="flex flow-row justify-space-between full-height">
               <Hint
-                className="mb-48"
+                className="mb-48 sm-mb-24"
                 text={
                   <Text type="p2">
                     This counter shows the time left in the current epoch. The pools below are synchronized and have
@@ -147,7 +147,7 @@ const PoolStats: React.FC<Props> = ({ className }) => {
           {currentEpoch !== 0 && (
             <div className="flex flow-row justify-space-between full-height">
               <Hint
-                className="mb-48"
+                className="mb-48 sm-mb-24"
                 text={
                   <Text type="p2">
                     This counter shows the time left in the current epoch. The pool(s) below are synchronized and have
