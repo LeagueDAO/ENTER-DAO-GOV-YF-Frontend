@@ -16,6 +16,10 @@
   text-align: center;
   color: #000;
 
+  @media (max-width: 480px) {
+    padding: 11px 18px;
+  }
+
   &:hover {
     color: #000;
     //background: linear-gradient(0deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), #19b9a1;
@@ -134,6 +138,7 @@
 
   &:hover {
     color: #000;
+
     &::after {
       background-color: var(--L9-D9);
     }

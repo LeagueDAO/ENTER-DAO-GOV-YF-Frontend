@@ -13,7 +13,6 @@ import { Hint, Text } from 'components/custom/typography';
 import { LeagueToken } from 'components/providers/known-tokens-provider';
 import { useWallet } from 'wallets/wallet';
 
-import { useGeneral } from '../../../../components/providers/general-provider';
 import AirdropModal from '../../components/pool-airdrop-modal';
 import PoolHarvestModal from '../../components/pool-harvest-modal';
 import { useYFPools } from '../../providers/pools-provider';
@@ -23,8 +22,6 @@ import s from './s.module.scss';
 const PoolRewards: React.FC = () => {
   const walletCtx = useWallet();
   const yfPoolsCtx = useYFPools();
-
-  const { isDarkTheme } = useGeneral();
 
   const [harvestModalVisible, showHarvestModal] = useState(false);
   const [airdropModalVisible, showAirdropModal] = useState(false);
@@ -72,7 +69,7 @@ const PoolRewards: React.FC = () => {
             <Text type="p2" color="secondary">
               Current reward
             </Text>
-            <Grid flow="col" align="center" gap={12}>
+            <Grid flow="col" align="center" gap={12} className={s.item1__grid}>
               <Text type="h3" weight="bold" color="primary">
                 {formatToken(totalToClaim?.unscaleBy(LeagueToken.decimals)) ?? '-'}
               </Text>

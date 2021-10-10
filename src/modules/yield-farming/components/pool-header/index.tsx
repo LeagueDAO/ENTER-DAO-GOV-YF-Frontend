@@ -1,6 +1,7 @@
 import React, { FC, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import BigNumber from 'bignumber.js';
+import cn from 'classnames';
 import { formatNumber, formatPercent, formatUSD } from 'web3/utils';
 
 import Icon, { IconNames } from 'components/custom/icon';
@@ -9,14 +10,14 @@ import { Text } from 'components/custom/typography';
 import { KnownTokens } from 'components/providers/known-tokens-provider';
 import { convertTokenInUSD } from 'components/providers/known-tokens-provider';
 
-import { useGeneral } from '../../../../components/providers/general-provider';
 import { useYFPool } from '../../providers/pool-provider';
+
+import s from './s.module.scss';
 
 const PoolHeader: FC = () => {
   const yfPoolCtx = useYFPool();
 
   const { poolMeta, poolBalance, effectivePoolBalance } = yfPoolCtx;
-  const { isDarkTheme } = useGeneral();
 
   useEffect(() => {
     document.documentElement.scrollTop = 0;
@@ -55,7 +56,7 @@ const PoolHeader: FC = () => {
           </Text>
         </div>
       </div>
-      <div className="card p-24 flex col-gap-48 mb-24">
+      <div className={cn('card p-24 flex col-gap-48 mb-24', s.card)}>
         <div>
           <Text type="small" weight="semibold" color="secondary" className="mb-8">
             APR

@@ -149,6 +149,7 @@ const PoolStake: FC = () => {
       {poolMeta.contract.isPoolEnded === true && (
         <>
           <Alert
+            type="error"
             message={
               <div className="flex flow-row row-gap-16 align-start">
                 <Text type="p2" weight="semibold" color="yellow">
@@ -182,6 +183,7 @@ const PoolStake: FC = () => {
       {poolMeta.contract.isPoolEnded === false && (
         <Alert
           className="mb-32"
+          type="info"
           message="Deposits made after an epoch started will be considered as pro-rata figures in relation to the length of the epoch."
         />
       )}

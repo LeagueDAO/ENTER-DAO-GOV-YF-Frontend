@@ -6,39 +6,39 @@
   min-height: 72px;
   margin: 0;
   padding: 24px;
-  background: var(--L4-D4); // border
-  border: none;
+  background: transparent; // border
+  border: 1px solid var(--L5-D5);
   border-radius: 6px;
   position: relative;
   color: var(--L8-D8);
 
-  &::before,
-  &::after {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 1px;
-    left: 1px;
-    right: 1px;
-    bottom: 1px;
-    z-index: 0;
-    border-radius: 6px;
-  }
-  &::before {
-    background: var(--L11-D11); //bg dark stable
-  }
-  &::after {
-    background: var(--L11-D11); // bg gradient
-  }
+  //&::before,
+  //&::after {
+  //  content: '';
+  //  display: block;
+  //  position: absolute;
+  //  top: 1px;
+  //  left: 1px;
+  //  right: 1px;
+  //  bottom: 1px;
+  //  z-index: 0;
+  //  border-radius: 6px;
+  //}
+  //&::before {
+  //  background: rgba(255, 230, 84, 0.1); //bg dark stable
+  //}
+  //&::after {
+  //  background: var(--L11-D11); // bg gradient
+  //}
 
-  & > span {
+  > span {
     z-index: 1;
   }
 
   :global(.ant-radio-inner) {
     width: 24px;
     height: 24px;
-    background: var(--L2-D2);
+    background: transparent;
     border: 2px solid var(--L4-D4);
 
     &::after {
@@ -54,13 +54,14 @@
   }
 
   &:global(.ant-radio-wrapper-checked) {
-    background: var(--gradient-green);
-    &::after {
-      background: linear-gradient(135deg, rgba(188, 235, 0, 0.1) 15.57%, rgba(0, 234, 234, 0.1) 84.88%);
-    }
+    background: rgba(255, 230, 84, 0.1);
+    border-color: var(--L9-D9);
+    //&::after {
+    //  background: linear-gradient(135deg, rgba(188, 235, 0, 0.1) 15.57%, rgba(0, 234, 234, 0.1) 84.88%);
+    //}
     :global(.ant-radio-inner) {
       border: 0;
-      background: #19b9a1;
+      background: #ffe654;
 
       &::before {
         content: '';

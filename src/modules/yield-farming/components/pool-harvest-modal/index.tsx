@@ -1,5 +1,6 @@
 import React, { FC, useState } from 'react';
 import BigNumber from 'bignumber.js';
+import cn from 'classnames';
 import Erc20Contract from 'web3/erc20Contract';
 import { formatToken } from 'web3/utils';
 
@@ -12,6 +13,8 @@ import { Text } from 'components/custom/typography';
 import { LeagueToken } from 'components/providers/known-tokens-provider';
 
 import { useYFPools } from '../../providers/pools-provider';
+
+import s from './s.module.scss';
 
 type PoolHarvestButtonProps = {
   icons: string[];
@@ -33,12 +36,12 @@ const PoolHarvestButton: FC<PoolHarvestButtonProps> = props => {
         disabled={loading || !reward?.gt(BigNumber.ZERO)}
         onClick={onClick}>
         <div className="flex flow-row align-start" style={{ width: '100%', zIndex: 1 }}>
-          <div className="flex flow-row align-start mb-24">
+          <div className={cn('flex flow-row mb-24', s.item__name)}>
             <IconsSet
               icons={icons.map(icon => (
                 <Icon key={icon} name={icon as IconNames} width={40} height={40} />
               ))}
-              className="mb-8"
+              className="mb-8 sm-mb-0"
             />
             <Text type="p1" weight="semibold" color="primary">
               {label}
@@ -96,7 +99,7 @@ const PoolHarvestModal: FC<ModalProps> = props => {
             Select the pool you want to claim your reward from
           </Text>
         </div>
-        <Grid flow="row" gap={24} colsTemplate="repeat(3, 240px)">
+        <Grid flow="row" gap={24} className={s.grid}>
           {yfPoolsCtx.yfPools.map(yfPool => (
             <PoolHarvestButton
               key={yfPool.name}

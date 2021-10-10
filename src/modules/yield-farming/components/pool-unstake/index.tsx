@@ -86,8 +86,8 @@ const PoolUnstake: FC = () => {
   return (
     <>
       <div className={cn('flexbox-list p-16 mb-32', s.stakeBlock)}>
-        <div className="flex flow-row mr-16">
-          <Text type="small" weight="semibold" color="secondary" className="mb-8">
+        <div className="flex flow-row">
+          <Text type="small" weight="semibold" color="secondary" className="mb-8 sm-mb-0">
             Staked balance
           </Text>
           <Tooltip title={formatUSD(convertTokenInUSD(stakedBalance, activeToken.symbol)) ?? '-'}>
@@ -99,7 +99,7 @@ const PoolUnstake: FC = () => {
           </Tooltip>
         </div>
         <div className="flex flow-row">
-          <Text type="small" weight="semibold" color="secondary" className="mb-8">
+          <Text type="small" weight="semibold" color="secondary" className="mb-8 sm-mb-0">
             Wallet balance
           </Text>
           <Tooltip title={formatUSD(convertTokenInUSD(walletBalance, activeToken.symbol)) ?? '-'}>

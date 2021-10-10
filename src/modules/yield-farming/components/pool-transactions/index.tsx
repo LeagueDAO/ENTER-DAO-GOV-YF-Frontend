@@ -1,6 +1,7 @@
 ﻿import React, { FC, useEffect, useMemo, useState } from 'react';
 import { SelectValue } from 'antd/lib/select';
 import { ColumnsType } from 'antd/lib/table/interface';
+import cn from 'classnames';
 import format from 'date-fns/format';
 import { formatToken, formatUSD, getEtherscanAddressUrl, getEtherscanTxUrl, shortenAddr } from 'web3/utils';
 
@@ -17,6 +18,8 @@ import { useWallet } from 'wallets/wallet';
 import { APIYFPoolActionType, APIYFPoolTransaction, fetchYFPoolTransactions } from '../../api';
 import { useYFPool } from '../../providers/pool-provider';
 import { useYFPools } from '../../providers/pools-provider';
+
+import s from './s.module.scss';
 
 type TableEntity = APIYFPoolTransaction;
 
@@ -114,7 +117,11 @@ function getColumns(isAll: boolean): ColumnsType<TableEntity> {
           width: '25%',
           render: (_, entity) => (
             <ExternalLink href={getEtherscanAddressUrl(entity.userAddress)} className="link-yellow">
-              <Text type="p1" weight="semibold" color="var(--gradient-yellow-safe)" textGradient="var(--gradient-yellow)">
+              <Text
+                type="p1"
+                weight="semibold"
+                color="var(--gradient-yellow-safe)"
+                textGradient="var(--gradient-yellow)">
                 {shortenAddr(entity.userAddress)}
               </Text>
             </ExternalLink>
@@ -285,10 +292,13 @@ const PoolTransactions: FC = () => {
 
   return (
     <div className="card mb-32">
-      <div className="card-header flex flow-col align-center justify-space-between pv-0" style={{ overflowX: 'auto', border: '0' }}>
+      <div
+        className={cn('card-header flex flow-col align-center pv-0', s.tableHeader)}
+        style={{ overflowX: 'auto', border: '0' }}>
         <Tabs
           activeKey={activeTab}
           style={{ flexShrink: 0 }}
+          className={s.tableHeader__tabs}
           tabs={[
             ...(hasOwnTab
               ? [
@@ -305,7 +315,7 @@ const PoolTransactions: FC = () => {
           ]}
           onClick={setActiveTab}
         />
-        <div className="flex align-center">
+        <div className={cn('flex align-center', s.tableHeader__select)}>
           {tokens.length! > 1 && (
             <Select
               className="mr-16"

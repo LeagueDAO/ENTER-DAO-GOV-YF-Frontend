@@ -26,12 +26,14 @@
 
     &:global(.ant-radio-button-wrapper-checked) {
       position: relative;
-      border: none !important;
+      border: 0 !important;
       color: var(--L8-D8) !important;
+      background: var(--gradient-yellow);
 
-      & > span {
+      > span {
         z-index: 1;
       }
+
       &::after {
         content: '';
         top: 1px;
@@ -44,7 +46,6 @@
         background: var(--theme-input-background);
         border-radius: 6px;
       }
-      background: var(--gradient-green);
     }
   }
 }
