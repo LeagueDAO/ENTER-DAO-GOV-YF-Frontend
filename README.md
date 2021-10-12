@@ -1,3 +1,24 @@
+# LeagueDAO Frontend
+
+## Installation and Setup Steps
+
+First run the following to install packages
+
+```sh
+npm install
+```
+
+Once those are installed, it's time to set up your environmental variables. An example is provided in the repo for you to fill out. 
+
+Once you have those filled out you can simple run 
+
+```sh
+npm run start
+``` 
+
+and check on the localhost you are serving to. Happy developing!
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
