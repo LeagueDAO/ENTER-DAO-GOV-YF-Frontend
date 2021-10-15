@@ -72,7 +72,7 @@ const VotingHeader: React.FC = () => {
             <Text type="p2" color="secondary">
               Current reward
             </Text>
-            <Grid flow="col" gap={12} align="center">
+            <Grid flow="col" align="center" gap={12} className={s.item1__grid}>
               <Tooltip title={<Text type="p2">{formatBigValue(claimValue, LeagueToken.decimals)}</Text>}>
                 <Skeleton loading={claimValue === undefined}>
                   <Text type="h3" weight="bold" color="primary">
@@ -104,27 +104,27 @@ const VotingHeader: React.FC = () => {
                 </Text>
               </Skeleton>
               <Icon name="png/league" width={24} height={24} />
-            </Grid>
+            </Grid>Enable Token
           </Grid>
           <Divider type="vertical" />
           <Grid flow="row" gap={4} className={s.item3}>
             <Text type="p2" color="secondary">
               Total voting power
             </Text>
-            <div className="flex col-gap-16 align-center" style={{ height: `40px` }}>
+            <Grid  flow="col" align="center" gap={16} className={s.item1__grid}>
               <Skeleton loading={votingPower === undefined}>
                 <Text type="h3" weight="bold" color="primary">
                   {formatLeagValue(votingPower) || '-'}
                 </Text>
               </Skeleton>
-              <Button type="light" onClick={() => setState({ showDetailedView: true })}>
+              <Button size="small" type="primary" onClick={() => setState({ showDetailedView: true })}>
                 <Text type="p1" weight="semibold" color="var(--L8-D8)" textGradient="var(--L8-D8)">
                   Detailed view
                 </Text>
               </Button>
 
               {state.showDetailedView && <VotingDetailedModal onCancel={() => setState({ showDetailedView: false })} />}
-            </div>
+            </Grid>
           </Grid>
 
           <UseLeftTime end={userLockedUntil ?? 0} delay={1_000} onEnd={handleLeftTimeEnd}>

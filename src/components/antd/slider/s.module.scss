@@ -2,15 +2,15 @@
   :global(.ant-slider-rail),
   &:global(.ant-slider:hover .ant-slider-rail) {
     height: 8px;
-    background: var(--L4-D4);
+    background: var(--L2-D2);
   }
 
   :global(.ant-slider-track),
   &:global(.ant-slider:hover .ant-slider-track) {
     height: 8px;
-    background: var(--gradient-green);
+    background: var(--gradient-yellow);
   }
-
+  //F8F8F9
   :global(.ant-slider-step) {
     height: 8px;
   }
@@ -20,8 +20,8 @@
     height: 24px;
     border-radius: 100px;
     margin-top: -8px;
-    border: 4px solid var(--L4-D4) !important;
-    background: var(--gradient-green);
+    border: 4px solid var(--L2-D2) !important;
+    background: var(--gradient-yellow);
 
     &::after {
       content: '';
@@ -30,7 +30,7 @@
       left: 50%;
       width: 8px;
       height: 8px;
-      background: var(--L4-D4);
+      background: var(--L2-D2);
       display: block;
       border-radius: 100px;
       transform: translate(-50%, -50%);
