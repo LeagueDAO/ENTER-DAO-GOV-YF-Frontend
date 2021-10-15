@@ -88,7 +88,14 @@ const VotingHeader: React.FC = () => {
                 disabled={claimValue?.isZero()}
                 onClick={handleClaim}
                 style={{ marginLeft: 4 }}>
-                {!state.claiming ? 'Claim' : <Spin spinning />}
+                {!state.claiming
+                  ? (
+                    <Text type="p1" >
+                      Claim
+                    </Text>
+                  )
+                  : <Spin spinning />
+                }
               </Button>
             </Grid>
           </Grid>
@@ -118,7 +125,7 @@ const VotingHeader: React.FC = () => {
                 </Text>
               </Skeleton>
               <Button size="small" type="primary" onClick={() => setState({ showDetailedView: true })}>
-                <Text type="p1" weight="semibold" color="var(--L8-D8)" textGradient="var(--L8-D8)">
+                <Text type="p1" >
                   Detailed view
                 </Text>
               </Button>

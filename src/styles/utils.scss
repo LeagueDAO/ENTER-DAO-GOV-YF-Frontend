@@ -144,7 +144,7 @@
   flex: 1 1 var(--min);
 
   @media (max-width: 768px) {
-    gap: var(--sm-min, var(--min)) !important;
+    gap: var(--sm-min, var(--min));
   }
 }
 

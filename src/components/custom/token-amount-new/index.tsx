@@ -1,5 +1,6 @@
 import React from 'react';
 import BigNumber from 'bignumber.js';
+import { isMobile } from 'react-device-detect';
 import cn from 'classnames';
 
 import { DropdownList } from 'components/custom/dropdown';
@@ -50,7 +51,7 @@ export const TokenAmount: React.FC<TokenAmountType> = ({
         {before && (
           <div className={cn(s.tokenAmountBefore, classNameBefore)}>
             {before}
-            <span className={s.tokenName}>{name}</span>
+            {!isMobile && <span className={s.tokenName}>{name}</span>}
           </div>
         )}
         <div className={s.tokenAmountValues}>

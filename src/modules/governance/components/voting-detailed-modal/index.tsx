@@ -74,7 +74,7 @@ const VotingDetailedModal: React.FC<VotingDetailedModalProps> = props => {
           </dt>
           <dd className={s.data}>
             {formatLeagValue(myLeagBalance)}
-            <Icon name="circle-plus-outlined" width={18} height={18} color="green" className={s.dataIcon} />
+            <Icon name="circle-plus-outlined" width={18} height={18} color="yellow" className={s.dataIcon} />
           </dd>
         </div>
         <div className={s.row}>
@@ -95,7 +95,7 @@ const VotingDetailedModal: React.FC<VotingDetailedModalProps> = props => {
           <dd className={s.data}>
             {state.leftBonus?.gt(ZERO_BIG_NUMBER) ? '> ' : ''}
             {formatLeagValue(state.leftBonus)}
-            <Icon name="circle-plus-outlined" width={18} height={18} color="green" className={s.dataIcon} />
+            <Icon name="circle-plus-outlined" width={18} height={18} color="yellow" className={s.dataIcon} />
           </dd>
         </div>
         <div className={s.row}>
@@ -105,7 +105,7 @@ const VotingDetailedModal: React.FC<VotingDetailedModalProps> = props => {
           </dt>
           <dd className={s.data}>
             {formatLeagValue(delegatedPower)}
-            <Icon name="circle-plus-outlined" width={18} height={18} color="green" className={s.dataIcon} />
+            <Icon name="circle-plus-outlined" width={18} height={18} color="yellow" className={s.dataIcon} />
           </dd>
         </div>
         <div className={s.separator} />

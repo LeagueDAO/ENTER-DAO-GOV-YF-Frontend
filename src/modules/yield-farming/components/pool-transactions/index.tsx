@@ -1,5 +1,6 @@
 ﻿import React, { FC, useEffect, useMemo, useState } from 'react';
 import { SelectValue } from 'antd/lib/select';
+import { isMobile } from 'react-device-detect';
 import { ColumnsType } from 'antd/lib/table/interface';
 import cn from 'classnames';
 import format from 'date-fns/format';

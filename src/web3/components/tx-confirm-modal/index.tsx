@@ -1,5 +1,6 @@
 import React from 'react';
 import * as Antd from 'antd';
+import { isMobile } from 'react-device-detect';
 
 import Button from 'components/antd/button';
 import Divider from 'components/antd/divider';
@@ -9,6 +10,7 @@ import GasFeeList from 'components/custom/gas-fee-list';
 import Grid from 'components/custom/grid';
 
 import s from './s.module.scss';
+import { Text } from '../../../components/custom/typography';
 
 export type ConfirmTxModalArgs = {
   gasPrice: number;
@@ -60,7 +62,7 @@ const TxConfirmModal: React.FC<Props> = props => {
 
   return (
     <Modal width={560} {...modalProps}>
-      <Form form={form} validateTrigger={['onSubmit']} onFinish={handleSubmit}>
+      <Form form={form} layout={isMobile ? 'horizontal' : 'vertical'} validateTrigger={['onSubmit']} onFinish={handleSubmit}>
         {header && (
           <>
             {header}

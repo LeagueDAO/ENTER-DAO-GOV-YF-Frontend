@@ -92,7 +92,7 @@ const PoolHarvestModal: FC<ModalProps> = props => {
     <Modal width={832} {...modalProps}>
       <div className="flex flow-row">
         <div className="flex flow-row mb-32">
-          <Text type="h2" weight="semibold" color="primary" className="mb-8" font="secondary">
+          <Text type="h2" weight="semibold" color="primary" className={cn('mb-8', s.claimTitle)} font="secondary">
             Claim your reward
           </Text>
           <Text type="p1" weight="semibold" color="secondary">
