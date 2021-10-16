@@ -124,12 +124,26 @@
     @media (max-width: 768px) {
       display: flex;
       flex-wrap: wrap;
-      justify-content: flex-end;
+      justify-content: center;
+
+      :global(.ant-pagination-item) {
+        justify-content: flex-start;
+        margin-right: 0;
+      }
+
+      :global(.ant-pagination-jump-next .ant-pagination-jump-next-custom-icon) {
+        margin-right: 0;
+      }
+
+      :global(.ant-pagination-prev) {
+        margin-right: 0;
+      }
+
 
       :global(.ant-pagination-total-text) {
         flex: 1 1 100%;
         display: flex;
-        justify-content: flex-end;
+        justify-content: center;
         margin: 0 0 8px;
       }
     }

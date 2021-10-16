@@ -88,11 +88,11 @@
       border: 0;
 
       &:first-of-type {
-        border-radius: 6px 0 0 12px;
+        border-radius: 6px 0 0 6px;
         border-right: var(--input-border);
       }
       &:last-of-type:not(:first-of-type) {
-        border-radius: 0 12px 12px 0;
+        border-radius: 0 6px 6px 0;
       }
     }
 

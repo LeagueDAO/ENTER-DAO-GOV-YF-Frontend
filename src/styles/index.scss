@@ -152,6 +152,7 @@ body.mobile-menu-open {
   --L10-D10: #{$light-mode-10};
   --L11-D11: #{$light-mode-1};
   --L12-D12: #{$dark-mode-8};
+  --L13-D13: #{$dark-mode-11};
 }
 
 @media (max-width: 1024px) {
@@ -210,6 +211,7 @@ body.mobile-menu-open {
   --L10-D10: #{$dark-mode-10};
   --L11-D11: #{$dark-mode-11};
   --L12-D12: #{$dark-mode-12};
+  --L13-D13: #{$dark-mode-9};
 }
 
 :focus:not(:focus-visible) {
@@ -218,6 +220,10 @@ body.mobile-menu-open {
 
 body.using-mouse :focus {
   outline: none;
+}
+
+input {
+  color: #060A0D;
 }
 
 button {
@@ -246,7 +252,7 @@ button {
 }
 
 .ant-switch.ant-switch[aria-checked='true'] {
-  background: var(--gradient-green);
+  background: var(--gradient-yellow);
 }
 
 

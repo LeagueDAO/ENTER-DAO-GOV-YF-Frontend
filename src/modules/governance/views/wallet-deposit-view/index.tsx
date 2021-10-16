@@ -158,9 +158,7 @@ const WalletDepositView: React.FC = () => {
                 expanded: !prevState.expanded,
               }))
             }>
-            <span>
-              <Icon name="chevron-right" rotate={state.expanded ? 270 : 0} />
-            </span>
+            <Icon name="chevron-right" rotate={state.expanded ? 270 : 0} />
           </button>
         )}
       </Grid>
@@ -177,7 +175,7 @@ const WalletDepositView: React.FC = () => {
               <Grid flow="row" gap={32}>
                 <Form.Item name="amount" label="Amount" rules={[{ required: true, message: 'Required' }]}>
                   <TokenAmount
-                    tokenIcon="png/league-dao-dark"
+                    tokenIcon="png/league"
                     max={leagBalance}
                     maximumFractionDigits={LeagueToken.decimals}
                     name={LeagueToken.symbol}

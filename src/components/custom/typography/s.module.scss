@@ -2,7 +2,7 @@
 
 .text {
   font-weight: normal;
-
+  overflow-wrap: anywhere;
   &.font-secondary {
     font-family: 'Manrope', sans-serif;
   }

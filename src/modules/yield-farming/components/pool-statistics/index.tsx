@@ -149,7 +149,7 @@ const PoolStatistics: FC = () => {
         </div>
       </div>
 
-      <div className="card flex-grow">
+      <div className="card">
         <div className="card-header">
           <Text type="p1" weight="semibold" color="primary">
             My stake

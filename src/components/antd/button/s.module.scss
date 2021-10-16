@@ -53,7 +53,7 @@
   // ghost regular
   --btn-ghost-shadow: none;
   --btn-ghost-border: 0;
-  --btn-ghost-bg: #19b9a1;
+  --btn-ghost-bg: var(--L9-D9);
   --btn-ghost-text: var(--L8-D8);
 
   // ghost hover
@@ -65,7 +65,7 @@
   // ghost active
   --btn-ghost-shadow-active: none;
   --btn-ghost-border-active: none;
-  --btn-ghost-bg-active: linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), #19b9a1, #CC362E;
+  --btn-ghost-bg-active: var(--L9-D9);
   --btn-ghost-text-active: var(--L8-D8);
 
   // ghost disabled
@@ -147,7 +147,7 @@
   }
 
   &:global(.ant-btn-primary) {
-    box-shadow: var(--btn-primary-shadow);
+    //box-shadow: var(--btn-primary-shadow);
     border: var(--btn-primary-border);
     background: var(--btn-primary-bg);
     color: var(--btn-primary-text);
@@ -198,7 +198,7 @@
         bottom: -1px;
         display: block;
         position: absolute;
-        background: #19b9a1;
+        background: var(--L9-D9);
         border-radius: 6px;
         z-index: 0 !important;
       }

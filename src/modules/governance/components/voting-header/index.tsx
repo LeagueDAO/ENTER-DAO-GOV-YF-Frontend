@@ -72,7 +72,7 @@ const VotingHeader: React.FC = () => {
             <Text type="p2" color="secondary">
               Current reward
             </Text>
-            <Grid flow="col" gap={12} align="center">
+            <Grid flow="col" align="center" gap={12} className={s.item1__grid}>
               <Tooltip title={<Text type="p2">{formatBigValue(claimValue, LeagueToken.decimals)}</Text>}>
                 <Skeleton loading={claimValue === undefined}>
                   <Text type="h3" weight="bold" color="primary">
@@ -88,7 +88,14 @@ const VotingHeader: React.FC = () => {
                 disabled={claimValue?.isZero()}
                 onClick={handleClaim}
                 style={{ marginLeft: 4 }}>
-                {!state.claiming ? 'Claim' : <Spin spinning />}
+                {!state.claiming
+                  ? (
+                    <Text type="p1" >
+                      Claim
+                    </Text>
+                  )
+                  : <Spin spinning />
+                }
               </Button>
             </Grid>
           </Grid>
@@ -97,34 +104,34 @@ const VotingHeader: React.FC = () => {
             <Text type="p2" color="secondary">
               {LeagueToken.symbol} Balance
             </Text>
-            <Grid flow="col" gap={12} align="center">
+            <Grid flow="col" gap={12} align="center" className={s.item2__grid}>
               <Skeleton loading={leagBalance === undefined}>
                 <Text type="h3" weight="bold" color="primary">
                   {formatLeagValue(leagBalance)}
                 </Text>
               </Skeleton>
               <Icon name="png/league" width={24} height={24} />
-            </Grid>
+            </Grid>Enable Token
           </Grid>
           <Divider type="vertical" />
           <Grid flow="row" gap={4} className={s.item3}>
             <Text type="p2" color="secondary">
               Total voting power
             </Text>
-            <div className="flex col-gap-16 align-center" style={{ height: `40px` }}>
+            <Grid  flow="col" align="center" gap={16} className={s.item3__grid}>
               <Skeleton loading={votingPower === undefined}>
                 <Text type="h3" weight="bold" color="primary">
                   {formatLeagValue(votingPower) || '-'}
                 </Text>
               </Skeleton>
-              <Button type="light" onClick={() => setState({ showDetailedView: true })}>
-                <Text type="p1" weight="semibold" color="var(--L8-D8)" textGradient="var(--L8-D8)">
+              <Button size="small" type="primary" onClick={() => setState({ showDetailedView: true })}>
+                <Text type="p1" >
                   Detailed view
                 </Text>
               </Button>
 
               {state.showDetailedView && <VotingDetailedModal onCancel={() => setState({ showDetailedView: false })} />}
-            </div>
+            </Grid>
           </Grid>
 
           <UseLeftTime end={userLockedUntil ?? 0} delay={1_000} onEnd={handleLeftTimeEnd}>
@@ -141,7 +148,7 @@ const VotingHeader: React.FC = () => {
                     <Text type="p2" color="secondary">
                       Multiplier & Lock timer
                     </Text>
-                    <Grid flow="col" gap={8} align="center">
+                    <Grid flow="col" gap={8} align="center" className={s.item4__grid}>
                       <Tooltip title={`x${leftMultiplier}`}>
                         <Text type="lb1" weight="bold" color="red" className={s.ratio}>
                           {inRange(multiplier, 1, 1.01) ? '>' : ''} {formatBigValue(leftMultiplier, 2, '-', 2)}x

@@ -108,7 +108,7 @@ const LayoutFooter: React.FC = () => {
               <div>
                 <div className={s.universe}>
                   <div className={s.logoDiv}>
-                    <Icon name="png/league-dao-dark" width={100} height={62} />
+                    <Icon name="png/league" width={100} height={62} />
                     {/*<img src="/assets/icons/footer-logo.svg" width={100} height={62} alt="logo" />*/}
                   </div>
                   <p>Join one of our Tokenized Fantasy Sports leagues and become a part of the LeagueDAO community.</p>

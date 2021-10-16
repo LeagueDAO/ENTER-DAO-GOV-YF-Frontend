@@ -51,14 +51,14 @@ const ActivationThreshold: React.FC<ActivationThresholdProps> = props => {
             percent={dao.activationRate}
             colors={{
               bg: isDarkTheme ? 'rgba(47, 47, 47, 1)' : 'rgba(248, 248, 249, 1)',
-              bar: 'var(--theme-green-color)',
+              bar: 'var(--theme-yellow-color)',
             }}
             height={24}
           />
           <Icon name="ribbon-outlined" />
         </Grid>
         <Grid flow="col" gap={8} align="center">
-          <Icon name="png/league-dao-dark" width={32} height={32} />
+          <Icon name="png/league" width={32} height={32} />
           <Text type="p1" weight="bold" color="primary">
             {formatLeagValue(dao.leagStaked)}
           </Text>
