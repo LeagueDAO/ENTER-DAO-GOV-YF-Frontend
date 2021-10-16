@@ -174,10 +174,10 @@ const LayoutHeader: React.FC = () => {
           onVisibleChange={setPopper3visible}
           content={
             <div className={cn('card', s.dropdown)}>
-              <a aria-disabled="true" className={s.dropdownLink}>
+              <Link to="/governance" className={s.dropdownLink} onClick={() => setPopper3visible(false)}>
                 <Icon name="governance" width={20} height={20} className={s.dropdownIcon} />
                 <span>Governance</span>
-              </a>
+              </Link>
               <Link to="/yield-farming" className={s.dropdownLink} onClick={() => setPopper3visible(false)}>
                 <Icon name="yield-farming" width={20} height={20} className={s.dropdownIcon} />
                 <span>Yield farming</span>
