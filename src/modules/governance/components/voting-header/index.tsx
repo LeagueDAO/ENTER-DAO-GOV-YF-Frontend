@@ -104,7 +104,7 @@ const VotingHeader: React.FC = () => {
             <Text type="p2" color="secondary">
               {LeagueToken.symbol} Balance
             </Text>
-            <Grid flow="col" gap={12} align="center">
+            <Grid flow="col" gap={12} align="center" className={s.item2__grid}>
               <Skeleton loading={leagBalance === undefined}>
                 <Text type="h3" weight="bold" color="primary">
                   {formatLeagValue(leagBalance)}
@@ -118,7 +118,7 @@ const VotingHeader: React.FC = () => {
             <Text type="p2" color="secondary">
               Total voting power
             </Text>
-            <Grid  flow="col" align="center" gap={16} className={s.item1__grid}>
+            <Grid  flow="col" align="center" gap={16} className={s.item3__grid}>
               <Skeleton loading={votingPower === undefined}>
                 <Text type="h3" weight="bold" color="primary">
                   {formatLeagValue(votingPower) || '-'}
@@ -148,7 +148,7 @@ const VotingHeader: React.FC = () => {
                     <Text type="p2" color="secondary">
                       Multiplier & Lock timer
                     </Text>
-                    <Grid flow="col" gap={8} align="center">
+                    <Grid flow="col" gap={8} align="center" className={s.item4__grid}>
                       <Tooltip title={`x${leftMultiplier}`}>
                         <Text type="lb1" weight="bold" color="red" className={s.ratio}>
                           {inRange(multiplier, 1, 1.01) ? '>' : ''} {formatBigValue(leftMultiplier, 2, '-', 2)}x
