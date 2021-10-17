@@ -19417,25 +19417,25 @@ span.ant-radio + * {
   transition: border-color 0.3s, box-shadow 0.6s, transform 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
 }
 .ant-slider-handle-dragging.ant-slider-handle-dragging.ant-slider-handle-dragging {
-  border-color: #ff6961;
-  box-shadow: 0 0 0 5px rgba(255, 67, 57, 0.12);
+  border-color: #ffe654;
+  box-shadow: 0 0 0 5px rgba(255, 230, 84, 0.12);
 }
 .ant-slider-handle:focus {
-  border-color: #ff6961;
+  border-color: #ffe654;
   outline: none;
-  box-shadow: 0 0 0 5px rgba(255, 67, 57, 0.12);
+  box-shadow: 0 0 0 5px rgba(255, 230, 84, 0.12);
 }
 .ant-slider-handle.ant-tooltip-open {
-  border-color: #ff4339;
+  border-color: #FFD12C;
 }
 .ant-slider:hover .ant-slider-rail {
   background-color: #e1e1e1;
 }
 .ant-slider:hover .ant-slider-track {
-  background-color: #ff978a;
+  background-color: rgba(255, 230, 84, 0.5);
 }
 .ant-slider:hover .ant-slider-handle:not(.ant-tooltip-open) {
-  border-color: #ff978a;
+  background-color: rgba(255, 230, 84, 0.5);
 }
 .ant-slider-mark {
   position: absolute;
@@ -19702,6 +19702,10 @@ span.ant-radio + * {
   width: 14px;
   height: 14px;
 }
+.ant-spin {
+  display: flex;
+}
+
 .ant-spin.ant-spin-show-text .ant-spin-text {
   display: block;
 }

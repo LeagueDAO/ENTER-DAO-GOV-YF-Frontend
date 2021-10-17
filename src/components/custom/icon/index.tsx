@@ -166,6 +166,7 @@ export type IconNames =
   | 'whitepaper'
   | 'static/trophy-disable'
   | 'static/american_footbal-disable'
+  | 'static/american_footbal'
   | 'team'
   | 'governance'
   | 'yield-farming'

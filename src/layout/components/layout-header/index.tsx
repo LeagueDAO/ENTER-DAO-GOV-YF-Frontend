@@ -113,8 +113,15 @@ const LayoutHeader: React.FC = () => {
           noPadding
           content={
             <div className={cn('card', s.dropdown)}>
-              <ExternalLink aria-disabled="true" className={s.dropdownLink} onClick={() => setPopper1visible(false)}>
-                <Icon name="static/american_footbal-disable" width={20} height={20} className={s.dropdownIcon} />
+              <ExternalLink
+                href="https://cryptofantasy.xyz/"
+                className={s.dropdownLink}
+                onClick={() => setNavOpen(false)}>
+                <Icon name="static/american_footbal" width={20} height={20} className={s.dropdownIcon} />
+                <span>Crypto Fantasy Football</span>
+              </ExternalLink>
+              <ExternalLink className={s.dropdownLink} aria-disabled="true" onClick={() => setNavOpen(false)}>
+                <Icon name="static/trophy-disable" width={20} height={20} className={s.dropdownIcon} />
                 <span>Nomo Fantasy Football</span>
               </ExternalLink>
             </div>
@@ -122,7 +129,7 @@ const LayoutHeader: React.FC = () => {
           <Button type="link" className={s.navLink}>
             <Grid flow="col" align="center">
               <Text type="p1" weight="500" color="primary" className="mr-4">
-                Player drops
+                NFT Drops
               </Text>
               <Icon name="dropdown-arrow" width={12} height={12} className={s.dropdownArrow} />
             </Grid>
@@ -229,9 +236,16 @@ const LayoutHeader: React.FC = () => {
                   </ExternalLink>
                 </div>
                 <div className={s.mobileMenuBlock}>
-                  <h3>Player drops</h3>
+                  <h3>NFT Drops</h3>
+                  <ExternalLink
+                    href="https://cryptofantasy.xyz/"
+                    className={s.dropdownLink}
+                    onClick={() => setNavOpen(false)}>
+                    <Icon name="static/american_footbal" width={20} height={20} className={s.dropdownIcon} />
+                    <span>Crypto Fantasy Football</span>
+                  </ExternalLink>
                   <ExternalLink className={s.dropdownLink} aria-disabled="true" onClick={() => setNavOpen(false)}>
-                    <Icon name="static/american_footbal-disable" width={20} height={20} className={s.dropdownIcon} />
+                    <Icon name="static/trophy-disable" width={20} height={20} className={s.dropdownIcon} />
                     <span>Nomo Fantasy Football</span>
                   </ExternalLink>
                 </div>

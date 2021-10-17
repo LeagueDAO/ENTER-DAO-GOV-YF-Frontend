@@ -108,7 +108,7 @@ const LayoutFooter: React.FC = () => {
               <div>
                 <div className={s.universe}>
                   <div className={s.logoDiv}>
-                    <Icon name="png/league" width={100} height={62} />
+                    <Icon name="png/league-dao-dark" width={100} height={62} />
                     {/*<img src="/assets/icons/footer-logo.svg" width={100} height={62} alt="logo" />*/}
                   </div>
                   <p>Join one of our Tokenized Fantasy Sports leagues and become a part of the LeagueDAO community.</p>
@@ -125,7 +125,15 @@ const LayoutFooter: React.FC = () => {
                 </div>
                 <div>
                   <ul>
-                    <li>Player drops</li>
+                    <li>NFT Drops</li>
+                    <li>
+                      <a
+                        href="https://cryptofantasy.xyz/"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        Crypto Fantasy Football
+                      </a>
+                    </li>
                     <li>
                       <a className={s.disabledLink}>Nomo Fantasy Football</a>
                     </li>
@@ -185,22 +193,22 @@ const LayoutFooter: React.FC = () => {
             <div>
               <span>LeagueDAO © 2021. Open-sourced.</span>
             </div>
-            {/*<div className={s.poweredBy}>*/}
-            {/*  <a*/}
-            {/*    href="https://app.sushi.com/add/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48/0x618679df9efcd19694bb1daa8d00718eacfa2883"*/}
-            {/*    target="_blank"*/}
-            {/*    rel="noopener noreferrer"*/}
-            {/*  >*/}
-            {/*    Add liquidity to SushiSwap USDC/LEAG pool*/}
-            {/*  </a>*/}
-            {/*  <a*/}
-            {/*    href="https://app.sushi.com/swap?inputCurrency=0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48&outputCurrency=0x618679df9efcd19694bb1daa8d00718eacfa2883"*/}
-            {/*    target="_blank"*/}
-            {/*    rel="noopener noreferrer"*/}
-            {/*  >*/}
-            {/*    SushiSwap USDC/LEAG market*/}
-            {/*  </a>*/}
-            {/*</div>*/}
+            <div className={s.poweredBy}>
+              <a
+                href="https://app.sushi.com/add/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48/0x7b39917f9562c8bc83c7a6c2950ff571375d505d"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Add liquidity to SushiSwap USDC/LEAG pool
+              </a>
+              <a
+                href="https://app.sushi.com/swap?inputCurrency=0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48&outputCurrency=0x7b39917f9562c8bc83c7a6c2950ff571375d505d"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                SushiSwap USDC/LEAG market
+              </a>
+            </div>
           </div>
         </div>
       </div>

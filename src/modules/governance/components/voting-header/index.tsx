@@ -82,21 +82,35 @@ const VotingHeader: React.FC = () => {
                 </Skeleton>
               </Tooltip>
               <Icon name="png/league" width={24} height={24} />
-              <Button
-                type="primary"
-                size="small"
+              <button
+                type="button"
+                className="button-primary button-small"
                 disabled={claimValue?.isZero()}
+                style={{ marginLeft: 4 }}
                 onClick={handleClaim}
-                style={{ marginLeft: 4 }}>
+              >
                 {!state.claiming
                   ? (
-                    <Text type="p1" >
-                      Claim
-                    </Text>
+                    'Claim'
                   )
                   : <Spin spinning />
                 }
-              </Button>
+              </button>
+              {/*<Button*/}
+              {/*  type="primary"*/}
+              {/*  size="small"*/}
+              {/*  disabled={claimValue?.isZero()}*/}
+              {/*  onClick={handleClaim}*/}
+              {/*  style={{ marginLeft: 4 }}>*/}
+              {/*  {!state.claiming*/}
+              {/*    ? (*/}
+              {/*      <Text type="p1" >*/}
+              {/*        Claim*/}
+              {/*      </Text>*/}
+              {/*    )*/}
+              {/*    : <Spin spinning />*/}
+              {/*  }*/}
+              {/*</Button>*/}
             </Grid>
           </Grid>
           <Divider type="vertical" />
@@ -111,7 +125,7 @@ const VotingHeader: React.FC = () => {
                 </Text>
               </Skeleton>
               <Icon name="png/league" width={24} height={24} />
-            </Grid>Enable Token
+            </Grid>
           </Grid>
           <Divider type="vertical" />
           <Grid flow="row" gap={4} className={s.item3}>
@@ -124,11 +138,18 @@ const VotingHeader: React.FC = () => {
                   {formatLeagValue(votingPower) || '-'}
                 </Text>
               </Skeleton>
-              <Button size="small" type="primary" onClick={() => setState({ showDetailedView: true })}>
-                <Text type="p1" >
-                  Detailed view
-                </Text>
-              </Button>
+              <button
+                type="button"
+                className="button-primary button-small"
+                onClick={() => setState({ showDetailedView: true })}
+              >
+                Detailed view
+              </button>
+              {/*<Button size="small" type="primary" onClick={() => setState({ showDetailedView: true })}>*/}
+              {/*  <Text type="p1" >*/}
+              {/*    Detailed view*/}
+              {/*  </Text>*/}
+              {/*</Button>*/}
 
               {state.showDetailedView && <VotingDetailedModal onCancel={() => setState({ showDetailedView: false })} />}
             </Grid>
