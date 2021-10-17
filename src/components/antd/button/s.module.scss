@@ -11,7 +11,7 @@
   // primary hover
   --btn-primary-shadow-hover: 0 10px 20px rgba(136, 120, 172, 0.2);
   --btn-primary-border-hover: none;
-  --btn-primary-bg-hover: var(--L9-D9);
+  --btn-primary-bg-hover: #FFD12C;
   --btn-primary-text-hover: #000;
 
   // primary active
@@ -147,20 +147,21 @@
   }
 
   &:global(.ant-btn-primary) {
+    box-shadow: none;
     //box-shadow: var(--btn-primary-shadow);
     border: var(--btn-primary-border);
     background: var(--btn-primary-bg);
     color: var(--btn-primary-text);
 
     &:hover {
-      box-shadow: var(--btn-primary-shadow-hover);
+      //box-shadow: var(--btn-primary-shadow-hover);
       border: var(--btn-primary-border-hover);
       background: var(--btn-primary-bg-hover);
       color: var(--btn-primary-text-hover);
     }
 
     &:active {
-      box-shadow: var(--btn-primary-shadow-active);
+      //box-shadow: var(--btn-primary-shadow-active);
       border: var(--btn-primary-border-active);
       background: var(--btn-primary-bg-active);
       color: var(--btn-primary-text-active);
@@ -168,7 +169,7 @@
 
     &:disabled,
     &:disabled:hover {
-      box-shadow: var(--btn-primary-shadow-disabled);
+      //box-shadow: var(--btn-primary-shadow-disabled);
       border: var(--btn-primary-border-disabled);
       background: var(--btn-primary-bg-disabled);
       color: var(--btn-primary-text-disabled);
