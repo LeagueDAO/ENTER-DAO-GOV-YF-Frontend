@@ -415,12 +415,23 @@
           transition: 0.3s;
         }
 
+        &:first-child{
+          margin-right: 30px;
+        }
+
         @media (max-width: 468px) {
           color: rgba(255, 255, 255, 0.8);
+          &:first-child {
+            margin-right: 0;
+            margin-bottom: 20px;
+          }
         }
       }
 
       @media (max-width: 768px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         width: 100%;
         flex-wrap: wrap;
       }
