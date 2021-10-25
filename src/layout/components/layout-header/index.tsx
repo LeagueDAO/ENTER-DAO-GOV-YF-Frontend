@@ -117,7 +117,7 @@ const LayoutHeader: React.FC = () => {
                 href="https://cryptofantasy.xyz/"
                 className={s.dropdownLink}
                 onClick={() => setNavOpen(false)}>
-                <Icon name="static/american_footbal" width={20} height={20} className={s.dropdownIcon} />
+                <Icon name="american_football" width={20} height={20} className={s.dropdownIcon} />
                 <span>Crypto Fantasy Football</span>
               </ExternalLink>
               <ExternalLink className={s.dropdownLink} aria-disabled="true" onClick={() => setNavOpen(false)}>
@@ -154,7 +154,14 @@ const LayoutHeader: React.FC = () => {
                 className={s.dropdownLink}
                 onClick={() => setPopper2visible(false)}>
                 <Icon name="team" width={20} height={20} className={s.dropdownIcon} />
-                <span>Team</span>
+                <span>Contributors</span>
+              </ExternalLink>
+              <ExternalLink
+                href="https://leaguedao.com/standings"
+                className={s.dropdownLink}
+                onClick={() => setNavOpen(false)}>
+                <Icon name="trophy" width={20} height={20} className={s.dropdownIcon} />
+                <span>League Standings</span>
               </ExternalLink>
               <ExternalLink
                 href="https://docs.leaguedao.com/"
@@ -162,6 +169,13 @@ const LayoutHeader: React.FC = () => {
                 onClick={() => setPopper3visible(false)}>
                 <Icon name="docs" width={20} height={20} className={s.dropdownIcon} />
                 <span>Docs</span>
+              </ExternalLink>
+              <ExternalLink
+                href="https://leaguedao.com/vesting"
+                className={s.dropdownLink}
+                onClick={() => setPopper3visible(false)}>
+                <Icon name="dollar" width={20} height={20} className={s.dropdownIcon} />
+                <span>Token Vesting</span>
               </ExternalLink>
             </div>
           }>
@@ -241,7 +255,7 @@ const LayoutHeader: React.FC = () => {
                     href="https://cryptofantasy.xyz/"
                     className={s.dropdownLink}
                     onClick={() => setNavOpen(false)}>
-                    <Icon name="static/american_footbal" width={20} height={20} className={s.dropdownIcon} />
+                    <Icon name="american_football" width={20} height={20} className={s.dropdownIcon} />
                     <span>Crypto Fantasy Football</span>
                   </ExternalLink>
                   <ExternalLink className={s.dropdownLink} aria-disabled="true" onClick={() => setNavOpen(false)}>
@@ -263,7 +277,14 @@ const LayoutHeader: React.FC = () => {
                     className={s.dropdownLink}
                     onClick={() => setNavOpen(false)}>
                     <Icon name="team" width={20} height={20} className={s.dropdownIcon} />
-                    <span>Team</span>
+                    <span>Contributors</span>
+                  </ExternalLink>
+                  <ExternalLink
+                    href="https://leaguedao.com/standings"
+                    className={s.dropdownLink}
+                    onClick={() => setNavOpen(false)}>
+                    <Icon name="trophy" width={20} height={20} className={s.dropdownIcon} />
+                    <span>League Standings</span>
                   </ExternalLink>
                   <ExternalLink
                     href="https://docs.leaguedao.com/"
@@ -271,6 +292,13 @@ const LayoutHeader: React.FC = () => {
                     onClick={() => setNavOpen(false)}>
                     <Icon name="docs" width={20} height={20} className={s.dropdownIcon} />
                     <span>Docs</span>
+                  </ExternalLink>
+                  <ExternalLink
+                    href="https://leaguedao.com/vesting"
+                    className={s.dropdownLink}
+                    onClick={() => setPopper3visible(false)}>
+                    <Icon name="dollar" width={20} height={20} className={s.dropdownIcon} />
+                    <span>Token Vesting</span>
                   </ExternalLink>
                 </div>
                 <div className={s.mobileMenuBlock}>
