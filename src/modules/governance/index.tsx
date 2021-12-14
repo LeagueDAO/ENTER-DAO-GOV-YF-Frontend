@@ -87,7 +87,7 @@ const GovernanceViewInternal: React.FC = () => {
         <Tabs.Tab
           key="signal"
           tab={
-            <ExternalLink href="https://snapshot.org/#/leaguedao.eth" style={{ color: 'inherit', position: 'relative' }}>
+            <ExternalLink href="https://forum.leaguedao.com/" style={{ color: 'inherit', position: 'relative' }}>
               <Grid flow="col" gap={8} align="center">
                 <Icon name="chats-outlined" />
                 <Text type="p1" weight="semibold">
