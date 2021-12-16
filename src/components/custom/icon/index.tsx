@@ -28,6 +28,7 @@ import sushiLogo from 'resources/png/SUSHI.png';
 import xyzLogo from 'resources/png/XYZ.png';
 import Sprite from 'resources/svg/icons-sprite.svg';
 import addLeag from 'resources/svg/add_leag_icon.svg';
+import footballScene from 'resources/svg/footballscene.svg'
 
 import s from './s.module.scss';
 
@@ -191,7 +192,9 @@ export type IconNames =
   | 'png/SUSHI'
   | 'png/SNX'
   | 'png/ILV'
-  | 'static/add-token';
+  | 'static/add-token'
+  | 'png/footballScene';
+
 
 export type IconProps = {
   name: IconNames;
@@ -265,6 +268,8 @@ const Icon: React.FC<IconProps> = props => {
           return telegramSrc;
         case 'png/add-league':
           return addLeag;
+        case 'png/footballScene':
+          return footballScene;
         default:
           return '';
       }
