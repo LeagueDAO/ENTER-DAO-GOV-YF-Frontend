@@ -111,7 +111,8 @@ const Airdrop: FC = () => {
                 </p>
                 <span>
                   <Icon width={36} height={36} name="png/add-league" />
-                  {formatToken(userBonus?.plus(userAmount ?? 0), { decimals: 1 })}
+                  {/*{formatToken(userBonus?.plus(userAmount ?? 0), { decimals: 1 })}*/}
+                  0
                 </span>
               </div>
               <div className={`${styles.total__airdropped} ${styles.general__info}`}>
@@ -139,7 +140,8 @@ const Airdrop: FC = () => {
                 </p>
                 <span>
                   <Icon width={22} height={22} name="png/add-league" />
-                   +{formatToken(userBonus)}
+                   {/*+{formatToken(userBonus)}*/}
+                  +0
                 </span>
               </div>
             </div>
@@ -153,7 +155,8 @@ const Airdrop: FC = () => {
               <img src={isDarkTheme ? cupSvg : cupSvgWhite} alt="" />
               <div className={styles.cupBlock__text}>
                 <Text type="h2" weight="bold" color="primary">
-                  {formatToken(userAvailable, { compact: true })}
+                  {/*{formatToken(userAvailable, { compact: true })}*/}
+                  0
                 </Text>
                 <Text type="p2" tag="span" color="primary">
                   available
@@ -178,7 +181,8 @@ const Airdrop: FC = () => {
                 You forfeit:
               </Text>
               <Text type="p2" weight="bold" color="red">
-                {formatToken(userBonus?.plus(userAmount ?? 0)?.minus(userAvailable ?? 0))}
+                {/*{formatToken(userBonus?.plus(userAmount ?? 0)?.minus(userAvailable ?? 0))}*/}
+                0
               </Text>
             </div>
             <div>
