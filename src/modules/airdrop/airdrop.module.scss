@@ -40,7 +40,7 @@
 }
 
 .total__info {
-  padding: 26px 0;
+  //padding: 26px 0;
   position: relative;
 }
 
@@ -219,4 +219,28 @@
   position: absolute;
   bottom: 25px;
   right: 75px;
+}
+
+.airdrop {
+  &__animateBlock {
+    padding: 40px 26px;
+  }
+}
+
+
+.cupBlock {
+  position: relative;
+  overflow: hidden;
+
+  img {
+    z-index: 2;
+    position: relative;
+    width: 100%;
+  }
+
+  .waveAnimation {
+    position: absolute;
+    left: 0;
+    top: 100%;
+  }
 }

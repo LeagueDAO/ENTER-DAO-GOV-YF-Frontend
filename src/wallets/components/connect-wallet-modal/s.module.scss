@@ -3,17 +3,17 @@
   max-height: 96px;
 
   &:hover {
-    background-color: #1F1B59 !important;
+    background-color: #1f1b59 !important;
   }
 
-  .walletIcon {
+  .walleticon {
     filter: grayscale(100%) opacity(60%);
     transition: filter 0.2s ease-out !important;
-    color: var(--L8-D8);
+    color: var(--l8-d8);
     width: 100%;
   }
 
-  &:hover .walletIcon {
+  &:hover .walleticon {
     filter: grayscale(0%) opacity(100%);
   }
 }
