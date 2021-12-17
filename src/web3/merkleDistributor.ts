@@ -70,6 +70,7 @@ export default class MerkleDistributor extends Web3Contract {
 
   async loadCommonFor(): Promise<void> {
     this.totalInfo = await fetchAirdropTotal()
+    this.emit(Web3Contract.UPDATE_DATA);
   }
 
   async loadUserData(): Promise<void> {
