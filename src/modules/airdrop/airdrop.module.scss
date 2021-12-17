@@ -224,6 +224,10 @@
 .airdrop {
   &__animateBlock {
     padding: 40px 26px;
+
+    button {
+      width: 100%;
+    }
   }
 }
 
@@ -231,6 +235,28 @@
 .cupBlock {
   position: relative;
   overflow: hidden;
+
+  &__text {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 30px;
+    text-align: center;
+    z-index: 30;
+
+    h4 {
+      font-size: 26px;
+      line-height: 28px;
+      font-weight: bold;
+      margin: 0;
+      color: var(--L8-D8);
+    }
+
+    span {
+      font-size: 12px;
+      color: var(--L8-D8);
+    }
+  }
 
   img {
     z-index: 2;

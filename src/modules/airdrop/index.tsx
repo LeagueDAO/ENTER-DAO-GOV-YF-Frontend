@@ -1,9 +1,13 @@
 import React, { FC } from 'react';
 import Lottie from 'lottie-react';
 
+import Button from '../../components/antd/button';
 // import Tooltip from '../../components/antd/tooltip';
 import Grid from '../../components/custom/grid';
 import Icon from '../../components/custom/icon';
+import { Text } from '../../components/custom/typography';
+import { useGeneral } from '../../components/providers/general-provider';
+import cupSvgWhite from '../../resources/svg/cup_transparent_white.svg';
 import cupSvg from '../../resources/svg/cup_transparent.svg';
 import cupWaveAnimation from './animations/waves.json';
 
@@ -12,6 +16,7 @@ import styles from './airdrop.module.scss';
 const progressPercent = 50;
 
 const Airdrop: FC = () => {
+  const { isDarkTheme } = useGeneral();
   return (
     <div className={styles.container}>
       <div className={styles.general__info}>
@@ -106,16 +111,43 @@ const Airdrop: FC = () => {
           {/*<Icon width={386} height={400} name="png/footballScene" className={styles.footballer} />*/}
         </Grid>
         <div className={styles.airdrop__info__container}>
-          <div className={styles.airdrop__animateBlock}>
+          <Grid gap={15} className={styles.airdrop__animateBlock}>
             <div className={styles.cupBlock}>
-              <img src={cupSvg} alt="" />
+              <img src={isDarkTheme ? cupSvg : cupSvgWhite} alt="" />
+              <div className={styles.cupBlock__text}>
+                <Text type="h2" weight="bold" color="primary">
+                  100,000
+                </Text>
+                <Text type="p2" tag="span" color="primary">
+                  available
+                </Text>
+              </div>
               <Lottie
                 animationData={cupWaveAnimation}
                 style={{ transform: `translateY(calc(-${progressPercent}% - -10px))` }}
                 className={styles.waveAnimation}
               />
             </div>
-          </div>
+            <div>
+              <Text type="p2" color="secondary">
+                Available to claim now:
+              </Text>
+              <Text type="h2" weight="bold" color="primary">
+                100,000
+              </Text>
+            </div>
+            <div>
+              <Text type="p2" color="secondary">
+                You forfeit:
+              </Text>
+              <Text type="p2" weight="bold" color="red">
+                30,000.8790
+              </Text>
+            </div>
+            <div>
+              <Button type="primary">Claim</Button>
+            </div>
+          </Grid>
         </div>
       </Grid>
       {/*<div className={styles.total__info__container}>*/}
