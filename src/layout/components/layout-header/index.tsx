@@ -191,7 +191,7 @@ const LayoutHeader: React.FC = () => {
                 <span>Yield farming</span>
               </Link>
               <Link to="/airdrop" className={s.dropdownLink} onClick={() => setPopper3visible(false)}>
-                <Icon name="yield-farming" width={20} height={20} className={s.dropdownIcon} />
+                <Icon name="airdrop" width={20} height={20} className={s.dropdownIcon} />
                 <span>Airdrop</span>
               </Link>
             </div>
