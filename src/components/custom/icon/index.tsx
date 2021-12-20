@@ -1,33 +1,34 @@
 import React, { CSSProperties } from 'react';
 import cn from 'classnames';
 
+import addEnterSrc from 'resources/png/add-enter.png';
+import axsSrc from 'resources/png/axie.png';
+import enterStarSrc from 'resources/png/enter-star.png';
+import enterdaoSrc from 'resources/png/enterdao.png';
+import entrLogo from 'resources/png/ENTR.png';
+import ilvLogo from 'resources/png/ILV.png';
+import ionxSrc from 'resources/png/IONX.png';
+import ionxLogo from 'resources/png/IONX.png';
+import leaguedaoSrc from 'resources/png/league-dao-dark.png';
+import leaguedaoLightSrc from 'resources/png/league-dao-light.png';
+import linkLogo from 'resources/png/LINK.png';
+import sandSrc from 'resources/png/sandbox.png';
+import snxSrc from 'resources/png/SNX.png';
+import snxLogo from 'resources/png/SNX.png';
+import sushiLogo from 'resources/png/SUSHI.png';
+import telegramSrc from 'resources/png/telegram.png';
 import aaveSrc from 'resources/png/token-aave.png';
 import ilvSrc from 'resources/png/token-ilv.png';
+import leagueSrc from 'resources/png/token-league.png';
 import linkSrc from 'resources/png/token-link.png';
 import sushiSrc from 'resources/png/token-sushi.png';
 import uslpSrc from 'resources/png/token-uslp.png';
-import eslpSrc from 'resources/png/USDC_LEAG_SUSHI_LP.png';
-import leagueSrc from 'resources/png/token-league.png';
 import universeSrc from 'resources/png/universe.png';
-import enterdaoSrc from 'resources/png/enterdao.png';
-import snxSrc from 'resources/png/SNX.png';
-import leaguedaoSrc from 'resources/png/league-dao-dark.png';
-import leaguedaoLightSrc from 'resources/png/league-dao-light.png';
-import ionxSrc from 'resources/png/IONX.png';
-import sandSrc from 'resources/png/sandbox.png';
-import axsSrc from 'resources/png/axie.png';
-import addEnterSrc from 'resources/png/add-enter.png';
-import enterStarSrc from 'resources/png/enter-star.png';
-import telegramSrc from 'resources/png/telegram.png';
-import entrLogo from 'resources/png/ENTR.png';
-import ilvLogo from 'resources/png/ILV.png';
-import ionxLogo from 'resources/png/IONX.png';
-import linkLogo from 'resources/png/LINK.png';
-import snxLogo from 'resources/png/SNX.png';
-import sushiLogo from 'resources/png/SUSHI.png';
+import eslpSrc from 'resources/png/USDC_LEAG_SUSHI_LP.png';
 import xyzLogo from 'resources/png/XYZ.png';
-import Sprite from 'resources/svg/icons-sprite.svg';
 import addLeag from 'resources/svg/add_leag_icon.svg';
+import footballScene from 'resources/svg/footballscene.svg';
+import Sprite from 'resources/svg/icons-sprite.svg';
 
 import s from './s.module.scss';
 
@@ -170,6 +171,7 @@ export type IconNames =
   | 'team'
   | 'governance'
   | 'yield-farming'
+  | 'airdrop'
   | 'docs'
   | 'twitter'
   | 'discord'
@@ -191,7 +193,8 @@ export type IconNames =
   | 'png/SUSHI'
   | 'png/SNX'
   | 'png/ILV'
-  | 'static/add-token';
+  | 'static/add-token'
+  | 'png/footballScene';
 
 export type IconProps = {
   name: IconNames;
@@ -265,6 +268,8 @@ const Icon: React.FC<IconProps> = props => {
           return telegramSrc;
         case 'png/add-league':
           return addLeag;
+        case 'png/footballScene':
+          return footballScene;
         default:
           return '';
       }

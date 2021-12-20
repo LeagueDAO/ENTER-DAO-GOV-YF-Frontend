@@ -18,6 +18,7 @@ export class GraphClient {
     try {
       return await client.query(options);
     } catch (e) {
+      console.log('e=====', e);
       // @ts-ignore
       console.log(`Call to Graph at URL: ${client.link.options.uri} failed!`);
       // Try getting result through the fallback provider

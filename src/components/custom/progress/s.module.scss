@@ -1,16 +1,11 @@
-.wrap {
-  --percent: 0%;
-  --height: 8px;
-  --bg-bar: var(--theme-yellow-color);
-  --bg-component: rgba(var(--theme-yellow-color), 0.16);
-
+.wrapBlock {
   position: relative;
   border-radius: 100px;
   width: 100%;
 }
 
 .progress {
-  height: var(--height);
+  height: 8px;
   border-radius: 100px;
   overflow: hidden;
   position: relative;
@@ -25,22 +20,22 @@
   }
 
   &::before {
-    background: var(--bg-component);
+    background: rgba(var(--theme-yellow-color), 0.16);
     right: 0;
-    width: calc(100% - var(--percent, 0%) + 8px);
+    width: calc(100% + 8px);
   }
 
   &::after {
-    background: var(--bg-bar);
+    background: var(--theme-yellow-color);
     left: 0;
-    width: var(--percent, 0%);
+    width: 0;
     border-radius: 100px;
   }
 }
 
 .acceptance {
   --acceptance: 50%;
-  --acceptance-bg: var(--bg-component);
+  --acceptance-bg: rgba(var(--theme-yellow-color), 0.16);
 
   position: absolute;
   left: var(--acceptance, 50%);
@@ -56,16 +51,16 @@
     left: 0;
     background: var(--acceptance-bg);
     width: 4px;
-    height: calc(var(--height, 8px) / 2);
+    height: calc(8px / 2);
   }
 
   &::before {
-    top: calc(var(--height, 8px) / -2);
+    top: calc(8px / -2);
     border-radius: 100px 100px 0 0;
   }
 
   &::after {
-    bottom: calc(var(--height, 8px) / -2);
+    bottom: calc(8px / -2);
     border-radius: 0 0 100px 100px;
   }
 }

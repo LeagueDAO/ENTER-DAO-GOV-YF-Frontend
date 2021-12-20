@@ -17,7 +17,7 @@ const ProgressNew: React.FC<ProgressProps> = props => {
 
   return (
     <div
-      className={cn(s.wrap, className)}
+      className={cn(s.wrapBlock, className)}
       style={
         {
           '--percent': percent ? `${percent}%` : '0%',

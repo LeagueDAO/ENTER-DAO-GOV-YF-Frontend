@@ -173,12 +173,19 @@ const LayoutFooter: React.FC = () => {
                   <ul>
                     <li>DAO</li>
                     <li>
-                      <a className={s.disabledLink}>Governance</a>
+                      <Link to="/governance" className={s.dropdownLink}>
+                        Governance
+                      </Link>
                     </li>
                     <li>
-                      <a href="https://dao.leaguedao.com/yield-farming" target="_blank" rel="noopener noreferrer">
+                      <Link to="/yield-farming" className={s.dropdownLink}>
                         Yield farming
-                      </a>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/airdrop" className={s.dropdownLink}>
+                        Airdrop
+                      </Link>
                     </li>
                   </ul>
                 </div>
