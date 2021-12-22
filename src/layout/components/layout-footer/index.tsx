@@ -119,6 +119,11 @@ const LayoutFooter: React.FC = () => {
                   <ul>
                     <li>Products</li>
                     <li>
+                      <a href="https://cryptofantasy.xyz/leaderboard/" target="_blank" rel="noopener noreferrer">
+                        Crypto Fantasy Leaderboard
+                      </a>
+                    </li>
+                    <li>
                       <a className={s.disabledLink}>Nomo Leagues</a>
                     </li>
                   </ul>
@@ -127,15 +132,24 @@ const LayoutFooter: React.FC = () => {
                   <ul>
                     <li>NFT Drops</li>
                     <li>
-                      <a
-                        href="https://cryptofantasy.xyz/"
-                        target="_blank"
-                        rel="noopener noreferrer">
+                      <a href="https://cryptofantasy.xyz/" target="_blank" rel="noopener noreferrer">
                         Crypto Fantasy Football
                       </a>
                     </li>
                     <li>
-                      <a className={s.disabledLink}>Nomo Fantasy Football</a>
+                      <a href="https://leaguedao.com/nomo-football" target="_blank" rel="noopener noreferrer">
+                        Nomo Fantasy Football
+                      </a>
+                    </li>
+                    <li>
+                      <a className={s.disabledLink}>
+                        Nomo Fantasy Basketball
+                      </a>
+                    </li>
+                    <li>
+                      <a className={s.disabledLink}>
+                        Nomo Fantasy Hockey
+                      </a>
                     </li>
                   </ul>
                 </div>
@@ -151,11 +165,7 @@ const LayoutFooter: React.FC = () => {
                       </a>
                     </li>
                     <li>
-                    <a
-                        href="https://leaguedao.com/contributors"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
+                      <a href="https://leaguedao.com/contributors" target="_blank" rel="noopener noreferrer">
                         Contributors
                       </a>
                     </li>
@@ -165,7 +175,14 @@ const LayoutFooter: React.FC = () => {
                       </a>
                     </li>
                     <li>
-                      <a className={s.disabledLink}>LEAG Token Vesting</a>
+                      <a href="https://leaguedao.com/standings" target="_blank" rel="noopener noreferrer">
+                        League standings
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://leaguedao.com/vesting" target="_blank" rel="noopener noreferrer">
+                        LEAG Token Vesting
+                      </a>
                     </li>
                   </ul>
                 </div>
@@ -204,15 +221,13 @@ const LayoutFooter: React.FC = () => {
               <a
                 href="https://app.sushi.com/add/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48/0x7b39917f9562c8bc83c7a6c2950ff571375d505d"
                 target="_blank"
-                rel="noopener noreferrer"
-              >
+                rel="noopener noreferrer">
                 Add liquidity to SushiSwap USDC/LEAG pool
               </a>
               <a
                 href="https://app.sushi.com/swap?inputCurrency=0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48&outputCurrency=0x7b39917f9562c8bc83c7a6c2950ff571375d505d"
                 target="_blank"
-                rel="noopener noreferrer"
-              >
+                rel="noopener noreferrer">
                 SushiSwap USDC/LEAG market
               </a>
             </div>

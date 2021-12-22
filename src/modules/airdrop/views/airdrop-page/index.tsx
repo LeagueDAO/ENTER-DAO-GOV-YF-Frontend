@@ -4,8 +4,6 @@ import cn from 'classnames';
 import Lottie from 'lottie-react';
 import { formatToken } from 'web3/utils';
 
-import { useWallet } from 'wallets/wallet';
-
 import Button from 'components/antd/button';
 // import Tooltip from '../../components/antd/tooltip';
 import Grid from 'components/custom/grid';
@@ -14,24 +12,18 @@ import { Text } from 'components/custom/typography';
 import { Hint } from 'components/custom/typography';
 import { useGeneral } from 'components/providers/general-provider';
 import { LeagueToken } from 'components/providers/known-tokens-provider';
-
-
-import { useMediaQuery } from '../../../../hooks';
-
-import { useAirdrop } from '../../providers/airdrop-provider';
-
-import NotEligible from '../../components/NotEligible';
-import NotConnectWallet from '../../components/NotConnectWallet';
-import AirdropClaimed from '../../components/AirdropClaimed';
-
-import cupWaveAnimation from '../../animations/waves.json';
-
-import s from './airdrop.module.scss';
-
 import cupSvgWhite from 'resources/svg/cup_transparent_white.svg';
 import cupSvg from 'resources/svg/cup_transparent.svg';
+import { useWallet } from 'wallets/wallet';
 
+import { useMediaQuery } from '../../../../hooks';
+import cupWaveAnimation from '../../animations/waves.json';
+import AirdropClaimed from '../../components/AirdropClaimed';
+import NotConnectWallet from '../../components/NotConnectWallet';
+import NotEligible from '../../components/NotEligible';
+import { useAirdrop } from '../../providers/airdrop-provider';
 
+import s from './airdrop.module.scss';
 
 const Airdrop: FC = () => {
   const { isDarkTheme } = useGeneral();
@@ -113,7 +105,7 @@ const Airdrop: FC = () => {
                   </Text>
                 </Hint>
                 <div className="flex flow-col align-center">
-                  <Icon width={24} height={24} name="png/add-league" className="mr-6" />
+                  <Icon width={24} height={24} name="png/league" className="mr-6" />
                   <Text type="h3" weight="bold" color="primary">
                     {formatToken(merkleDistributorContract?.totalAirdropped?.unscaleBy(LeagueToken.decimals)) ?? 0}
                   </Text>
@@ -126,7 +118,7 @@ const Airdrop: FC = () => {
                   </Text>
                 </Hint>
                 <div className="flex flow-col align-center">
-                  <Icon width={24} height={24} name="png/add-league" className="mr-6" />
+                  <Icon width={24} height={24} name="png/league" className="mr-6" />
                   <Text type="h3" weight="bold" color="primary">
                     {formatToken(totalClaimed)}
                   </Text>
@@ -139,89 +131,98 @@ const Airdrop: FC = () => {
                   </Text>
                 </Hint>
                 <div className="flex flow-col align-center">
-                  <Icon width={24} height={24} name="png/add-league" className="mr-6" />
+                  <Icon width={24} height={24} name="png/league" className="mr-6" />
                   <Text type="h3" weight="bold" color="green">
                     {formatToken(totalRedistributed)}
                   </Text>
                 </div>
               </div>
             </Grid>
-            <div className={cn(s.card, { [s.card__big]: !lockedAirDrop && !merkleDistributorContract?.isAirdropClaimed })}>
-              {!wallet.isActive
-                ? <NotConnectWallet />
-                :lockedAirDrop
-                ? <NotEligible />
-                  : merkleDistributorContract?.isAirdropClaimed
-                    ? <AirdropClaimed />
-                    : (
-                      <>
-                        <div className={s.week}>
-                          WEEK {merkleDistributorContract?.airdropCurrentWeek}/{merkleDistributorContract?.airdropDurationInWeeks}
-                        </div>
-                        <div className={s.airdrop__info__details}>
-                          <div className={`${s.total__amount} ${s.general__info}`}>
-                            <Hint
-                              text="This is the total amount of $FDT you are getting based on your initial airdrop amount + bonus
-                    amount from redistributed $FDT."
-                              className="mb-8">
-                              <Text type="p2" color="secondary">
-                                Your total airdrop amount
-                              </Text>
-                            </Hint>
-                            <div className="flex flow-col align-center">
-                              <Icon width={36} height={36} name="png/add-league" className="mr-8" />
-                              <Text type="h1" weight="bold" color="primary">
-                                {formatToken(userBonus?.plus(userAmount ?? 0), { decimals: 1 })}
-                              </Text>
-                            </div>
-                          </div>
-                          <div className={`${s.total__airdropped} ${s.general__info}`}>
-                            <Hint
-                              text="2.5% of FDT supply was reserved for the BarnBridge community in recognition of their incubation of FIAT."
-                              className="mb-8">
-                              <Text type="p2" color="secondary">
-                                Total airdropped
-                              </Text>
-                            </Hint>
-                            <span>
-                        <Icon width={22} height={22} name="png/add-league" />
-                              {formatToken(userAmount)}
+            <div
+              className={cn(s.card, { [s.card__big]: !lockedAirDrop && !merkleDistributorContract?.isAirdropClaimed })}>
+              {!wallet.isActive ? (
+                <div className={s.card__empty}>
+                  <NotConnectWallet />
+                </div>
+              ) : lockedAirDrop ? (
+                <div className={s.card__empty}>
+                  <NotEligible />
+                </div>
+              ) : merkleDistributorContract?.isAirdropClaimed ? (
+                <div className={s.card__empty}>
+                  <AirdropClaimed />
+                </div>
+              ) : (
+                <>
+                  <div className={s.week}>
+                    WEEK {merkleDistributorContract?.airdropCurrentWeek}/
+                    {merkleDistributorContract?.airdropDurationInWeeks}
+                  </div>
+                  <div className={s.airdrop__info__details}>
+                    <div className={`${s.total__amount} ${s.general__info}`}>
+                      <Hint
+                        text="This is the total amount of LEAG you are getting based on your initial airdrop amount + bonus
+                    amount from redistributed LEAG."
+                        className="mb-8">
+                        <Text type="p2" color="secondary">
+                          Your total airdrop amount
+                        </Text>
+                      </Hint>
+                      <div className="flex flow-col align-center">
+                        <Icon width={36} height={36} name="png/league" className="mr-8" />
+                        <Text type="h1" weight="bold" color="primary">
+                          {formatToken(userBonus?.plus(userAmount ?? 0), { decimals: 1 })}
+                        </Text>
+                      </div>
+                    </div>
+                    <div className={`${s.total__airdropped} ${s.general__info}`}>
+                      <Hint
+                        text="2.5% of FDT supply was reserved for the BarnBridge community in recognition of their incubation of FIAT."
+                        className="mb-8">
+                        <Text type="p2" color="secondary">
+                          Total airdropped
+                        </Text>
+                      </Hint>
+                      <span>
+                        <Icon width={22} height={22} name="png/league" />
+                        {formatToken(userAmount)}
                       </span>
-                          </div>
+                    </div>
 
-                          <Hint
-                            text="This is the amount of additional $FDT you have received as a result of early claimants
+                    <Hint
+                      text="This is the amount of additional LEAG you have received as a result of early claimants
                     forfeiting a portion of their airdrop."
-                            className="mb-8">
-                            <Text type="p2" color="secondary">
-                              Your bonus amount
-                            </Text>
-                          </Hint>
-                          <div className="flex flow-col align-center">
-                            <Icon width={22} height={22} name="png/add-league" className="mr-6" />
-                            <Text type="h3" weight="bold" color="green">
-                              +{formatToken(userBonus)}
-                            </Text>
-                          </div>
-                        </div>
-                      </>
-                    )
-              }
+                      className="mb-8">
+                      <Text type="p2" color="secondary">
+                        Your bonus amount
+                      </Text>
+                    </Hint>
+                    <div className="flex flow-col align-center">
+                      <Icon width={22} height={22} name="png/league" className="mr-6" />
+                      <Text type="h3" weight="bold" color="green">
+                        +{formatToken(userBonus)}
+                      </Text>
+                    </div>
+                  </div>
+                </>
+              )}
             </div>
           </Grid>
-          <div className={cn(s.card, s.card__table)}>
-            <Grid gap={15} className={s.airdrop__animateBlock}>
+          <div className={cn(s.card, s.card__table, { [s.card__table__empty]: lockedAirDrop })}>
+            <Grid gap={15} className={cn(s.airdrop__animateBlock, { [s.airdrop__animateBlock__empty]: lockedAirDrop })}>
               <div className={s.cupBlock}>
                 <img src={isDarkTheme ? cupSvg : cupSvgWhite} alt="" />
-                <div className={s.cupBlock__text}>
-                  <Text type="h2" weight="bold" color="primary">
-                    {formatToken(userAvailable, { compact: true })}
-                    {/*0*/}
-                  </Text>
-                  <Text type="p2" tag="span" color="primary">
-                    available
-                  </Text>
-                </div>
+                {!wallet.isActive && (
+                  <div className={s.cupBlock__text}>
+                    <Text type="h2" weight="bold" color="primary">
+                      {formatToken(userAvailable, { compact: true })}
+                      {/*0*/}
+                    </Text>
+                    <Text type="p2" tag="span" color="primary">
+                      available
+                    </Text>
+                  </div>
+                )}
                 <Lottie
                   animationData={cupWaveAnimation}
                   style={{
@@ -239,7 +240,7 @@ const Airdrop: FC = () => {
                       Available to claim now:
                     </Text>
                     <div className="flex flow-col align-center">
-                      <Icon width={24} height={24} name="png/add-league" className="mr-6" />
+                      <Icon width={24} height={24} name="png/league" className="mr-6" />
                       <Text type="h2" weight="bold" color="primary">
                         {formatToken(userAvailable)}
                       </Text>
@@ -250,7 +251,7 @@ const Airdrop: FC = () => {
                       You forfeit:
                     </Text>
                     <div className="flex flow-col align-center">
-                      <Icon width={21} height={21} name="png/add-league" className="mr-6" />
+                      <Icon width={21} height={21} name="png/league" className="mr-6" />
                       <Text type="p2" weight="bold" color="red">
                         {formatToken(userBonus?.plus(userAmount ?? 0)?.minus(userAvailable ?? 0))}
                       </Text>

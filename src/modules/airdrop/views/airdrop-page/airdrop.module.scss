@@ -5,6 +5,19 @@
   position: relative;
   box-shadow: var(--theme-card-shadow);
 
+  &__empty {
+    padding-top: 30px;
+    padding-bottom: 70px;
+    min-height: 280px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: 720px) {
+      min-height: 0;
+    }
+  }
+
   &__big {
     padding: 40px;
     position: relative;
@@ -38,6 +51,12 @@
     display: grid;
     position: relative;
     padding: 25px;
+
+    &__empty {
+      &::before {
+        display: none;
+      }
+    }
 
     &::before {
       content: '';
@@ -216,6 +235,11 @@
     grid-template-rows: auto auto 1fr auto;
     height: 100%;
 
+    &__empty {
+      grid-template-rows: 1fr;
+      align-items: center;
+    }
+
     button {
       width: 100%;
     }
@@ -228,6 +252,7 @@
   overflow: hidden;
   width: 220px;
   margin: 0 auto;
+  height: 180px;
 
   &__text {
     position: absolute;

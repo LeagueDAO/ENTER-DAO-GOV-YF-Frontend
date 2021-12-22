@@ -92,6 +92,13 @@ const LayoutHeader: React.FC = () => {
           noPadding
           content={
             <div className={cn('card', s.dropdown)}>
+              <ExternalLink
+                href="https://cryptofantasy.xyz/leaderboard/"
+                className={s.dropdownLink}
+                onClick={() => setNavOpen(false)}>
+                <Icon name="static/trophy" width={20} height={20} className={s.dropdownIcon} />
+                <span>Crypto Fantasy Leaderboard</span>
+              </ExternalLink>
               <ExternalLink aria-disabled="true" className={s.dropdownLink} onClick={() => setPopper0visible(false)}>
                 <Icon name="static/trophy-disable" width={20} height={20} className={s.dropdownIcon} />
                 <span>Nomo Leagues</span>
@@ -121,9 +128,25 @@ const LayoutHeader: React.FC = () => {
                 <Icon name="static/american_footbal" width={20} height={20} className={s.dropdownIcon} />
                 <span>Crypto Fantasy Football</span>
               </ExternalLink>
-              <ExternalLink className={s.dropdownLink} aria-disabled="true" onClick={() => setNavOpen(false)}>
-                <Icon name="static/trophy-disable" width={20} height={20} className={s.dropdownIcon} />
+              <ExternalLink
+                href="https://leaguedao.com/nomo-football"
+                className={s.dropdownLink}
+                onClick={() => setNavOpen(false)}>
+                <Icon name="static/trophy" width={20} height={20} className={s.dropdownIcon} />
                 <span>Nomo Fantasy Football</span>
+              </ExternalLink>
+              {/*<ExternalLink className={s.dropdownLink} aria-disabled="true" onClick={() => setNavOpen(false)}>*/}
+              {/*  <Icon name="static/trophy-disable" width={20} height={20} className={s.dropdownIcon} />*/}
+              {/*  <span>Nomo Fantasy Football</span>*/}
+              {/*</ExternalLink>*/}
+
+              <ExternalLink className={s.dropdownLink} aria-disabled="true" onClick={() => setNavOpen(false)}>
+                <Icon name="static/basketball-disable" width={20} height={20} className={s.dropdownIcon} />
+                <span>Nomo Fantasy Basketball</span>
+              </ExternalLink>
+              <ExternalLink className={s.dropdownLink} aria-disabled="true" onClick={() => setNavOpen(false)}>
+                <Icon name="static/hockey-disable" width={20} height={20} className={s.dropdownIcon} />
+                <span>Nomo Fantasy Hockey</span>
               </ExternalLink>
             </div>
           }>
@@ -163,6 +186,20 @@ const LayoutHeader: React.FC = () => {
                 onClick={() => setPopper3visible(false)}>
                 <Icon name="docs" width={20} height={20} className={s.dropdownIcon} />
                 <span>Docs</span>
+              </ExternalLink>
+              <ExternalLink
+                href="https://leaguedao.com/standings"
+                className={s.dropdownLink}
+                onClick={() => setPopper3visible(false)}>
+                <Icon name="static/trophy" width={20} height={20} className={s.dropdownIcon} />
+                <span>League standings</span>
+              </ExternalLink>
+              <ExternalLink
+                href="https://leaguedao.com/vesting"
+                className={s.dropdownLink}
+                onClick={() => setPopper3visible(false)}>
+                <Icon name="static/dollar" width={20} height={20} className={s.dropdownIcon} />
+                <span>LEAG Token vesting</span>
               </ExternalLink>
             </div>
           }>
