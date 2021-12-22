@@ -208,8 +208,8 @@ const Airdrop: FC = () => {
               )}
             </div>
           </Grid>
-          <div className={cn(s.card, s.card__table, { [s.card__table__empty]: lockedAirDrop })}>
-            <Grid gap={15} className={cn(s.airdrop__animateBlock, { [s.airdrop__animateBlock__empty]: lockedAirDrop })}>
+          <div className={cn(s.card, s.card__table, { [s.card__table__empty]: lockedAirDrop || merkleDistributorContract?.isAirdropClaimed })}>
+            <Grid gap={15} className={cn(s.airdrop__animateBlock, { [s.airdrop__animateBlock__empty]: lockedAirDrop || merkleDistributorContract?.isAirdropClaimed })}>
               <div className={s.cupBlock}>
                 <img src={isDarkTheme ? cupSvg : cupSvgWhite} alt="" />
                 {!wallet.isActive && (
@@ -233,7 +233,7 @@ const Airdrop: FC = () => {
                   className={s.waveAnimation}
                 />
               </div>
-              {!lockedAirDrop && (
+              {!lockedAirDrop || merkleDistributorContract?.isAirdropClaimed && (
                 <>
                   <div>
                     <Text type="p2" color="secondary">
