@@ -233,7 +233,7 @@ const Airdrop: FC = () => {
                   className={s.waveAnimation}
                 />
               </div>
-              {!lockedAirDrop || merkleDistributorContract?.isAirdropClaimed && (
+              {lockedAirDrop || !merkleDistributorContract?.isAirdropClaimed && (
                 <>
                   <div>
                     <Text type="p2" color="secondary">
