@@ -5,6 +5,7 @@ import Lottie from 'lottie-react';
 import { formatToken } from 'web3/utils';
 
 import Button from 'components/antd/button';
+import Spin from 'components/antd/spin';
 // import Tooltip from '../../components/antd/tooltip';
 import Grid from 'components/custom/grid';
 import Icon from 'components/custom/icon';
@@ -53,13 +54,6 @@ const Airdrop: FC = () => {
 
   const [isClaim, setIsClaim] = useState(false);
 
-  console.log(
-    'bonusPart',
-    new _BigNumber(merkleDistributorContract?.adjustedAmount?.bonusPart ?? 0)
-      .dividedBy(10 ** LeagueToken.decimals)
-      .toString(),
-  );
-
   const progressPercent = userAvailable
     ?.times(100)
     .div(userAmount ?? 0)
@@ -75,6 +69,10 @@ const Airdrop: FC = () => {
       setIsClaim(false);
     }
   };
+
+  if(!merkleDistributorContract?.isInitialized && wallet.isActive) {
+    return <Spin />
+  }
 
   return (
     <section className={s.page}>

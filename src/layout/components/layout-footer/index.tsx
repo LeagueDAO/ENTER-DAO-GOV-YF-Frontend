@@ -199,11 +199,11 @@ const LayoutFooter: React.FC = () => {
                         Yield farming
                       </Link>
                     </li>
-                    <li>
-                      <Link to="/airdrop" className={s.dropdownLink}>
-                        Airdrop
-                      </Link>
-                    </li>
+                    {/*<li>*/}
+                    {/*  <Link to="/airdrop" className={s.dropdownLink}>*/}
+                    {/*    Airdrop*/}
+                    {/*  </Link>*/}
+                    {/*</li>*/}
                   </ul>
                 </div>
               </div>
