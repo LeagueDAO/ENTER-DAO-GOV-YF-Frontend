@@ -98,7 +98,7 @@ const Airdrop: FC = () => {
               className={cn(s.card, s.card__head, 'mb-32')}>
               <div>
                 <Hint
-                  text="This number shows the LEAG token rewards distributed so far out of the total of 2,800,000 that are going to be available for Yield Farming."
+                  text="This number shows the $LEAG token rewards distributed so far."
                   className="mb-8">
                   <Text type="p2" color="secondary">
                     Total airdropped
@@ -125,7 +125,7 @@ const Airdrop: FC = () => {
                 </div>
               </div>
               <div>
-                <Hint text="The amount of forfeited LEAG redistributed across remaining recipients." className="mb-8">
+                <Hint text="The amount of forfeited $LEAG redistributed across remaining recipients." className="mb-8">
                   <Text type="p2" color="secondary">
                     Total redistributed
                   </Text>
@@ -161,8 +161,8 @@ const Airdrop: FC = () => {
                   <div className={s.airdrop__info__details}>
                     <div className={`${s.total__amount} ${s.general__info}`}>
                       <Hint
-                        text="This is the total amount of LEAG you are getting based on your initial airdrop amount + bonus
-                    amount from redistributed LEAG."
+                        text="This is the total amount of $LEAG you are getting based on your initial airdrop amount + bonus
+                    amount from redistributed $LEAG."
                         className="mb-8">
                         <Text type="p2" color="secondary">
                           Your total airdrop amount
@@ -177,7 +177,7 @@ const Airdrop: FC = () => {
                     </div>
                     <div className={`${s.total__airdropped} ${s.general__info}`}>
                       <Hint
-                        text="2.5% of FDT supply was reserved for the BarnBridge community in recognition of their incubation of FIAT."
+                        text="The amount of $LEAG token airdrop assigned to you."
                         className="mb-8">
                         <Text type="p2" color="secondary">
                           Total airdropped
@@ -190,7 +190,7 @@ const Airdrop: FC = () => {
                     </div>
 
                     <Hint
-                      text="This is the amount of additional LEAG you have received as a result of early claimants
+                      text="This is the amount of additional $LEAG you have received as a result of early claimants
                     forfeiting a portion of their airdrop."
                       className="mb-8">
                       <Text type="p2" color="secondary">
