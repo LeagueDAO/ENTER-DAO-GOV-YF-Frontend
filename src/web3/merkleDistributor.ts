@@ -34,10 +34,12 @@ export default class MerkleDistributor extends Web3Contract {
   airdropCurrentWeek?: number;
   airdropData?: any;
   merkleProof?: string[];
+  isInitialized: boolean;
 
   constructor(abi: AbiItem[], address: string) {
     super([...ABI, ...abi], address, '');
     this.airdropDurationInWeeks = 52;
+    this.isInitialized = false;
 
     config.web3.chainId === 4
       ? (this.airdropData = require(`../merkle-distributor/airdrop-test.json`))
@@ -105,9 +107,9 @@ export default class MerkleDistributor extends Web3Contract {
         bonus: adjustedAmount[1],
         bonusPart: adjustedAmount[2]
       };
-
-      this.emit(Web3Contract.UPDATE_DATA);
     }
+    this.isInitialized = true;
+    this.emit(Web3Contract.UPDATE_DATA);
   }
 
   async claim(): Promise<void> {
